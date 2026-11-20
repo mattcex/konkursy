@@ -1,8 +1,8 @@
 {
- "updatedAt": "2026-11-20T17:45:07.814Z",
+ "updatedAt": "2026-11-20T20:28:12.773Z",
  "since": "2026-11-20",
  "source": "e-konkursy.info",
- "count": 145,
+ "count": 148,
  "contests": [
   {
    "id": "ek:konkurs-czas-na-zmiane-w-radiu-eska",
@@ -1982,6 +1982,44 @@
    "fetchedAt": "2026-11-20"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-gbs-black-friday-ps5-gta-vi",
+   "title": "Konkurs \"GBS - BLACK FRIDAY: PS5 + GTA VI\"",
+   "org": "GBS Sp. z o. o.",
+   "url": "https://gbs.pl/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-gbs-black-friday-ps5-gta-vi",
+   "platform": "www",
+   "start": "2026-11-19",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "• Zrób zakupy na gbs.pl za minimum 67 zł w terminie 19-30 listopada 2026 r.\n\n• Podczas składania zamówienia w polu „uwagi do zamówienia” odpowiedz na pytanie konkursowe: „Wymyśl smak GBSka, który powinien pojawić się w GTA VI”.\n\n• Do swojej odpowiedzi dodaj hashtag #gta.\n\n• Opłać zamówienie najpóźniej do 30 listopada 2026 r., do godziny 23:59.\n\nSpośród prawidłowych zgłoszeń jury GBS wybierze 6 zwycięzców, oceniając kreatywność i oryginalność odpowiedzi.",
+   "prizes": "• 1x nagroda główna: konsola PlayStation 5 + gra Grand Theft Auto VI na PS5.\n• 5x nagroda dodatkowa: zestaw produktów GBS zawierający 2 kawy Angel’s Touch, 3 kawy Angelo oraz 1 zgrzewkę Caffe Latte lub Cappuccino. Zwycięzcy wybierają dostępne warianty smakowe.",
+   "prizeCount": 6,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-20",
+   "seenAt": "2026-11-20",
+   "fetchedAt": "2026-11-20"
+  },
+  {
    "id": "ek:konkurs-gdyby-kawa-mogla-mowic-do-godz-1200",
    "title": "Konkurs \"Gdyby kawa mogła mówić...?\" do godz. 12:00",
    "org": "adStone Frankowski Markiewicz Sp. j.",
@@ -2089,6 +2127,44 @@
     "Moja jesienna propozycja to „Szarlotka w filiżance” 🍎\nNa dno 2 łyżki musu jabłkowego z cynamonem, do tego spieniony Alpro Cinnamon Roll, shot koncentratu Jacobs, a na wierzch pokruszone ciasteczko owsiane. Smakuje jak szarlotka babci, tylko można ją pić pod kocem i nikt nie każe kroić ☕",
     "Piernikowe latte „Pierwszy śnieg”: spienione Alpro z łyżeczką przyprawy do piernika i odrobiną miodu, koncentrat Jacobs, a na górze szczypta kakao jak śnieg na dachu ❄️ Robię je w listopadzie, żeby oszukać kalendarz, że to już grudzień 🎄"
    ]
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-kolorowa-jesien-w-kolibrze1",
+   "title": "Konkurs \"Kolorowa jesień w Kolibrze\"",
+   "org": "Ambra Sp. z o. o.",
+   "url": "https://drogeriekoliber.pl/konkurs",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-kolorowa-jesien-w-kolibrze1",
+   "platform": "www",
+   "start": "2026-11-02",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "• Zrób zakupy w Twojej ulubionej Drogerii Koliber za min. 30 zł produktów marek biorących udział w akcji i otrzymaj 1 pieczątkę.\n• Zbierz 5 pieczątek na odwrocie otrzymanej w drogerii broszury konkursowej.\n• Zrób zdjęcie broszury wypełnionej pieczątkami oraz pieczątką Drogerii Koliber i datą.\n• Wypełnij formularz załączając zdjęcie wypełnionej broszury\n• Wykonaj zadanie konkursowe: \"Opisz jakie ulubione produkty z Drogerii Koliber używasz na co dzień i dlaczego stawiasz akurat na nie\". Odpowiedź na maksymalnie 300 znaków.",
+   "prizes": "• 2x Walizka WITTCHEN o wartości 255,90 zł\n• 2x Ściągaczka do okien VILEDA WINDOMATIC o wartości 218,90 zł\n• 2x Głośnik JBL o wartości 240,90 zł\n• 4x Bon o wartości 100 zł do wykorzystania w drogeriach Koliber",
+   "prizeCount": 10,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-20",
+   "seenAt": "2026-11-20",
+   "fetchedAt": "2026-11-20"
   },
   {
    "id": "ek:konkurs-mikolajkowy220",
@@ -2925,6 +3001,44 @@
     "igShare": false,
     "shareOptional": false,
     "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-20",
+   "seenAt": "2026-11-20",
+   "fetchedAt": "2026-11-20"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-misja-zakupowa-dlugotrwala-ochrona-twoj-wlasny-styl-rossmann",
+   "title": "Konkurs \"Misja Zakupowa - Długotrwała ochrona, Twój własny styl!\" Rossmann",
+   "org": "Rossmann Supermarkety Drogeryjne Polska Sp. z o. o.",
+   "url": "https://www.rossmann.pl/helpcenter/files/regulamin-akcji-%E2%80%9Emisja-zakupowa-dlugotrwala-ochrona-twoj-wlasny-styl-%E2%80%9C-1572629819571609600.pdf",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-misja-zakupowa-dlugotrwala-ochrona-twoj-wlasny-styl-rossmann",
+   "platform": "www",
+   "start": "2026-11-19",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "• Kup co najmniej 1 produkt marki NIVEA Black & White z puli objętej misją zakupową\n• Zeskanuj kartę Klubu Rossmann podczas zakupów\n• Odpowiedz na pytanie konkursowe:\nCiemne ubrania, grubsze warstwy, szybkie tempo... Jak NIVEA Black & White pomaga Ci chronić stylizacje i zachować świeżość przez cały dzień?",
+   "prizes": "• 10x karta podarunkowa MODTVO o wartości 1000 zł\n• 200x karta podarunkowa do drogerii MODTVO o wartości 100 zł",
+   "prizeCount": 210,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
     "app": false,
     "content": false,
     "follow": false,
