@@ -1,0 +1,18 @@
+{
+  "name": "konkursy",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimalistyczna aplikacja do śledzenia konkursów: terminy, szanse, zgłoszenia, synchronizacja i powiadomienia ntfy.",
+  "type": "module",
+  "scripts": {
+    "dev": "node robot/serve.mjs",
+    "scrape": "node robot/scrape.mjs",
+    "notify": "node robot/notify.mjs",
+    "icons": "node robot/make-icons.mjs",
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}

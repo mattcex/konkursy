@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Konkursy</title>
+  <meta name="description" content="Śledzenie konkursów: terminy, szanse, zgłoszenia i powiadomienia.">
+  <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#010409" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon-180.png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    try {
+      var t = localStorage.getItem('konkursy.theme');
+      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar-inner">
+      <a class="brand" href="./" aria-label="Konkursy – strona główna">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text"><span id="brand-owner" class="brand-owner"></span><span class="brand-sep">/</span><strong>konkursy</strong></span>
+      </a>
+      <div class="appbar-actions">
+        <button id="btn-sync" class="btn btn-sm btn-invisible sync" type="button" title="Synchronizacja"></button>
+        <button id="btn-settings" class="btn btn-sm btn-icon" type="button" title="Ustawienia" aria-label="Ustawienia"></button>
+        <button id="btn-add" class="btn btn-sm btn-primary" type="button" title="Dodaj konkurs (skrót: c)"></button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav id="tabs" class="underline-nav" aria-label="Widoki"></nav>
+    <div id="toolbar" class="toolbar"></div>
+    <div id="stats" class="stats"></div>
+    <div id="list" class="lists" aria-live="polite"></div>
+    <footer id="footer" class="footer"></footer>
+  </main>
+
+  <dialog id="dlg-contest" class="dlg dlg-wide" aria-labelledby="dlg-contest-title"></dialog>
+  <dialog id="dlg-settings" class="dlg" aria-labelledby="dlg-settings-title"></dialog>
+  <dialog id="dlg-add" class="dlg" aria-labelledby="dlg-add-title"></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <noscript><p class="container">Aplikacja wymaga JavaScriptu.</p></noscript>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

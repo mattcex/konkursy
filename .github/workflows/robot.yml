@@ -1,0 +1,56 @@
+name: Robot
+
+# Codziennie rano: aktualizacja listy konkursów, powiadomienia ntfy i publikacja aplikacji.
+on:
+  schedule:
+    - cron: '17 5 * * *' # 06:17 czasu zimowego / 07:17 letniego w Polsce
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: robot
+  cancel-in-progress: false
+
+jobs:
+  robot:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+
+      - name: Pobierz konkursy
+        run: node robot/scrape.mjs
+
+      - name: Zapisz zmiany
+        id: commit
+        run: |
+          if git diff --quiet -- site/data; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site/data
+          git commit -m "Robot: aktualizacja listy konkursów"
+          git push || (git pull --rebase && git push)
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Powiadomienia
+        env:
+          STATE_GIST_ID: ${{ secrets.STATE_GIST_ID }}
+        run: node robot/notify.mjs
+
+  deploy:
+    needs: robot
+    if: needs.robot.outputs.changed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/pages.yml
