@@ -1,10 +1,22 @@
 name: Robot
+# Nazwa z identyfikatorem pozwala aplikacji znaleźć uruchomienie zlecone przyciskiem „Odśwież”.
+run-name: ${{ inputs.request_id && format('Robot (odświeżenie {0})', inputs.request_id) || 'Robot' }}
 
 # Codziennie rano: aktualizacja listy konkursów, powiadomienia ntfy i publikacja aplikacji.
+# Ręcznie: przycisk „Odśwież” w aplikacji albo Actions → Robot → Run workflow.
 on:
   schedule:
     - cron: '17 5 * * *' # 06:17 czasu zimowego / 07:17 letniego w Polsce
   workflow_dispatch:
+    inputs:
+      notify:
+        description: 'Wyślij powiadomienia ntfy (true/false)'
+        type: string
+        default: 'true'
+      request_id:
+        description: 'Identyfikator odświeżenia z aplikacji'
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -42,6 +54,7 @@ jobs:
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Powiadomienia
+        if: github.event_name != 'workflow_dispatch' || inputs.notify != 'false'
         env:
           STATE_GIST_ID: ${{ secrets.STATE_GIST_ID }}
         run: node robot/notify.mjs

@@ -58,6 +58,7 @@ function stable(contests) {
 export async function scrape() {
   const today = todayISO();
   const prev = await readJSON(OUT, { contests: [] });
+  const prevStable = stable(prev.contests || []); // zapamiętane przed zmianami (obiekty niżej są modyfikowane)
   const curated = await readJSON(CURATED, {});
   const byId = new Map((prev.contests || []).map((c) => [c.id, c]));
 
@@ -95,8 +96,9 @@ export async function scrape() {
 
     const url = d.url && /^https?:\/\//.test(d.url) ? d.url : `${BASE}/konkurs/${slug}`;
     const platform = platformOf(url);
-    const { flags, judging } = classify({ title: d.title, task: d.task, prizes: d.prizes, platform });
+    const { flags, judging } = classify({ title: d.title, task: d.task, prizes: d.prizes, platform, cats: d.cats });
     byId.set(id, {
+      cats: d.cats,
       id,
       title: d.title,
       org: d.org || '',
@@ -131,7 +133,7 @@ export async function scrape() {
       continue;
     }
     if (!c.title) continue;
-    const { flags, judging } = classify({ title: c.title, task: c.task || '', prizes: c.prizes || '', platform: c.platform });
+    const { flags, judging } = classify({ title: c.title, task: c.task || '', prizes: c.prizes || '', platform: c.platform, cats: c.cats || [] });
     c.flags = flags;
     c.judging = judging;
     c.prizeCount = parsePrizeCount(c.prizes) ?? c.prizeCount ?? 1;
@@ -153,12 +155,15 @@ export async function scrape() {
 
   // 5. Zapis (tylko gdy coś się zmieniło)
   const contests = [...byId.values()].sort((a, b) => (a.end || '9999').localeCompare(b.end || '9999') || a.id.localeCompare(b.id));
-  if (stable(contests) === stable(prev.contests || [])) {
+  if (stable(contests) === prevStable && prev.since) {
     console.log('Bez zmian.');
     return { changed: false, count: contests.length };
   }
   await mkdir(new URL('.', OUT), { recursive: true });
-  const data = { updatedAt: new Date().toISOString(), source: 'e-konkursy.info', count: contests.length, contests };
+  // „since” = dzień pierwszego importu; konkursy z tego dnia nie są oznaczane w aplikacji jako „nowe”.
+  const firstSeenDates = (prev.contests || []).map((c) => c.firstSeen).filter(Boolean).sort();
+  const since = prev.since || firstSeenDates[0] || today;
+  const data = { updatedAt: new Date().toISOString(), since, source: 'e-konkursy.info', count: contests.length, contests };
   await writeFile(OUT, JSON.stringify(data, null, 1) + '\n', 'utf8');
   console.log(`Zapisano ${contests.length} konkursów.`);
   return { changed: true, count: contests.length };

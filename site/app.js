@@ -1,7 +1,7 @@
 // Konkursy – aplikacja (GitHub Pages). Bez zależności i bez kroku budowania.
 import * as L from './logic.js';
 
-const K = { state: 'konkursy.state.v1', sync: 'konkursy.sync.v1', ui: 'konkursy.ui.v1', theme: 'konkursy.theme' };
+const K = { state: 'konkursy.state.v1', sync: 'konkursy.sync.v1', ui: 'konkursy.ui.v1', theme: 'konkursy.theme', catalog: 'konkursy.catalog.v1' };
 const $ = (sel) => document.querySelector(sel);
 
 // ---------- pamięć przeglądarki ----------
@@ -29,6 +29,9 @@ let catalog = { contests: [], updatedAt: null };
 let catalogError = '';
 let state = L.normalizeState(lsGet(K.state));
 let ui = { tab: 'open', q: '', cat: 'all', sort: 'deadline', showHidden: false, ...(lsGet(K.ui) || {}) };
+if (ui.cat === 'stay') ui.cat = 'trip'; // starsza wersja ustawień
+if (!['all', ...L.KIND_ORDER].includes(ui.cat)) ui.cat = 'all';
+if (!['deadline', 'odds', 'value', 'new'].includes(ui.sort)) ui.sort = 'deadline';
 let sync = lsGet(K.sync);
 let syncInfo = { kind: sync ? 'busy' : 'local', msg: sync ? 'Łączenie…' : 'Tylko to urządzenie', at: null };
 let openId = null;
@@ -212,6 +215,87 @@ function scheduleSync(ms = 1200) {
   syncTimer = setTimeout(syncNow, ms);
 }
 
+// ---------- odświeżanie listy: uruchomienie robota w GitHub Actions ----------
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+let refreshing = null; // opis postępu albo null
+
+function renderRefreshButton() {
+  const btn = $('#btn-refresh');
+  if (!btn) return;
+  btn.disabled = Boolean(refreshing);
+  btn.replaceChildren(icon('refresh', { cls: refreshing ? 'spin' : '' }), h('span', { class: 'refresh-text' }, refreshing || 'Odśwież'));
+}
+
+function setRefreshing(msg) {
+  refreshing = msg;
+  renderRefreshButton();
+}
+
+const canRunRobot = () => Boolean(sync && site.repoUrl);
+
+async function runRobot() {
+  const { owner, repo } = site;
+  const requestId = Math.random().toString(36).slice(2, 10);
+  await gh(`/repos/${owner}/${repo}/actions/workflows/${L.ROBOT_WORKFLOW}/dispatches`, {
+    method: 'POST',
+    body: { ref: 'main', inputs: { notify: 'false', request_id: requestId } },
+  });
+  let run = null;
+  for (let i = 0; i < 40 && !run; i++) {
+    await sleep(3000);
+    const list = await gh(`/repos/${owner}/${repo}/actions/workflows/${L.ROBOT_WORKFLOW}/runs?event=workflow_dispatch&per_page=10`);
+    run = L.findDispatchedRun(list.workflow_runs, requestId);
+  }
+  if (!run) throw new Error('Robot nie wystartował – spróbuj za chwilę');
+  const started = Date.now();
+  while (run.status !== 'completed') {
+    if (Date.now() - started > 8 * 60 * 1000) throw new Error('Robot działa długo – lista odświeży się sama');
+    setRefreshing(run.status === 'in_progress' ? 'Robot szuka nowych…' : 'Robot w kolejce…');
+    await sleep(5000);
+    run = await gh(`/repos/${owner}/${repo}/actions/runs/${run.id}`);
+  }
+  if (run.conclusion !== 'success') throw new Error(`Robot zakończył się błędem (${run.conclusion})`);
+}
+
+/** Świeża lista prosto z repozytorium (GitHub Pages potrafi przez kilka minut pokazywać starą). */
+async function loadCatalogFromRepo() {
+  const res = await fetch(`https://api.github.com/repos/${site.owner}/${site.repo}/contents/site/data/contests.json?ref=main`, {
+    cache: 'no-store',
+    headers: { Accept: 'application/vnd.github.raw+json', Authorization: `Bearer ${sync.token}`, 'X-GitHub-Api-Version': '2022-11-28' },
+  });
+  if (!res.ok) throw Object.assign(new Error(`GitHub: HTTP ${res.status}`), { status: res.status });
+  setCatalog(await res.json());
+}
+
+async function refreshList() {
+  if (refreshing) return;
+  const before = new Set((catalog.contests || []).map((c) => c.id));
+  const robot = canRunRobot();
+  setRefreshing(robot ? 'Robot startuje…' : 'Odświeżam…');
+  try {
+    if (robot) {
+      await runRobot();
+      setRefreshing('Wczytuję listę…');
+      await loadCatalogFromRepo().catch(() => loadCatalog());
+    } else {
+      await loadCatalog();
+    }
+    render();
+    const added = (catalog.contests || []).filter((c) => !before.has(c.id)).length;
+    toast(added ? `Nowe konkursy: ${added} – oznaczone jako „nowy”` : robot ? 'Robot sprawdził – brak nowych konkursów' : 'Lista wczytana ponownie');
+    if (!robot && site.repoUrl) setTimeout(() => toast('Połącz token w ustawieniach, żeby „Odśwież” uruchamiał robota'), 2500);
+  } catch (e) {
+    if (e.status === 401) toast('Token wygasł – wklej nowy w ustawieniach');
+    else if (e.status === 403 || e.status === 404) {
+      toast('Ten token nie może uruchamiać robota – utwórz nowy w ustawieniach');
+      openSettings();
+    } else toast(e.message || 'Nie udało się odświeżyć');
+  } finally {
+    setRefreshing(null);
+  }
+}
+
 // ---------- narzędzia DOM ----------
 
 function h(tag, props, ...kids) {
@@ -260,7 +344,14 @@ const ICONS = {
   refresh: '<path d="M13 8a5 5 0 1 1-1.46-3.54M13.25 2.5v3h-3"/>',
   people: '<circle cx="6" cy="5.5" r="2.25"/><path d="M2 13c0-2.2 1.8-3.75 4-3.75S10 10.8 10 13M10.5 3.6a2.25 2.25 0 0 1 0 4M12 9.5c1.3.5 2 1.8 2 3.5"/>',
   link: '<path d="M6.75 9.25a2.5 2.5 0 0 0 3.54 0l2-2a2.5 2.5 0 0 0-3.54-3.54l-.75.75M9.25 6.75a2.5 2.5 0 0 0-3.54 0l-2 2a2.5 2.5 0 0 0 3.54 3.54l.75-.75"/>',
+  device: '<rect x="2.75" y="3" width="10.5" height="7.25" rx="1"/><path d="M1.25 12.75h13.5"/>',
+  gift: '<rect x="2.5" y="6.5" width="11" height="7" rx="1"/><path d="M1.75 4h12.5v2.5H1.75zM8 4v9.5M8 4C7 1.75 4.5 1.75 4.75 3.5M8 4c1-2.25 3.5-2.25 3.25-.5"/>',
+  gem: '<path d="M4.5 2.75h7L14 6 8 13.5 2 6z"/><path d="M2 6h12M6.25 2.75L5.5 6 8 13.5 10.5 6l-.75-3.25"/>',
+  box: '<path d="M2.5 5L8 2.5 13.5 5v6.5L8 14l-5.5-2.5z"/><path d="M2.5 5L8 7.5 13.5 5M8 7.5V14"/>',
+  sparkle: '<path d="M8 1.75l1.4 3.85L13.25 7 9.4 8.4 8 12.25 6.6 8.4 2.75 7 6.6 5.6z"/>',
 };
+
+const KIND_ICON = { trip: 'bed', tech: 'device', voucher: 'gift', other: 'box' };
 
 function icon(name, { size = 16, cls = '', fill = false } = {}) {
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -365,6 +456,8 @@ function rows() {
       odds: L.oddsOf(c, it),
       comments: L.commentsOf(c, it),
       hidden: L.hiddenReason(c, hide),
+      prize: L.prizeInfo(c),
+      isNew: !c.manual && L.isISODate(c.firstSeen) && (!catalog.since || c.firstSeen > catalog.since) && L.diffDays(c.firstSeen, today) <= 1,
     };
   });
 }
@@ -396,8 +489,7 @@ function inTab(r, tab, showHidden = ui.showHidden) {
 }
 
 function matches(r) {
-  if (ui.cat === 'stay' && !L.flagsOf(r.c).stay) return false;
-  if (ui.cat === 'other' && L.flagsOf(r.c).stay) return false;
+  if (ui.cat !== 'all' && r.prize.kind !== ui.cat) return false;
   const q = ui.q.trim().toLowerCase();
   if (!q) return true;
   const hay = [r.c.title, r.c.org, r.c.prizes, r.c.task, r.c.location, r.it.note].join(' ').toLowerCase();
@@ -408,6 +500,7 @@ function sortRows(list) {
   const big = 1e9;
   const byEnd = (a, b) => (a.dl ?? big) - (b.dl ?? big);
   if (ui.sort === 'odds') return list.sort((a, b) => (a.odds ?? big) - (b.odds ?? big) || byEnd(a, b));
+  if (ui.sort === 'value') return list.sort((a, b) => (b.prize.value ?? -1) - (a.prize.value ?? -1) || byEnd(a, b));
   if (ui.sort === 'new') return list.sort((a, b) => (b.c.firstSeen || '').localeCompare(a.c.firstSeen || '') || byEnd(a, b));
   if (ui.tab === 'closed' || ui.tab === 'results') return list.sort((a, b) => byEnd(b, a));
   return list.sort((a, b) => byEnd(a, b) || (a.odds ?? big) - (b.odds ?? big));
@@ -422,11 +515,25 @@ function stateIcon(st, dl) {
   return icon('open', { cls: 'state-icon state-open' });
 }
 
+function prizeLabel(p) {
+  if (p.value === null) return null;
+  const text = `${p.estimated ? '~' : ''}${L.formatPLN(p.value)}`;
+  const title = p.estimated ? 'Szacunkowa wartość nagrody (w opisie nie ma kwoty)' : 'Wartość największej nagrody';
+  if (p.tier === 'top') return h('span', { class: 'label label-value-top', title }, icon('gem', { size: 12 }), text);
+  if (p.tier === 'high') return h('span', { class: 'label label-value', title }, icon('gem', { size: 12 }), text);
+  return h('span', { class: 'label', title }, text);
+}
+
 function labelsFor(r) {
-  const { c } = r;
+  const { c, prize } = r;
   const f = L.flagsOf(c);
   const out = [];
-  if (f.stay) out.push(h('span', { class: 'label label-stay', title: 'Nocleg, pobyt lub wyjazd' }, icon('bed', { size: 12 }), 'nocleg'));
+  if (r.isNew) out.push(h('span', { class: 'label label-new', title: 'Robot znalazł ten konkurs dziś lub wczoraj' }, icon('sparkle', { size: 12 }), 'nowy'));
+  const pl = prizeLabel(prize);
+  if (pl) out.push(pl);
+  if (f.stay) out.push(h('span', { class: 'label label-stay', title: 'Nocleg, pobyt lub wyjazd' }, icon('bed', { size: 12 }), 'wyjazd'));
+  else if (prize.kind === 'tech') out.push(h('span', { class: 'label label-tech', title: 'Sprzęt lub elektronika' }, icon('device', { size: 12 }), 'sprzęt'));
+  else if (prize.kind === 'voucher') out.push(h('span', { class: 'label', title: 'Bon, karta podarunkowa lub gotówka' }, icon('gift', { size: 12 }), 'bon'));
   const j = JUDGING[c.judging];
   if (j) out.push(h('span', { class: `label ${j[1]}`, title: j[2] }, j[0]));
   if (c.location) out.push(h('span', { class: 'label label-local', title: 'Konkurs lokalny' }, c.location));
@@ -436,6 +543,7 @@ function labelsFor(r) {
   if (f.app) out.push(h('span', { class: 'label label-warn' }, 'aplikacja'));
   if (f.content) out.push(h('span', { class: 'label label-warn', title: 'Trzeba dodać zdjęcie, film lub grafikę' }, 'zdjęcie/film'));
   if (f.party) out.push(h('span', { class: 'label label-warn' }, 'impreza'));
+  if (f.creative) out.push(h('span', { class: 'label label-warn', title: 'Esej, wiersz, opowiadanie, nagranie, projekt albo praca dyplomowa' }, 'praca twórcza'));
   if (c.manual) out.push(h('span', { class: 'label' }, 'dodany ręcznie'));
   if (c.gone) out.push(h('span', { class: 'label', title: 'Konkursu nie ma już na liście robota – pokazuję zapamiętane dane' }, 'archiwum'));
   if (r.hidden && ui.showHidden) out.push(h('span', { class: 'label', title: 'Ukryty przez filtr' }, `ukryty: ${r.hidden}`));
@@ -474,9 +582,10 @@ function itemEl(r) {
     icon('star', { fill: st === 'todo' }),
   );
 
+  const valuable = L.isValuable(r.prize) && !isDone && (dl === null || dl >= 0);
   return h(
     'div',
-    { class: `item${isDone ? ' is-done' : ''}`, role: 'listitem' },
+    { class: `item${isDone ? ' is-done' : ''}${valuable ? ` is-valuable${r.prize.tier === 'top' ? ' is-top' : ''}` : ''}`, role: 'listitem' },
     h('input', {
       type: 'checkbox',
       class: 'cb',
@@ -579,8 +688,8 @@ function buildToolbar() {
     );
   $('#toolbar').replaceChildren(
     h('div', { class: 'search' }, icon('search'), search),
-    sel('f-cat', 'Kategoria', [['all', 'Wszystkie'], ['stay', 'Noclegi i wyjazdy'], ['other', 'Pozostałe']], 'cat'),
-    sel('f-sort', 'Sortowanie', [['deadline', 'Sortuj: termin'], ['odds', 'Sortuj: szansa'], ['new', 'Sortuj: najnowsze']], 'sort'),
+    sel('f-cat', 'Rodzaj nagrody', [['all', 'Wszystkie nagrody'], ...L.KIND_ORDER.map((k) => [k, L.PRIZE_KINDS[k].label])], 'cat'),
+    sel('f-sort', 'Sortowanie', [['deadline', 'Sortuj: termin'], ['value', 'Sortuj: wartość nagrody'], ['odds', 'Sortuj: szansa'], ['new', 'Sortuj: najnowsze']], 'sort'),
     h(
       'label',
       { class: 'check', title: 'Pokaż konkursy ukryte przez filtry i pominięte' },
@@ -604,12 +713,16 @@ function renderStats(all) {
   const won = all.filter((r) => r.st === 'won').length;
   const lost = all.filter((r) => r.st === 'lost').length;
   const stays = all.filter((r) => inTab(r, 'open', false) && L.flagsOf(r.c).stay).length;
+  const valuable = all.filter((r) => inTab(r, 'open', false) && L.isValuable(r.prize)).length;
+  const fresh = all.filter((r) => inTab(r, 'open', false) && r.isNew).length;
   const hiddenCount = all.filter((r) => (r.dl === null || r.dl >= 0) && !L.DONE.has(r.st) && (r.hidden || r.st === 'skipped')).length;
   $('#f-hidden-label').textContent = `Pokaż ukryte (${hiddenCount})`;
   const part = (label, value) => h('span', null, label, ' ', h('strong', null, String(value)));
   const stats = [part('Zgłoszone:', submitted), part('Wygrane:', won)];
   if (won + lost > 0) stats.push(part('Skuteczność:', `${Math.round((won / (won + lost)) * 100)}%`));
-  stats.push(part('Otwarte noclegi:', stays));
+  stats.push(part('Wyjazdy:', stays));
+  stats.push(part(`Wartościowe (od ${L.formatPLN(L.VALUABLE_FROM)}):`, valuable));
+  if (fresh) stats.push(part('Nowe:', fresh));
   $('#stats').replaceChildren(...stats);
 }
 
@@ -626,11 +739,27 @@ function renderList() {
   }[ui.tab];
   const boxes = [];
   if (catalogError) boxes.push(h('div', { class: 'flash flash-warn' }, catalogError));
-  if ((ui.tab === 'open' || ui.tab === 'todo') && ui.cat === 'all' && ui.sort === 'deadline') {
-    const stays = list.filter((r) => L.flagsOf(r.c).stay);
-    const other = list.filter((r) => !L.flagsOf(r.c).stay);
-    if (stays.length) boxes.push(boxEl(h('span', null, icon('bed'), ' Noclegi i wyjazdy ', h('span', { class: 'counter' }, String(stays.length))), stays, ''));
-    boxes.push(boxEl(h('span', null, stays.length ? 'Pozostałe ' : 'Konkursy ', h('span', { class: 'counter' }, String(other.length))), other, empty));
+  if ((ui.tab === 'open' || ui.tab === 'todo') && ui.cat === 'all' && (ui.sort === 'deadline' || ui.sort === 'odds') && list.length) {
+    // Sekcje według rodzaju nagrody: wyjazdy, sprzęt, bony, pozostałe
+    for (const kind of L.KIND_ORDER) {
+      const part = list.filter((r) => r.prize.kind === kind);
+      if (!part.length) continue;
+      const valuable = part.filter((r) => L.isValuable(r.prize)).length;
+      boxes.push(
+        boxEl(
+          h(
+            'span',
+            { class: 'box-title' },
+            icon(KIND_ICON[kind]),
+            ` ${L.PRIZE_KINDS[kind].label} `,
+            h('span', { class: 'counter' }, String(part.length)),
+            valuable ? h('span', { class: 'muted box-note' }, ` · wartościowe: ${valuable}`) : null,
+          ),
+          part,
+          '',
+        ),
+      );
+    }
   } else {
     boxes.push(boxEl(h('span', null, `${list.length} ${L.plural(list.length, ['konkurs', 'konkursy', 'konkursów'])}`), list, empty));
   }
@@ -845,6 +974,15 @@ function renderContest(id) {
       }),
     ),
   );
+  const pz = r.prize;
+  side.append(
+    sidebarSection(
+      'Nagroda',
+      h('div', null, icon(KIND_ICON[pz.kind]), ' ', L.PRIZE_KINDS[pz.kind].label),
+      pz.value !== null ? h('div', { style: 'margin-top:4px' }, prizeLabel(pz)) : h('div', { class: 'hint' }, 'Wartość nieznana'),
+      pz.estimated ? h('div', { class: 'hint' }, 'Szacunek – w opisie nie ma kwoty.') : null,
+    ),
+  );
   side.append(sidebarSection('Szansa', oddsEl(odds), h('div', { class: 'hint' }, 'komentarze ÷ nagrody; im mniejsza druga liczba, tym lepiej')));
 
   const req = [];
@@ -962,6 +1100,41 @@ function renderSettings() {
   const s = L.settingsOf(state);
 
   // Synchronizacja
+  const tokenForm = (change) => {
+    const tokenInput = h('input', { id: 'set-token', class: 'input', type: 'password', autocomplete: 'off', spellcheck: 'false', placeholder: 'github_pat_…' });
+    const btn = h('button', { type: 'submit', class: 'btn btn-primary' }, change ? 'Zapisz' : 'Połącz');
+    return h(
+      'form',
+      {
+        onsubmit: async (e) => {
+          e.preventDefault();
+          btn.disabled = true;
+          btn.textContent = 'Łączę…';
+          try {
+            const login = await connect(tokenInput.value);
+            toast(`Połączono jako @${login}`);
+          } catch (err) {
+            toast(err.status === 401 ? 'Nieprawidłowy token' : err.status === 403 || err.status === 404 ? 'Token nie ma uprawnienia do gistów' : 'Nie udało się połączyć');
+          }
+          renderSettings();
+        },
+      },
+      h(
+        'div',
+        { class: 'field' },
+        h('label', { for: 'set-token' }, change ? 'Nowy token GitHub' : 'Token GitHub'),
+        h('div', { class: 'inline-form' }, tokenInput, btn),
+        h(
+          'ol',
+          { class: 'hint steps' },
+          h('li', null, extLink(L.tokenTemplateUrl(), 'Otwórz formularz tokenu'), ' – uprawnienia Gists i Actions są już zaznaczone.'),
+          h('li', null, 'W „Repository access” wybierz ', h('strong', null, 'Only select repositories'), ` → ${site.repo}.`),
+          h('li', null, 'Kliknij „Generate token”, skopiuj go i wklej tutaj – na każdym urządzeniu.'),
+        ),
+        h('div', { class: 'hint' }, 'Token zostaje wyłącznie w tej przeglądarce. Gisty służą do synchronizacji, a Actions do przycisku „Odśwież”.'),
+      ),
+    );
+  };
   const syncSec = [];
   if (sync) {
     syncSec.push(
@@ -990,41 +1163,10 @@ function renderSettings() {
           'Rozłącz',
         ),
       ),
+      h('details', { style: 'margin-top:12px' }, h('summary', { class: 'hint' }, 'Zmień token (np. gdy „Odśwież” nie może uruchomić robota)'), h('div', { style: 'margin-top:8px' }, tokenForm(true))),
     );
   } else {
-    const tokenInput = h('input', { id: 'set-token', class: 'input', type: 'password', autocomplete: 'off', spellcheck: 'false', placeholder: 'ghp_… albo github_pat_…' });
-    const btn = h('button', { type: 'submit', class: 'btn btn-primary' }, 'Połącz');
-    const form = h(
-      'form',
-      {
-        onsubmit: async (e) => {
-          e.preventDefault();
-          btn.disabled = true;
-          btn.textContent = 'Łączę…';
-          try {
-            const login = await connect(tokenInput.value);
-            toast(`Połączono jako @${login}`);
-          } catch (err) {
-            toast(err.status === 401 ? 'Nieprawidłowy token' : err.status === 403 || err.status === 404 ? 'Token nie ma uprawnienia do gistów' : 'Nie udało się połączyć');
-          }
-          renderSettings();
-        },
-      },
-      h(
-        'div',
-        { class: 'field' },
-        h('label', { for: 'set-token' }, 'Token GitHub (uprawnienie gist)'),
-        h('div', { class: 'inline-form' }, tokenInput, btn),
-        h(
-          'div',
-          { class: 'hint' },
-          '1. ',
-          extLink('https://github.com/settings/tokens/new?scopes=gist&description=Konkursy%20-%20synchronizacja', 'Utwórz token'),
-          ' (zaznaczone tylko „gist”, ważność np. 1 rok). 2. Wklej go tutaj na każdym urządzeniu. Token zostaje wyłącznie w tej przeglądarce.',
-        ),
-      ),
-    );
-    syncSec.push(form);
+    syncSec.push(tokenForm(false));
   }
 
   const fileInput = h('input', {
@@ -1152,7 +1294,13 @@ function renderSettings() {
         ),
       ),
       h('label', { class: 'check' }, h('input', { type: 'radio', name: 'scope', checked: n.scope === 'todo', onchange: () => setSettings((x) => (x.ntfy.scope = 'todo')) }), 'Tylko oznaczone „Planuję”'),
-      h('div', { style: 'margin-top:8px' }, ntfyBox('newStays', 'Nowe konkursy z noclegiem'), ntfyBox('results', 'Dzień ogłoszenia wyników zgłoszonych konkursów')),
+      h(
+        'div',
+        { style: 'margin-top:8px' },
+        ntfyBox('newStays', 'Nowe konkursy z noclegiem lub wyjazdem'),
+        ntfyBox('newValuable', `Nowe wartościowe nagrody (od ${L.formatPLN(L.VALUABLE_FROM)})`),
+        ntfyBox('results', 'Dzień ogłoszenia wyników zgłoszonych konkursów'),
+      ),
       h(
         'details',
         { style: 'margin:8px 0' },
@@ -1175,6 +1323,7 @@ function renderSettings() {
       hideBox('purchase', 'Ukryj wymagające zakupu lub paragonu'),
       hideBox('app', 'Ukryj wymagające aplikacji'),
       hideBox('content', 'Ukryj wymagające zdjęcia lub filmu (poza noclegami i wyjazdami)'),
+      hideBox('creative', 'Ukryj wymagające pracy twórczej (eseje, wiersze, opowiadania, nagrania, projekty, konkursy szkolne)'),
     ),
     settingsSection(
       'Wygląd',
@@ -1348,15 +1497,28 @@ function openAdd(editId) {
 
 // ---------- start ----------
 
+function setCatalog(data, { cache = true } = {}) {
+  catalog = { ...data, contests: Array.isArray(data && data.contests) ? data.contests : [] };
+  catalogError = '';
+  if (cache) lsSet(K.catalog, catalog);
+}
+
 async function loadCatalog() {
+  const cached = lsGet(K.catalog);
   try {
     const res = await fetch('data/contests.json', { cache: 'no-cache' });
     if (!res.ok) throw new Error(String(res.status));
     const data = await res.json();
-    catalog = { ...data, contests: Array.isArray(data.contests) ? data.contests : [] };
-    catalogError = '';
+    // Po odświeżeniu GitHub Pages bywa kilka minut w tyle – wybierz nowszą z dwóch list.
+    if (cached && cached.updatedAt && data.updatedAt && cached.updatedAt > data.updatedAt) setCatalog(cached, { cache: false });
+    else setCatalog(data);
   } catch {
-    catalogError = 'Nie udało się wczytać listy konkursów – pokazuję tylko Twoje zapisane konkursy.';
+    if (cached && Array.isArray(cached.contests)) {
+      setCatalog(cached, { cache: false });
+      catalogError = 'Brak połączenia – pokazuję ostatnio pobraną listę.';
+    } else {
+      catalogError = 'Nie udało się wczytać listy konkursów – pokazuję tylko Twoje zapisane konkursy.';
+    }
   }
 }
 
@@ -1372,6 +1534,8 @@ function setupChrome() {
   $('#btn-settings').addEventListener('click', () => openSettings());
   $('#btn-add').replaceChildren(icon('plus'), h('span', { class: 'btn-add-text' }, 'Dodaj konkurs'));
   $('#btn-add').addEventListener('click', () => openAdd());
+  $('#btn-refresh').addEventListener('click', refreshList);
+  renderRefreshButton();
   $('#btn-sync').addEventListener('click', () => {
     if (sync && syncInfo.kind !== 'err') syncNow();
     else openSettings();
@@ -1392,6 +1556,9 @@ function setupChrome() {
     } else if (e.key === 'c') {
       e.preventDefault();
       openAdd();
+    } else if (e.key === 'r') {
+      e.preventDefault();
+      refreshList();
     }
   });
   document.addEventListener('visibilitychange', () => {
@@ -1405,6 +1572,8 @@ function setupChrome() {
 
 async function boot() {
   setupChrome();
+  const cached = lsGet(K.catalog);
+  if (cached && Array.isArray(cached.contests)) setCatalog(cached, { cache: false });
   render();
   await loadCatalog();
   render();

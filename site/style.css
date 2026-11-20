@@ -322,6 +322,27 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .label-warn { color: var(--attention); border-color: var(--attention); background: var(--attention-muted); }
 .label-danger { color: var(--danger); border-color: var(--danger); background: var(--danger-muted); }
 .label-local { color: var(--severe); border-color: var(--severe); background: var(--severe-muted); }
+.label-tech { color: var(--accent); border-color: var(--border); }
+.label-new { color: var(--accent); border-color: var(--accent); background: var(--accent-muted); font-weight: 600; }
+.label-value { color: var(--attention); border-color: var(--attention); background: var(--attention-muted); font-weight: 600; }
+.label-value-top { color: #fff; border-color: #bf8700; background: #bf8700; font-weight: 600; }
+:root[data-theme="dark"] .label-value-top { background: #9e6a03; border-color: #9e6a03; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .label-value-top { background: #9e6a03; border-color: #9e6a03; } }
+
+/* wyróżnienie wartościowych nagród (sprzęt, wyjazdy, duże bony) */
+.item.is-valuable { box-shadow: inset 3px 0 0 var(--attention); background: linear-gradient(90deg, var(--attention-muted), transparent 55%); }
+.item.is-valuable.is-top { box-shadow: inset 4px 0 0 #bf8700; }
+.item.is-valuable:hover { background: linear-gradient(90deg, var(--attention-muted), var(--bg-hover) 55%); }
+.item.is-valuable .item-title { color: var(--fg); }
+.box-title { display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.box-note { font-weight: 400; font-size: 12px; }
+
+.steps { margin: 4px 0 0; padding-left: 18px; }
+.steps li { margin: 2px 0; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spin { animation: spin 1s linear infinite; }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
 
 .due { font-weight: 600; }
 .due-today { color: var(--danger); }
@@ -439,7 +460,7 @@ code { font-family: var(--mono); font-size: 85%; padding: .1em .4em; background:
 @media (max-width: 640px) {
   .item { grid-template-columns: auto auto 1fr; }
   .item-side { grid-column: 3; flex-wrap: wrap; white-space: normal; gap: 8px; }
-  .btn-add-text, .sync-text { display: none; }
+  .btn-add-text, .sync-text, .refresh-text { display: none; }
   .issue-title { font-size: 22px; }
 }
 

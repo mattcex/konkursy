@@ -1,5 +1,6 @@
 {
- "updatedAt": "2026-11-20T09:34:08.653Z",
+ "updatedAt": "2026-11-20T11:05:21.769Z",
+ "since": "2026-11-20",
  "source": "e-konkursy.info",
  "count": 144,
  "contests": [
@@ -20,6 +21,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -54,6 +56,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -88,6 +91,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -122,6 +126,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -156,6 +161,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -190,6 +196,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -224,6 +231,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -258,6 +266,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -292,6 +301,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -326,6 +336,7 @@
    "location": "Warszawa",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -363,6 +374,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -397,6 +409,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -434,6 +447,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -468,6 +482,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -502,6 +517,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -536,6 +552,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -570,6 +587,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -604,6 +622,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -638,6 +657,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -672,6 +692,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -706,6 +727,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -740,6 +762,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -774,6 +797,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -808,6 +832,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -842,6 +867,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -876,6 +902,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -910,6 +937,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -944,6 +972,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -982,6 +1011,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1016,6 +1046,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1050,6 +1081,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1084,6 +1116,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1118,6 +1151,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1152,6 +1186,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1186,6 +1221,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1220,6 +1256,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1254,6 +1291,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1288,6 +1326,7 @@
    "location": "Kraków",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -1326,6 +1365,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1360,6 +1400,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1394,6 +1435,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1428,6 +1470,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1462,6 +1505,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1496,6 +1540,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1530,6 +1575,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1564,6 +1610,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1598,6 +1645,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1632,6 +1680,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -1666,6 +1715,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1700,6 +1750,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1734,6 +1785,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1771,6 +1823,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -1805,6 +1858,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -1839,6 +1893,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1873,6 +1928,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1907,6 +1963,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1941,6 +1998,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -1975,6 +2033,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2009,6 +2068,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2047,6 +2107,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2084,6 +2145,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2118,6 +2180,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2152,6 +2215,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2186,6 +2250,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2220,6 +2285,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2254,6 +2320,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2288,6 +2355,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2322,6 +2390,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2356,6 +2425,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2390,6 +2460,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2427,6 +2498,7 @@
    "location": "Szczecin",
    "local": true,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2461,6 +2533,7 @@
    "location": "Wrocław",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -2495,6 +2568,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -2529,6 +2603,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2563,6 +2638,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2597,6 +2673,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -2631,6 +2708,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2665,6 +2743,7 @@
    "location": null,
    "local": true,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2699,6 +2778,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2733,6 +2813,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -2767,6 +2848,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -2801,6 +2883,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2835,6 +2918,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2869,6 +2953,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2903,6 +2988,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -2937,6 +3023,7 @@
    "location": "Ostrów Wlkp.",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": true,
@@ -2971,6 +3058,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3005,6 +3093,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3039,6 +3128,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -3076,6 +3166,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3110,6 +3201,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3144,6 +3236,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -3178,6 +3271,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -3212,6 +3306,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -3246,6 +3341,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3280,6 +3376,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -3314,6 +3411,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3348,6 +3446,7 @@
    "location": "Krzeszowice",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": true,
@@ -3382,6 +3481,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3416,6 +3516,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3453,6 +3554,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3487,6 +3589,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -3521,6 +3624,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3555,6 +3659,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3589,6 +3694,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3623,6 +3729,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3657,6 +3764,7 @@
    "location": "Zakopane",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": true,
     "party": false,
     "fbShare": false,
@@ -3695,6 +3803,7 @@
    "location": "Raniżów",
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -3729,6 +3838,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3763,6 +3873,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3797,6 +3908,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3831,6 +3943,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": true,
@@ -3865,6 +3978,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3899,6 +4013,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3933,6 +4048,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -3967,6 +4083,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4001,6 +4118,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4035,6 +4153,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4069,6 +4188,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4103,6 +4223,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4137,6 +4258,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4171,6 +4293,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4205,6 +4328,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4239,6 +4363,7 @@
    "location": "Gliwice",
    "local": true,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4273,6 +4398,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4307,6 +4433,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4341,6 +4468,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4375,6 +4503,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4412,6 +4541,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4446,6 +4576,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -4480,6 +4611,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4514,6 +4646,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4548,6 +4681,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4582,6 +4716,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4616,6 +4751,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4650,6 +4786,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": true,
     "fbShare": false,
@@ -4684,6 +4821,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4718,6 +4856,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4752,6 +4891,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": false,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4786,6 +4926,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4820,6 +4961,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4854,6 +4996,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4888,6 +5031,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,
@@ -4922,6 +5066,7 @@
    "location": null,
    "local": false,
    "flags": {
+    "creative": true,
     "stay": false,
     "party": false,
     "fbShare": false,

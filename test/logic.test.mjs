@@ -81,6 +81,22 @@ test('klasyfikacja: Instagram, zakup, aplikacja, zdjęcie, nocleg, jury', () => 
   assert.equal(L.classify({ task: 'wygrywają trzy komentarze z największą liczbą reakcji' }).judging, 'reakcje');
 });
 
+test('klasyfikacja: praca twórcza (duży wysiłek) jest domyślnie ukryta', () => {
+  const hide = L.DEFAULT_SETTINGS.hide;
+  const essay = L.classify({ title: 'VI edycja Konkursu na esej filozoficzny', task: 'Napisz esej na temat demokracji' });
+  assert.equal(essay.flags.creative, true);
+  assert.equal(L.hiddenReason(essay, hide), 'praca twórcza');
+  assert.equal(L.classify({ task: 'Napisz opowiadanie kryminalne osadzone w Poznaniu' }).flags.creative, true);
+  assert.equal(L.classify({ task: 'Każdy uczestnik może zgłosić maksymalnie 3 wiersze.' }).flags.creative, true);
+  assert.equal(L.classify({ task: 'Umów się i odbądź jazdę testową u dealera' }).flags.creative, true);
+  assert.equal(L.classify({ title: 'Konkurs', task: 'Opis', cats: ['konkursy-plastyczne'] }).flags.creative, true);
+  // zwykły konkurs z komentarzem zostaje widoczny
+  const comment = L.classify({ task: 'W komentarzu napisz, jaki jest Twój ulubiony zimowy rytuał pielęgnacyjny', platform: 'facebook' });
+  assert.equal(comment.flags.creative, false);
+  assert.equal(L.hiddenReason(comment, hide), '');
+  assert.equal(L.classify({ task: 'Zrób sesję zdjęciową w studiu LILOU' }).flags.creative, false);
+});
+
 test('platforma z adresu', () => {
   assert.equal(L.platformOf('https://www.facebook.com/share/p/1E1CNJQ1Vb/'), 'facebook');
   assert.equal(L.platformOf('https://m.facebook.com/story.php?id=1'), 'facebook');
@@ -152,6 +168,49 @@ test('powiadomienia: kończące się, nowe noclegi, wyniki', () => {
   assert.equal(msg.priority, 4);
   assert.equal(msg.click, 'https://example.github.io/konkursy/');
   assert.equal(L.buildDigest({ ending: [], newStays: [], results: [] }), null);
+});
+
+test('nagrody: rodzaj i wartość', () => {
+  const iphone = L.prizeInfo({ prizes: '1x smartfon iPhone Duo' });
+  assert.deepEqual(iphone, { kind: 'tech', value: 5000, estimated: true, tier: 'top' });
+  const card = L.prizeInfo({ prizes: 'I nagroda: karta o wartości 1500 zł\nII nagroda: karta o wartości 1000 zł', flags: { stay: true } });
+  assert.deepEqual(card, { kind: 'trip', value: 1500, estimated: false, tier: 'high' });
+  assert.equal(L.prizeInfo({ prizes: '1x obudowa be quiet! o wartości 1 149 zł\n1x chłodzenie 360mm 3x120mm o wartości 849 zł' }).value, 1149);
+  assert.equal(L.prizeInfo({ prizes: 'voucher na wyjazd do Egiptu o wartości 9 431,48 zł oraz 1 048 zł', flags: { stay: true } }).value, 9431);
+  assert.deepEqual(L.prizeInfo({ prizes: '10x bon do Zalando o wartości 1.000 zł 100x bon o wartości 500 zł' }), { kind: 'voucher', value: 1000, estimated: false, tier: 'high' });
+  assert.deepEqual(L.prizeInfo({ prizes: '4x zestaw: airfryer oraz box z produktami (wartość zestawu ok. 650 zł)' }), { kind: 'tech', value: 650, estimated: false, tier: 'mid' });
+  assert.deepEqual(L.prizeInfo({ prizes: '5 zestawów po 12 dżemów Stovit!' }), { kind: 'other', value: null, estimated: false, tier: null });
+  assert.equal(L.prizeInfo({ prizes: 'Wejściówki na dyskotekę' }).kind, 'other');
+  assert.equal(L.prizeInfo({ title: 'Wygraj hulajnogę elektryczną', prizes: '' }).kind, 'tech');
+  assert.equal(L.isValuable(L.prizeInfo({ prizes: 'Kalendarz adwentowy' })), false);
+  assert.equal(L.formatPLN(5600), '5 600 zł');
+});
+
+test('powiadomienia: nowa wartościowa nagroda', () => {
+  const today = '2026-11-21';
+  const contests = [
+    { id: 'tv', title: 'Wygraj telewizor', prizes: '1x telewizor o wartości 3 999 zł', end: '2026-12-01', firstSeen: today, flags: {} },
+    { id: 'jam', title: 'Dżemy', prizes: '5 zestawów dżemów', end: '2026-12-01', firstSeen: today, flags: {} },
+    { id: 'old', title: 'Stary telefon', prizes: '1x smartfon', end: '2026-12-01', firstSeen: '2026-11-01', flags: {} },
+  ];
+  const state = L.normalizeState({ settings: { t: 1, ntfy: { topic: 'konkursy-test', days: [] } } });
+  const p = L.pickNotifications(contests, state, today);
+  assert.deepEqual(p.newValuable.map((e) => e.c.id), ['tv']);
+  const msg = L.buildDigest(p);
+  assert.match(msg.message, /💎 Nowa nagroda – 3 999 zł: Wygraj telewizor/);
+  assert.match(msg.title, /1 wartościowa nagroda/);
+});
+
+test('odświeżanie: rozpoznanie uruchomienia robota i link do tokenu', () => {
+  const runs = [{ id: 1, display_title: 'Robot' }, { id: 2, display_title: 'Robot (odświeżenie ab12cd)' }];
+  assert.equal(L.findDispatchedRun(runs, 'ab12cd').id, 2);
+  assert.equal(L.findDispatchedRun(runs, 'zzz'), null);
+  assert.equal(L.findDispatchedRun(runs, ''), null);
+  const url = new URL(L.tokenTemplateUrl());
+  assert.equal(url.pathname, '/settings/personal-access-tokens/new');
+  assert.equal(url.searchParams.get('gists'), 'write');
+  assert.equal(url.searchParams.get('actions'), 'write');
+  assert.ok(url.searchParams.get('name').length <= 40);
 });
 
 test('odmiana i losowa nazwa kanału', () => {

@@ -14,7 +14,7 @@ export const STATUS_LABELS = {
 
 export const DEFAULT_SETTINGS = {
   t: 0,
-  hide: { party: true, fbShare: true, igShare: false, purchase: true, app: true, content: true },
+  hide: { party: true, fbShare: true, igShare: false, purchase: true, app: true, content: true, creative: true },
   ntfy: {
     enabled: true,
     server: 'https://ntfy.sh',
@@ -24,6 +24,7 @@ export const DEFAULT_SETTINGS = {
     maxOdds: 150,
     results: true,
     newStays: true,
+    newValuable: true,
   },
 };
 
@@ -98,6 +99,9 @@ const RX = {
   app: /aplikacj|\bw apce\b|\bapki\b|\bapka\b|\bapp\b/i,
   content: /(dodaj|załącz|wrzuć|prześlij|opublikuj|zrób|nagraj|stwórz|przygotuj|udostępnij|wstaw)[^.\n]{0,40}(zdjęci|fotk|fotograf|selfie|film|wideo|video|rolk|reels|grafik|rysun|kolaż|karuzel)|narysuj|namaluj|plastyczn|\bselfie\b|\brolk[aęi]\b|\breels\b/i,
   follow: /obserwuj|zaobserwuj|subskryb|polub (profil|stronę|fanpage|nasz profil|naszą stronę|nasz fanpage)/i,
+  // Duży wysiłek: eseje, wiersze, opowiadania, nagrania, projekty, prace dyplomowe, konkursy szkolne, jazdy testowe
+  creative:
+    /esej|literack|literatur|opowiadani|\bwiersz|poezj|poety|tomik|scenariusz|koncepcj[aęi] serialu|\bscript\b|wokaln|piosenk|\butw[oó]r|\butwory|kompozycj|debiut|rękopis|maszynopis|przekład|tłumacz|olimpiad|dyplomow|prac[aey] konkursow|prac konkursow|arkuszy wydawniczych|reportaż|felieton|konkurs (graficzny|plastyczny|fotograficzny|literacki|poetycki|wokalny|muzyczny|filmowy)|aranżacj|projekt[a-ząćęłńóśźż]* (graficzn|architekton|logo|wnętrz)|\bstudia\b|uczniów|szkół|placówk|jazd[ęy] testow|nagrod[ay] im\./i,
   likes: /najwięcej (reakcji|polubień|lajków|serduszek)|największ[a-ząćęłńóśźż]* liczb[a-ząćęłńóśźż]* (reakcji|polubień|lajków)/i,
   draw: /losow|wylosuj|drodze losowania/i,
   jury: /jury|komisj|najciekawsz|najbardziej|najlepsz|najzabawniejsz|najoryginalniejsz|najtrafniejsz|kreatywn|wybierzemy|nagrodzimy|wyróżnim|autorzy \d+/i,
@@ -136,9 +140,11 @@ export function platformOf(url) {
 }
 
 /** Rozpoznaje rodzaj konkursu i wymagania na podstawie tytułu, zadania i nagród. */
-export function classify({ title = '', task = '', prizes = '', platform = '' } = {}) {
+export function classify({ title = '', task = '', prizes = '', platform = '', cats = [] } = {}) {
   const head = `${title}\n${prizes}`;
+  const creativeCat = (cats || []).some((c) => /plastyczn|fotograficzn|literack|dla-uczniow/.test(c));
   const flags = {
+    creative: creativeCat || RX.creative.test(`${title}\n${task}`),
     stay: RX.stay.test(head),
     party: RX.party.test(head),
     fbShare: false,
@@ -186,6 +192,80 @@ export function parsePrizeCount(text) {
   return 1;
 }
 
+// ---------- nagrody: rodzaj i wartość ----------
+
+export const PRIZE_KINDS = {
+  trip: { label: 'Wycieczki i noclegi', short: 'wyjazd' },
+  tech: { label: 'Sprzęt', short: 'sprzęt' },
+  voucher: { label: 'Bony i gotówka', short: 'bon' },
+  other: { label: 'Pozostałe', short: 'inne' },
+};
+export const KIND_ORDER = ['trip', 'tech', 'voucher', 'other'];
+export const VALUABLE_FROM = 1000; // od tej wartości (zł) nagroda jest wyróżniana
+
+const TECH_RX =
+  /smartfon|iphone|\btelefon|galaxy|\bpixel\b|laptop|notebook|macbook|tablet|ipad|konsol|playstation|\bps5\b|xbox|nintendo|słuchawk|airpods|głośnik|soundbar|telewizor|\btv\b|monitor|aparat|kamer[aęy]|gopro|\bdron|hulajnog|\brower|smartwatch|zegarek|apple watch|airfryer|frytkownic|ekspres|odkurzacz|robot (sprząt|kuchen|planetarn|odkurz)|dyson|thermomix|obudow|zasilacz|chłodzeni|kart[aęy] graficzn|procesor|myszk|klawiatur|drukark|czytnik|kindle|projektor|płyt[aęy] indukcyjn|pralk|lodówk|zmywark|\bvr\b|router|dysk ssd|\bdysk\b|powerbank|sprzęt|elektronik|logitech|be quiet/i;
+const VOUCHER_RX =
+  /\bbon(y|ów|u|em|ami)?\b|voucher|kart[aęy] podarunkow|kart[aęy] (prezentow|upominkow|zakupow)|e-kart|e-bon|gotówk|nagrod[a-ząćęłńóśźż]* pieniężn|doładowani|zł na zakupy/i;
+const AMOUNT_RX = /(\d{1,3}(?:[  .]\d{3})+|\d+)(?:,\d{1,2})?\s*(?:zł|pln|złotych)(?![a-ząćęłńóśźż])/gi;
+// Przybliżone ceny, gdy w opisie nie ma kwoty (tylko sprzęt i wyjazdy).
+const ESTIMATES = [
+  [/macbook/i, 6000],
+  [/thermomix/i, 6000],
+  [/iphone/i, 5000],
+  [/rejs|wycieczk|egipt|grecj|hiszpani|włoch|islandi|norwegi|laponi|all inclusive/i, 5000],
+  [/laptop|notebook/i, 3500],
+  [/telewizor|\btv\b/i, 2500],
+  [/playstation|\bps5\b|xbox/i, 2500],
+  [/ipad|tablet/i, 2000],
+  [/smartfon|\btelefon|galaxy|\bpixel\b/i, 2000],
+  [/dyson/i, 2000],
+  [/aparat|kamer[aęy]|gopro|\bdron/i, 2000],
+  [/nintendo/i, 1500],
+  [/hulajnog|\brower/i, 1500],
+  [/ekspres/i, 1500],
+  [/odkurzacz|robot (sprząt|kuchen|planetarn|odkurz)/i, 1500],
+  [/projektor/i, 1500],
+  [/pobyt|nocleg|weekend|hotel|apartament|\bspa\b|wyjazd/i, 1200],
+  [/smartwatch|apple watch|zegarek/i, 1000],
+  [/monitor/i, 1000],
+  [/słuchawk|airpods/i, 500],
+  [/airfryer|frytkownic|głośnik/i, 400],
+];
+
+function parseAmount(s) {
+  return Number(String(s).replace(/[  .]/g, ''));
+}
+
+/** Rodzaj nagrody (wyjazd / sprzęt / bon / inne) i wartość największej nagrody w zł. */
+export function prizeInfo(c) {
+  const prizes = String((c && c.prizes) || '');
+  const text = prizes.trim() ? prizes : String((c && c.title) || '');
+  const f = flagsOf(c);
+  const kind = f.stay ? 'trip' : TECH_RX.test(text) ? 'tech' : VOUCHER_RX.test(text) ? 'voucher' : 'other';
+  let value = null;
+  for (const m of text.matchAll(AMOUNT_RX)) {
+    const v = parseAmount(m[1]);
+    if (Number.isFinite(v) && v > 0 && v < 1e7 && (value === null || v > value)) value = v;
+  }
+  let estimated = false;
+  if (value === null && (kind === 'trip' || kind === 'tech')) {
+    const hit = ESTIMATES.find(([rx]) => rx.test(text));
+    if (hit) {
+      value = hit[1];
+      estimated = true;
+    }
+  }
+  const tier = value === null ? null : value >= 3000 ? 'top' : value >= VALUABLE_FROM ? 'high' : value >= 300 ? 'mid' : 'low';
+  return { kind, value: value === null ? null : Math.round(value), estimated, tier };
+}
+
+export const isValuable = (info) => info.tier === 'top' || info.tier === 'high';
+
+export function formatPLN(v) {
+  return new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0, useGrouping: true }).format(v).replace(/\s/g, ' ') + ' zł';
+}
+
 // ---------- stan użytkownika ----------
 
 export function emptyState() {
@@ -207,6 +287,7 @@ export function settingsOf(state) {
     if (num(n.maxOdds) && n.maxOdds > 0) out.ntfy.maxOdds = n.maxOdds;
     if (typeof n.results === 'boolean') out.ntfy.results = n.results;
     if (typeof n.newStays === 'boolean') out.ntfy.newStays = n.newStays;
+    if (typeof n.newValuable === 'boolean') out.ntfy.newValuable = n.newValuable;
   }
   return out;
 }
@@ -324,7 +405,7 @@ export function allContests(catalog, state) {
 }
 
 export function flagsOf(c) {
-  return { stay: false, party: false, fbShare: false, igShare: false, purchase: false, app: false, content: false, follow: false, tags: 0, ...((c && c.flags) || {}) };
+  return { stay: false, party: false, fbShare: false, igShare: false, purchase: false, app: false, content: false, creative: false, follow: false, tags: 0, ...((c && c.flags) || {}) };
 }
 
 /** Powód ukrycia konkursu według filtrów użytkownika ('' = widoczny). */
@@ -337,6 +418,7 @@ export function hiddenReason(c, hide) {
   if (h.purchase && f.purchase) return 'wymaga zakupu';
   if (h.app && f.app) return 'wymaga aplikacji';
   if (h.content && f.content && !f.stay) return 'wymaga zdjęcia/filmu';
+  if (h.creative && f.creative) return 'praca twórcza';
   return '';
 }
 
@@ -369,7 +451,7 @@ export const resultsOf = (c, it = {}) => (isISODate(it.results) ? it.results : i
 export function pickNotifications(contests, state, today) {
   const s = settingsOf(state);
   const n = s.ntfy;
-  const out = { ending: [], results: [], newStays: [] };
+  const out = { ending: [], results: [], newStays: [], newValuable: [] };
   for (const c of contests) {
     const it = itemOf(state, c.id);
     const st = it.s || '';
@@ -384,13 +466,17 @@ export function pickNotifications(contests, state, today) {
       const rd = resultsOf(c, it) || (isISODate(c.end) ? addDays(c.end, 3) : null);
       if (rd === today) out.results.push({ c });
     }
-    if (n.newStays && c.firstSeen === today && flagsOf(c).stay && !hidden && st !== 'skipped') {
-      out.newStays.push({ c, odds });
+    if (c.firstSeen === today && !hidden && st !== 'skipped' && (dl === null || dl >= 0)) {
+      const info = prizeInfo(c);
+      if (n.newStays && flagsOf(c).stay) out.newStays.push({ c, odds, info });
+      else if (n.newValuable && isValuable(info)) out.newValuable.push({ c, odds, info });
     }
   }
   out.ending.sort((a, b) => a.dl - b.dl || Number(b.todo) - Number(a.todo) || (a.odds ?? 1e9) - (b.odds ?? 1e9));
   out.ending = out.ending.slice(0, 10);
   out.newStays = out.newStays.slice(0, 10);
+  out.newValuable.sort((a, b) => (b.info.value || 0) - (a.info.value || 0));
+  out.newValuable = out.newValuable.slice(0, 10);
   return out;
 }
 
@@ -419,16 +505,45 @@ export function buildDigest(p, { appUrl = '' } = {}) {
   if (p.ending.length) tags.push('alarm_clock');
   for (const e of p.newStays) lines.push(`🏨 Nowy nocleg: ${short(e.c.title)}${e.odds ? ` (szansa 1:${e.odds})` : ''}`);
   if (p.newStays.length) tags.push('hotel');
+  const newValuable = p.newValuable || [];
+  for (const e of newValuable) {
+    const v = e.info && e.info.value ? ` – ${e.info.estimated ? '~' : ''}${formatPLN(e.info.value)}` : '';
+    lines.push(`💎 Nowa nagroda${v}: ${short(e.c.title)}${e.odds ? ` (szansa 1:${e.odds})` : ''}`);
+  }
+  if (newValuable.length) tags.push('gem');
   for (const e of p.results) lines.push(`🏆 Wyniki: ${short(e.c.title)} – sprawdź, czy jesteś wśród zwycięzców`);
   if (p.results.length) tags.push('trophy');
   if (!lines.length) return null;
   const parts = [];
   if (p.ending.length) parts.push(`${p.ending.length} ${plural(p.ending.length, ['konkurs kończy się', 'konkursy kończą się', 'konkursów kończy się'])}`);
   if (p.newStays.length) parts.push(`${p.newStays.length} ${plural(p.newStays.length, ['nowy nocleg', 'nowe noclegi', 'nowych noclegów'])}`);
+  if (newValuable.length) parts.push(`${newValuable.length} ${plural(newValuable.length, ['wartościowa nagroda', 'wartościowe nagrody', 'wartościowych nagród'])}`);
   if (p.results.length) parts.push(`wyniki: ${p.results.length}`);
   const msg = { title: `Konkursy: ${parts.join(', ')}`, message: lines.join('\n'), priority, tags };
   if (appUrl) msg.click = appUrl;
   return msg;
+}
+
+// ---------- odświeżanie: robot uruchamiany z aplikacji ----------
+
+export const ROBOT_WORKFLOW = 'robot.yml';
+
+/** Uruchomienie robota zlecone z aplikacji – rozpoznawane po identyfikatorze w nazwie (run-name). */
+export function findDispatchedRun(runs, requestId) {
+  if (!requestId) return null;
+  return (runs || []).find((r) => r && typeof r.display_title === 'string' && r.display_title.includes(requestId)) || null;
+}
+
+/** Link do formularza tokenu GitHub z zaznaczonymi uprawnieniami: gisty (synchronizacja) i Actions (odświeżanie). */
+export function tokenTemplateUrl() {
+  const p = new URLSearchParams({
+    name: 'Konkursy',
+    description: 'Aplikacja Konkursy: synchronizacja (gist) i odświeżanie listy (Actions)',
+    expires_in: '366',
+    gists: 'write',
+    actions: 'write',
+  });
+  return `https://github.com/settings/personal-access-tokens/new?${p}`;
 }
 
 export function randomTopic() {
