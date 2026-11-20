@@ -1,8 +1,8 @@
 {
- "updatedAt": "2026-11-20T11:05:21.769Z",
+ "updatedAt": "2026-11-20T17:45:07.814Z",
  "since": "2026-11-20",
  "source": "e-konkursy.info",
- "count": 144,
+ "count": 145,
  "contests": [
   {
    "id": "ek:konkurs-czas-na-zmiane-w-radiu-eska",
@@ -3725,6 +3725,44 @@
    "task": "• Kup 3 dowolne piwa Tyskie, Lech, Kozel, Peroni, Pilsner Urquell lub/i Książęce.\n• Zarejestruj paragon i zagraj w grę o nagrody codzienne.\n• Wybierz nagrodę główną i odpowiedz na pytanie.",
    "prizes": "NAGRODY CODZIENNE (zgłoszenia od 08:00 do 22:00):\n\n• 100 zł co 120 minut (196x)\nNAGRODY GŁÓWNE DO WYBORU:\n\n• 3x Playstation 5\n• 3x iPhone 17 Pro\n• 3x Kamera sportowa OSMO 360 II\n• 3x Lokówko-suszarka Dyson Airwrap",
    "prizeCount": 12,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-20",
+   "seenAt": "2026-11-20",
+   "fetchedAt": "2026-11-20"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-rozkosznie-z-wedlem-w-biedronce",
+   "title": "Konkurs \"Rozkosznie z Wedlem w Biedronce\"",
+   "org": "2012 Sp. z o. o.",
+   "url": "https://rozkoszniezwedlem.pl/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-rozkosznie-z-wedlem-w-biedronce",
+   "platform": "www",
+   "start": "2026-11-16",
+   "end": "2026-12-16",
+   "results": null,
+   "task": "Zakup w Biedronce dowolna czekolade Wedel\n\nZarejestruj paragon na stronie i odpwiedz na pytanie konkursowe",
+   "prizes": "• 5x Thermomix tm7\n• 150x e-kod 200zl w Biedronka\n• 200x zestaw gorzkich czekolad",
+   "prizeCount": 355,
    "judging": "?",
    "location": null,
    "local": false,
