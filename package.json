@@ -9,7 +9,7 @@
     "scrape": "node robot/scrape.mjs",
     "notify": "node robot/notify.mjs",
     "icons": "node robot/make-icons.mjs",
-    "test": "node --test test/"
+    "test": "node --test \"test/*.test.mjs\""
   },
   "engines": {
     "node": ">=22"
