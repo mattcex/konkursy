@@ -19,7 +19,8 @@ on:
         default: ''
 
 permissions:
-  contents: write
+  contents: write # zapis listy konkursów
+  actions: write # zlecenie publikacji strony (workflow Pages)
 
 concurrency:
   group: robot
@@ -28,8 +29,6 @@ concurrency:
 jobs:
   robot:
     runs-on: ubuntu-latest
-    outputs:
-      changed: ${{ steps.commit.outputs.changed }}
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -53,17 +52,17 @@ jobs:
           git push || (git pull --rebase && git push)
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
+      # Publikacja w osobnym uruchomieniu workflow Pages. Commit zrobiony tokenem GITHUB_TOKEN
+      # nie uruchamia „on: push”, ale zlecenie workflow_dispatch – tak. Wywołanie Pages jako
+      # reusable workflow (uses:) nie działa: deploy-pages nie widzi wtedy artefaktu „github-pages”.
+      - name: Publikacja strony
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --repo "$GITHUB_REPOSITORY" --ref main
+
       - name: Powiadomienia
         if: github.event_name != 'workflow_dispatch' || inputs.notify != 'false'
         env:
           STATE_GIST_ID: ${{ secrets.STATE_GIST_ID }}
         run: node robot/notify.mjs
-
-  deploy:
-    needs: robot
-    if: needs.robot.outputs.changed == 'true'
-    permissions:
-      contents: read
-      pages: write
-      id-token: write
-    uses: ./.github/workflows/pages.yml

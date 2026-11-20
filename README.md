@@ -41,7 +41,7 @@ e-konkursy.info ──► robot (GitHub Actions, codziennie) ──► site/data
 | Ręczne uzupełnienia (liczby komentarzy, gotowe odpowiedzi) | `data/curated.json` |
 | Powiadomienia | `robot/notify.mjs` |
 | Aplikacja na Androida | `android/` (Gradle, Trusted Web Activity), opis do sklepu: `android/store/listing.md` |
-| Automatyzacje | `.github/workflows/robot.yml` (codziennie), `pages.yml` (testy + strona), `android.yml` (APK/AAB) |
+| Automatyzacje | `.github/workflows/robot.yml` (codziennie; po zmianach zleca publikację), `pages.yml` (testy + strona), `android.yml` (APK/AAB) |
 
 ## Pierwsze uruchomienie
 

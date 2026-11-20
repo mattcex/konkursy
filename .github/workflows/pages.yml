@@ -1,11 +1,11 @@
 name: Pages
 
 # Testy i publikacja aplikacji (folder site/) na GitHub Pages.
+# Uruchamiany po pushu, ręcznie oraz przez robota po aktualizacji listy (workflow_dispatch).
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  workflow_call:
 
 permissions:
   contents: read
