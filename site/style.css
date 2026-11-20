@@ -160,8 +160,8 @@ svg.icon { display: inline-block; vertical-align: text-bottom; flex: none; }
   background: url("icon.svg") center / 32px no-repeat;
 }
 .brand-text { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.brand-owner { color: var(--fg); }
-.brand-sep { color: var(--fg-muted); margin: 0 4px; }
+.brand-text strong { font-size: 18px; letter-spacing: -0.2px; }
+.brand-tagline { color: var(--fg-muted); margin-left: 8px; font-size: 14px; }
 .appbar-actions { margin-left: auto; display: flex; gap: 8px; align-items: center; }
 
 /* ---------- przyciski i pola ---------- */
@@ -460,7 +460,7 @@ code { font-family: var(--mono); font-size: 85%; padding: .1em .4em; background:
 @media (max-width: 640px) {
   .item { grid-template-columns: auto auto 1fr; }
   .item-side { grid-column: 3; flex-wrap: wrap; white-space: normal; gap: 8px; }
-  .btn-add-text, .sync-text, .refresh-text { display: none; }
+  .btn-add-text, .sync-text, .refresh-text, .brand-tagline, .shortcuts { display: none; }
   .issue-title { font-size: 22px; }
 }
 

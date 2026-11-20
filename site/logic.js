@@ -1,19 +1,14 @@
-// Wspólna logika aplikacji (przeglądarka) i robota (Node). Bez zależności.
+// Wspólna logika aplikacji Lootsy (przeglądarka) i robota (Node). Bez zależności.
+import { translator } from './i18n.js';
 
 export const TZ = 'Europe/Warsaw';
-export const STATE_FILE = 'konkursy-state.json';
+export const STATE_FILE = 'konkursy-state.json'; // nazwa pliku w giście (bez zmian, żeby nie zgubić danych)
 export const DONE = new Set(['submitted', 'won', 'lost']);
-export const STATUS_LABELS = {
-  '': 'Brak',
-  todo: 'Planuję',
-  submitted: 'Zgłoszone',
-  won: 'Wygrane',
-  lost: 'Przegrane',
-  skipped: 'Pominięte',
-};
+export const STATUSES = ['', 'todo', 'submitted', 'won', 'lost', 'skipped'];
 
 export const DEFAULT_SETTINGS = {
   t: 0,
+  lang: 'auto',
   hide: { party: true, fbShare: true, igShare: false, purchase: true, app: true, content: true, creative: true },
   ntfy: {
     enabled: true,
@@ -194,13 +189,7 @@ export function parsePrizeCount(text) {
 
 // ---------- nagrody: rodzaj i wartość ----------
 
-export const PRIZE_KINDS = {
-  trip: { label: 'Wycieczki i noclegi', short: 'wyjazd' },
-  tech: { label: 'Sprzęt', short: 'sprzęt' },
-  voucher: { label: 'Bony i gotówka', short: 'bon' },
-  other: { label: 'Pozostałe', short: 'inne' },
-};
-export const KIND_ORDER = ['trip', 'tech', 'voucher', 'other'];
+export const KIND_ORDER = ['trip', 'tech', 'voucher', 'other']; // nazwy sekcji: i18n „kind.*”
 export const VALUABLE_FROM = 1000; // od tej wartości (zł) nagroda jest wyróżniana
 
 const TECH_RX =
@@ -262,8 +251,8 @@ export function prizeInfo(c) {
 
 export const isValuable = (info) => info.tier === 'top' || info.tier === 'high';
 
-export function formatPLN(v) {
-  return new Intl.NumberFormat('pl-PL', { maximumFractionDigits: 0, useGrouping: true }).format(v).replace(/\s/g, ' ') + ' zł';
+export function formatPLN(v, lang = 'pl') {
+  return translator(lang).money(v);
 }
 
 // ---------- stan użytkownika ----------
@@ -276,6 +265,7 @@ export function settingsOf(state) {
   const s = isObj(state && state.settings) ? state.settings : {};
   const out = clone(DEFAULT_SETTINGS);
   out.t = num(s.t) || 0;
+  if (s.lang === 'auto' || s.lang === 'pl' || s.lang === 'en') out.lang = s.lang;
   if (isObj(s.hide)) for (const k of Object.keys(out.hide)) if (typeof s.hide[k] === 'boolean') out.hide[k] = s.hide[k];
   if (isObj(s.ntfy)) {
     const n = s.ntfy;
@@ -292,7 +282,7 @@ export function settingsOf(state) {
   return out;
 }
 
-const STATUS_SET = new Set(Object.keys(STATUS_LABELS));
+const STATUS_SET = new Set(STATUSES);
 
 function cleanItem(it) {
   if (!isObj(it)) return null;
@@ -408,17 +398,17 @@ export function flagsOf(c) {
   return { stay: false, party: false, fbShare: false, igShare: false, purchase: false, app: false, content: false, creative: false, follow: false, tags: 0, ...((c && c.flags) || {}) };
 }
 
-/** Powód ukrycia konkursu według filtrów użytkownika ('' = widoczny). */
+/** Powód ukrycia konkursu według filtrów użytkownika: kod („party”, „fbShare”…; i18n „reason.*”) albo '' = widoczny. */
 export function hiddenReason(c, hide) {
   const f = flagsOf(c);
   const h = hide || DEFAULT_SETTINGS.hide;
-  if (h.party && f.party) return 'impreza';
-  if (h.fbShare && f.fbShare) return 'udostępnienie na FB';
-  if (h.igShare && f.igShare) return 'udostępnienie na IG';
-  if (h.purchase && f.purchase) return 'wymaga zakupu';
-  if (h.app && f.app) return 'wymaga aplikacji';
-  if (h.content && f.content && !f.stay) return 'wymaga zdjęcia/filmu';
-  if (h.creative && f.creative) return 'praca twórcza';
+  if (h.party && f.party) return 'party';
+  if (h.fbShare && f.fbShare) return 'fbShare';
+  if (h.igShare && f.igShare) return 'igShare';
+  if (h.purchase && f.purchase) return 'purchase';
+  if (h.app && f.app) return 'app';
+  if (h.content && f.content && !f.stay) return 'content';
+  if (h.creative && f.creative) return 'creative';
   return '';
 }
 
@@ -493,33 +483,35 @@ export function plural(n, [one, few, many]) {
 }
 
 /** Jedna zbiorcza wiadomość ntfy (albo null, gdy nie ma o czym przypominać). */
-export function buildDigest(p, { appUrl = '' } = {}) {
+export function buildDigest(p, { appUrl = '', lang = 'pl' } = {}) {
+  const { t, tn, money } = translator(lang);
+  const odds = (n) => (n ? t('digest.odds', { n }) : '');
   const lines = [];
   const tags = [];
   let priority = 3;
   for (const e of p.ending) {
-    const when = e.dl === 0 ? 'Dziś' : e.dl === 1 ? 'Jutro' : `Za ${e.dl} dni`;
-    lines.push(`⏰ ${when}: ${short(e.c.title)}${e.odds ? ` (szansa 1:${e.odds})` : ''}${e.todo ? ' ★' : ''}`);
+    const when = e.dl === 0 ? t('digest.today') : e.dl === 1 ? t('digest.tomorrow') : t('digest.inDays', { n: e.dl });
+    lines.push(`⏰ ${when}: ${short(e.c.title)}${odds(e.odds)}${e.todo ? ' ★' : ''}`);
     if (e.dl === 0) priority = 4;
   }
   if (p.ending.length) tags.push('alarm_clock');
-  for (const e of p.newStays) lines.push(`🏨 Nowy nocleg: ${short(e.c.title)}${e.odds ? ` (szansa 1:${e.odds})` : ''}`);
+  for (const e of p.newStays) lines.push(t('digest.newStay', { t: short(e.c.title) }) + odds(e.odds));
   if (p.newStays.length) tags.push('hotel');
   const newValuable = p.newValuable || [];
   for (const e of newValuable) {
-    const v = e.info && e.info.value ? ` – ${e.info.estimated ? '~' : ''}${formatPLN(e.info.value)}` : '';
-    lines.push(`💎 Nowa nagroda${v}: ${short(e.c.title)}${e.odds ? ` (szansa 1:${e.odds})` : ''}`);
+    const v = e.info && e.info.value ? ` – ${e.info.estimated ? '~' : ''}${money(e.info.value)}` : '';
+    lines.push(t('digest.newValuable', { v, t: short(e.c.title) }) + odds(e.odds));
   }
   if (newValuable.length) tags.push('gem');
-  for (const e of p.results) lines.push(`🏆 Wyniki: ${short(e.c.title)} – sprawdź, czy jesteś wśród zwycięzców`);
+  for (const e of p.results) lines.push(t('digest.results', { t: short(e.c.title) }));
   if (p.results.length) tags.push('trophy');
   if (!lines.length) return null;
   const parts = [];
-  if (p.ending.length) parts.push(`${p.ending.length} ${plural(p.ending.length, ['konkurs kończy się', 'konkursy kończą się', 'konkursów kończy się'])}`);
-  if (p.newStays.length) parts.push(`${p.newStays.length} ${plural(p.newStays.length, ['nowy nocleg', 'nowe noclegi', 'nowych noclegów'])}`);
-  if (newValuable.length) parts.push(`${newValuable.length} ${plural(newValuable.length, ['wartościowa nagroda', 'wartościowe nagrody', 'wartościowych nagród'])}`);
-  if (p.results.length) parts.push(`wyniki: ${p.results.length}`);
-  const msg = { title: `Konkursy: ${parts.join(', ')}`, message: lines.join('\n'), priority, tags };
+  if (p.ending.length) parts.push(tn('digest.ending', p.ending.length));
+  if (p.newStays.length) parts.push(tn('digest.stays', p.newStays.length));
+  if (newValuable.length) parts.push(tn('digest.valuable', newValuable.length));
+  if (p.results.length) parts.push(t('digest.resultsCount', { n: p.results.length }));
+  const msg = { title: t('digest.title', { parts: parts.join(', ') }), message: lines.join('\n'), priority, tags };
   if (appUrl) msg.click = appUrl;
   return msg;
 }
@@ -537,8 +529,8 @@ export function findDispatchedRun(runs, requestId) {
 /** Link do formularza tokenu GitHub z zaznaczonymi uprawnieniami: gisty (synchronizacja) i Actions (odświeżanie). */
 export function tokenTemplateUrl() {
   const p = new URLSearchParams({
-    name: 'Konkursy',
-    description: 'Aplikacja Konkursy: synchronizacja (gist) i odświeżanie listy (Actions)',
+    name: 'Lootsy',
+    description: 'Lootsy: synchronizacja (gist) i odświeżanie listy (Actions)',
     expires_in: '366',
     gists: 'write',
     actions: 'write',

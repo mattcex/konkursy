@@ -1,6 +1,6 @@
-// Generuje ikony PNG aplikacji (bez zależności): node robot/make-icons.mjs
-// Ten sam wzór co site/icon.svg: zielony zaokrąglony kwadrat z białym „ptaszkiem”.
-import { writeFile } from 'node:fs/promises';
+// Generuje ikony PNG Lootsy (strona + Android) bez zależności: node robot/make-icons.mjs
+// Wzór jak w site/icon.svg: zielony zaokrąglony kwadrat z białym prezentem (układ 64×64).
+import { writeFile, mkdir } from 'node:fs/promises';
 import { deflateSync } from 'node:zlib';
 
 const GREEN = [0x1f, 0x88, 0x3d];
@@ -25,39 +25,50 @@ const chunk = (type, data) => {
   return Buffer.concat([len, td, crc]);
 };
 
-function distToSegment(px, py, ax, ay, bx, by) {
-  const dx = bx - ax, dy = by - ay;
-  const t = Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / (dx * dx + dy * dy)));
-  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
+const inRect = (x, y, x0, y0, x1, y1) => x >= x0 && x <= x1 && y >= y0 && y <= y1;
+const inCircle = (x, y, cx, cy, r) => (x - cx) ** 2 + (y - cy) ** 2 <= r * r;
+
+/** Prezent w układzie 64×64: true = biały element. */
+function glyph(x, y) {
+  let white = inCircle(x, y, 26.5, 18.5, 5.6) || inCircle(x, y, 37.5, 18.5, 5.6) || inRect(x, y, 14, 24, 50, 31) || inRect(x, y, 17, 32.5, 47, 50.5);
+  if (inCircle(x, y, 26.5, 18.5, 2.6) || inCircle(x, y, 37.5, 18.5, 2.6) || inRect(x, y, 30, 20, 34, 51)) white = false;
+  return white;
 }
 
-/** Kolor punktu w układzie 64×64 (jak w SVG) albo null poza ikoną. */
-function sample(x, y, full) {
-  const r = full ? 0 : 14;
-  if (!full) {
-    const cx = Math.min(Math.max(x, r), 64 - r);
-    const cy = Math.min(Math.max(y, r), 64 - r);
-    if (Math.hypot(x - cx, y - cy) > r) return null;
+/** Kolor punktu: tło 'rounded' | 'circle' | 'full' | 'none'; scale – wielkość wzoru względem obrazka. */
+function sample(u, v, background, scale) {
+  // u, v w zakresie 0..64 dla całego obrazka
+  const x = 32 + (u - 32) / scale;
+  const y = 32 + (v - 32) / scale;
+  let bg = null;
+  if (background === 'full') bg = GREEN;
+  else if (background === 'rounded') {
+    const r = 14;
+    const cx = Math.min(Math.max(u, r), 64 - r);
+    const cy = Math.min(Math.max(v, r), 64 - r);
+    if (Math.hypot(u - cx, v - cy) <= r) bg = GREEN;
+  } else if (background === 'circle') {
+    if (inCircle(u, v, 32, 32, 32)) bg = GREEN;
   }
-  const d = Math.min(distToSegment(x, y, 18, 33.5, 27.5, 43), distToSegment(x, y, 27.5, 43, 46, 22.5));
-  return d <= 3.5 ? WHITE : GREEN;
+  if (glyph(x, y) && (bg || background === 'none')) return WHITE;
+  return bg;
 }
 
-function png(size, full) {
+function png(size, background, scale = 1) {
   const SS = 4; // nadpróbkowanie dla gładkich krawędzi
   const raw = Buffer.alloc((size * 4 + 1) * size);
-  for (let y = 0; y < size; y++) {
-    raw[y * (size * 4 + 1)] = 0;
-    for (let x = 0; x < size; x++) {
+  for (let py = 0; py < size; py++) {
+    raw[py * (size * 4 + 1)] = 0;
+    for (let px = 0; px < size; px++) {
       let r = 0, g = 0, b = 0, a = 0;
       for (let sy = 0; sy < SS; sy++) {
         for (let sx = 0; sx < SS; sx++) {
-          const c = sample(((x + (sx + 0.5) / SS) / size) * 64, ((y + (sy + 0.5) / SS) / size) * 64, full);
+          const c = sample(((px + (sx + 0.5) / SS) / size) * 64, ((py + (sy + 0.5) / SS) / size) * 64, background, scale);
           if (!c) continue;
           r += c[0]; g += c[1]; b += c[2]; a++;
         }
       }
-      const o = y * (size * 4 + 1) + 1 + x * 4;
+      const o = py * (size * 4 + 1) + 1 + px * 4;
       if (a) {
         raw[o] = Math.round(r / a);
         raw[o + 1] = Math.round(g / a);
@@ -79,8 +90,26 @@ function png(size, full) {
   ]);
 }
 
-const out = (name) => new URL(`../site/${name}`, import.meta.url);
-await writeFile(out('icon-180.png'), png(180, true)); // iOS sam zaokrągla rogi
-await writeFile(out('icon-192.png'), png(192, false));
-await writeFile(out('icon-512.png'), png(512, true)); // „maskable” – pełne tło
-console.log('Zapisano icon-180.png, icon-192.png, icon-512.png');
+async function save(rel, data) {
+  const url = new URL(`../${rel}`, import.meta.url);
+  await mkdir(new URL('.', url), { recursive: true });
+  await writeFile(url, data);
+}
+
+// Strona (PWA)
+await save('site/icon-180.png', png(180, 'full')); // iOS sam zaokrągla rogi
+await save('site/icon-192.png', png(192, 'rounded'));
+await save('site/icon-512.png', png(512, 'full')); // „maskable” – pełne tło
+
+// Android: ikony klasyczne, okrągłe i warstwa pierwszego planu ikony adaptacyjnej (108 dp, widoczne 72 dp)
+const DENSITIES = { mdpi: 1, hdpi: 1.5, xhdpi: 2, xxhdpi: 3, xxxhdpi: 4 };
+for (const [name, k] of Object.entries(DENSITIES)) {
+  const dir = `android/app/src/main/res/mipmap-${name}`;
+  await save(`${dir}/ic_launcher.png`, png(Math.round(48 * k), 'rounded'));
+  await save(`${dir}/ic_launcher_round.png`, png(Math.round(48 * k), 'circle'));
+  await save(`${dir}/ic_launcher_foreground.png`, png(Math.round(108 * k), 'none', 72 / 108));
+}
+
+// Sklep Google Play (512×512)
+await save('android/store/icon-512.png', png(512, 'full'));
+console.log('Zapisano ikony strony, Androida i sklepu.');

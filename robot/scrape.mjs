@@ -21,7 +21,7 @@ const REFRESH_DAYS = 5; // co ile dni odświeżać opis znanego konkursu
 const KEEP_DAYS = 45; // ile dni po zakończeniu trzymać konkurs na liście
 
 const repoUrl = process.env.GITHUB_REPOSITORY ? `https://github.com/${process.env.GITHUB_REPOSITORY}` : 'https://github.com';
-const UA = `KonkursyTracker/1.0 (+${repoUrl})`;
+const UA = `LootsyBot/1.0 (+${repoUrl})`;
 
 const OUT = new URL('../site/data/contests.json', import.meta.url);
 const CURATED = new URL('../data/curated.json', import.meta.url);

@@ -1,6 +1,6 @@
 // Service worker: aplikacja działa offline (najpierw sieć, potem pamięć podręczna).
-const CACHE = 'konkursy-v1';
-const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'logic.js', 'icon.svg', 'manifest.webmanifest', 'data/contests.json'];
+const CACHE = 'lootsy-v2';
+const SHELL = ['./', 'index.html', 'style.css', 'app.js', 'logic.js', 'i18n.js', 'privacy.html', 'icon.svg', 'manifest.webmanifest', 'data/contests.json'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(

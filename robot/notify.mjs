@@ -28,7 +28,7 @@ async function loadGist(id) {
   for (let attempt = 1; attempt <= 3; attempt++) {
     try {
       const res = await fetch(`https://api.github.com/gists/${encodeURIComponent(id)}`, {
-        headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'KonkursyTracker/1.0', 'X-GitHub-Api-Version': '2022-11-28' },
+        headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'LootsyBot/1.0', 'X-GitHub-Api-Version': '2022-11-28' },
       });
       if (res.ok) {
         const gist = await res.json();
@@ -61,14 +61,14 @@ async function main() {
     return;
   }
   const state = normalizeState(raw);
-  const { ntfy } = settingsOf(state);
+  const { ntfy, lang } = settingsOf(state);
   if (!ntfy.enabled || !ntfy.topic) {
     console.log('Powiadomienia wyłączone w ustawieniach albo brak kanału ntfy.');
     return;
   }
   const today = todayISO();
   const picks = pickNotifications(allContests(catalog, state), state, today);
-  const msg = buildDigest(picks, { appUrl: appUrl() });
+  const msg = buildDigest(picks, { appUrl: appUrl(), lang: lang === 'en' ? 'en' : 'pl' });
   if (!msg) {
     console.log('Dziś nie ma o czym przypominać.');
     return;

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Konkursy</title>
-  <meta name="description" content="Śledzenie konkursów: terminy, szanse, zgłoszenia i powiadomienia.">
+  <title>Lootsy</title>
+  <meta name="description" content="Lootsy – konkursy i rozdania: terminy, szanse, zgłoszenia i przypomnienia. Contests & giveaways: deadlines, odds and reminders.">
   <meta name="theme-color" content="#f6f8fa" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#010409" media="(prefers-color-scheme: dark)">
   <link rel="manifest" href="manifest.webmanifest">
@@ -14,28 +14,28 @@
   <script>
     try {
       var t = localStorage.getItem('konkursy.theme');
-      if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      if (t === '"light"' || t === '"dark"') document.documentElement.dataset.theme = JSON.parse(t);
     } catch (e) {}
   </script>
 </head>
 <body>
   <header class="appbar">
     <div class="appbar-inner">
-      <a class="brand" href="./" aria-label="Konkursy – strona główna">
+      <a class="brand" href="./" aria-label="Lootsy">
         <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-text"><span id="brand-owner" class="brand-owner"></span><span class="brand-sep">/</span><strong>konkursy</strong></span>
+        <span class="brand-text"><strong>Lootsy</strong><span id="brand-tagline" class="brand-tagline"></span></span>
       </a>
       <div class="appbar-actions">
-        <button id="btn-sync" class="btn btn-sm btn-invisible sync" type="button" title="Synchronizacja"></button>
-        <button id="btn-refresh" class="btn btn-sm" type="button" title="Sprawdź teraz, czy doszły nowe konkursy"></button>
-        <button id="btn-settings" class="btn btn-sm btn-icon" type="button" title="Ustawienia" aria-label="Ustawienia"></button>
-        <button id="btn-add" class="btn btn-sm btn-primary" type="button" title="Dodaj konkurs (skrót: c)"></button>
+        <button id="btn-sync" class="btn btn-sm btn-invisible sync" type="button"></button>
+        <button id="btn-refresh" class="btn btn-sm" type="button"></button>
+        <button id="btn-settings" class="btn btn-sm btn-icon" type="button"></button>
+        <button id="btn-add" class="btn btn-sm btn-primary" type="button"></button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <nav id="tabs" class="underline-nav" aria-label="Widoki"></nav>
+    <nav id="tabs" class="underline-nav"></nav>
     <div id="toolbar" class="toolbar"></div>
     <div id="stats" class="stats"></div>
     <div id="list" class="lists" aria-live="polite"></div>
@@ -46,7 +46,7 @@
   <dialog id="dlg-settings" class="dlg" aria-labelledby="dlg-settings-title"></dialog>
   <dialog id="dlg-add" class="dlg" aria-labelledby="dlg-add-title"></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <noscript><p class="container">Aplikacja wymaga JavaScriptu.</p></noscript>
+  <noscript><p class="container">Lootsy wymaga JavaScriptu. / Lootsy requires JavaScript.</p></noscript>
 
   <script type="module" src="app.js"></script>
 </body>

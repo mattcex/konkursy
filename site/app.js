@@ -1,6 +1,8 @@
-// Konkursy – aplikacja (GitHub Pages). Bez zależności i bez kroku budowania.
+// Lootsy – aplikacja (GitHub Pages i Android). Bez zależności i bez kroku budowania.
 import * as L from './logic.js';
+import { translator, detectLang } from './i18n.js';
 
+// Klucze pamięci bez zmian względem wersji „Konkursy”, żeby nie zgubić zapisanych danych.
 const K = { state: 'konkursy.state.v1', sync: 'konkursy.sync.v1', ui: 'konkursy.ui.v1', theme: 'konkursy.theme', catalog: 'konkursy.catalog.v1' };
 const $ = (sel) => document.querySelector(sel);
 
@@ -33,17 +35,51 @@ if (ui.cat === 'stay') ui.cat = 'trip'; // starsza wersja ustawień
 if (!['all', ...L.KIND_ORDER].includes(ui.cat)) ui.cat = 'all';
 if (!['deadline', 'odds', 'value', 'new'].includes(ui.sort)) ui.sort = 'deadline';
 let sync = lsGet(K.sync);
-let syncInfo = { kind: sync ? 'busy' : 'local', msg: sync ? 'Łączenie…' : 'Tylko to urządzenie', at: null };
+let syncInfo = { kind: sync ? 'busy' : 'local', key: sync ? 'sync.connecting' : 'sync.local' };
 let openId = null;
+
+// ---------- język ----------
+
+let tr = translator('pl');
+const t = (key, vars) => tr.t(key, vars);
+const tn = (key, n, vars) => tr.tn(key, n, vars);
+
+function resolveLang() {
+  const pref = L.settingsOf(state).lang;
+  return pref === 'auto' ? detectLang(navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language]) : pref;
+}
+
+/** Ustawia język interfejsu; zwraca true, gdy się zmienił. */
+function applyLang() {
+  const code = resolveLang();
+  const changed = code !== tr.lang;
+  tr = translator(code);
+  document.documentElement.lang = code;
+  return changed;
+}
 
 const site = (() => {
   const host = location.hostname;
+  const appUrl = location.origin + location.pathname.replace(/index\.html$/, '');
   if (host.endsWith('.github.io')) {
     const owner = host.split('.')[0];
     const repo = location.pathname.split('/').filter(Boolean)[0] || host;
-    return { owner, repo, repoUrl: `https://github.com/${owner}/${repo}`, appUrl: location.origin + location.pathname.replace(/index\.html$/, '') };
+    const repoUrl = `https://github.com/${owner}/${repo}`;
+    return { owner, repo, repoUrl, appUrl, apkUrl: `${repoUrl}/releases/latest/download/lootsy.apk` };
   }
-  return { owner: 'lokalnie', repo: 'konkursy', repoUrl: '', appUrl: location.origin + location.pathname.replace(/index\.html$/, '') };
+  return { owner: 'lokalnie', repo: 'konkursy', repoUrl: '', appUrl, apkUrl: '' };
+})();
+
+// W aplikacji na Androida nie pokazujemy linku do pobrania APK.
+const inAndroidApp = (() => {
+  try {
+    if (document.referrer.startsWith('android-app://') || new URLSearchParams(location.search).get('source') === 'android') {
+      sessionStorage.setItem('lootsy.android', '1');
+    }
+    return sessionStorage.getItem('lootsy.android') === '1';
+  } catch {
+    return false;
+  }
 })();
 
 function saveLocal() {
@@ -91,6 +127,7 @@ function setSettings(mutate) {
   s.t = Date.now();
   state.settings = s;
   commit();
+  if (applyLang()) rerenderAll();
 }
 
 // ---------- synchronizacja (prywatny gist) ----------
@@ -100,8 +137,8 @@ let syncing = false;
 let syncAgain = false;
 let lastPull = 0;
 
-function setSync(kind, msg) {
-  syncInfo = { kind, msg, at: kind === 'ok' ? new Date() : syncInfo.at };
+function setSync(kind, key) {
+  syncInfo = { kind, key };
   renderSyncButton();
 }
 
@@ -135,7 +172,7 @@ async function readGistState(gistId) {
 
 async function connect(token) {
   token = token.trim();
-  if (!token) throw new Error('Wklej token.');
+  if (!token) throw new Error(t('sync.pasteToken'));
   const user = await gh('/user', { token });
   let gistId = null;
   for (let page = 1; page <= 10 && !gistId; page++) {
@@ -148,11 +185,7 @@ async function connect(token) {
     const g = await gh('/gists', {
       token,
       method: 'POST',
-      body: {
-        description: 'Konkursy – prywatny stan aplikacji (nie usuwaj)',
-        public: false,
-        files: { [L.STATE_FILE]: { content: JSON.stringify(state, null, 1) } },
-      },
+      body: { description: t('sync.gistDescription'), public: false, files: { [L.STATE_FILE]: { content: JSON.stringify(state, null, 1) } } },
     });
     gistId = g.id;
   }
@@ -165,7 +198,7 @@ async function connect(token) {
 function disconnect() {
   sync = null;
   lsSet(K.sync, null);
-  setSync('local', 'Tylko to urządzenie');
+  setSync('local', 'sync.local');
 }
 
 /** Pobiera stan z gista, łączy z lokalnym i zapisuje wynik w obu miejscach. */
@@ -176,7 +209,7 @@ async function syncNow() {
     return;
   }
   syncing = true;
-  setSync('busy', 'Synchronizuję…');
+  setSync('busy', 'sync.syncing');
   try {
     const remote = await readGistState(sync.gistId);
     const merged = L.mergeStates(state, remote);
@@ -184,8 +217,11 @@ async function syncNow() {
     state = merged;
     saveLocal();
     if (localChanged) {
-      render();
-      if (openId && $('#dlg-contest').open) renderContest(openId);
+      if (applyLang()) rerenderAll();
+      else {
+        render();
+        if (openId && $('#dlg-contest').open) renderContest(openId);
+      }
     }
     if (!L.sameState(merged, remote)) {
       await gh(`/gists/${encodeURIComponent(sync.gistId)}`, {
@@ -194,12 +230,12 @@ async function syncNow() {
       });
     }
     lastPull = Date.now();
-    setSync('ok', 'Zsynchronizowano');
+    setSync('ok', 'sync.ok');
   } catch (e) {
-    if (e.status === 401) setSync('err', 'Token wygasł lub jest nieprawidłowy');
-    else if (e.status === 404) setSync('err', 'Nie znaleziono gista ze stanem');
-    else if (e.status === 403) setSync('err', 'GitHub odmówił dostępu (limit lub uprawnienia)');
-    else setSync('err', 'Brak połączenia – spróbuję ponownie');
+    if (e.status === 401) setSync('err', 'sync.err401');
+    else if (e.status === 404) setSync('err', 'sync.err404');
+    else if (e.status === 403) setSync('err', 'sync.err403');
+    else setSync('err', 'sync.errNet');
   } finally {
     syncing = false;
     if (syncAgain) {
@@ -218,17 +254,18 @@ function scheduleSync(ms = 1200) {
 // ---------- odświeżanie listy: uruchomienie robota w GitHub Actions ----------
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-let refreshing = null; // opis postępu albo null
+let refreshing = null; // klucz tekstu postępu albo null
 
 function renderRefreshButton() {
   const btn = $('#btn-refresh');
   if (!btn) return;
   btn.disabled = Boolean(refreshing);
-  btn.replaceChildren(icon('refresh', { cls: refreshing ? 'spin' : '' }), h('span', { class: 'refresh-text' }, refreshing || 'Odśwież'));
+  btn.title = t('refresh.title');
+  btn.replaceChildren(icon('refresh', { cls: refreshing ? 'spin' : '' }), h('span', { class: 'refresh-text' }, t(refreshing || 'refresh.btn')));
 }
 
-function setRefreshing(msg) {
-  refreshing = msg;
+function setRefreshing(key) {
+  refreshing = key;
   renderRefreshButton();
 }
 
@@ -247,15 +284,15 @@ async function runRobot() {
     const list = await gh(`/repos/${owner}/${repo}/actions/workflows/${L.ROBOT_WORKFLOW}/runs?event=workflow_dispatch&per_page=10`);
     run = L.findDispatchedRun(list.workflow_runs, requestId);
   }
-  if (!run) throw new Error('Robot nie wystartował – spróbuj za chwilę');
+  if (!run) throw new Error(t('refresh.noRun'));
   const started = Date.now();
   while (run.status !== 'completed') {
-    if (Date.now() - started > 8 * 60 * 1000) throw new Error('Robot działa długo – lista odświeży się sama');
-    setRefreshing(run.status === 'in_progress' ? 'Robot szuka nowych…' : 'Robot w kolejce…');
+    if (Date.now() - started > 8 * 60 * 1000) throw new Error(t('refresh.tooLong'));
+    setRefreshing(run.status === 'in_progress' ? 'refresh.running' : 'refresh.queued');
     await sleep(5000);
     run = await gh(`/repos/${owner}/${repo}/actions/runs/${run.id}`);
   }
-  if (run.conclusion !== 'success') throw new Error(`Robot zakończył się błędem (${run.conclusion})`);
+  if (run.conclusion !== 'success') throw new Error(t('refresh.failed', { c: run.conclusion }));
 }
 
 /** Świeża lista prosto z repozytorium (GitHub Pages potrafi przez kilka minut pokazywać starą). */
@@ -272,25 +309,25 @@ async function refreshList() {
   if (refreshing) return;
   const before = new Set((catalog.contests || []).map((c) => c.id));
   const robot = canRunRobot();
-  setRefreshing(robot ? 'Robot startuje…' : 'Odświeżam…');
+  setRefreshing(robot ? 'refresh.starting' : 'refresh.reloading');
   try {
     if (robot) {
       await runRobot();
-      setRefreshing('Wczytuję listę…');
+      setRefreshing('refresh.loading');
       await loadCatalogFromRepo().catch(() => loadCatalog());
     } else {
       await loadCatalog();
     }
     render();
     const added = (catalog.contests || []).filter((c) => !before.has(c.id)).length;
-    toast(added ? `Nowe konkursy: ${added} – oznaczone jako „nowy”` : robot ? 'Robot sprawdził – brak nowych konkursów' : 'Lista wczytana ponownie');
-    if (!robot && site.repoUrl) setTimeout(() => toast('Połącz token w ustawieniach, żeby „Odśwież” uruchamiał robota'), 2500);
+    toast(added ? t('refresh.added', { n: added }) : robot ? t('refresh.none') : t('refresh.reloaded'));
+    if (!robot && site.repoUrl) setTimeout(() => toast(t('refresh.hintToken')), 2500);
   } catch (e) {
-    if (e.status === 401) toast('Token wygasł – wklej nowy w ustawieniach');
+    if (e.status === 401) toast(t('refresh.tokenExpired'));
     else if (e.status === 403 || e.status === 404) {
-      toast('Ten token nie może uruchamiać robota – utwórz nowy w ustawieniach');
+      toast(t('refresh.noPermission'));
       openSettings();
-    } else toast(e.message || 'Nie udało się odświeżyć');
+    } else toast(e.message || t('refresh.error'));
   } finally {
     setRefreshing(null);
   }
@@ -335,20 +372,17 @@ const ICONS = {
   copy: '<rect x="5.25" y="5.25" width="8" height="8" rx="1.25"/><path d="M10.75 5.25V3.5a.75.75 0 0 0-.75-.75H3.5a.75.75 0 0 0-.75.75V10c0 .41.34.75.75.75h1.75"/>',
   bed: '<path d="M1.75 12.75V3.75M1.75 9.75h12.5v3M14.25 9.75V8.25a2 2 0 0 0-2-2H7.25v3.5"/><circle cx="4.5" cy="7.5" r="1.25"/>',
   bell: '<path d="M4 11.5V7a4 4 0 0 1 8 0v4.5l1.25 1.25H2.75z"/><path d="M6.5 14h3"/>',
-  cloud: '<path d="M4.5 12.25h7a2.75 2.75 0 0 0 .4-5.47A4 4 0 0 0 4.2 6.5a2.9 2.9 0 0 0 .3 5.75z"/>',
   download: '<path d="M8 2.75v7.5M4.75 7.25L8 10.5l3.25-3.25M2.75 13.25h10.5"/>',
   upload: '<path d="M8 10.5V3M4.75 6.25L8 3l3.25 3.25M2.75 13.25h10.5"/>',
-  calendar: '<rect x="2.25" y="3.25" width="11.5" height="10.5" rx="1.25"/><path d="M2.25 6.5h11.5M5.5 1.75v3M10.5 1.75v3"/>',
   trash: '<path d="M3 4.5h10M6.5 4.5V3h3v1.5M4.5 4.5l.6 8.75h5.8l.6-8.75"/>',
   pencil: '<path d="M11 2.75l2.25 2.25-7.5 7.5H3.5v-2.25z"/>',
   refresh: '<path d="M13 8a5 5 0 1 1-1.46-3.54M13.25 2.5v3h-3"/>',
-  people: '<circle cx="6" cy="5.5" r="2.25"/><path d="M2 13c0-2.2 1.8-3.75 4-3.75S10 10.8 10 13M10.5 3.6a2.25 2.25 0 0 1 0 4M12 9.5c1.3.5 2 1.8 2 3.5"/>',
-  link: '<path d="M6.75 9.25a2.5 2.5 0 0 0 3.54 0l2-2a2.5 2.5 0 0 0-3.54-3.54l-.75.75M9.25 6.75a2.5 2.5 0 0 0-3.54 0l-2 2a2.5 2.5 0 0 0 3.54 3.54l.75-.75"/>',
   device: '<rect x="2.75" y="3" width="10.5" height="7.25" rx="1"/><path d="M1.25 12.75h13.5"/>',
   gift: '<rect x="2.5" y="6.5" width="11" height="7" rx="1"/><path d="M1.75 4h12.5v2.5H1.75zM8 4v9.5M8 4C7 1.75 4.5 1.75 4.75 3.5M8 4c1-2.25 3.5-2.25 3.25-.5"/>',
   gem: '<path d="M4.5 2.75h7L14 6 8 13.5 2 6z"/><path d="M2 6h12M6.25 2.75L5.5 6 8 13.5 10.5 6l-.75-3.25"/>',
   box: '<path d="M2.5 5L8 2.5 13.5 5v6.5L8 14l-5.5-2.5z"/><path d="M2.5 5L8 7.5 13.5 5M8 7.5V14"/>',
   sparkle: '<path d="M8 1.75l1.4 3.85L13.25 7 9.4 8.4 8 12.25 6.6 8.4 2.75 7 6.6 5.6z"/>',
+  android: '<path d="M4.25 6.5h7.5v5.25a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1zM4.25 6a3.75 3.75 0 0 1 7.5 0M5.5 2.5l1 1.5M10.5 2.5l-1 1.5"/><circle cx="6.5" cy="4.9" r=".4" fill="currentColor"/><circle cx="9.5" cy="4.9" r=".4" fill="currentColor"/>',
 };
 
 const KIND_ICON = { trip: 'bed', tech: 'device', voucher: 'gift', other: 'box' };
@@ -371,11 +405,11 @@ function icon(name, { size = 16, cls = '', fill = false } = {}) {
 
 let toastTimer = null;
 function toast(msg) {
-  const t = $('#toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  const el = $('#toast');
+  el.textContent = msg;
+  el.classList.add('show');
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 2200);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
 }
 
 async function copyText(text) {
@@ -388,7 +422,7 @@ async function copyText(text) {
     document.execCommand('copy');
     ta.remove();
   }
-  toast('Skopiowano do schowka');
+  toast(t('toast.copied'));
 }
 
 const safeUrl = (u) => (typeof u === 'string' && /^https?:\/\//i.test(u) ? u : null);
@@ -401,22 +435,21 @@ function extLink(url, label, cls = '') {
 
 // ---------- formatowanie ----------
 
-const MON = ['sty', 'lut', 'mar', 'kwi', 'maj', 'cze', 'lip', 'sie', 'wrz', 'paź', 'lis', 'gru'];
-
 function fmtDay(iso, withYear = false) {
   if (!L.isISODate(iso)) return '—';
   const [y, m, d] = iso.split('-');
   const cur = L.todayISO().slice(0, 4);
-  return `${+d} ${MON[+m - 1]}${withYear || y !== cur ? ' ' + y : ''}`;
+  const months = t('months');
+  return `${+d} ${months[+m - 1]}${withYear || y !== cur ? ' ' + y : ''}`;
 }
 
 function rel(dl) {
-  if (dl === null) return 'bez terminu';
-  if (dl === 0) return 'kończy się dziś';
-  if (dl === 1) return 'jutro';
-  if (dl > 1) return `za ${dl} dni`;
-  if (dl === -1) return 'wczoraj';
-  return `${-dl} dni temu`;
+  if (dl === null) return t('rel.none');
+  if (dl === 0) return t('rel.today');
+  if (dl === 1) return t('rel.tomorrow');
+  if (dl > 1) return tn('rel.in', dl);
+  if (dl === -1) return t('rel.yesterday');
+  return tn('rel.ago', -dl);
 }
 
 function dueClass(dl) {
@@ -429,17 +462,13 @@ function dueClass(dl) {
 }
 
 function oddsEl(odds) {
-  if (!odds) return h('span', { class: 'odds odds-bad', title: 'Brak liczby komentarzy – wpisz ją w szczegółach' }, '1:?');
+  if (!odds) return h('span', { class: 'odds odds-bad', title: t('odds.unknown') }, '1:?');
   const cls = odds <= 30 ? 'odds-good' : odds <= 100 ? 'odds-ok' : 'odds-bad';
-  return h('span', { class: `odds ${cls}`, title: 'Szansa ≈ komentarze ÷ liczba nagród' }, `1:${odds}`);
+  return h('span', { class: `odds ${cls}`, title: t('odds.title') }, `1:${odds}`);
 }
 
-const PLATFORM = { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube', x: 'X', www: 'strona www' };
-const JUDGING = {
-  jury: ['jury', 'label-jury', 'Zwycięzców wybiera jury – liczy się pomysł'],
-  losowanie: ['losowanie', 'label-draw', 'Zwycięzcy są losowani'],
-  reakcje: ['najwięcej reakcji', 'label-warn', 'Wygrywają komentarze z największą liczbą reakcji'],
-};
+const platformName = (p) => ({ facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', youtube: 'YouTube', x: 'X' })[p] || (p === 'www' ? t('platform.www') : null);
+const JUDGING_CLASS = { jury: 'label-jury', losowanie: 'label-draw', reakcje: 'label-warn' };
 
 // ---------- widok listy ----------
 
@@ -463,11 +492,11 @@ function rows() {
 }
 
 const TABS = [
-  { id: 'open', label: 'Otwarte', icon: 'open' },
-  { id: 'todo', label: 'Planuję', icon: 'star' },
-  { id: 'submitted', label: 'Zgłoszone', icon: 'done' },
-  { id: 'results', label: 'Wyniki', icon: 'trophy' },
-  { id: 'closed', label: 'Zakończone', icon: 'closed' },
+  { id: 'open', icon: 'open' },
+  { id: 'todo', icon: 'star' },
+  { id: 'submitted', icon: 'done' },
+  { id: 'results', icon: 'trophy' },
+  { id: 'closed', icon: 'closed' },
 ];
 
 function inTab(r, tab, showHidden = ui.showHidden) {
@@ -517,8 +546,8 @@ function stateIcon(st, dl) {
 
 function prizeLabel(p) {
   if (p.value === null) return null;
-  const text = `${p.estimated ? '~' : ''}${L.formatPLN(p.value)}`;
-  const title = p.estimated ? 'Szacunkowa wartość nagrody (w opisie nie ma kwoty)' : 'Wartość największej nagrody';
+  const text = `${p.estimated ? '~' : ''}${tr.money(p.value)}`;
+  const title = p.estimated ? t('label.valueEst') : t('label.value');
   if (p.tier === 'top') return h('span', { class: 'label label-value-top', title }, icon('gem', { size: 12 }), text);
   if (p.tier === 'high') return h('span', { class: 'label label-value', title }, icon('gem', { size: 12 }), text);
   return h('span', { class: 'label', title }, text);
@@ -528,26 +557,25 @@ function labelsFor(r) {
   const { c, prize } = r;
   const f = L.flagsOf(c);
   const out = [];
-  if (r.isNew) out.push(h('span', { class: 'label label-new', title: 'Robot znalazł ten konkurs dziś lub wczoraj' }, icon('sparkle', { size: 12 }), 'nowy'));
+  if (r.isNew) out.push(h('span', { class: 'label label-new', title: t('label.newTitle') }, icon('sparkle', { size: 12 }), t('label.new')));
   const pl = prizeLabel(prize);
   if (pl) out.push(pl);
-  if (f.stay) out.push(h('span', { class: 'label label-stay', title: 'Nocleg, pobyt lub wyjazd' }, icon('bed', { size: 12 }), 'wyjazd'));
-  else if (prize.kind === 'tech') out.push(h('span', { class: 'label label-tech', title: 'Sprzęt lub elektronika' }, icon('device', { size: 12 }), 'sprzęt'));
-  else if (prize.kind === 'voucher') out.push(h('span', { class: 'label', title: 'Bon, karta podarunkowa lub gotówka' }, icon('gift', { size: 12 }), 'bon'));
-  const j = JUDGING[c.judging];
-  if (j) out.push(h('span', { class: `label ${j[1]}`, title: j[2] }, j[0]));
-  if (c.location) out.push(h('span', { class: 'label label-local', title: 'Konkurs lokalny' }, c.location));
-  if (f.fbShare) out.push(h('span', { class: 'label label-danger', title: 'Wymaga udostępnienia posta na Facebooku' }, 'udostępnienie FB'));
-  if (f.igShare) out.push(h('span', { class: 'label label-warn', title: 'Wymaga udostępnienia na Instagramie' }, 'udostępnienie IG'));
-  if (f.purchase) out.push(h('span', { class: 'label label-danger' }, 'zakup'));
-  if (f.app) out.push(h('span', { class: 'label label-warn' }, 'aplikacja'));
-  if (f.content) out.push(h('span', { class: 'label label-warn', title: 'Trzeba dodać zdjęcie, film lub grafikę' }, 'zdjęcie/film'));
-  if (f.party) out.push(h('span', { class: 'label label-warn' }, 'impreza'));
-  if (f.creative) out.push(h('span', { class: 'label label-warn', title: 'Esej, wiersz, opowiadanie, nagranie, projekt albo praca dyplomowa' }, 'praca twórcza'));
-  if (c.manual) out.push(h('span', { class: 'label' }, 'dodany ręcznie'));
-  if (c.gone) out.push(h('span', { class: 'label', title: 'Konkursu nie ma już na liście robota – pokazuję zapamiętane dane' }, 'archiwum'));
-  if (r.hidden && ui.showHidden) out.push(h('span', { class: 'label', title: 'Ukryty przez filtr' }, `ukryty: ${r.hidden}`));
-  if (r.st === 'skipped') out.push(h('span', { class: 'label' }, 'pominięty'));
+  if (f.stay) out.push(h('span', { class: 'label label-stay', title: t('label.tripTitle') }, icon('bed', { size: 12 }), t('label.trip')));
+  else if (prize.kind === 'tech') out.push(h('span', { class: 'label label-tech', title: t('label.techTitle') }, icon('device', { size: 12 }), t('label.tech')));
+  else if (prize.kind === 'voucher') out.push(h('span', { class: 'label', title: t('label.voucherTitle') }, icon('gift', { size: 12 }), t('label.voucher')));
+  if (JUDGING_CLASS[c.judging]) out.push(h('span', { class: `label ${JUDGING_CLASS[c.judging]}`, title: t(`judging.${c.judging}Title`) }, t(`judging.${c.judging}`)));
+  if (c.location) out.push(h('span', { class: 'label label-local', title: t('label.local') }, c.location));
+  if (f.fbShare) out.push(h('span', { class: 'label label-danger', title: t('label.fbShareTitle') }, t('label.fbShare')));
+  if (f.igShare) out.push(h('span', { class: 'label label-warn', title: t('label.igShareTitle') }, t('label.igShare')));
+  if (f.purchase) out.push(h('span', { class: 'label label-danger' }, t('label.purchase')));
+  if (f.app) out.push(h('span', { class: 'label label-warn' }, t('label.app')));
+  if (f.content) out.push(h('span', { class: 'label label-warn', title: t('label.contentTitle') }, t('label.content')));
+  if (f.party) out.push(h('span', { class: 'label label-warn' }, t('label.party')));
+  if (f.creative) out.push(h('span', { class: 'label label-warn', title: t('label.creativeTitle') }, t('label.creative')));
+  if (c.manual) out.push(h('span', { class: 'label' }, t('label.manual')));
+  if (c.gone) out.push(h('span', { class: 'label', title: t('label.goneTitle') }, t('label.gone')));
+  if (r.hidden && ui.showHidden) out.push(h('span', { class: 'label', title: t('label.hiddenTitle') }, t('label.hidden', { r: t(`reason.${r.hidden}`) })));
+  if (r.st === 'skipped') out.push(h('span', { class: 'label' }, t('label.skipped')));
   return out;
 }
 
@@ -560,22 +588,23 @@ function itemEl(r) {
     meta.push(node);
   };
   if (c.org) push(h('span', null, c.org));
-  push(h('span', null, `do ${fmtDay(c.end)}`));
+  push(h('span', null, t('meta.until', { d: fmtDay(c.end) })));
   const prizes = L.prizesOf(c, it);
-  if (prizes) push(h('span', null, `${prizes} ${L.plural(prizes, ['nagroda', 'nagrody', 'nagród'])}`));
-  if (c.platform && PLATFORM[c.platform]) push(h('span', null, PLATFORM[c.platform]));
-  if (isDone && it.at) push(h('span', null, `zgłoszone ${fmtDay(it.at)}`));
+  if (prizes) push(h('span', null, tn('meta.prizes', prizes)));
+  const pf = platformName(c.platform);
+  if (pf) push(h('span', null, pf));
+  if (isDone && it.at) push(h('span', null, t('meta.enteredOn', { d: fmtDay(it.at) })));
   const res = L.resultsOf(c, it);
-  if (res && (isDone || st === 'todo')) push(h('span', null, `wyniki ${fmtDay(res)}`));
+  if (res && (isDone || st === 'todo')) push(h('span', null, t('meta.results', { d: fmtDay(res) })));
 
   const star = h(
     'button',
     {
       type: 'button',
       class: `btn btn-sm btn-invisible btn-icon star${st === 'todo' ? ' on' : ''}`,
-      title: st === 'todo' ? 'Usuń z „Planuję”' : 'Dodaj do „Planuję”',
+      title: st === 'todo' ? t('star.remove') : t('star.add'),
       'aria-pressed': st === 'todo' ? 'true' : 'false',
-      'aria-label': 'Planuję',
+      'aria-label': t('star.aria'),
       disabled: isDone || undefined,
       onclick: () => setStatus(c, st === 'todo' ? '' : 'todo'),
     },
@@ -590,28 +619,28 @@ function itemEl(r) {
       type: 'checkbox',
       class: 'cb',
       checked: isDone,
-      title: isDone ? 'Cofnij zgłoszenie' : 'Oznacz jako zgłoszone',
-      'aria-label': `Zgłoszone: ${c.title}`,
+      title: isDone ? t('cb.undo') : t('cb.mark'),
+      'aria-label': t('cb.aria', { title: c.title }),
       onchange: (e) => {
         setStatus(c, e.target.checked ? 'submitted' : '');
-        toast(e.target.checked ? 'Oznaczono jako zgłoszone ✓' : 'Cofnięto zgłoszenie');
+        toast(e.target.checked ? t('toast.submitted') : t('toast.unsubmitted'));
       },
     }),
     stateIcon(st, dl),
     h(
       'div',
       { class: 'item-main' },
-      h('button', { type: 'button', class: 'item-title', onclick: () => openContest(c.id) }, c.title || '(bez tytułu)'),
+      h('button', { type: 'button', class: 'item-title', onclick: () => openContest(c.id) }, c.title || t('untitled')),
       h('span', { class: 'item-labels' }, labelsFor(r)),
       h('div', { class: 'item-meta' }, meta),
     ),
     h(
       'div',
       { class: 'item-side' },
-      h('span', { class: `meta-pill due ${dueClass(dl)}`, title: `Koniec: ${fmtDay(c.end, true)}` }, icon('clock', { size: 14 }), rel(dl)),
+      h('span', { class: `meta-pill due ${dueClass(dl)}`, title: t('meta.endTitle', { d: fmtDay(c.end, true) }) }, icon('clock', { size: 14 }), rel(dl)),
       h(
         'span',
-        { class: 'meta-pill', title: comments ? `Komentarze pod postem (sprawdzone ${fmtDay(comments.at)})` : 'Liczba komentarzy nieznana' },
+        { class: 'meta-pill', title: comments ? t('meta.commentsTitle', { d: fmtDay(comments.at) }) : t('meta.commentsUnknown') },
         icon('comment', { size: 14 }),
         comments ? String(comments.n) : '?',
       ),
@@ -632,23 +661,23 @@ function boxEl(title, list, emptyText) {
 function renderTabs(all) {
   const nav = $('#tabs');
   nav.replaceChildren(
-    ...TABS.map((t) =>
+    ...TABS.map((tab) =>
       h(
         'button',
         {
           type: 'button',
           class: 'tab',
           role: 'tab',
-          'aria-selected': ui.tab === t.id ? 'true' : 'false',
+          'aria-selected': ui.tab === tab.id ? 'true' : 'false',
           onclick: () => {
-            ui.tab = t.id;
+            ui.tab = tab.id;
             saveUi();
             render();
           },
         },
-        icon(t.icon),
-        t.label,
-        h('span', { class: 'counter' }, String(all.filter((r) => inTab(r, t.id)).length)),
+        icon(tab.icon),
+        t(`tab.${tab.id}`),
+        h('span', { class: 'counter' }, String(all.filter((r) => inTab(r, tab.id)).length)),
       ),
     ),
   );
@@ -663,8 +692,8 @@ function buildToolbar() {
     id: 'q',
     class: 'input',
     type: 'search',
-    placeholder: 'Szukaj konkursów…',
-    'aria-label': 'Szukaj konkursów',
+    placeholder: t('search.placeholder'),
+    'aria-label': t('search.placeholder'),
     value: ui.q,
     oninput: (e) => {
       ui.q = e.target.value;
@@ -684,15 +713,15 @@ function buildToolbar() {
           render();
         },
       },
-      options.map(([v, t]) => h('option', { value: v, selected: ui[key] === v }, t)),
+      options.map(([v, text]) => h('option', { value: v, selected: ui[key] === v }, text)),
     );
   $('#toolbar').replaceChildren(
     h('div', { class: 'search' }, icon('search'), search),
-    sel('f-cat', 'Rodzaj nagrody', [['all', 'Wszystkie nagrody'], ...L.KIND_ORDER.map((k) => [k, L.PRIZE_KINDS[k].label])], 'cat'),
-    sel('f-sort', 'Sortowanie', [['deadline', 'Sortuj: termin'], ['value', 'Sortuj: wartość nagrody'], ['odds', 'Sortuj: szansa'], ['new', 'Sortuj: najnowsze']], 'sort'),
+    sel('f-cat', t('filter.kindAria'), [['all', t('filter.allKinds')], ...L.KIND_ORDER.map((k) => [k, t(`kind.${k}`)])], 'cat'),
+    sel('f-sort', t('sort.aria'), [['deadline', t('sort.deadline')], ['value', t('sort.value')], ['odds', t('sort.odds')], ['new', t('sort.new')]], 'sort'),
     h(
       'label',
-      { class: 'check', title: 'Pokaż konkursy ukryte przez filtry i pominięte' },
+      { class: 'check', title: t('hidden.title') },
       h('input', {
         id: 'f-hidden',
         type: 'checkbox',
@@ -703,7 +732,7 @@ function buildToolbar() {
           render();
         },
       }),
-      h('span', { id: 'f-hidden-label' }, 'Pokaż ukryte'),
+      h('span', { id: 'f-hidden-label' }, t('hidden.toggle', { n: 0 })),
     ),
   );
 }
@@ -716,13 +745,13 @@ function renderStats(all) {
   const valuable = all.filter((r) => inTab(r, 'open', false) && L.isValuable(r.prize)).length;
   const fresh = all.filter((r) => inTab(r, 'open', false) && r.isNew).length;
   const hiddenCount = all.filter((r) => (r.dl === null || r.dl >= 0) && !L.DONE.has(r.st) && (r.hidden || r.st === 'skipped')).length;
-  $('#f-hidden-label').textContent = `Pokaż ukryte (${hiddenCount})`;
+  $('#f-hidden-label').textContent = t('hidden.toggle', { n: hiddenCount });
   const part = (label, value) => h('span', null, label, ' ', h('strong', null, String(value)));
-  const stats = [part('Zgłoszone:', submitted), part('Wygrane:', won)];
-  if (won + lost > 0) stats.push(part('Skuteczność:', `${Math.round((won / (won + lost)) * 100)}%`));
-  stats.push(part('Wyjazdy:', stays));
-  stats.push(part(`Wartościowe (od ${L.formatPLN(L.VALUABLE_FROM)}):`, valuable));
-  if (fresh) stats.push(part('Nowe:', fresh));
+  const stats = [part(t('stats.entered'), submitted), part(t('stats.won'), won)];
+  if (won + lost > 0) stats.push(part(t('stats.rate'), `${Math.round((won / (won + lost)) * 100)}%`));
+  stats.push(part(t('stats.trips'), stays));
+  stats.push(part(t('stats.valuable', { v: tr.money(L.VALUABLE_FROM) }), valuable));
+  if (fresh) stats.push(part(t('stats.new'), fresh));
   $('#stats').replaceChildren(...stats);
 }
 
@@ -730,15 +759,9 @@ function renderList() {
   const all = rows();
   const list = sortRows(all.filter((r) => inTab(r, ui.tab) && matches(r)));
   const root = $('#list');
-  const empty = {
-    open: 'Brak otwartych konkursów pasujących do filtrów.',
-    todo: 'Kliknij gwiazdkę przy konkursie, żeby dodać go do „Planuję”.',
-    submitted: 'Zaznacz pole przy konkursie, gdy wyślesz zgłoszenie.',
-    results: 'Gdy poznasz wynik, ustaw w szczegółach status „Wygrane” albo „Przegrane”.',
-    closed: 'Brak zakończonych konkursów.',
-  }[ui.tab];
+  const empty = t(`empty.${ui.tab}`);
   const boxes = [];
-  if (catalogError) boxes.push(h('div', { class: 'flash flash-warn' }, catalogError));
+  if (catalogError) boxes.push(h('div', { class: 'flash flash-warn' }, t(catalogError)));
   if ((ui.tab === 'open' || ui.tab === 'todo') && ui.cat === 'all' && (ui.sort === 'deadline' || ui.sort === 'odds') && list.length) {
     // Sekcje według rodzaju nagrody: wyjazdy, sprzęt, bony, pozostałe
     for (const kind of L.KIND_ORDER) {
@@ -751,9 +774,9 @@ function renderList() {
             'span',
             { class: 'box-title' },
             icon(KIND_ICON[kind]),
-            ` ${L.PRIZE_KINDS[kind].label} `,
+            ` ${t(`kind.${kind}`)} `,
             h('span', { class: 'counter' }, String(part.length)),
-            valuable ? h('span', { class: 'muted box-note' }, ` · wartościowe: ${valuable}`) : null,
+            valuable ? h('span', { class: 'muted box-note' }, t('list.valuable', { n: valuable })) : null,
           ),
           part,
           '',
@@ -761,7 +784,7 @@ function renderList() {
       );
     }
   } else {
-    boxes.push(boxEl(h('span', null, `${list.length} ${L.plural(list.length, ['konkurs', 'konkursy', 'konkursów'])}`), list, empty));
+    boxes.push(boxEl(h('span', null, tn('list.count', list.length)), list, empty));
   }
   root.replaceChildren(...boxes);
   return all;
@@ -771,21 +794,46 @@ function renderSyncButton() {
   const btn = $('#btn-sync');
   const cls = { ok: 'ok', busy: 'busy', err: 'err', local: '' }[syncInfo.kind] || '';
   btn.className = `btn btn-sm btn-invisible sync ${cls}`;
-  const title = sync ? `${syncInfo.msg}${sync.login ? ` (@${sync.login})` : ''}` : 'Dane tylko na tym urządzeniu – kliknij, żeby włączyć synchronizację';
-  btn.title = title;
-  btn.replaceChildren(h('span', { class: 'dot', 'aria-hidden': 'true' }), h('span', { class: 'sync-text' }, sync ? syncInfo.msg : 'Lokalnie'));
+  btn.title = sync ? `${t(syncInfo.key)}${sync.login ? ` (@${sync.login})` : ''}` : t('sync.btnLocalTitle');
+  btn.replaceChildren(h('span', { class: 'dot', 'aria-hidden': 'true' }), h('span', { class: 'sync-text' }, sync ? t(syncInfo.key) : t('sync.btnLocal')));
 }
 
 function renderFooter() {
   const f = $('#footer');
   const upd = catalog.updatedAt ? new Date(catalog.updatedAt) : null;
   const parts = [
-    h('span', null, 'Lista konkursów: ', upd ? upd.toLocaleString('pl-PL', { dateStyle: 'medium', timeStyle: 'short' }) : '—', ` (${(catalog.contests || []).length})`),
-    h('span', null, 'Źródło: ', extLink('https://www.e-konkursy.info/', 'e-konkursy.info')),
-    site.repoUrl ? h('span', null, extLink(site.repoUrl, 'Kod na GitHubie')) : null,
-    h('span', null, 'Skróty: ', h('span', { class: 'kbd' }, '/'), ' szukaj, ', h('span', { class: 'kbd' }, 'c'), ' dodaj'),
+    h('span', null, t('footer.list'), ' ', upd ? upd.toLocaleString(tr.lang === 'en' ? 'en-GB' : 'pl-PL', { dateStyle: 'medium', timeStyle: 'short' }) : '—', ` (${(catalog.contests || []).length})`),
+    h('span', null, t('footer.source'), ' ', extLink('https://www.e-konkursy.info/', 'e-konkursy.info')),
+    site.apkUrl && !inAndroidApp ? h('span', null, h('a', { href: site.apkUrl }, icon('android', { size: 12 }), ' ', t('footer.android'))) : null,
+    h('span', null, h('a', { href: 'privacy.html' }, t('footer.privacy'))),
+    site.repoUrl ? h('span', null, extLink(site.repoUrl, t('footer.code'))) : null,
+    h(
+      'span',
+      { class: 'shortcuts' },
+      t('footer.shortcuts'),
+      ' ',
+      h('span', { class: 'kbd' }, '/'),
+      ` ${t('footer.search')}, `,
+      h('span', { class: 'kbd' }, 'c'),
+      ` ${t('footer.add')}, `,
+      h('span', { class: 'kbd' }, 'r'),
+      ` ${t('footer.refresh')}`,
+    ),
   ];
   f.replaceChildren(...parts.filter(Boolean));
+}
+
+function renderChrome() {
+  $('#brand-tagline').textContent = t('brand.tagline');
+  const settingsBtn = $('#btn-settings');
+  settingsBtn.title = t('btn.settings');
+  settingsBtn.setAttribute('aria-label', t('btn.settings'));
+  settingsBtn.replaceChildren(icon('sliders'));
+  const addBtn = $('#btn-add');
+  addBtn.title = t('btn.addTitle');
+  addBtn.replaceChildren(icon('plus'), h('span', { class: 'btn-add-text' }, t('btn.add')));
+  renderRefreshButton();
+  renderSyncButton();
 }
 
 function render() {
@@ -795,6 +843,15 @@ function render() {
   renderStats(all);
   renderSyncButton();
   renderFooter();
+}
+
+/** Po zmianie języka: przebuduj wszystko, łącznie z paskiem filtrów i otwartymi oknami. */
+function rerenderAll() {
+  toolbarBuilt = false;
+  renderChrome();
+  render();
+  if ($('#dlg-settings').open) renderSettings();
+  if (openId && $('#dlg-contest').open) renderContest(openId);
 }
 
 // ---------- szczegóły konkursu ----------
@@ -809,10 +866,6 @@ function openContest(id) {
   renderContest(id);
 }
 
-function closeDialogs() {
-  for (const d of document.querySelectorAll('dialog[open]')) d.close();
-}
-
 function sidebarSection(title, ...content) {
   return h('div', { class: 'sidebar-section' }, h('div', { class: 'sidebar-title' }, title), h('div', { class: 'sidebar-value' }, ...content));
 }
@@ -822,10 +875,10 @@ function commentBox(title, body, extra) {
 }
 
 function debounce(fn, ms) {
-  let t = null;
+  let timer = null;
   return (...a) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn(...a), ms);
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...a), ms);
   };
 }
 
@@ -833,7 +886,7 @@ function renderContest(id) {
   const dlg = $('#dlg-contest');
   const r = findRow(id);
   if (!r) {
-    toast('Nie znaleziono konkursu');
+    toast(t('toast.notFound'));
     if (dlg.open) dlg.close();
     return;
   }
@@ -844,21 +897,21 @@ function renderContest(id) {
 
   const badge =
     st === 'won'
-      ? h('span', { class: 'state state-badge-won' }, icon('trophy'), 'Wygrane')
+      ? h('span', { class: 'state state-badge-won' }, icon('trophy'), t('state.won'))
       : st === 'lost'
-        ? h('span', { class: 'state state-badge-closed' }, icon('lost'), 'Przegrane')
+        ? h('span', { class: 'state state-badge-closed' }, icon('lost'), t('state.lost'))
         : st === 'submitted'
-          ? h('span', { class: 'state state-badge-done' }, icon('done'), 'Zgłoszone')
+          ? h('span', { class: 'state state-badge-done' }, icon('done'), t('state.submitted'))
           : st === 'skipped'
-            ? h('span', { class: 'state state-badge-closed' }, icon('skip'), 'Pominięte')
+            ? h('span', { class: 'state state-badge-closed' }, icon('skip'), t('state.skipped'))
             : dl !== null && dl < 0
-              ? h('span', { class: 'state state-badge-closed' }, icon('closed'), 'Zakończony')
-              : h('span', { class: 'state state-badge-open' }, icon('open'), 'Otwarty');
+              ? h('span', { class: 'state state-badge-closed' }, icon('closed'), t('state.closed'))
+              : h('span', { class: 'state state-badge-open' }, icon('open'), t('state.open'));
 
   // --- kolumna główna ---
   const main = h('div', null);
-  if (c.task) main.append(commentBox(h('span', null, h('strong', null, 'Zadanie'), ' – opis z e-konkursy.info'), h('div', { class: 'comment-body' }, c.task), extLink(c.src, 'źródło')));
-  if (c.prizes) main.append(commentBox(h('strong', null, 'Nagrody'), h('div', { class: 'comment-body' }, c.prizes)));
+  if (c.task) main.append(commentBox(h('span', null, h('strong', null, t('detail.task')), t('detail.taskSrc')), h('div', { class: 'comment-body' }, c.task), extLink(c.src, t('detail.source'))));
+  if (c.prizes) main.append(commentBox(h('strong', null, t('detail.prizes')), h('div', { class: 'comment-body' }, c.prizes)));
 
   const answers = (c.answers || []).filter((a) => typeof a === 'string' && a.trim());
   if (answers.length) {
@@ -872,29 +925,29 @@ function renderContest(id) {
           h(
             'div',
             { class: 'answer-actions' },
-            i === 0 && answers.length > 1 ? h('span', { class: 'label label-draw' }, 'polecana') : null,
-            h('button', { type: 'button', class: 'btn btn-sm', onclick: () => copyText(a) }, icon('copy'), 'Kopiuj'),
+            i === 0 && answers.length > 1 ? h('span', { class: 'label label-draw' }, t('detail.recommended')) : null,
+            h('button', { type: 'button', class: 'btn btn-sm', onclick: () => copyText(a) }, icon('copy'), t('btn.copy')),
           ),
         ),
       ),
     );
-    main.append(commentBox(h('strong', null, 'Gotowe odpowiedzi'), list, h('span', { class: 'hint' }, 'Podmień [@Znajomy] i dopasuj szczegóły do siebie')));
+    main.append(commentBox(h('strong', null, t('detail.answers')), list, h('span', { class: 'hint' }, t('detail.answersHint'))));
   }
 
   const saveAnswer = debounce((v) => setItem(c.id, { answer: v }), 600);
-  const myAnswer = h('textarea', { class: 'input', rows: 4, placeholder: 'Twoja odpowiedź – zapisze się automatycznie', oninput: (e) => saveAnswer(e.target.value) }, it.answer || '');
+  const myAnswer = h('textarea', { class: 'input', rows: 4, placeholder: t('detail.myAnswerPh'), oninput: (e) => saveAnswer(e.target.value) }, it.answer || '');
   main.append(
     commentBox(
-      h('strong', null, 'Moja odpowiedź'),
+      h('strong', null, t('detail.myAnswer')),
       h('div', { class: 'comment-body', style: 'white-space:normal' }, myAnswer),
-      h('button', { type: 'button', class: 'btn btn-sm', onclick: () => copyText(myAnswer.value) }, icon('copy'), 'Kopiuj'),
+      h('button', { type: 'button', class: 'btn btn-sm', onclick: () => copyText(myAnswer.value) }, icon('copy'), t('btn.copy')),
     ),
   );
   const saveNote = debounce((v) => setItem(c.id, { note: v }), 600);
   main.append(
     commentBox(
-      h('strong', null, 'Notatka'),
-      h('div', { class: 'comment-body', style: 'white-space:normal' }, h('textarea', { class: 'input', rows: 3, placeholder: 'Np. kogo oznaczyć, gdzie odebrać nagrodę…', oninput: (e) => saveNote(e.target.value) }, it.note || '')),
+      h('strong', null, t('detail.note')),
+      h('div', { class: 'comment-body', style: 'white-space:normal' }, h('textarea', { class: 'input', rows: 3, placeholder: t('detail.notePh'), oninput: (e) => saveNote(e.target.value) }, it.note || '')),
     ),
   );
 
@@ -904,27 +957,28 @@ function renderContest(id) {
     'select',
     {
       class: 'input',
-      'aria-label': 'Status',
+      'aria-label': t('detail.status'),
       onchange: (e) => {
         setStatus(c, e.target.value);
         renderContest(id);
       },
     },
-    Object.entries(L.STATUS_LABELS).map(([v, t]) => h('option', { value: v, selected: st === v }, t)),
+    L.STATUSES.map((v) => h('option', { value: v, selected: st === v }, t(`status.${v}`))),
   );
-  side.append(sidebarSection('Status', statusSel));
+  side.append(sidebarSection(t('detail.status'), statusSel));
   if (L.DONE.has(st)) {
-    side.append(
-      sidebarSection(
-        'Data zgłoszenia',
-        h('input', { class: 'input', type: 'date', value: it.at || '', onchange: (e) => setItem(c.id, { at: e.target.value || undefined }) }),
-      ),
-    );
+    side.append(sidebarSection(t('detail.enteredOn'), h('input', { class: 'input', type: 'date', value: it.at || '', onchange: (e) => setItem(c.id, { at: e.target.value || undefined }) })));
   }
-  side.append(sidebarSection('Termin', h('span', { class: `due ${dueClass(dl)}` }, rel(dl)), h('div', { class: 'hint' }, `do ${fmtDay(c.end, true)}${c.start ? `, od ${fmtDay(c.start, true)}` : ''}`)));
   side.append(
     sidebarSection(
-      'Ogłoszenie wyników',
+      t('detail.deadline'),
+      h('span', { class: `due ${dueClass(dl)}` }, rel(dl)),
+      h('div', { class: 'hint' }, t('detail.until', { d: fmtDay(c.end, true) }) + (c.start ? t('detail.from', { d: fmtDay(c.start, true) }) : '')),
+    ),
+  );
+  side.append(
+    sidebarSection(
+      t('detail.results'),
       h('input', {
         class: 'input',
         type: 'date',
@@ -934,32 +988,32 @@ function renderContest(id) {
           renderContest(id);
         },
       }),
-      h('div', { class: 'hint' }, L.resultsOf(c, it) ? 'Dostaniesz przypomnienie w dniu wyników.' : 'Bez daty przypomnę 3 dni po końcu konkursu.'),
+      h('div', { class: 'hint' }, L.resultsOf(c, it) ? t('detail.resultsHint') : t('detail.resultsHintNone')),
     ),
   );
 
   const cm = L.commentsOf(c, it);
-  const cmInput = h('input', { class: 'input', type: 'number', min: '0', step: '1', inputmode: 'numeric', value: cm ? String(cm.n) : '', placeholder: 'np. 120', 'aria-label': 'Liczba komentarzy' });
+  const cmInput = h('input', { class: 'input', type: 'number', min: '0', step: '1', inputmode: 'numeric', value: cm ? String(cm.n) : '', placeholder: t('detail.commentsPh'), 'aria-label': t('detail.commentsAria') });
   const saveComments = () => {
     const v = cmInput.value.trim();
     if (v === '') return;
     const n = Math.max(0, Math.round(Number(v)));
     if (!Number.isFinite(n)) return;
     setItem(c.id, { comments: n, commentsAt: today });
-    toast('Zapisano liczbę komentarzy');
+    toast(t('toast.commentsSaved'));
     renderContest(id);
   };
   cmInput.addEventListener('keydown', (e) => e.key === 'Enter' && saveComments());
   side.append(
     sidebarSection(
-      'Komentarze pod postem',
-      h('div', { class: 'inline-form' }, cmInput, h('button', { type: 'button', class: 'btn btn-sm', onclick: saveComments }, 'Zapisz')),
-      h('div', { class: 'hint' }, cm ? `Sprawdzone ${fmtDay(cm.at)}. ` : 'Nieznana. ', extLink(c.url, 'Otwórz post i policz')),
+      t('detail.comments'),
+      h('div', { class: 'inline-form' }, cmInput, h('button', { type: 'button', class: 'btn btn-sm', onclick: saveComments }, t('detail.save'))),
+      h('div', { class: 'hint' }, cm ? t('detail.checked', { d: fmtDay(cm.at) }) : t('detail.unknown'), extLink(c.url, t('detail.openPost'))),
     ),
   );
   side.append(
     sidebarSection(
-      'Liczba nagród',
+      t('detail.prizeCount'),
       h('input', {
         class: 'input',
         type: 'number',
@@ -977,26 +1031,33 @@ function renderContest(id) {
   const pz = r.prize;
   side.append(
     sidebarSection(
-      'Nagroda',
-      h('div', null, icon(KIND_ICON[pz.kind]), ' ', L.PRIZE_KINDS[pz.kind].label),
-      pz.value !== null ? h('div', { style: 'margin-top:4px' }, prizeLabel(pz)) : h('div', { class: 'hint' }, 'Wartość nieznana'),
-      pz.estimated ? h('div', { class: 'hint' }, 'Szacunek – w opisie nie ma kwoty.') : null,
+      t('detail.prize'),
+      h('div', null, icon(KIND_ICON[pz.kind]), ' ', t(`kind.${pz.kind}`)),
+      pz.value !== null ? h('div', { style: 'margin-top:4px' }, prizeLabel(pz)) : h('div', { class: 'hint' }, t('detail.valueUnknown')),
+      pz.estimated ? h('div', { class: 'hint' }, t('detail.estimate')) : null,
     ),
   );
-  side.append(sidebarSection('Szansa', oddsEl(odds), h('div', { class: 'hint' }, 'komentarze ÷ nagrody; im mniejsza druga liczba, tym lepiej')));
+  side.append(sidebarSection(t('detail.odds'), oddsEl(odds), h('div', { class: 'hint' }, t('detail.oddsHint'))));
 
   const req = [];
-  if (f.follow) req.push('obserwowanie profilu');
-  if (f.tags) req.push(`oznaczenie ${f.tags} ${L.plural(f.tags, ['osoby', 'osób', 'osób'])}`);
-  if (f.fbShare) req.push('udostępnienie na Facebooku');
-  if (f.igShare) req.push('udostępnienie na Instagramie');
-  if (f.shareOptional && !f.fbShare && !f.igShare) req.push('udostępnienie – nieobowiązkowe');
-  if (f.purchase) req.push('zakup / paragon');
-  if (f.app) req.push('aplikacja');
-  if (f.content) req.push('zdjęcie / film / grafika');
-  side.append(sidebarSection('Wymagania (automatycznie)', req.length ? h('ul', { style: 'margin:0;padding-left:18px' }, req.map((x) => h('li', null, x))) : h('span', { class: 'muted' }, 'tylko komentarz'), h('div', { class: 'hint' }, 'Zawsze sprawdź regulamin pod postem.')));
-  if (c.org || c.platform) side.append(sidebarSection('Organizator', c.org || '—', c.platform ? h('div', { class: 'hint' }, PLATFORM[c.platform] || c.platform) : null));
-  side.append(sidebarSection('Linki', h('div', { style: 'display:grid;gap:4px' }, extLink(c.url, 'Otwórz post konkursowy'), extLink(c.src, 'Opis na e-konkursy.info'))));
+  if (f.follow) req.push(t('req.follow'));
+  if (f.tags) req.push(tn('req.tags', f.tags));
+  if (f.fbShare) req.push(t('req.fbShare'));
+  if (f.igShare) req.push(t('req.igShare'));
+  if (f.shareOptional && !f.fbShare && !f.igShare) req.push(t('req.shareOptional'));
+  if (f.purchase) req.push(t('req.purchase'));
+  if (f.app) req.push(t('req.app'));
+  if (f.content) req.push(t('req.content'));
+  if (f.creative) req.push(t('req.creative'));
+  side.append(
+    sidebarSection(
+      t('detail.req'),
+      req.length ? h('ul', { style: 'margin:0;padding-left:18px' }, req.map((x) => h('li', null, x))) : h('span', { class: 'muted' }, t('req.commentOnly')),
+      h('div', { class: 'hint' }, t('req.checkRules')),
+    ),
+  );
+  if (c.org || c.platform) side.append(sidebarSection(t('detail.organizer'), c.org || '—', platformName(c.platform) ? h('div', { class: 'hint' }, platformName(c.platform)) : null));
+  side.append(sidebarSection(t('detail.links'), h('div', { style: 'display:grid;gap:4px' }, extLink(c.url, t('detail.linkPost')), extLink(c.src, t('detail.linkSrc')))));
 
   const actions = h('div', { class: 'btn-group' });
   if (st !== 'skipped' && !L.DONE.has(st)) {
@@ -1008,17 +1069,17 @@ function renderContest(id) {
           class: 'btn btn-sm',
           onclick: () => {
             setStatus(c, 'skipped');
-            toast('Pominięto – konkurs jest teraz ukryty');
+            toast(t('toast.skipped'));
             dlg.close();
           },
         },
         icon('skip'),
-        'Pomiń',
+        t('detail.skip'),
       ),
     );
   }
   if (c.manual) {
-    actions.append(h('button', { type: 'button', class: 'btn btn-sm', onclick: () => openAdd(c.id) }, icon('pencil'), 'Edytuj'));
+    actions.append(h('button', { type: 'button', class: 'btn btn-sm', onclick: () => openAdd(c.id) }, icon('pencil'), t('detail.edit')));
     actions.append(
       h(
         'button',
@@ -1026,37 +1087,31 @@ function renderContest(id) {
           type: 'button',
           class: 'btn btn-sm btn-danger',
           onclick: () => {
-            if (!confirm('Usunąć ten konkurs dodany ręcznie?')) return;
+            if (!confirm(t('detail.deleteConfirm'))) return;
             state.manual[c.id] = { ...state.manual[c.id], deleted: true, t: Date.now() };
             commit();
             dlg.close();
-            toast('Usunięto');
+            toast(t('toast.deleted'));
           },
         },
         icon('trash'),
-        'Usuń',
+        t('detail.delete'),
       ),
     );
   }
-  if (actions.childElementCount) side.append(sidebarSection('Akcje', actions));
+  if (actions.childElementCount) side.append(sidebarSection(t('detail.actions'), actions));
 
   const body = h(
     'div',
     { class: 'dlg-body' },
-    h('h1', { class: 'issue-title', id: 'dlg-contest-title' }, c.title || '(bez tytułu)'),
-    h(
-      'div',
-      { class: 'issue-sub' },
-      badge,
-      h('span', null, `${rel(dl)} · do ${fmtDay(c.end, true)}`),
-      h('span', { class: 'item-labels' }, labelsFor({ ...r, hidden: '' })),
-    ),
+    h('h1', { class: 'issue-title', id: 'dlg-contest-title' }, c.title || t('untitled')),
+    h('div', { class: 'issue-sub' }, badge, h('span', null, `${rel(dl)} · ${t('detail.until', { d: fmtDay(c.end, true) })}`), h('span', { class: 'item-labels' }, labelsFor({ ...r, hidden: '' }))),
     h('div', { class: 'layout' }, main, side),
   );
   const head = h(
     'div',
     { class: 'dlg-header' },
-    h('h2', null, 'Konkurs'),
+    h('h2', null, t('detail.heading')),
     !L.DONE.has(st)
       ? h(
           'button',
@@ -1065,15 +1120,15 @@ function renderContest(id) {
             class: 'btn btn-sm btn-primary',
             onclick: () => {
               setStatus(c, 'submitted');
-              toast('Oznaczono jako zgłoszone ✓');
+              toast(t('toast.submitted'));
               renderContest(id);
             },
           },
           icon('done'),
-          'Zgłoszone',
+          t('detail.markEntered'),
         )
       : null,
-    h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': 'Zamknij', onclick: () => dlg.close() }, icon('x')),
+    h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': t('btn.close'), onclick: () => dlg.close() }, icon('x')),
   );
   dlg.replaceChildren(head, body);
   if (!dlg.open) dlg.showModal();
@@ -1102,19 +1157,19 @@ function renderSettings() {
   // Synchronizacja
   const tokenForm = (change) => {
     const tokenInput = h('input', { id: 'set-token', class: 'input', type: 'password', autocomplete: 'off', spellcheck: 'false', placeholder: 'github_pat_…' });
-    const btn = h('button', { type: 'submit', class: 'btn btn-primary' }, change ? 'Zapisz' : 'Połącz');
+    const btn = h('button', { type: 'submit', class: 'btn btn-primary' }, change ? t('token.save') : t('token.connect'));
     return h(
       'form',
       {
         onsubmit: async (e) => {
           e.preventDefault();
           btn.disabled = true;
-          btn.textContent = 'Łączę…';
+          btn.textContent = t('token.connecting');
           try {
             const login = await connect(tokenInput.value);
-            toast(`Połączono jako @${login}`);
+            toast(t('toast.connected', { login }));
           } catch (err) {
-            toast(err.status === 401 ? 'Nieprawidłowy token' : err.status === 403 || err.status === 404 ? 'Token nie ma uprawnienia do gistów' : 'Nie udało się połączyć');
+            toast(err.status === 401 ? t('toast.badToken') : err.status === 403 || err.status === 404 ? t('toast.noGistPerm') : t('toast.connectFailed'));
           }
           renderSettings();
         },
@@ -1122,16 +1177,16 @@ function renderSettings() {
       h(
         'div',
         { class: 'field' },
-        h('label', { for: 'set-token' }, change ? 'Nowy token GitHub' : 'Token GitHub'),
+        h('label', { for: 'set-token' }, change ? t('token.labelNew') : t('token.label')),
         h('div', { class: 'inline-form' }, tokenInput, btn),
         h(
           'ol',
           { class: 'hint steps' },
-          h('li', null, extLink(L.tokenTemplateUrl(), 'Otwórz formularz tokenu'), ' – uprawnienia Gists i Actions są już zaznaczone.'),
-          h('li', null, 'W „Repository access” wybierz ', h('strong', null, 'Only select repositories'), ` → ${site.repo}.`),
-          h('li', null, 'Kliknij „Generate token”, skopiuj go i wklej tutaj – na każdym urządzeniu.'),
+          h('li', null, extLink(L.tokenTemplateUrl(), t('token.step1')), t('token.step1b')),
+          h('li', null, t('token.step2a'), h('strong', null, 'Only select repositories'), t('token.step2b', { repo: site.repo })),
+          h('li', null, t('token.step3')),
         ),
-        h('div', { class: 'hint' }, 'Token zostaje wyłącznie w tej przeglądarce. Gisty służą do synchronizacji, a Actions do przycisku „Odśwież”.'),
+        h('div', { class: 'hint' }, t('token.note')),
       ),
     );
   };
@@ -1141,14 +1196,14 @@ function renderSettings() {
       h(
         'div',
         { class: `flash ${syncInfo.kind === 'err' ? 'flash-warn' : 'flash-ok'}` },
-        h('strong', null, syncInfo.kind === 'err' ? syncInfo.msg : `Połączono jako @${sync.login}`),
-        h('div', { class: 'hint' }, 'Stan (statusy, notatki, ustawienia) jest w Twoim sekretnym giście: ', extLink(`https://gist.github.com/${sync.login}/${sync.gistId}`, 'otwórz gist')),
-        h('div', { class: 'hint' }, 'Identyfikator gista do sekretu ', h('code', null, 'STATE_GIST_ID'), ': ', h('code', null, sync.gistId)),
+        h('strong', null, syncInfo.kind === 'err' ? t(syncInfo.key) : t('settings.connectedAs', { login: sync.login })),
+        h('div', { class: 'hint' }, t('settings.gistInfo'), extLink(`https://gist.github.com/${sync.login}/${sync.gistId}`, t('settings.openGist'))),
+        h('div', { class: 'hint' }, t('settings.gistId'), h('code', null, 'STATE_GIST_ID'), ': ', h('code', null, sync.gistId)),
       ),
       h(
         'div',
         { class: 'btn-group' },
-        h('button', { type: 'button', class: 'btn', onclick: () => syncNow().then(() => renderSettings()) }, icon('refresh'), 'Synchronizuj teraz'),
+        h('button', { type: 'button', class: 'btn', onclick: () => syncNow().then(() => renderSettings()) }, icon('refresh'), t('settings.syncNow')),
         h(
           'button',
           {
@@ -1157,13 +1212,13 @@ function renderSettings() {
             onclick: () => {
               disconnect();
               renderSettings();
-              toast('Rozłączono – dane zostają na tym urządzeniu');
+              toast(t('toast.disconnected'));
             },
           },
-          'Rozłącz',
+          t('settings.disconnect'),
         ),
       ),
-      h('details', { style: 'margin-top:12px' }, h('summary', { class: 'hint' }, 'Zmień token (np. gdy „Odśwież” nie może uruchomić robota)'), h('div', { style: 'margin-top:8px' }, tokenForm(true))),
+      h('details', { style: 'margin-top:12px' }, h('summary', { class: 'hint' }, t('settings.changeToken')), h('div', { style: 'margin-top:8px' }, tokenForm(true))),
     );
   } else {
     syncSec.push(tokenForm(false));
@@ -1180,10 +1235,11 @@ function renderSettings() {
         const obj = JSON.parse(await file.text());
         state = L.mergeStates(state, obj && obj.state ? obj.state : obj);
         commit();
-        toast('Wczytano sesję z pliku');
+        if (applyLang()) rerenderAll();
+        toast(t('toast.sessionLoaded'));
         renderSettings();
       } catch {
-        toast('To nie jest plik sesji Konkursów');
+        toast(t('toast.notSession'));
       }
       e.target.value = '';
     },
@@ -1195,7 +1251,7 @@ function renderSettings() {
     id: 'set-topic',
     class: 'input mono',
     value: n.topic,
-    placeholder: 'kliknij ↻, żeby wylosować',
+    placeholder: t('ntfy.topicPh'),
     spellcheck: 'false',
     onchange: (e) => setSettings((x) => (x.ntfy.topic = e.target.value.trim().replace(/[^A-Za-z0-9_-]/g, '').slice(0, 64))),
   });
@@ -1216,11 +1272,8 @@ function renderSettings() {
       }),
       label,
     );
-  const ntfyBox = (key, label) =>
-    h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: n[key], onchange: (e) => setSettings((x) => (x.ntfy[key] = e.target.checked)) }), label);
-
-  const hideBox = (key, label) =>
-    h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: s.hide[key], onchange: (e) => setSettings((x) => (x.hide[key] = e.target.checked)) }), label);
+  const ntfyBox = (key, label) => h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: n[key], onchange: (e) => setSettings((x) => (x.ntfy[key] = e.target.checked)) }), label);
+  const hideBox = (key) => h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: s.hide[key], onchange: (e) => setSettings((x) => (x.hide[key] = e.target.checked)) }), t(`hide.${key}`));
 
   const theme = lsGet(K.theme, 'auto') || 'auto';
 
@@ -1228,28 +1281,28 @@ function renderSettings() {
     'div',
     { class: 'dlg-body' },
     settingsSection(
-      'Synchronizacja i sesja',
-      'Połącz konto GitHub, żeby mieć te same statusy, notatki i ustawienia na telefonie i komputerze. Bez tego dane zostają tylko w tej przeglądarce.',
+      t('settings.sync'),
+      t('settings.syncDesc'),
       ...syncSec,
       h(
         'div',
         { class: 'btn-group', style: 'margin-top:12px' },
-        h('button', { type: 'button', class: 'btn', onclick: exportSession }, icon('download'), 'Eksportuj sesję do pliku'),
-        h('button', { type: 'button', class: 'btn', onclick: () => fileInput.click() }, icon('upload'), 'Wczytaj sesję z pliku'),
+        h('button', { type: 'button', class: 'btn', onclick: exportSession }, icon('download'), t('session.export')),
+        h('button', { type: 'button', class: 'btn', onclick: () => fileInput.click() }, icon('upload'), t('session.import')),
         fileInput,
       ),
     ),
     h(
       'section',
       { class: 'settings-section', id: 'set-ntfy' },
-      h('h3', null, 'Powiadomienia na telefon (ntfy)'),
-      h('p', null, 'Robot sprawdza listę codziennie rano i wysyła jedno zbiorcze powiadomienie.'),
-      !sync ? h('div', { class: 'flash flash-warn' }, 'Robot czyta te ustawienia z synchronizacji. Połącz synchronizację powyżej – inaczej zmiany zostaną tylko na tym urządzeniu.') : null,
-      h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: n.enabled, onchange: (e) => setSettings((x) => (x.ntfy.enabled = e.target.checked)) }), h('strong', null, 'Wysyłaj powiadomienia')),
+      h('h3', null, t('ntfy.title')),
+      h('p', null, t('ntfy.desc')),
+      !sync ? h('div', { class: 'flash flash-warn' }, t('ntfy.needSync')) : null,
+      h('label', { class: 'check' }, h('input', { type: 'checkbox', checked: n.enabled, onchange: (e) => setSettings((x) => (x.ntfy.enabled = e.target.checked)) }), h('strong', null, t('ntfy.enabled'))),
       h(
         'div',
         { class: 'field', style: 'margin-top:12px' },
-        h('label', { for: 'set-topic' }, 'Nazwa kanału ntfy'),
+        h('label', { for: 'set-topic' }, t('ntfy.topic')),
         h(
           'div',
           { class: 'inline-form' },
@@ -1259,7 +1312,7 @@ function renderSettings() {
             {
               type: 'button',
               class: 'btn',
-              title: 'Wylosuj nową nazwę',
+              title: t('ntfy.random'),
               onclick: () => {
                 setSettings((x) => (x.ntfy.topic = L.randomTopic()));
                 renderSettings();
@@ -1267,13 +1320,13 @@ function renderSettings() {
             },
             icon('refresh'),
           ),
-          h('button', { type: 'button', class: 'btn', title: 'Kopiuj', onclick: () => copyText(L.settingsOf(state).ntfy.topic) }, icon('copy')),
+          h('button', { type: 'button', class: 'btn', title: t('btn.copy'), onclick: () => copyText(L.settingsOf(state).ntfy.topic) }, icon('copy')),
         ),
-        h('div', { class: 'hint' }, 'Nazwa działa jak hasło – kto ją zna, widzi powiadomienia. Zainstaluj aplikację ntfy (Android/iPhone), kliknij + i wpisz tę nazwę.'),
+        h('div', { class: 'hint' }, t('ntfy.topicHint')),
       ),
-      h('div', { class: 'label-text' }, 'Przypominaj o końcu konkursu'),
-      h('div', { class: 'row-fields' }, dayBox(3, '3 dni przed'), dayBox(2, '2 dni przed'), dayBox(1, 'dzień przed'), dayBox(0, 'w ostatnim dniu')),
-      h('div', { class: 'label-text', style: 'margin-top:12px' }, 'O których konkursach'),
+      h('div', { class: 'label-text' }, t('ntfy.remind')),
+      h('div', { class: 'row-fields' }, dayBox(3, t('ntfy.d3')), dayBox(2, t('ntfy.d2')), dayBox(1, t('ntfy.d1')), dayBox(0, t('ntfy.d0'))),
+      h('div', { class: 'label-text', style: 'margin-top:12px' }, t('ntfy.which')),
       h(
         'label',
         { class: 'check' },
@@ -1281,7 +1334,7 @@ function renderSettings() {
         h(
           'span',
           null,
-          'Wszystkie widoczne, ze szansą lepszą niż 1:',
+          t('ntfy.scopeAll'),
           h('input', {
             class: 'input mono',
             type: 'number',
@@ -1290,21 +1343,21 @@ function renderSettings() {
             value: String(n.maxOdds),
             onchange: (e) => setSettings((x) => (x.ntfy.maxOdds = Math.max(1, Math.round(Number(e.target.value) || 150)))),
           }),
-          ' (oraz oznaczone „Planuję”)',
+          t('ntfy.scopeAllTail'),
         ),
       ),
-      h('label', { class: 'check' }, h('input', { type: 'radio', name: 'scope', checked: n.scope === 'todo', onchange: () => setSettings((x) => (x.ntfy.scope = 'todo')) }), 'Tylko oznaczone „Planuję”'),
+      h('label', { class: 'check' }, h('input', { type: 'radio', name: 'scope', checked: n.scope === 'todo', onchange: () => setSettings((x) => (x.ntfy.scope = 'todo')) }), t('ntfy.scopeTodo')),
       h(
         'div',
         { style: 'margin-top:8px' },
-        ntfyBox('newStays', 'Nowe konkursy z noclegiem lub wyjazdem'),
-        ntfyBox('newValuable', `Nowe wartościowe nagrody (od ${L.formatPLN(L.VALUABLE_FROM)})`),
-        ntfyBox('results', 'Dzień ogłoszenia wyników zgłoszonych konkursów'),
+        ntfyBox('newStays', t('ntfy.newStays')),
+        ntfyBox('newValuable', t('ntfy.newValuable', { v: tr.money(L.VALUABLE_FROM) })),
+        ntfyBox('results', t('ntfy.results')),
       ),
       h(
         'details',
         { style: 'margin:8px 0' },
-        h('summary', { class: 'hint' }, 'Własny serwer ntfy'),
+        h('summary', { class: 'hint' }, t('ntfy.server')),
         h('input', {
           class: 'input mono',
           value: n.server,
@@ -1312,70 +1365,81 @@ function renderSettings() {
           onchange: (e) => setSettings((x) => (/^https?:\/\//.test(e.target.value.trim()) ? (x.ntfy.server = e.target.value.trim()) : null)),
         }),
       ),
-      h('button', { type: 'button', class: 'btn', onclick: sendTest }, icon('bell'), 'Wyślij powiadomienie testowe'),
+      h('button', { type: 'button', class: 'btn', onclick: sendTest }, icon('bell'), t('ntfy.test')),
     ),
+    settingsSection(t('filters.title'), t('filters.desc'), ['party', 'fbShare', 'igShare', 'purchase', 'app', 'content', 'creative'].map(hideBox)),
     settingsSection(
-      'Filtry',
-      'Ukryte konkursy zobaczysz po zaznaczeniu „Pokaż ukryte” nad listą.',
-      hideBox('party', 'Ukryj imprezy (Sylwester, bale, koncerty)'),
-      hideBox('fbShare', 'Ukryj wymagające udostępnienia na Facebooku'),
-      hideBox('igShare', 'Ukryj wymagające udostępnienia na Instagramie'),
-      hideBox('purchase', 'Ukryj wymagające zakupu lub paragonu'),
-      hideBox('app', 'Ukryj wymagające aplikacji'),
-      hideBox('content', 'Ukryj wymagające zdjęcia lub filmu (poza noclegami i wyjazdami)'),
-      hideBox('creative', 'Ukryj wymagające pracy twórczej (eseje, wiersze, opowiadania, nagrania, projekty, konkursy szkolne)'),
-    ),
-    settingsSection(
-      'Wygląd',
+      t('look.title'),
       null,
       h(
-        'select',
-        {
-          class: 'input',
-          style: 'max-width:240px',
-          'aria-label': 'Motyw',
-          onchange: (e) => {
-            const v = e.target.value;
-            lsSet(K.theme, v === 'auto' ? null : v);
-            if (v === 'auto') delete document.documentElement.dataset.theme;
-            else document.documentElement.dataset.theme = v;
+        'div',
+        { class: 'btn-group' },
+        h(
+          'select',
+          {
+            class: 'input',
+            style: 'max-width:240px',
+            'aria-label': t('lang.aria'),
+            onchange: (e) => setSettings((x) => (x.lang = e.target.value)),
           },
-        },
-        h('option', { value: 'auto', selected: theme === 'auto' }, 'Motyw: jak w systemie'),
-        h('option', { value: 'light', selected: theme === 'light' }, 'Motyw: jasny'),
-        h('option', { value: 'dark', selected: theme === 'dark' }, 'Motyw: ciemny'),
+          h('option', { value: 'auto', selected: s.lang === 'auto' }, t('lang.auto')),
+          h('option', { value: 'pl', selected: s.lang === 'pl' }, 'Polski'),
+          h('option', { value: 'en', selected: s.lang === 'en' }, 'English'),
+        ),
+        h(
+          'select',
+          {
+            class: 'input',
+            style: 'max-width:240px',
+            'aria-label': t('theme.aria'),
+            onchange: (e) => {
+              const v = e.target.value;
+              lsSet(K.theme, v === 'auto' ? null : v);
+              if (v === 'auto') delete document.documentElement.dataset.theme;
+              else document.documentElement.dataset.theme = v;
+            },
+          },
+          h('option', { value: 'auto', selected: theme === 'auto' }, t('theme.auto')),
+          h('option', { value: 'light', selected: theme === 'light' }, t('theme.light')),
+          h('option', { value: 'dark', selected: theme === 'dark' }, t('theme.dark')),
+        ),
       ),
+      h('div', { class: 'hint', style: 'margin-top:8px' }, t('lang.hint')),
     ),
+    site.apkUrl && !inAndroidApp
+      ? settingsSection(t('android.title'), t('android.desc'), h('a', { class: 'btn', href: site.apkUrl }, icon('android'), t('android.download')))
+      : null,
     settingsSection(
-      'To urządzenie',
-      'Usuwa statusy, notatki i token z tej przeglądarki. Dane w giście zostają.',
+      t('device.title'),
+      t('device.desc'),
       h(
         'button',
         {
           type: 'button',
           class: 'btn btn-danger',
           onclick: () => {
-            if (!confirm('Usunąć dane aplikacji z tej przeglądarki?')) return;
+            if (!confirm(t('device.confirm'))) return;
             lsSet(K.state, null);
             lsSet(K.sync, null);
             state = L.emptyState();
             sync = null;
-            setSync('local', 'Tylko to urządzenie');
-            render();
+            setSync('local', 'sync.local');
+            if (applyLang()) rerenderAll();
+            else render();
             renderSettings();
-            toast('Usunięto dane z tego urządzenia');
+            toast(t('toast.dataCleared'));
           },
         },
         icon('trash'),
-        'Usuń dane z tego urządzenia',
+        t('device.clear'),
       ),
     ),
   );
   const head = h(
     'div',
     { class: 'dlg-header' },
-    h('h2', { id: 'dlg-settings-title' }, 'Ustawienia'),
-    h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': 'Zamknij', onclick: () => dlg.close() }, icon('x')),
+    h('h2', { id: 'dlg-settings-title' }, t('settings.title')),
+    h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': t('btn.close'), onclick: () => dlg.close() }, icon('x')),
   );
   const scroll = dlg.querySelector('.dlg-body') ? dlg.querySelector('.dlg-body').scrollTop : 0;
   dlg.replaceChildren(head, body);
@@ -1385,25 +1449,25 @@ function renderSettings() {
 async function sendTest() {
   const n = L.settingsOf(state).ntfy;
   if (!n.topic) {
-    toast('Najpierw ustaw nazwę kanału');
+    toast(t('toast.topicFirst'));
     return;
   }
   try {
     // Bez nagłówka Content-Type – prosty request bez preflightu CORS.
     const res = await fetch(n.server.replace(/\/+$/, '') + '/', {
       method: 'POST',
-      body: JSON.stringify({ topic: n.topic, title: 'Konkursy: test', message: 'Działa! Tu będą przypomnienia o kończących się konkursach.', tags: ['tada'], click: site.appUrl }),
+      body: JSON.stringify({ topic: n.topic, title: t('ntfy.testTitle'), message: t('ntfy.testMsg'), tags: ['tada'], click: site.appUrl }),
     });
-    toast(res.ok ? 'Wysłano – sprawdź telefon' : `ntfy odpowiedział: ${res.status}`);
+    toast(res.ok ? t('toast.testSent') : t('toast.ntfyStatus', { s: res.status }));
   } catch {
-    toast('Nie udało się wysłać (brak sieci?)');
+    toast(t('toast.testFailed'));
   }
 }
 
 function exportSession() {
-  const blob = new Blob([JSON.stringify({ app: 'konkursy', exportedAt: new Date().toISOString(), state }, null, 1)], { type: 'application/json' });
+  const blob = new Blob([JSON.stringify({ app: 'lootsy', exportedAt: new Date().toISOString(), state }, null, 1)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
-  const a = h('a', { href: url, download: `konkursy-sesja-${L.todayISO()}.json` });
+  const a = h('a', { href: url, download: `lootsy-session-${L.todayISO()}.json` });
   document.body.append(a);
   a.click();
   a.remove();
@@ -1416,14 +1480,14 @@ function openAdd(editId) {
   const dlg = $('#dlg-add');
   const old = editId ? state.manual[editId] : null;
   const today = L.todayISO();
-  const f = (id, label, input, hint) => h('div', { class: 'field' }, h('label', { for: id }, label), input, hint ? h('div', { class: 'hint' }, hint) : null);
-  const title = h('input', { id: 'a-title', class: 'input', required: true, value: old ? old.title || '' : '', placeholder: 'Np. Wygraj weekend w górach' });
+  const field = (id, label, input) => h('div', { class: 'field' }, h('label', { for: id }, label), input);
+  const title = h('input', { id: 'a-title', class: 'input', required: true, value: old ? old.title || '' : '', placeholder: t('add.namePh') });
   const url = h('input', { id: 'a-url', class: 'input', type: 'url', required: true, value: old ? old.url || '' : '', placeholder: 'https://www.facebook.com/…' });
   const end = h('input', { id: 'a-end', class: 'input', type: 'date', required: true, value: old ? old.end || '' : '', min: old ? undefined : today });
-  const prizes = h('textarea', { id: 'a-prizes', class: 'input', rows: 2, placeholder: 'Np. 3x voucher na pobyt' }, old ? old.prizes || '' : '');
+  const prizes = h('textarea', { id: 'a-prizes', class: 'input', rows: 2, placeholder: t('add.prizesPh') }, old ? old.prizes || '' : '');
   const prizeCount = h('input', { id: 'a-pc', class: 'input', type: 'number', min: '1', value: old && old.prizeCount ? String(old.prizeCount) : '' });
   const comments = h('input', { id: 'a-cm', class: 'input', type: 'number', min: '0', value: old && old.comments !== undefined ? String(old.comments) : '' });
-  const task = h('textarea', { id: 'a-task', class: 'input', rows: 3, placeholder: 'Co trzeba zrobić' }, old ? old.task || '' : '');
+  const task = h('textarea', { id: 'a-task', class: 'input', rows: 3, placeholder: t('add.taskPh') }, old ? old.task || '' : '');
   const stay = h('input', { type: 'checkbox', checked: Boolean(old && old.flags && old.flags.stay) });
 
   const form = h(
@@ -1432,7 +1496,7 @@ function openAdd(editId) {
       onsubmit: (e) => {
         e.preventDefault();
         if (!safeUrl(url.value.trim())) {
-          toast('Podaj pełny link zaczynający się od https://');
+          toast(t('toast.needUrl'));
           return;
         }
         const id = old ? old.id : `m:${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
@@ -1441,7 +1505,7 @@ function openAdd(editId) {
         flags.stay = stay.checked;
         const pc = Math.round(Number(prizeCount.value));
         const cm = comments.value.trim() === '' ? null : Math.round(Number(comments.value));
-        const contest = L.cleanContest({
+        state.manual[id] = L.cleanContest({
           id,
           title: title.value.trim(),
           url: url.value.trim(),
@@ -1457,36 +1521,35 @@ function openAdd(editId) {
           firstSeen: old ? old.firstSeen || today : today,
           t: Date.now(),
         });
-        state.manual[id] = contest;
         commit();
         dlg.close();
-        toast(old ? 'Zapisano zmiany' : 'Dodano konkurs');
+        toast(old ? t('toast.saved') : t('toast.added'));
         openContest(id);
       },
     },
     h(
       'div',
       { class: 'dlg-body' },
-      f('a-title', 'Tytuł', title),
-      f('a-url', 'Link do posta konkursowego', url),
-      h('div', { class: 'row-fields' }, f('a-end', 'Koniec zgłoszeń', end), f('a-pc', 'Liczba nagród', prizeCount), f('a-cm', 'Komentarze teraz', comments)),
-      f('a-prizes', 'Nagrody', prizes),
-      f('a-task', 'Zadanie', task),
-      h('label', { class: 'check' }, stay, 'Nocleg, pobyt lub wyjazd'),
+      field('a-title', t('add.name'), title),
+      field('a-url', t('add.url'), url),
+      h('div', { class: 'row-fields' }, field('a-end', t('add.end'), end), field('a-pc', t('add.prizeCount'), prizeCount), field('a-cm', t('add.comments'), comments)),
+      field('a-prizes', t('add.prizes'), prizes),
+      field('a-task', t('add.task'), task),
+      h('label', { class: 'check' }, stay, t('add.stay')),
     ),
     h(
       'div',
       { class: 'dlg-footer' },
-      h('button', { type: 'button', class: 'btn', onclick: () => dlg.close() }, 'Anuluj'),
-      h('button', { type: 'submit', class: 'btn btn-primary' }, old ? 'Zapisz' : 'Dodaj konkurs'),
+      h('button', { type: 'button', class: 'btn', onclick: () => dlg.close() }, t('add.cancel')),
+      h('button', { type: 'submit', class: 'btn btn-primary' }, old ? t('add.save') : t('add.submit')),
     ),
   );
   dlg.replaceChildren(
     h(
       'div',
       { class: 'dlg-header' },
-      h('h2', { id: 'dlg-add-title' }, old ? 'Edytuj konkurs' : 'Nowy konkurs'),
-      h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': 'Zamknij', onclick: () => dlg.close() }, icon('x')),
+      h('h2', { id: 'dlg-add-title' }, old ? t('add.editTitle') : t('add.title')),
+      h('button', { type: 'button', class: 'btn btn-sm btn-invisible btn-icon', 'aria-label': t('btn.close'), onclick: () => dlg.close() }, icon('x')),
     ),
     form,
   );
@@ -1515,9 +1578,9 @@ async function loadCatalog() {
   } catch {
     if (cached && Array.isArray(cached.contests)) {
       setCatalog(cached, { cache: false });
-      catalogError = 'Brak połączenia – pokazuję ostatnio pobraną listę.';
+      catalogError = 'catalog.offline';
     } else {
-      catalogError = 'Nie udało się wczytać listy konkursów – pokazuję tylko Twoje zapisane konkursy.';
+      catalogError = 'catalog.error';
     }
   }
 }
@@ -1529,13 +1592,10 @@ function routeFromHash() {
 }
 
 function setupChrome() {
-  $('#brand-owner').textContent = site.owner;
-  $('#btn-settings').replaceChildren(icon('sliders'));
+  renderChrome();
   $('#btn-settings').addEventListener('click', () => openSettings());
-  $('#btn-add').replaceChildren(icon('plus'), h('span', { class: 'btn-add-text' }, 'Dodaj konkurs'));
   $('#btn-add').addEventListener('click', () => openAdd());
   $('#btn-refresh').addEventListener('click', refreshList);
-  renderRefreshButton();
   $('#btn-sync').addEventListener('click', () => {
     if (sync && syncInfo.kind !== 'err') syncNow();
     else openSettings();
@@ -1547,8 +1607,8 @@ function setupChrome() {
   window.addEventListener('hashchange', routeFromHash);
   window.addEventListener('popstate', routeFromHash);
   document.addEventListener('keydown', (e) => {
-    const t = e.target;
-    const typing = t instanceof HTMLElement && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName));
+    const el = e.target;
+    const typing = el instanceof HTMLElement && (el.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName));
     if (typing || e.ctrlKey || e.metaKey || e.altKey || document.querySelector('dialog[open]')) return;
     if (e.key === '/') {
       e.preventDefault();
@@ -1571,6 +1631,7 @@ function setupChrome() {
 }
 
 async function boot() {
+  applyLang();
   setupChrome();
   const cached = lsGet(K.catalog);
   if (cached && Array.isArray(cached.contests)) setCatalog(cached, { cache: false });

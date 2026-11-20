@@ -85,7 +85,7 @@ test('klasyfikacja: praca twórcza (duży wysiłek) jest domyślnie ukryta', () 
   const hide = L.DEFAULT_SETTINGS.hide;
   const essay = L.classify({ title: 'VI edycja Konkursu na esej filozoficzny', task: 'Napisz esej na temat demokracji' });
   assert.equal(essay.flags.creative, true);
-  assert.equal(L.hiddenReason(essay, hide), 'praca twórcza');
+  assert.equal(L.hiddenReason(essay, hide), 'creative');
   assert.equal(L.classify({ task: 'Napisz opowiadanie kryminalne osadzone w Poznaniu' }).flags.creative, true);
   assert.equal(L.classify({ task: 'Każdy uczestnik może zgłosić maksymalnie 3 wiersze.' }).flags.creative, true);
   assert.equal(L.classify({ task: 'Umów się i odbądź jazdę testową u dealera' }).flags.creative, true);
