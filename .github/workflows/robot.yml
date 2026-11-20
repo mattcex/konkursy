@@ -52,9 +52,9 @@ jobs:
           git push || (git pull --rebase && git push)
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      # Publikacja w osobnym uruchomieniu workflow Pages. Commit zrobiony tokenem GITHUB_TOKEN
-      # nie uruchamia „on: push”, ale zlecenie workflow_dispatch – tak. Wywołanie Pages jako
-      # reusable workflow (uses:) nie działa: deploy-pages nie widzi wtedy artefaktu „github-pages”.
+      # Publikacja w osobnym uruchomieniu workflow Pages: odświeżenie z aplikacji kończy się,
+      # gdy lista jest zapisana, a ewentualny błąd publikacji go nie psuje. Commit zrobiony
+      # tokenem GITHUB_TOKEN nie uruchamia „on: push”, ale zlecenie workflow_dispatch – tak.
       - name: Publikacja strony
         if: steps.commit.outputs.changed == 'true'
         env:

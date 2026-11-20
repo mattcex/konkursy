@@ -11,7 +11,10 @@ permissions:
   contents: read
 
 jobs:
-  test:
+  # Paczka ze stroną powstaje w innym zadaniu niż publikacja: deploy-pages uruchomiony
+  # zaraz po upload-pages-artifact w tym samym zadaniu potrafi nie znaleźć paczki
+  # („No artifacts named github-pages”, https://github.com/actions/deploy-pages/issues/451).
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -21,12 +24,14 @@ jobs:
         with:
           node-version: 22
       - run: npm test
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
 
   deploy:
-    needs: test
+    needs: build
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       pages: write
       id-token: write
     concurrency:
@@ -36,12 +41,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v7
-        with:
-          ref: main
-      - uses: actions/configure-pages@v6
-      - uses: actions/upload-pages-artifact@v5
-        with:
-          path: site
       - id: deployment
         uses: actions/deploy-pages@v5
