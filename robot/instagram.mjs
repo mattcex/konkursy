@@ -102,9 +102,11 @@ export function cleanText(s) {
  * Pomija daty wyników i wysyłki nagród; z kilku pasujących wybiera najpóźniejszą.
  */
 export function parseEndDate(text, postISO) {
-  const t = String(text || '');
+  // Zdanie przełamane po przecinku: „czekamy do 23:59,⏎1 grudnia 2026”
+  const t = String(text || '').replace(/,[ \t]*\n/g, ', ');
   const re = new RegExp(
-    `(\\d{1,2})\\s*[./-]\\s*(\\d{1,2})(?:\\s*[./-]\\s*(\\d{2,4}))?(?![\\d:])|(\\d{1,2})\\s+(${Object.keys(MONTHS).join('|')})(?:\\s+(\\d{4}))?`,
+    // Rok tylko po kropce lub ukośniku – „18.11-01.12.2026” to zakres, a nie 18.11.2001
+    `(\\d{1,2})\\s*[./-]\\s*(\\d{1,2})(?:\\s*[./]\\s*(\\d{4}|\\d{2}(?!\\d)))?(?![\\d:])|(\\d{1,2})\\s+(${Object.keys(MONTHS).join('|')})(?:\\s+(\\d{4}))?`,
     'gi',
   );
   const keyword = new RegExp(`(?:^|[^${L_}])(?:do|trwa|kończy|koniec|końca|termin|czas|zgłoszenia|ważn)(?![${L_}])`);
@@ -249,7 +251,11 @@ export function parsePost(p, today, why = {}) {
   if (diffDays(postISO, today) > MAX_AGE_DAYS) return skip('stary post');
   let end = parseEndDate(text, postISO);
   const endGuess = !end;
-  if (!end) end = addDays(postISO, GUESS_DAYS);
+  if (!end) {
+    // Bez daty końca: dzień przed ogłoszeniem wyników, a gdy i tego brak – 7 dni od publikacji.
+    const res = parseResultsDate(text, postISO);
+    end = res && diffDays(postISO, res) >= 1 && diffDays(postISO, res) <= MAX_DAYS ? addDays(res, -1) : addDays(postISO, GUESS_DAYS);
+  }
   if (diffDays(today, end) < 0) return skip('po terminie');
 
   const prizes = prizeLines(text);

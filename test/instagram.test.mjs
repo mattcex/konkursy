@@ -69,6 +69,12 @@ test('instagram: daty końca', () => {
   assert.equal(parseEndDate('Trwa do 23.59 w niedzielę', today), null); // godzina, nie data
   assert.equal(parseEndDate('Wyniki ogłosimy 2.12', today), null);
   assert.equal(parseEndDate('trwa do 31.11', today), null); // nie ma takiego dnia
+  assert.equal(parseEndDate('Na wasze rady czekamy do 23:59,\n1 grudnia 2026.\nWynik ogłosimy 2 grudnia 2026.', '2026-11-14'), '2026-12-01');
+  assert.equal(parseEndDate('Rozdanie trwa od 18.11-01.12.2026 r. Wyniki ogłosimy w ciągu tygodnia.', '2026-11-18'), '2026-12-01');
+  // bez daty końca, ale z datą wyników → dzień przed wynikami
+  const c = parsePost(post('MIKOŁAJKOWE ROZDANIE! Mam dla jednej z Was zestaw. Zaobserwuj profil i napisz komentarz.\nWyniki ogłoszę w komentarzu dnia 26.11.2026r.'), today);
+  assert.equal(c.end, '2026-11-25');
+  assert.equal(c.endGuess, true);
 });
 
 test('instagram: nagroda w tytule i liczba zwycięzców (przykłady z prawdziwych postów)', () => {
