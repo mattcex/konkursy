@@ -101,6 +101,18 @@ test('instagram: nagroda w tytule i liczba zwycięzców (przykłady z prawdziwyc
   assert.equal(count('Co można wygrać?\n1× gra\n2× projektor\n10× bilet do kina\nOznacz w komentarzu osobę. Trwa do 30.11'), 13);
 });
 
+test('instagram: zgłoszenie przez stronę, odbiór osobisty, niewidoczne znaki', () => {
+  // zgłoszenia przez link w bio – komentarze to nie uczestnicy, więc bez szansy
+  const web = parsePost(post('Opisz przypadek i weź udział w KONKURSIE!​\nNajbardziej kreatywne obserwacje nagrodzimy:​\n5 × 500 zł​\n10 × zestaw Dafi​\nDodaj przypadek do atlasu – link w naszym bio. Zaobserwuj nas. Trwa do 27.11'), today);
+  assert.equal(web.comments, null);
+  assert.equal(web.commentsAt, null);
+  assert.match(web.prizes, /5 × 500 zł$/m); // bez niewidocznego znaku na końcu
+  const shop = parsePost(post('KONKURS! Odpowiedz w komentarzu pod tym postem. Do wygrania suszarka. Nagrody odbierzesz w najbliższym sklepie stacjonarnym Fale. Trwa do 13.12.2026.'), today);
+  assert.equal(shop.location, 'odbiór osobisty');
+  assert.equal(shop.local, true);
+  assert.equal(shop.comments, 14);
+});
+
 test('instagram: kod posta, czyszczenie tekstu', () => {
   assert.equal(igCode('https://www.instagram.com/reel/C1x-Y_z/?igsh=abc'), 'C1x-Y_z');
   assert.equal(igCode('https://www.instagram.com/kosmetyki/p/DAbc/'), 'DAbc');

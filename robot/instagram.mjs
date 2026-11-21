@@ -72,7 +72,11 @@ const JUDGING_LINE_RX = /wygrywa\S*\s+(?:osoba|najbardziej|najciekawsz|najlepsz|
 // Zdania o wynikach, wysyłce i regulaminie – nie opisują nagrody
 const META_LINE_RX = /wynik|ogłos|wysył|wyślę|wyślemy|organizator|regulamin|instagram|sponsor|zastrzeg|koszt|paczkomat|inpost|powodzenia|link w bio/i;
 const GENERIC_RX = /rozdani\S*|konkurs\S*|giveaway|świąteczn\S*|mikołajkow\S*|urodzinow\S*|jesienn\S*|zimow\S*|wielk\S*|super|mega|czas na|na \d+\s*(?:tys|k)?/gi;
-const POLISH_RX = /[ąęł]|rozdani/i;
+const POLISH_RX = /[ąęłńśźż]|rozdani|nagrod|wygra|zgarn/i;
+// Zgłoszenie w komentarzu – tylko wtedy liczba komentarzy mówi o liczbie uczestników
+const VIA_COMMENTS_RX = /komentarz|komentuj|pod (?:tym )?post|odpowied|napisz|oznacz/i;
+// Nagrodę trzeba odebrać osobiście (np. w sklepie stacjonarnym)
+const PICKUP_RX = /odbi(?:ór|oru)\s+osobist|odbierz\S*\s+(?:osobiście|w\s+(?:najbliższ\S+\s+)?(?:sklep|salon|lokal|restaurac|siedzib|punkc))|odbioru?\s+(?:nagrody\s+)?(?:wyłącznie\s+)?w\s+(?:sklep|salon|lokal)/i;
 // Data wyników, wysyłki lub odbioru nagród, urodziny („wyniki 2.12”, „nagrody wyślemy do 15.12”)
 const SKIP_BEFORE_RX = /(?:wynik|ogłos|zwycięz|laureat|wysył|wyśl|odbi|odebra|urodzin)[^,;]{0,25}$/;
 
@@ -90,7 +94,7 @@ export function cleanText(s) {
   return String(s || '')
     .normalize('NFKC')
     .replace(/\r/g, '')
-    .replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200D}\u{20E3}]/gu, '')
+    .replace(/[\p{Extended_Pictographic}\u{FE0F}\u{200B}-\u{200D}\u{2060}\u{FEFF}\u{20E3}]/gu, '') // emoji i niewidoczne znaki
     .replace(/[ \t ]+/g, ' ')
     .replace(/ *\n */g, '\n')
     .replace(/\n{3,}/g, '\n\n')
@@ -277,7 +281,9 @@ export function parsePost(p, today, why = {}) {
   );
   const prizesText = prizes.map((l) => `• ${l}`).join('\n');
   const { flags, judging } = classify({ title, task, prizes: prizesText, platform: 'instagram', cats: [] });
-  const comments = typeof p.commentsCount === 'number' && p.commentsCount >= 0 ? Math.round(p.commentsCount) : null;
+  // Zgłoszenia przez stronę albo formularz („link w bio”): komentarze pod postem to nie uczestnicy.
+  const comments = VIA_COMMENTS_RX.test(text) && typeof p.commentsCount === 'number' && p.commentsCount >= 0 ? Math.round(p.commentsCount) : null;
+  const pickup = PICKUP_RX.test(text);
   return {
     cats: [],
     id: `ig:${code}`,
@@ -295,8 +301,8 @@ export function parsePost(p, today, why = {}) {
     // Liczba zwycięzców z opisu ma pierwszeństwo przed liczeniem „3x …” w nagrodach (to bywa zawartość jednego zestawu).
     prizeCount: winnersCount(task) || (SINGLE_RX.test(task) ? 1 : parsePrizeCount(prizesText) ?? 1),
     judging,
-    location: null,
-    local: false,
+    location: pickup ? 'odbiór osobisty' : null,
+    local: pickup,
     flags,
     comments,
     commentsAt: comments === null ? null : today,
@@ -317,7 +323,11 @@ export function reparse(c, today) {
     today,
   );
   if (!fresh) return false; // np. już po terminie – zostaje jak jest
-  for (const k of ['title', 'prizes', 'prizeCount', 'end', 'results']) c[k] = fresh[k];
+  for (const k of ['title', 'prizes', 'prizeCount', 'end', 'results', 'location', 'local']) c[k] = fresh[k];
+  if (fresh.comments === null) {
+    c.comments = null; // zgłoszenia nie w komentarzach – liczba komentarzy nic nie mówi o szansie
+    c.commentsAt = null;
+  }
   if (fresh.endGuess) c.endGuess = true;
   else delete c.endGuess;
   return true;
