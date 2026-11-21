@@ -117,22 +117,32 @@ function prizeLines(text) {
   return [...new Set([...strong, ...weak])].slice(0, 3).map((l) => cut(l, 200));
 }
 
-/** Post z Instagrama → konkurs w formacie listy (albo null, gdy to nie jest trwające rozdanie po polsku). */
-export function parsePost(p, today) {
-  if (!p || typeof p !== 'object' || p.error) return null;
+/**
+ * Post z Instagrama → konkurs w formacie listy (albo null, gdy to nie jest trwające rozdanie po polsku).
+ * Powód pominięcia trafia do `why.reason` (do statystyk w logach – bez treści postów).
+ */
+export function parsePost(p, today, why = {}) {
+  const skip = (reason) => {
+    why.reason = reason;
+    return null;
+  };
+  if (!p || typeof p !== 'object' || p.error) return skip('błąd');
   const url = typeof p.url === 'string' ? p.url : '';
   const code = p.shortCode || igCode(url);
-  if (!code || !/^https:\/\/(www\.)?instagram\.com\//.test(url)) return null;
-  if (p.isCommentsDisabled === true) return null;
+  if (!code || !/^https:\/\/(www\.)?instagram\.com\//.test(url)) return skip('adres');
+  if (p.isCommentsDisabled === true) return skip('bez komentarzy');
   const text = cleanText(p.caption);
-  if (text.length < 40 || !POLISH_RX.test(text) || !GIVEAWAY_RX.test(text) || !ENTRY_RX.test(text) || DONE_RX.test(text)) return null;
+  if (text.length < 40) return skip('krótki opis');
+  if (!POLISH_RX.test(text)) return skip('nie po polsku');
+  if (!GIVEAWAY_RX.test(text) || !ENTRY_RX.test(text)) return skip('nie rozdanie');
+  if (DONE_RX.test(text)) return skip('wyniki');
 
   const postISO = typeof p.timestamp === 'string' && /^\d{4}-\d{2}-\d{2}/.test(p.timestamp) ? p.timestamp.slice(0, 10) : today;
-  if (diffDays(postISO, today) > MAX_AGE_DAYS) return null;
+  if (diffDays(postISO, today) > MAX_AGE_DAYS) return skip('stary post');
   let end = parseEndDate(text, postISO);
   const endGuess = !end;
   if (!end) end = addDays(postISO, GUESS_DAYS);
-  if (diffDays(today, end) < 0) return null; // już po terminie
+  if (diffDays(today, end) < 0) return skip('po terminie');
 
   const prizes = prizeLines(text);
   const firstLine = text.split('\n').map((l) => l.replace(/#[^\s#]+/g, '').trim()).find((l) => l.length >= 4) || '';
@@ -193,10 +203,14 @@ export function mergeInstagram(byId, posts, today) {
     const code = igCode(c.url);
     if (code) byCode.set(code, c);
   }
-  const stats = { posts: (posts || []).length, found: 0, added: 0, updated: 0 };
+  const stats = { posts: (posts || []).length, found: 0, added: 0, updated: 0, skipped: {} };
   for (const p of posts || []) {
-    const c = parsePost(p, today);
-    if (!c) continue;
+    const why = {};
+    const c = parsePost(p, today, why);
+    if (!c) {
+      stats.skipped[why.reason] = (stats.skipped[why.reason] || 0) + 1;
+      continue;
+    }
     stats.found++;
     const code = igCode(c.url);
     const old = byCode.get(code) || byId.get(c.id);

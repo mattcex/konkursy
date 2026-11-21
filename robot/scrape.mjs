@@ -207,7 +207,8 @@ export async function scrape() {
     try {
       const posts = await fetchHashtagPosts({ token: apifyToken, hashtags, limit });
       const r = mergeInstagram(byId, posts, today);
-      console.log(`Instagram: ${r.posts} postów, rozdania: ${r.found}, nowe: ${r.added}, odświeżone liczby komentarzy: ${r.updated}.`);
+      const skipped = Object.entries(r.skipped).map(([k, n]) => `${k} ${n}`).join(', ') || 'brak';
+      console.log(`Instagram: ${r.posts} postów, rozdania: ${r.found}, nowe: ${r.added}, odświeżone liczby komentarzy: ${r.updated}; pominięte: ${skipped}.`);
     } catch (e) {
       console.warn(`Instagram: nie udało się pobrać postów (${e.message}).`);
     }

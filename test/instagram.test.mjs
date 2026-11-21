@@ -82,7 +82,7 @@ test('instagram: łączenie z listą bez duplikatów', () => {
   const ek = { id: 'ek:x', url: 'https://www.instagram.com/p/DAbc123xyz/', comments: 3, commentsAt: '2026-11-19', origin: undefined };
   const byId = new Map([[ek.id, ek]]);
   const r = mergeInstagram(byId, [post(GIVEAWAY), post(GIVEAWAY, { shortCode: 'DNew1', url: 'https://www.instagram.com/p/DNew1/' }), { error: 'not_found' }], today);
-  assert.deepEqual(r, { posts: 3, found: 2, added: 1, updated: 1 });
+  assert.deepEqual(r, { posts: 3, found: 2, added: 1, updated: 1, skipped: { błąd: 1 } });
   assert.equal(ek.comments, 14); // ten sam post z e-konkursy: tylko świeża liczba komentarzy
   assert.equal(ek.commentsAt, today);
   assert.ok(byId.has('ig:DNew1'));

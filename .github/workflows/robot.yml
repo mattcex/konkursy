@@ -17,6 +17,10 @@ on:
         description: 'Identyfikator odświeżenia z aplikacji'
         type: string
         default: ''
+      ig_force:
+        description: 'Pobierz Instagram ponownie, nawet jeśli był już pobrany dzisiaj (true/false) – kosztuje'
+        type: string
+        default: 'false'
 
 permissions:
   contents: write # zapis listy konkursów
@@ -41,6 +45,7 @@ jobs:
         env:
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
           IG_HASHTAGS: ${{ vars.IG_HASHTAGS }}
+          IG_FORCE: ${{ inputs.ig_force == 'true' && '1' || '' }}
         run: node robot/scrape.mjs
 
       - name: Zapisz zmiany
