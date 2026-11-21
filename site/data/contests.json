@@ -1,5 +1,5 @@
 {
- "updatedAt": "2026-11-21T18:05:45.470Z",
+ "updatedAt": "2026-11-21T18:10:03.328Z",
  "since": "2026-11-20",
  "source": "e-konkursy.info + data/curated.json + Instagram (Apify)",
  "igFetchedAt": "2026-11-21",
@@ -2684,7 +2684,7 @@
   {
    "cats": [],
    "id": "ig:Df92MZVhTmV",
-   "title": "Konkurs @dafi_polska: 10 × zestaw Dafi​",
+   "title": "Konkurs @dafi_polska: 10 × zestaw Dafi",
    "org": "@dafi_polska",
    "url": "https://www.instagram.com/p/Df92MZVhTmV/",
    "src": "https://www.instagram.com/p/Df92MZVhTmV/",
@@ -2694,7 +2694,7 @@
    "endGuess": true,
    "results": null,
    "task": "Pomóż nam rozbudować Wielki Atlas Homo complicatus Tworzymy zbiór zachowań, w których ludzie utrudniają sobie rzeczy, które można zrobić prościej. Zaobserwowałeś taki przypadek? Opisz go i weź udział w KONKURSIE! ​\n\nNajbardziej kreatywne obserwacje nagrodzimy:​\n\n5 × 500 zł ​\n10 × zestaw Dafi​\n-25% na zakupy w sklepie Dafi​\n\nDodaj przypadek do atlasu link w naszym bio „KONKURS”\n\n*Na jeden adres e-mail przysługuje jeden kod rabatowy.​\n\nRegulamin: https://homocomplicatus.pl/regulamin-konkursu",
-   "prizes": "• 10 × zestaw Dafi​\n• 5 × 500 zł ​",
+   "prizes": "• 10 × zestaw Dafi\n• 5 × 500 zł",
    "prizeCount": 15,
    "judging": "jury",
    "location": null,
@@ -2712,8 +2712,8 @@
     "follow": false,
     "tags": 0
    },
-   "comments": 13,
-   "commentsAt": "2026-11-21",
+   "comments": null,
+   "commentsAt": null,
    "origin": "ig",
    "firstSeen": "2026-11-21",
    "seenAt": "2026-11-21",
@@ -7473,8 +7473,8 @@
    "prizes": "• 3x Nagroda Główna: profesjonalna suszarka FOX Smart Front Ocean Breeze 2100 + pełna linia ESLA Hydra Special (szampon, maska, odżywka, serum)\n• 10x Nagroda Dodatkowa: zestaw pielęgnacyjny ESLA Hydra Special (szampon + maska)\n• Na zgłoszenia czekamy do 13.12.2026.",
    "prizeCount": 13,
    "judging": "?",
-   "location": null,
-   "local": false,
+   "location": "odbiór osobisty",
+   "local": true,
    "flags": {
     "creative": false,
     "stay": false,
