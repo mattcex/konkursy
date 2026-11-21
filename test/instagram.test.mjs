@@ -29,7 +29,7 @@ test('instagram: post z rozdaniem → konkurs', () => {
   assert.equal(c.id, 'ig:DAbc123xyz');
   assert.equal(c.origin, 'ig');
   assert.equal(c.platform, 'instagram');
-  assert.equal(c.title, 'Rozdanie @kosmetyki_anny: zestaw kosmetyków naturalnych o wartości 300 zł!');
+  assert.equal(c.title, 'Rozdanie @kosmetyki_anny: Zestaw kosmetyków naturalnych o wartości 300 zł!');
   assert.equal(c.org, '@kosmetyki_anny');
   assert.equal(c.start, '2026-11-21');
   assert.equal(c.end, '2026-11-28'); // nie data wyników (30.11)
@@ -69,6 +69,30 @@ test('instagram: daty końca', () => {
   assert.equal(parseEndDate('Trwa do 23.59 w niedzielę', today), null); // godzina, nie data
   assert.equal(parseEndDate('Wyniki ogłosimy 2.12', today), null);
   assert.equal(parseEndDate('trwa do 31.11', today), null); // nie ma takiego dnia
+});
+
+test('instagram: nagroda w tytule i liczba zwycięzców (przykłady z prawdziwych postów)', () => {
+  const title = (caption) => parsePost(post(caption), today).title.replace(/^\S+ @kosmetyki_anny: /, '');
+  const count = (caption) => parsePost(post(caption), today).prizeCount;
+  // nagłówek na końcu zdania, nagrody w kolejnych liniach
+  assert.equal(title('Razem z @marka mamy dla Was konkurs, w którym do zgarnięcia są:\nKalendarz adwentowy pełen niespodzianek!\nJak wziąć udział? Zaobserwuj profil i napisz komentarz. Trwa do 22.11'), 'Kalendarz adwentowy pełen niespodzianek!');
+  // „potrafi” to nie „trafi”; wygrywa zdanie z czasownikiem i konkretną nagrodą
+  assert.equal(
+    title('Przedświąteczny czas potrafi być intensywny, dlatego warto znaleźć chwilę dla siebie.\nMamy dla Was konkurs, w którym do wygrania są aż 3 kalendarze adwentowe!\nNapisz komentarz. Trwa do 25.11'),
+    'Aż 3 kalendarze adwentowe!',
+  );
+  // „wygrywa” (nie „wygra”) i ogólna „niespodzianka” bez konkretu
+  assert.equal(title('Czas na konkurs! Opisz w komentarzu swoją wpadkę kulinarną.\nNajzabawniejszy opis wygrywa maszynkę do mielenia HP.\nCzekamy do 22.11'), 'Najzabawniejszy opis wygrywa maszynkę do mielenia HP.');
+  assert.equal(title('Z tej okazji przygotowałam dla Was małą niespodziankę!\nDo wygrania karta podarunkowa RESERVED o wartości 300 zł!\nOznacz w komentarzu dwie osoby. Czekam do 5.12'), 'Karta podarunkowa RESERVED o wartości 300 zł!');
+  // długie zdanie → człon z nagrodą
+  assert.equal(
+    title('Chciałabym podarować odrobinę ceramicznej radości, dlatego przygotowałam konkurs, w którym 3 osoby otrzymają ode mnie po jednym kubku!\nNapisz komentarz. Trwa do 21.11'),
+    '3 osoby otrzymają ode mnie po jednym kubku!',
+  );
+  assert.equal(count('Konkurs! W komentarzu napisz, co lubisz. Wybiorę 3 najciekawsze odpowiedzi. Trwa do 30.11.2026\nZwycięzcę ogłoszę 06.12.2026'), 3);
+  assert.equal(count('Rozdanie! Zwycięzca zgarnie aż 36 produktów w zestawie:\n8x płyn\n10x kapsułki\n18x tabletki\nZostaw komentarz. Trwa do 9.12'), 1);
+  assert.equal(count('ROZDANIE! Do zgarnięcia: wygrywają aż trzy osoby. Oznacz w komentarzu znajomą. Trwa do 29.11'), 3);
+  assert.equal(count('Co można wygrać?\n1× gra\n2× projektor\n10× bilet do kina\nOznacz w komentarzu osobę. Trwa do 30.11'), 13);
 });
 
 test('instagram: kod posta, czyszczenie tekstu', () => {

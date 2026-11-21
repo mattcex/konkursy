@@ -19,7 +19,7 @@ const MONTHS = {
 };
 
 const L_ = 'a-ząćęłńóśźż';
-const GIVEAWAY_RX = /rozdani|konkurs|giveaway|do wygrania|wygraj|wygrać|nagrod/i;
+const GIVEAWAY_RX = /rozdani|rozdaj|konkurs|giveaway|do wygrania|do zgarnięcia|wygraj|wygrać|nagrod/i;
 const ENTRY_RX = /komentarz|komentuj|oznacz|obserwuj|zasad|warunk|udział|polub|zgłosz|odpowiedz|napisz/i;
 // Ogłoszenia wyników i zakończone rozdania
 const DONE_RX = new RegExp(
@@ -33,9 +33,45 @@ const DONE_RX = new RegExp(
   ].join('|'),
   'i',
 );
-const PRIZE_STRONG_RX = /do wygrania|nagrod[aąyęi]|zestaw|voucher|(?:^|[^a-ząćęłńóśźż])bon(?:y|u|ów)?(?![a-ząćęłńóśźż])|kart[aęy] podarunkow|egzemplarz/i;
-const PRIZE_WEAK_RX = /wygra|wygrywa/i;
-const RULES_RX = /obserwuj|oznacz|komentarz|polub|udostępnij|zasad|warunk/i;
+// Nagłówek, pod którym są nagrody: „Do wygrania:”, „CO MOŻNA WYGRAĆ?”, „Nagrody:”, „…konkurs, w którym do zgarnięcia są:”
+const PRIZE_HEADER_RX = /^(?:co\s+(?:można\s+)?(?:do\s+)?(?:wygra\S*|zgarn\S*)|do\s+(?:wygrania|zgarnięcia)|nagrod[ayęą]?(?:\s+główn\S*)?|(?:w\s+)?pul[ia]\s+nagród(?:\s+jest)?)\s*[:?!.\-–]*$|(?:do\s+(?:wygrania|zgarnięcia)|można\s+wygrać|nagrod[aąy])(?:\s+(?:są|jest|to))?\s*:\s*$/i;
+const RULES_HEADER_RX = /^(?:jak|aby|żeby|co\s+(?:trzeba\s+)?zrobić|zasady|warunki|zadanie|regulamin)/i;
+const B = '(?:^|[^a-ząćęłńóśźż])'; // początek słowa (np. „trafi”, ale nie „potrafi”)
+// Zdania mówiące, co można wygrać…
+const PRIZE_VERB_RX = new RegExp(
+  [
+    'do wygrania',
+    'do zgarnięcia',
+    `${B}zgarnij`,
+    `${B}zgarnąć`,
+    `${B}wygraj(?:cie)?\\s`,
+    `${B}wygrać\\s`,
+    '^nagrod\\S*\\s*(?:główn\\S*)?\\s*[:–-]',
+    'nagrod\\S* (?:jest|są|to|stanowi)',
+    'w nagrodę',
+    '\\d+\\s+nagr',
+    `${B}powędruj`,
+    `${B}trafi(?:ą)?\\s`,
+    `${B}otrzyma`,
+    `${B}dla (?:jednej|\\d+) (?:osoby|osób|z was)`,
+    'wygrywa\\S*\\s+(?!osob|najbardziej|najciekawsz|najlepsz|najzabawniejsz|komentarz|odpowied|autor|ta\\s|ten\\s|ci\\s)', // „opis wygrywa maszynkę”
+    'przygotował\\S*[^.\\n]{0,30}(?:paczk|paczusz|zestaw|kalendarz|nagrod|prezent|upomin)',
+    '\\d+\\s*[x×]\\s',
+    '\\d+\\.?\\s*miejsc',
+  ].join('|'),
+  'i',
+);
+// …i konkretne nagrody
+const PRIZE_NOUN_RX =
+  /zestaw|kalendarz\S* adwentow|voucher|(?:^|[^a-ząćęłńóśźż])bon(?:y|u|ów)?(?![a-ząćęłńóśźż])|kart[aęy] podarunkow|egzemplarz|paczk|paczusz|książk|kosmetyk|perfum|aparat|słuchawk|konsol|ekspres|kub(?:ek|k)|projektor|bilet|karnet|pobyt|nocleg/i;
+const PRIZE_ANY_RX = new RegExp(`${PRIZE_VERB_RX.source}|${PRIZE_NOUN_RX.source}`, 'i');
+const prizeScore = (s) => (PRIZE_VERB_RX.test(s) ? 2 : 0) + (PRIZE_NOUN_RX.test(s) ? 1 : 0) + (/\d|zł/i.test(s) ? 0.5 : 0);
+const RULES_RX = /obserwuj|oznacz|komentarz|polub|udostępnij|repost|zasad|warunk/i;
+const RULE_START_RX = /^(?:\d+[.)]?\s*)?(?:w komentarzu\s+)?(?:obserwuj|zaobserwuj|oznacz|polub|udostępnij|zostaw|napisz|odpowiedz|zaproś|zapisz)/i;
+const JUDGING_LINE_RX = /wygrywa\S*\s+(?:osoba|najbardziej|najciekawsz|najlepsz|komentarz|odpowied|autor|ta\s)/i;
+// Zdania o wynikach, wysyłce i regulaminie – nie opisują nagrody
+const META_LINE_RX = /wynik|ogłos|wysył|wyślę|wyślemy|organizator|regulamin|instagram|sponsor|zastrzeg|koszt|paczkomat|inpost|powodzenia|link w bio/i;
+const GENERIC_RX = /rozdani\S*|konkurs\S*|giveaway|świąteczn\S*|mikołajkow\S*|urodzinow\S*|jesienn\S*|zimow\S*|wielk\S*|super|mega|czas na|na \d+\s*(?:tys|k)?/gi;
 const POLISH_RX = /[ąęł]|rozdani/i;
 // Data wyników, wysyłki lub odbioru nagród, urodziny („wyniki 2.12”, „nagrody wyślemy do 15.12”)
 const SKIP_BEFORE_RX = /(?:wynik|ogłos|zwycięz|laureat|wysył|wyśl|odbi|odebra|urodzin)[^,;]{0,25}$/;
@@ -106,15 +142,87 @@ export function parseEndDate(text, postISO) {
   return best;
 }
 
-/** Zdania o nagrodach (najpierw „do wygrania”, „nagroda”, „zestaw”…, potem ogólne „wygraj”). */
-function prizeLines(text) {
-  const lines = text
-    .split(/\n+|(?<=[.!?])\s+/)
-    .map((s) => s.replace(/^[\s•*·\-–—>]+|\s+$/g, '').replace(/#[^\s#]+/g, '').trim())
-    .filter((s) => s.length >= 4);
-  const strong = lines.filter((l) => PRIZE_STRONG_RX.test(l));
-  const weak = lines.filter((l) => PRIZE_WEAK_RX.test(l) && !RULES_RX.test(l));
-  return [...new Set([...strong, ...weak])].slice(0, 3).map((l) => cut(l, 200));
+/** Zdania w linii (bez dzielenia po skrótach typu „ok.”, „godz.”, „ul.”). */
+const sentences = (line) =>
+  line
+    .split(/(?<=[!?])\s+|(?<=\p{L}{4,}\.)\s+(?=\p{Lu})/u)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+/**
+ * Zdania o nagrodach: najpierw linie pod nagłówkiem „Do wygrania:”, potem zdania z „do zgarnięcia”,
+ * „zestaw”, „otrzyma”, „powędruje”…, na końcu ogólne „wygraj” (bez zasad, wyników i wysyłki).
+ */
+export function prizeLines(text) {
+  const raw = text.split('\n').map((l) => l.replace(/^[\s•*·\-–—>_]+/, '').replace(/#[^\s#]+/g, '').trim());
+  const out = [];
+  const header = raw.findIndex((l) => PRIZE_HEADER_RX.test(l));
+  if (header >= 0) {
+    for (const l of raw.slice(header + 1)) {
+      if (out.length >= 3 || RULES_HEADER_RX.test(l) || PRIZE_HEADER_RX.test(l)) break;
+      if (l && !META_LINE_RX.test(l)) out.push(sentences(l)[0]);
+    }
+  }
+  if (!out.length) {
+    const sents = raw.flatMap(sentences).filter((s) => s.length >= 4 && !META_LINE_RX.test(s) && !JUDGING_LINE_RX.test(s));
+    // Najpierw zdania z czasownikiem i konkretną nagrodą („Do wygrania karta podarunkowa 300 zł”), potem pozostałe.
+    const strong = sents
+      .map((s, i) => ({ s, i, score: prizeScore(s) }))
+      .filter((x) => x.score >= 1 && !RULE_START_RX.test(x.s) && !(RULES_RX.test(x.s) && x.score < 2))
+      .sort((a, b) => b.score - a.score || a.i - b.i)
+      .map((x) => x.s);
+    const weak = sents.filter((s) => /wygr[ay]/i.test(s) && !RULES_RX.test(s)); // „wygraj”, „wygrywa”, „wygrają”
+    out.push(...strong, ...weak);
+  }
+  return [...new Set(out)].slice(0, 3).map((l) => cut(l, 200));
+}
+
+/** Krótki opis nagrody do tytułu: bez „Do wygrania:”, a z długiego zdania – fragment od nagrody. */
+function prizeSubject(line) {
+  let s = line
+    .replace(/^.*?do (?:wygrania|zgarnięcia)(?:\s+(?:jest|są|mamy))?\s*:?\s*/i, '')
+    .replace(/^(?:(?:rozdanie|konkurs|giveaway)\s*[:!.\-–—]*\s*)+/i, '')
+    .replace(/^\d{1,2}[.)]\s+(?=\p{L})/u, '') // „1. Kalendarz adwentowy…”
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (s.length > 90) {
+    // Długie zdanie: zostaw ostatni człon (po przecinku lub myślniku), który wciąż mówi o nagrodzie.
+    for (const m of [...s.matchAll(/,\s|\s[–-]\s/g)].reverse()) {
+      const rest = s.slice(m.index + m[0].length);
+      if (rest.length >= 25 && PRIZE_ANY_RX.test(rest)) {
+        s = rest.replace(/^(?:w któr\S+|do któr\S+|dlatego|więc|a|i|oraz|ale)\s+/i, (x) => (/^do któr/i.test(x) ? x : ''));
+        break;
+      }
+    }
+  }
+  return s ? s[0].toUpperCase() + s.slice(1) : '';
+}
+
+// Jeden zwycięzca, nawet gdy nagroda to zestaw wielu rzeczy („Zwycięzca zgarnie aż 36 produktów”)
+const SINGLE_RX = /zwycięzca\s+(?:zgarnie|otrzyma|wygra|dostanie)|(?:dla\s+)?jedn(?:ej|a|ego)\s+(?:osob|z was|zwycięzc|szczęśliw)|do jednej z was/i;
+
+const LW = '[a-ząćęłńóśźż]*';
+const NUM = `(\\d{1,3}|jedn${LW}|dw${LW}|trz[yeo]${LW}|czter${LW}|pięć|pięci${LW}|sześć|sześci${LW}|siedem|siedmi${LW}|osiem|ośmi${LW}|dziewięć|dziewięci${LW}|dziesięć|dziesięci${LW})`;
+const NUM_WORDS = [[/^jedn/, 1], [/^dw/, 2], [/^trz/, 3], [/^czter/, 4], [/^pięć|^pięci/, 5], [/^sześ/, 6], [/^siedem|^siedm/, 7], [/^osiem|^ośmi/, 8], [/^dziewię/, 9], [/^dziesię/, 10]];
+// Liczba przed słowem, ale nie końcówka daty czy kwoty („30.11.2026 Zwycięzcę…”); tylko spacje, nie nowe linie.
+const NUM_AT = `(?<![\\d.,:/])${NUM}`;
+const WINNERS_RX = [
+  new RegExp(`(?:wygrywa(?:ją)?|wybior(?:ę|ymy)|wybierzemy|wylosuj(?:ę|emy)|nagrodzimy)[ \\t]+(?:aż[ \\t]+)?${NUM_AT}[ \\t]+(?:osob|osób|zwycięzc|szczęśliw|najlepsz|najciekawsz|komentarz|odpowied)`, 'i'),
+  new RegExp(`${B}${NUM_AT}[ \\t]+(?:szczęśliw${LW}[ \\t]+)?(?:osob${LW}|osób|zwycięzc${LW}|laureat${LW})[ \\t]+(?:otrzyma|wygra|zgarn|dostan)`, 'i'),
+  new RegExp(`${B}${NUM_AT}[ \\t]+zwycięzc`, 'i'),
+];
+
+/** Liczba zwycięzców z opisu („wygrywają aż trzy osoby”, „Wybiorę 3 najciekawsze”, „4 zwycięzców”). */
+export function winnersCount(text) {
+  let best = 0;
+  for (const rx of WINNERS_RX) {
+    const m = String(text || '').match(rx);
+    if (!m) continue;
+    const w = m[1].toLowerCase();
+    const n = /^\d+$/.test(w) ? +w : (NUM_WORDS.find(([r]) => r.test(w)) || [null, 0])[1];
+    if (n > 0 && n <= 100) best = Math.max(best, n);
+  }
+  return best || null;
 }
 
 /**
@@ -145,14 +253,13 @@ export function parsePost(p, today, why = {}) {
   if (diffDays(today, end) < 0) return skip('po terminie');
 
   const prizes = prizeLines(text);
+  // Bez opisu nagrody: pierwsza linia, jeśli mówi coś więcej niż „ROZDANIE” i nie jest zasadą udziału.
   const firstLine = text.split('\n').map((l) => l.replace(/#[^\s#]+/g, '').trim()).find((l) => l.length >= 4) || '';
-  const subject =
-    (prizes[0] || firstLine)
-      .replace(/^.*?do wygrania(?:\s+(?:jest|są|mamy))?\s*:?\s*/i, '')
-      .replace(/^(?:(?:rozdanie|konkurs|giveaway)\s*[:!.\-–—]*\s*)+/i, '') || firstLine;
+  const firstUseful = firstLine.length <= 90 && !RULES_RX.test(firstLine) && firstLine.replace(GENERIC_RX, '').replace(/[^\p{L}]/gu, '').length >= 8;
+  const subject = prizes.length ? prizeSubject(prizes[0]) : firstUseful ? prizeSubject(firstLine) : 'nagroda na zdjęciu w poście';
   const kind = /konkurs/i.test(text) && !/rozdani|giveaway/i.test(text) ? 'Konkurs' : 'Rozdanie';
   const owner = typeof p.ownerUsername === 'string' && p.ownerUsername ? p.ownerUsername : '';
-  const title = `${kind}${owner ? ` @${owner}` : ''}: ${cut(subject.replace(/\s+/g, ' '), 90)}`;
+  const title = `${kind}${owner ? ` @${owner}` : ''}: ${cut(subject || firstLine, 90)}`;
   // Opis bez linii złożonych z samych hashtagów
   const task = cut(
     text
@@ -179,7 +286,8 @@ export function parsePost(p, today, why = {}) {
     results: parseResultsDate(task, end) || null,
     task,
     prizes: prizesText,
-    prizeCount: parsePrizeCount(prizesText) ?? 1,
+    // Liczba zwycięzców z opisu ma pierwszeństwo przed liczeniem „3x …” w nagrodach (to bywa zawartość jednego zestawu).
+    prizeCount: winnersCount(task) || (SINGLE_RX.test(task) ? 1 : parsePrizeCount(prizesText) ?? 1),
     judging,
     location: null,
     local: false,
@@ -191,6 +299,22 @@ export function parsePost(p, today, why = {}) {
     seenAt: today,
     fetchedAt: today,
   };
+}
+
+/**
+ * Ponowne odczytanie zapisanego rozdania (tytuł, nagrody, liczba nagród, termin) z jego opisu –
+ * poprawki rozpoznawania działają od razu także dla starszych wpisów, bez ponownego pobierania z Apify.
+ */
+export function reparse(c, today) {
+  const fresh = parsePost(
+    { shortCode: igCode(c.url), url: c.url, caption: c.task, commentsCount: c.comments, timestamp: c.start, ownerUsername: String(c.org || '').replace(/^@/, '') },
+    today,
+  );
+  if (!fresh) return false; // np. już po terminie – zostaje jak jest
+  for (const k of ['title', 'prizes', 'prizeCount', 'end', 'results']) c[k] = fresh[k];
+  if (fresh.endGuess) c.endGuess = true;
+  else delete c.endGuess;
+  return true;
 }
 
 /**

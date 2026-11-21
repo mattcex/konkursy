@@ -121,8 +121,8 @@ const RX = {
       'płacąc',
       'płatnoś(?:ci|ć) (?:kartą|blik|telefon|zbliżeni)',
       'zapłać',
-      'opłacaj',
-      'opłać',
+      `opłac(?:aj|ając)${PL_END}`, // nie „opłacają się”
+      `opłać${PL_END}`,
       `zawrz(?:eć|e|esz|yj|yjcie)${PL_END}[^.\\n]{0,40}umow`,
       `umow[ęy] na${PL_END}`,
       '(?:^|[^a-ząćęłńóśźż])kod(?:y|ów|u)? (?:spod|z|ze) (?:nakręt|wiecz|kapsl|opakowa|etykiet|paragon)', // „kody spod wieczek”
@@ -183,7 +183,7 @@ export function classify({ title = '', task = '', prizes = '', platform = '', ca
   const promoCat = (cats || []).includes('konkursy-promocyjne');
   const flags = {
     creative: creativeCat || RX.creative.test(`${title}\n${task}`),
-    stay: RX.stay.test(head),
+    stay: RX.stay.test(head.replace(/domow\S*\s+spa/gi, '')), // „domowe SPA” to kosmetyki, nie wyjazd
     party: RX.party.test(head),
     fbShare: false,
     igShare: false,
@@ -309,7 +309,8 @@ const CAR_RX = new RegExp(
   `${W}(?:samoch[oó]d(?!ow)|auto(?:a|em)?${NOT_LETTER}|auta${NOT_LETTER}|toyot|škod|skod[aęy]${NOT_LETTER}|volvo|mini cooper|audi${NOT_LETTER}|bmw|mercedes|kia${NOT_LETTER}|hyundai|dacia|renault|peugeot|citro[eë]n|opel|volkswagen|cupra|tesla|mazd[aęy]${NOT_LETTER}|nissan|suzuki|bestune|changan|lexus|jeep)`,
   'i',
 );
-const CAR_NOT_RX = /\bf1\b|formuł|wyścig|\bteam\b|bilet|wejściów|ekspres|kaw[aęy]|grand theft|\bgta\b/i; // np. „wejściówka na wyścig Audi F1 Team”
+// np. „wejściówka na wyścig Audi F1 Team”, „zawieszka zapachowa do samochodu”
+const CAR_NOT_RX = /\bf1\b|formuł|wyścig|\bteam\b|bilet|wejściów|ekspres|kaw[aęy]|grand theft|\bgta\b|do samochodu|zawieszk|uchwyt|fotelik|dywanik|pokrow/i;
 const FUJI_RX = /fujifilm|fuji\b|instax/i;
 const MONEY_WORD_RX = /gotów[kc]|pieniężn|pieniądz|pieniędz|przelew|czek[a-ząćęłńóśźż]* blik|na konto/i; // „gotówka”, „w gotówce”
 const TAX_RX = /podat|dodatkow[a-ząćęłńóśźż]* nagrod[a-ząćęłńóśźż]* pieniężn/i; // dopłata na podatek to nie nagroda pieniężna

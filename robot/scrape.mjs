@@ -6,7 +6,7 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { classify, parsePrizeCount, parseResultsDate, platformOf, todayISO, diffDays } from '../site/logic.js';
 import { parseListing, parseDetail, hasNextPage, locationFromTitle } from './parse.mjs';
-import { fetchHashtagPosts, mergeInstagram, DEFAULT_HASHTAGS, DEFAULT_LIMIT } from './instagram.mjs';
+import { fetchHashtagPosts, mergeInstagram, reparse, DEFAULT_HASHTAGS, DEFAULT_LIMIT } from './instagram.mjs';
 
 const BASE = 'https://www.e-konkursy.info';
 // Listy kategorii (konkursy-promocyjne = loterie i konkursy marek, tam są auta i nagrody pieniężne).
@@ -143,13 +143,16 @@ export async function scrape() {
   }
   console.log(`Na listach: ${slugs.size} konkursów.`);
 
-  // 2. Szczegóły nowych i dawno nieodświeżanych konkursów
+  // 2. Szczegóły nowych i dawno nieodświeżanych konkursów.
+  //    Zakończone konkursy, które wciąż wiszą na listach i w tagach, robot pamięta i nie pobiera ich co dzień od nowa.
+  const ended = { ...(prev.ended || {}) }; // slug → data końca
   let fetched = 0;
   let added = 0;
   for (const slug of slugs) {
     const id = `ek:${slug}`;
     const old = byId.get(id);
     if (old) old.seenAt = today;
+    if (!old && (ended[slug] || (curated[id] && curated[id].exclude === true))) continue;
     const stale = !old || !old.fetchedAt || diffDays(old.fetchedAt, today) >= REFRESH_DAYS;
     if (!stale || fetched >= MAX_DETAILS) continue;
 
@@ -159,7 +162,10 @@ export async function scrape() {
     if (!html) continue;
     const d = parseDetail(html);
     if (!d.title || !d.end) continue;
-    if (!old && diffDays(today, d.end) < 0) continue; // zakończony, zanim go zobaczyliśmy
+    if (!old && diffDays(today, d.end) < 0) {
+      ended[slug] = d.end; // zakończony, zanim go zobaczyliśmy
+      continue;
+    }
 
     const url = d.url && /^https?:\/\//.test(d.url) ? d.url : `${BASE}/konkurs/${slug}`;
     const platform = platformOf(url);
@@ -228,6 +234,7 @@ export async function scrape() {
     c.judging = judging;
     c.prizeCount = parsePrizeCount(c.prizes) ?? c.prizeCount ?? 1;
     c.results = parseResultsDate(c.task, c.end) || null;
+    if (c.origin === 'ig') reparse(c, today); // tytuł, nagrody i termin z opisu posta
   }
 
   // 4. Ręczne uzupełnienia (data/curated.json): liczby komentarzy, gotowe odpowiedzi, konkursy spoza e-konkursy
@@ -235,7 +242,14 @@ export async function scrape() {
 
   // 5. Zapis (tylko gdy coś się zmieniło)
   const contests = [...byId.values()].sort((a, b) => (a.end || '9999').localeCompare(b.end || '9999') || a.id.localeCompare(b.id));
-  if (stable(contests) === prevStable && prev.since && (prev.igFetchedAt || null) === igFetchedAt) {
+  // Pamięć zakończonych: bez wpisów starszych niż 90 dni po końcu (znikają już z list e-konkursy)
+  const endedOut = Object.fromEntries(
+    Object.entries(ended)
+      .filter(([, end]) => diffDays(end, today) <= 90)
+      .sort(([a], [b]) => a.localeCompare(b)),
+  );
+  const sameMeta = (prev.igFetchedAt || null) === igFetchedAt && JSON.stringify(prev.ended || {}) === JSON.stringify(endedOut);
+  if (stable(contests) === prevStable && prev.since && sameMeta) {
     console.log('Bez zmian.');
     return { changed: false, count: contests.length };
   }
@@ -244,7 +258,7 @@ export async function scrape() {
   const firstSeenDates = (prev.contests || []).map((c) => c.firstSeen).filter(Boolean).sort();
   const since = prev.since || firstSeenDates[0] || today;
   const source = `e-konkursy.info + data/curated.json${igFetchedAt ? ' + Instagram (Apify)' : ''}`;
-  const data = { updatedAt: new Date().toISOString(), since, source, igFetchedAt, count: contests.length, contests };
+  const data = { updatedAt: new Date().toISOString(), since, source, igFetchedAt, count: contests.length, contests, ended: endedOut };
   await writeFile(OUT, JSON.stringify(data, null, 1) + '\n', 'utf8');
   console.log(`Zapisano ${contests.length} konkursów.`);
   return { changed: true, count: contests.length };
