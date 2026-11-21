@@ -257,34 +257,59 @@ test('dla Ciebie: pieniądze bez bonów, wartości rzeczy i dopłat na podatek',
   assert.equal(money('• 2x samochód Citroën C3 (oraz 7 500 zł na wybrany cel dobroczynny)'), false);
 });
 
-test('dla Ciebie: duża szansa i omijanie filtra zakupu', () => {
+test('dla Ciebie: duża szansa (bez liczenia w dniu publikacji)', () => {
   const settings = L.settingsOf({});
-  assert.deepEqual(settings.interests, { list: L.INTERESTS, purchase: true });
+  assert.deepEqual(settings.interests, { list: L.INTERESTS });
   const odds = { id: 'o', title: 'Kubek', prizes: 'kubek', comments: 90, prizeCount: 3, flags: {} };
   assert.deepEqual(L.interestsOf(odds), ['odds']); // 1:30
   assert.deepEqual(L.interestsOf({ ...odds, comments: 900 }), []);
-  const car = { id: 'c', title: 'Loteria', prizes: '1x samochód Volvo XC40', flags: { purchase: true } };
-  const ints = L.interestsOf(car, {}, settings.interests.list);
-  assert.equal(L.hiddenReason(car, settings.hide), 'purchase');
-  assert.equal(L.hiddenFor(car, settings, ints), ''); // pasuje do zainteresowań → widoczny
-  assert.equal(L.hiddenFor({ ...car, flags: { purchase: true, fbShare: true } }, settings, ints), 'fbShare');
-  const off = L.settingsOf({ settings: { interests: { list: ['car', 'nieznane'], purchase: false } } });
+  // świeży post: komentarze policzone w dniu publikacji – to jeszcze nie „duża szansa”
+  const fresh = { ...odds, start: '2026-11-21', commentsAt: '2026-11-21' };
+  assert.equal(L.earlyCount(fresh), true);
+  assert.deepEqual(L.interestsOf(fresh), []);
+  assert.deepEqual(L.interestsOf({ ...fresh, commentsAt: '2026-11-23' }), ['odds']);
+  const off = L.settingsOf({ settings: { interests: { list: ['car', 'nieznane'] } } });
   assert.deepEqual(off.interests.list, ['car']);
-  assert.equal(L.hiddenFor(car, off, ints), 'purchase');
 });
 
-test('powiadomienia: nowe konkursy dla Ciebie', () => {
+test('z zakupem: osobna kategoria zamiast ukrywania', () => {
+  const settings = L.settingsOf({ settings: { hide: { purchase: true, app: true, party: true } } }); // starsze ustawienia
+  assert.equal('purchase' in settings.hide, false);
+  const car = { id: 'c', title: 'Loteria', prizes: '1x samochód Volvo XC40', flags: { purchase: true } };
+  assert.equal(L.needsPurchase(car), true);
+  assert.equal(L.needsPurchase({ flags: { app: true } }), true);
+  assert.equal(L.needsPurchase({ flags: {} }), false);
+  assert.equal(L.hiddenReason(car, settings.hide), ''); // nie jest ukryty – trafia do sekcji „Z zakupem”
+  assert.equal(L.hiddenReason({ flags: { purchase: true, fbShare: true } }, settings.hide), 'fbShare');
+  const p = (task, cats) => L.classify({ task, cats }).flags.purchase;
+  assert.equal(p('Uczestnik musi zakupić produkt promocyjny SMEG w sklepie Auchan'), true);
+  assert.equal(p('• Zrób co najmniej jeden zakup u partnera programu'), true);
+  assert.equal(p('• Płać BLIK-iem przy użyciu kodu z aplikacji'), true);
+  assert.equal(p('Należy zawrzeć w Banku umowę na produkt promocyjny.'), true);
+  assert.equal(p('Wpisuj kody spod wieczek opakowań.'), true);
+  assert.equal(p('Odwiedź lokal i zamów jeden z napojów sezonowych'), true);
+  assert.equal(p('Opis', ['konkursy-promocyjne']), true);
+  assert.equal(p('Nie musisz nic kupować ani kupić – wystarczy komentarz.'), false);
+  assert.equal(p('Robicie listę zakupów do M Park – co kupicie na literę M?'), false);
+  assert.equal(p('Napisz w komentarzu, na co wydasz bon na zakupy'), false);
+});
+
+test('powiadomienia: nowe konkursy dla Ciebie, loterie z zakupem osobno', () => {
   const today = '2026-11-21';
   const contests = [
     { id: 'car', title: 'Loteria InPost', prizes: '• 10x samochód MINI Cooper', end: '2027-01-28', firstSeen: today, flags: { purchase: true } },
     { id: 'hotel', title: 'Nowy hotel nad morzem', prizes: 'pobyt w hotelu', end: '2026-12-10', firstSeen: today, flags: { stay: true } },
+    { id: 'promo', title: 'Loteria z kubkami', prizes: 'kubek', end: '2026-11-22', firstSeen: '2026-11-01', flags: { purchase: true } },
   ];
-  const state = L.normalizeState({ settings: { t: 1, ntfy: { topic: 'konkursy-test', days: [] } } });
+  const state = L.normalizeState({ settings: { t: 1, ntfy: { topic: 'konkursy-test', days: [1] } } });
   const p = L.pickNotifications(contests, state, today);
   assert.deepEqual(p.newInterests.map((e) => e.c.id), ['car']);
   assert.deepEqual(p.newStays.map((e) => e.c.id), ['hotel']);
+  assert.deepEqual(p.ending, []); // loterii bez gwiazdki nie przypominamy
   const msg = L.buildDigest(p);
-  assert.match(msg.message, /🎯 Dla Ciebie \(samochód\): Loteria InPost/);
+  assert.match(msg.message, /🎯 Dla Ciebie \(samochód\): Loteria InPost · z zakupem/);
   assert.match(msg.title, /1 nowy dla Ciebie/);
   assert.ok(msg.tags.includes('dart'));
+  const off = L.normalizeState({ settings: { t: 1, ntfy: { topic: 'konkursy-test', days: [], newPurchase: false } } });
+  assert.deepEqual(L.pickNotifications(contests, off, today).newInterests, []);
 });

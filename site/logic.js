@@ -13,9 +13,9 @@ export const GOOD_ODDS = 50; // „duża szansa”: 1 na 50 lub lepiej
 export const DEFAULT_SETTINGS = {
   t: 0,
   lang: 'auto',
-  hide: { party: true, fbShare: true, igShare: false, purchase: true, app: true, content: true, creative: true },
-  // purchase: pasujące konkursy są widoczne mimo filtrów zakupu i aplikacji (loterie z autami i gotówką prawie zawsze ich wymagają)
-  interests: { list: [...INTERESTS], purchase: true },
+  // Konkursy z zakupem lub aplikacją nie są ukrywane – mają osobną sekcję „Z zakupem” (needsPurchase).
+  hide: { party: true, fbShare: true, igShare: false, content: true, creative: true },
+  interests: { list: [...INTERESTS] },
   ntfy: {
     enabled: true,
     server: 'https://ntfy.sh',
@@ -27,6 +27,7 @@ export const DEFAULT_SETTINGS = {
     newStays: true,
     newValuable: true,
     newInterests: true,
+    newPurchase: true, // nowe konkursy z zakupem pasujące do zainteresowań (loterie z autami i gotówką)
   },
 };
 
@@ -91,13 +92,46 @@ export function parseResultsDate(text, refISO) {
 
 // ---------- klasyfikacja konkursów ----------
 
+const PL_END = '(?![a-ząćęłńóśźż])'; // koniec słowa także po polskiej literze (\b w JS zna tylko litery ASCII)
+
 const RX = {
   stay: /pobyt|nocleg|\b\d+\s*noc(e|y|ami)?\b|hotel|apartament|domek letniskow|glamping|\bspa\b|resort|uzdrowisk|wycieczk|\brejs|wyjazd|wczas|urlop|bon\w* wakacyjn|weekend\w* (dla|w|nad)\b/i,
   party: /sylwest|\bbal(u|e|em|ach|ów)?\b|wejściów|dyskotek|koncert|festiwal|\bimprez|zaproszeni\w* na (bal|sylwest|imprez|koncert|festiwal|gal)|bilet\w* (wstępu )?na (bal|sylwest|imprez|zabaw|koncert|festiwal)/i,
   share: /udost[eę]pni|podziel się (tym |naszym )?(postem|wpisem)|\brepost|\brelacj|\bstor(y|ies)\b/i,
   optional: /opcjonaln|mile widzian|nie jest (to )?(warunk|wymagan|obowiązk)|nieobowiązk|będzie (mi|nam) (też |również )?(bardzo )?miło|jeśli (chcesz|macie|masz)|możesz (też|również)|dodatkow[a-ząćęłńóśźż]* szans|zwiększ[a-ząćęłńóśźż]* (swoje )?szans|nie musisz/i,
   fbHint: /facebook|\bfb\b|tablic|na swoim profilu/i,
-  purchase: /\bkup(ić|uj|i|iłeś|iłaś|ując|ione)?\b|zakupu\b|zakupów za|zrób zakupy|dokonaj (zakupu|zakupów)|dowód zakupu|paragon|faktur|zarejestruj (swój )?(zakup|paragon)|przy zakupie|kupując/i,
+  // Zakup, płatność, zamówienie, umowa albo kod z opakowania („Zrób co najmniej jeden zakup”, „Płać BLIK-iem”, „zawrzyj umowę”).
+  purchase: new RegExp(
+    [
+      `\\bkup(?:ić|uj|i|iłeś|iłaś|ione|isz)?${PL_END}`,
+      'kupując',
+      `zakup(?:ić|isz|ie|em|u)?${PL_END}`, // nie „zakupów”, „zakupy”
+      'zakupów za',
+      '(?:rób|zrób|róbcie|zróbcie|robiąc|zrobisz)\\s+zakup',
+      'zakup(?:y|ów)\\s+(?:za|o wartości|na kwotę)\\s+(?:min|co najmniej|\\d)',
+      'dokonaj (?:zakupu|zakupów)',
+      'dowód zakupu',
+      'paragon',
+      'faktur',
+      'produkt(?:u|y|ów)? promocyjn',
+      `\\bzamów(?:ić|isz|cie)?${PL_END}`,
+      'zamawiając',
+      'złóż zamówienie',
+      `(?:^|[^a-ząćęłńóśźż])płać(?:cie)?${PL_END}`,
+      'płacąc',
+      'płatnoś(?:ci|ć) (?:kartą|blik|telefon|zbliżeni)',
+      'zapłać',
+      'opłacaj',
+      'opłać',
+      `zawrz(?:eć|e|esz|yj|yjcie)${PL_END}[^.\\n]{0,40}umow`,
+      `umow[ęy] na${PL_END}`,
+      '(?:^|[^a-ząćęłńóśźż])kod(?:y|ów|u)? (?:spod|z|ze) (?:nakręt|wiecz|kapsl|opakowa|etykiet|paragon)', // „kody spod wieczek”
+      'zatankuj',
+      'tankując',
+    ].join('|'),
+    'i',
+  ),
+  noPurchase: /\bnie\s+(musisz|musicie|trzeba|jest\s+(wymagan|konieczn|potrzebn)|wymaga)|bez\s+(konieczności\s+)?(zakupu|kupowania)|zakup\s+nie\s+jest/i,
   app: /aplikacj|\bw apce\b|\bapki\b|\bapka\b|\bapp\b/i,
   content: /(dodaj|załącz|wrzuć|prześlij|opublikuj|zrób|nagraj|stwórz|przygotuj|udostępnij|wstaw)[^.\n]{0,40}(zdjęci|fotk|fotograf|selfie|film|wideo|video|rolk|reels|grafik|rysun|kolaż|karuzel)|narysuj|namaluj|plastyczn|\bselfie\b|\brolk[aęi]\b|\breels\b/i,
   follow: /obserwuj|zaobserwuj|subskryb|polub (profil|stronę|fanpage|nasz profil|naszą stronę|nasz fanpage)/i,
@@ -145,6 +179,8 @@ export function platformOf(url) {
 export function classify({ title = '', task = '', prizes = '', platform = '', cats = [] } = {}) {
   const head = `${title}\n${prizes}`;
   const creativeCat = (cats || []).some((c) => /plastyczn|fotograficzn|literack|dla-uczniow/.test(c));
+  // Kategoria e-konkursy „konkursy promocyjne” = nagrody po zakupie produktów objętych promocją.
+  const promoCat = (cats || []).includes('konkursy-promocyjne');
   const flags = {
     creative: creativeCat || RX.creative.test(`${title}\n${task}`),
     stay: RX.stay.test(head),
@@ -152,7 +188,7 @@ export function classify({ title = '', task = '', prizes = '', platform = '', ca
     fbShare: false,
     igShare: false,
     shareOptional: false,
-    purchase: RX.purchase.test(task),
+    purchase: promoCat || segments(task).some((seg) => RX.purchase.test(seg) && !RX.noPurchase.test(seg)),
     app: RX.app.test(task),
     content: RX.content.test(task),
     follow: RX.follow.test(task),
@@ -216,6 +252,7 @@ const ESTIMATES = [
   [/ipad|tablet/i, 2000],
   [/smartfon|\btelefon|galaxy|\bpixel\b/i, 2000],
   [/dyson/i, 2000],
+  [/instax/i, 400], // aparat natychmiastowy, a nie lustrzanka
   [/aparat|kamer[aęy]|gopro|\bdron/i, 2000],
   [/nintendo/i, 1500],
   [/hulajnog|\brower/i, 1500],
@@ -334,19 +371,24 @@ export function interestsOf(c, it = {}, wanted = INTERESTS) {
   if (want.has('fujifilm') && FUJI_RX.test(hay)) out.push('fujifilm');
   if (want.has('odds')) {
     const odds = oddsOf(c, it);
-    if (odds !== null && odds <= GOOD_ODDS) out.push('odds');
+    if (odds !== null && odds <= GOOD_ODDS && !earlyCount(c, it)) out.push('odds');
   }
   return out;
 }
 
-/** Powód ukrycia z uwzględnieniem „Dla Ciebie”: pasujące konkursy omijają filtry zakupu i aplikacji. */
-export function hiddenFor(c, settings, interests) {
-  const s = settings || DEFAULT_SETTINGS;
-  const reason = hiddenReason(c, s.hide);
-  if (!reason || !interests || !interests.length || !s.interests || !s.interests.purchase) return reason;
-  if (reason !== 'purchase' && reason !== 'app') return reason;
-  // Po ominięciu jednego filtra może zadziałać kolejny (np. zakup + udostępnienie na FB).
-  return hiddenReason(c, { ...s.hide, purchase: false, app: false });
+/** Komentarze policzone w dniu publikacji (np. świeże posty z Instagrama) – do końca konkursu będzie ich dużo więcej. */
+export function earlyCount(c, it = {}) {
+  const cm = commentsOf(c, it);
+  return Boolean(cm && isISODate(c && c.start) && isISODate(cm.at) && diffDays(c.start, cm.at) < 1);
+}
+
+/**
+ * Konkurs z zakupem: trzeba coś kupić, zapłacić, zawrzeć umowę albo użyć aplikacji sklepu (loterie, paragony).
+ * Takie konkursy mają w aplikacji osobną sekcję i kategorię „Z zakupem”.
+ */
+export function needsPurchase(c) {
+  const f = flagsOf(c);
+  return Boolean(f.purchase || f.app);
 }
 
 export function formatPLN(v, lang = 'pl') {
@@ -365,10 +407,7 @@ export function settingsOf(state) {
   out.t = num(s.t) || 0;
   if (s.lang === 'auto' || s.lang === 'pl' || s.lang === 'en') out.lang = s.lang;
   if (isObj(s.hide)) for (const k of Object.keys(out.hide)) if (typeof s.hide[k] === 'boolean') out.hide[k] = s.hide[k];
-  if (isObj(s.interests)) {
-    if (Array.isArray(s.interests.list)) out.interests.list = INTERESTS.filter((id) => s.interests.list.includes(id));
-    if (typeof s.interests.purchase === 'boolean') out.interests.purchase = s.interests.purchase;
-  }
+  if (isObj(s.interests) && Array.isArray(s.interests.list)) out.interests.list = INTERESTS.filter((id) => s.interests.list.includes(id));
   if (isObj(s.ntfy)) {
     const n = s.ntfy;
     if (typeof n.enabled === 'boolean') out.ntfy.enabled = n.enabled;
@@ -381,6 +420,7 @@ export function settingsOf(state) {
     if (typeof n.newStays === 'boolean') out.ntfy.newStays = n.newStays;
     if (typeof n.newValuable === 'boolean') out.ntfy.newValuable = n.newValuable;
     if (typeof n.newInterests === 'boolean') out.ntfy.newInterests = n.newInterests;
+    if (typeof n.newPurchase === 'boolean') out.ntfy.newPurchase = n.newPurchase;
   }
   return out;
 }
@@ -508,8 +548,6 @@ export function hiddenReason(c, hide) {
   if (h.party && f.party) return 'party';
   if (h.fbShare && f.fbShare) return 'fbShare';
   if (h.igShare && f.igShare) return 'igShare';
-  if (h.purchase && f.purchase) return 'purchase';
-  if (h.app && f.app) return 'app';
   if (h.content && f.content && !f.stay) return 'content';
   if (h.creative && f.creative) return 'creative';
   return '';
@@ -550,10 +588,12 @@ export function pickNotifications(contests, state, today) {
     const st = it.s || '';
     const dl = daysLeft(c, today);
     const interests = interestsOf(c, it, s.interests.list);
-    const hidden = hiddenFor(c, s, interests);
+    const hidden = hiddenReason(c, s.hide);
+    const purchase = needsPurchase(c);
     const odds = oddsOf(c, it);
     if (dl !== null && dl >= 0 && !DONE.has(st) && st !== 'skipped' && n.days.includes(dl)) {
-      const ok = st === 'todo' || (n.scope === 'all' && !hidden && (odds === null || odds <= n.maxOdds));
+      // Konkursy z zakupem (loterie) przypominamy tylko, gdy są oznaczone gwiazdką.
+      const ok = st === 'todo' || (n.scope === 'all' && !hidden && !purchase && (odds === null || odds <= n.maxOdds));
       if (ok) out.ending.push({ c, dl, odds, todo: st === 'todo' });
     }
     if (n.results && st === 'submitted') {
@@ -562,7 +602,8 @@ export function pickNotifications(contests, state, today) {
     }
     if (c.firstSeen === today && !hidden && st !== 'skipped' && (dl === null || dl >= 0)) {
       const info = prizeInfo(c);
-      if (n.newInterests && interests.length) out.newInterests.push({ c, odds, info, interests });
+      if (interests.length && (purchase ? n.newPurchase : n.newInterests)) out.newInterests.push({ c, odds, info, interests, purchase });
+      else if (purchase) continue;
       else if (n.newStays && flagsOf(c).stay) out.newStays.push({ c, odds, info });
       else if (n.newValuable && isValuable(info)) out.newValuable.push({ c, odds, info });
     }
@@ -606,7 +647,7 @@ export function buildDigest(p, { appUrl = '', lang = 'pl' } = {}) {
   for (const e of newInterests) {
     const v = e.info && e.info.value ? ` – ${e.info.estimated ? '~' : ''}${money(e.info.value)}` : '';
     const i = e.interests.map((id) => t(`interest.${id}`)).join(', ');
-    lines.push(t('digest.newInterest', { i, v, t: short(e.c.title) }) + odds(e.odds));
+    lines.push(t('digest.newInterest', { i, v, t: short(e.c.title) }) + odds(e.odds) + (e.purchase ? t('digest.purchase') : ''));
   }
   if (newInterests.length) tags.push('dart');
   for (const e of p.newStays) lines.push(t('digest.newStay', { t: short(e.c.title) }) + odds(e.odds));

@@ -9,12 +9,14 @@ Działa w całości na GitHubie: strona na GitHub Pages, aplikacja na Androida (
 
 ## Co potrafi
 
-- **Lista aktualnych konkursów** – robot codziennie rano pobiera je z [e-konkursy.info](https://www.e-konkursy.info/) (także loterie i tagi zainteresowań), a konkursy znalezione na innych stronach dopisuje z `data/curated.json`.
+- **Lista aktualnych konkursów** – robot codziennie rano pobiera je z [e-konkursy.info](https://www.e-konkursy.info/) (także loterie i tagi zainteresowań), dokłada najnowsze rozdania z Instagrama (#rozdanie, #konkurs – po podłączeniu Apify, niżej) i konkursy znalezione na innych stronach z `data/curated.json`.
 - **Dla Ciebie** – konkursy z nagrodami, które Cię interesują (góry, narty i snowboard, pieniądze, samochód, Fujifilm), i te z dużą szansą (1:50 lub lepiej) są na górze listy z zieloną etykietą; wybór w ustawieniach, osobne powiadomienie o nowych.
+- **Z zakupem** – loterie i konkursy, w których trzeba coś kupić, zapłacić, zawrzeć umowę albo użyć aplikacji, są w osobnej, zwijanej sekcji na końcu listy (na górze te pasujące do zainteresowań) i w kategorii „Z zakupem”.
+- **Kategorie** – Dla Ciebie, Z zakupem, Instagram, Facebook i rodzaje nagród.
 - **Przycisk „Odśwież”** – uruchamia robota od razu (GitHub Actions), czeka na wynik i oznacza nowe konkursy etykietą „nowy”.
 - **Podział według nagród** – sekcje: Wycieczki i noclegi, Sprzęt, Bony i gotówka, Pozostałe; sortowanie po wartości nagrody.
 - **Wyróżnione wartościowe nagrody** – od 1000 zł złote tło i etykieta 💎 z kwotą (z opisu albo szacunkową, oznaczoną „~”).
-- **Filtry** – domyślnie ukrywa imprezy, konkursy z obowiązkowym udostępnianiem na Facebooku, zakupowe, „z aplikacją”, wymagające zdjęcia (poza wyjazdami) i wymagające pracy twórczej (eseje, wiersze, nagrania, projekty).
+- **Filtry** – domyślnie ukrywa imprezy, konkursy z obowiązkowym udostępnianiem na Facebooku, wymagające zdjęcia (poza wyjazdami) i wymagające pracy twórczej (eseje, wiersze, nagrania, projekty).
 - **Terminy i szanse** – kolorowe terminy („jutro”, „za 3 dni”) i szansa ≈ komentarze ÷ liczba nagród.
 - **Odhaczanie zgłoszeń** – statusy: Planuję ★, Zgłoszone, Wygrane, Przegrane, Pominięte.
 - **Gotowe odpowiedzi** – z przyciskiem „Kopiuj”, plus własna odpowiedź i notatka.
@@ -39,6 +41,7 @@ e-konkursy.info ──► robot (GitHub Actions, codziennie) ──► site/data
 | Tłumaczenia PL/EN | `site/i18n.js` |
 | Wspólna logika: filtry, szanse, nagrody, łączenie stanu, powiadomienia | `site/logic.js` |
 | Robot pobierający konkursy | `robot/scrape.mjs`, `robot/parse.mjs` |
+| Rozdania z Instagrama (Apify) | `robot/instagram.mjs` |
 | Ręczne uzupełnienia: liczby komentarzy, gotowe odpowiedzi, konkursy z innych stron (wpisy `web:…`), wykluczenia (`"exclude": true`) | `data/curated.json` |
 | Powiadomienia | `robot/notify.mjs` |
 | Aplikacja na Androida | `android/` (Gradle, Trusted Web Activity), opis do sklepu: `android/store/listing.md` |
@@ -71,10 +74,25 @@ Bez nich workflow tylko sprawdza, czy aplikacja się kompiluje, i zapisuje testo
 
 Publikacja w Google Play: konto w Play Console (jednorazowo 25 USD), wgranie `lootsy.aab`, opis z `android/store/listing.md`, polityka prywatności `site/privacy.html`. Po włączeniu „Podpisywania aplikacji przez Google Play” dopisz odcisk SHA-256 klucza Google do `assetlinks.json`.
 
+## Rozdania z Instagrama
+
+Instagram nie pozwala czytać hashtagów bez logowania, a oficjalne API Mety do hashtagów wymaga weryfikacji aplikacji przez Metę.
+Robot korzysta więc z [Apify](https://apify.com/) – aktora [Instagram Hashtag Scraper](https://apify.com/apify/instagram-hashtag-scraper), który zbiera publiczne posty bez Twojego konta na Instagramie.
+
+1. Załóż darmowe konto na https://console.apify.com/ (plan Free: 5 USD limitu co miesiąc, bez karty).
+2. W Apify: **Settings → API & Integrations** → skopiuj **Personal API token**.
+3. W repozytorium: **Settings → Secrets and variables → Actions → New repository secret**, nazwa `APIFY_TOKEN`, wartość: token.
+
+Od następnego przebiegu robot raz dziennie pobiera 25 najnowszych postów z `#rozdanie` i 25 z `#konkurs` (ok. 0,13 USD dziennie, ok. 4 USD miesięcznie), wybiera trwające rozdania po polsku i dodaje je z etykietą „#rozdanie” – z liczbą komentarzy, terminem i nagrodą z opisu.
+Gdy w poście nie ma daty końca, robot przyjmuje 7 dni od publikacji (etykieta „termin?”).
+Hashtagi zmienisz zmienną repozytorium `IG_HASHTAGS` (np. `rozdanie,konkurs,rozdaniekosmetyczne`) – każdy kolejny to dodatkowe ok. 2 USD miesięcznie.
+Każde uruchomienie ma twardy limit kosztu, a po wyczerpaniu darmowego limitu Apify po prostu przestaje zwracać posty – niczego nie dopłacasz.
+
 ## Liczba komentarzy
 
-Facebook i Instagram blokują automatyczne odczytywanie postów, więc robot nie pobiera liczby komentarzy.
+Facebook i Instagram blokują automatyczne odczytywanie postów, więc robot nie pobiera liczby komentarzy z e-konkursy.
 Wpisujesz ją w szczegółach konkursu (obok jest link do posta), a szansa przelicza się sama.
+Rozdania z Instagrama mają liczbę komentarzy z dnia publikacji – do końca będzie ich więcej, więc ich szansa jest pokazana na szaro.
 
 ## Prywatność
 

@@ -35,7 +35,12 @@ jobs:
         with:
           node-version: 22
 
+      # Rozdania z Instagrama: tylko gdy w sekretach jest APIFY_TOKEN (konto Apify, darmowe 5 USD/mies.).
+      # Hashtagi można zmienić zmienną repozytorium IG_HASHTAGS, np. „rozdanie,konkurs”.
       - name: Pobierz konkursy
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          IG_HASHTAGS: ${{ vars.IG_HASHTAGS }}
         run: node robot/scrape.mjs
 
       - name: Zapisz zmiany

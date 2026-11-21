@@ -30,9 +30,12 @@ function lsSet(key, value) {
 let catalog = { contests: [], updatedAt: null };
 let catalogError = '';
 let state = L.normalizeState(lsGet(K.state));
-let ui = { tab: 'open', q: '', cat: 'all', sort: 'deadline', showHidden: false, ...(lsGet(K.ui) || {}) };
+// Kategorie listy: widoki, platformy i rodzaje nagród (sekcje).
+const VIEW_CATS = ['all', 'mine', 'purchase'];
+const PLATFORM_CATS = ['instagram', 'facebook'];
+let ui = { tab: 'open', q: '', cat: 'all', sort: 'deadline', showHidden: false, purchaseOpen: false, ...(lsGet(K.ui) || {}) };
 if (ui.cat === 'stay') ui.cat = 'trip'; // starsza wersja ustawień
-if (!['all', ...L.KIND_ORDER].includes(ui.cat)) ui.cat = 'all';
+if (![...VIEW_CATS, ...PLATFORM_CATS, ...L.KIND_ORDER].includes(ui.cat)) ui.cat = 'all';
 if (!['deadline', 'odds', 'value', 'new'].includes(ui.sort)) ui.sort = 'deadline';
 let sync = lsGet(K.sync);
 let syncInfo = { kind: sync ? 'busy' : 'local', key: sync ? 'sync.connecting' : 'sync.local' };
@@ -86,7 +89,7 @@ function saveLocal() {
   lsSet(K.state, state);
 }
 function saveUi() {
-  lsSet(K.ui, { tab: ui.tab, cat: ui.cat, sort: ui.sort, showHidden: ui.showHidden });
+  lsSet(K.ui, { tab: ui.tab, cat: ui.cat, sort: ui.sort, showHidden: ui.showHidden, purchaseOpen: ui.purchaseOpen });
 }
 
 /** Zapis zmiany: localStorage, odświeżenie listy i (z opóźnieniem) synchronizacja. */
@@ -383,6 +386,8 @@ const ICONS = {
   box: '<path d="M2.5 5L8 2.5 13.5 5v6.5L8 14l-5.5-2.5z"/><path d="M2.5 5L8 7.5 13.5 5M8 7.5V14"/>',
   sparkle: '<path d="M8 1.75l1.4 3.85L13.25 7 9.4 8.4 8 12.25 6.6 8.4 2.75 7 6.6 5.6z"/>',
   heart: '<path d="M8 13.25S2.75 10.15 2.75 6.35A2.85 2.85 0 0 1 8 4.4a2.85 2.85 0 0 1 5.25 1.95c0 3.8-5.25 6.9-5.25 6.9z"/>',
+  cart: '<path d="M1.75 2.5h1.7l1.55 7.25h7.25l1.25-5.25H4.05"/><circle cx="6" cy="12.75" r="1"/><circle cx="11.5" cy="12.75" r="1"/>',
+  chevron: '<path d="M6 3.75L10.25 8 6 12.25"/>',
   android: '<path d="M4.25 6.5h7.5v5.25a1 1 0 0 1-1 1h-5.5a1 1 0 0 1-1-1zM4.25 6a3.75 3.75 0 0 1 7.5 0M5.5 2.5l1 1.5M10.5 2.5l-1 1.5"/><circle cx="6.5" cy="4.9" r=".4" fill="currentColor"/><circle cx="9.5" cy="4.9" r=".4" fill="currentColor"/>',
 };
 
@@ -462,8 +467,10 @@ function dueClass(dl) {
   return '';
 }
 
-function oddsEl(odds) {
+function oddsEl(odds, early = false) {
   if (!odds) return h('span', { class: 'odds odds-bad', title: t('odds.unknown') }, '1:?');
+  // Komentarze policzone w dniu publikacji: szansa jeszcze spadnie, więc bez zielonego koloru.
+  if (early) return h('span', { class: 'odds odds-early', title: t('odds.early') }, `1:${odds}`);
   const cls = odds <= 30 ? 'odds-good' : odds <= 100 ? 'odds-ok' : 'odds-bad';
   return h('span', { class: `odds ${cls}`, title: t('odds.title') }, `1:${odds}`);
 }
@@ -485,9 +492,11 @@ function rows() {
       st: it.s || '',
       dl: L.daysLeft(c, today),
       odds: L.oddsOf(c, it),
+      early: L.earlyCount(c, it),
       comments: L.commentsOf(c, it),
       interests,
-      hidden: L.hiddenFor(c, s, interests),
+      purchase: L.needsPurchase(c),
+      hidden: L.hiddenReason(c, s.hide),
       prize: L.prizeInfo(c),
       isNew: !c.manual && L.isISODate(c.firstSeen) && (!catalog.since || c.firstSeen > catalog.since) && L.diffDays(c.firstSeen, today) <= 1,
     };
@@ -522,8 +531,12 @@ function inTab(r, tab, showHidden = ui.showHidden) {
 
 function matches(r) {
   if (ui.cat === 'mine') {
-    if (!r.interests.length) return false;
-  } else if (ui.cat !== 'all' && r.prize.kind !== ui.cat) return false;
+    if (!r.interests.length || r.purchase) return false;
+  } else if (ui.cat === 'purchase') {
+    if (!r.purchase) return false;
+  } else if (PLATFORM_CATS.includes(ui.cat)) {
+    if (r.c.platform !== ui.cat) return false;
+  } else if (ui.cat !== 'all' && (r.purchase || r.prize.kind !== ui.cat)) return false;
   const q = ui.q.trim().toLowerCase();
   if (!q) return true;
   const hay = [r.c.title, r.c.org, r.c.prizes, r.c.task, r.c.location, r.it.note].join(' ').toLowerCase();
@@ -573,13 +586,15 @@ function labelsFor(r) {
   if (c.location) out.push(h('span', { class: 'label label-local', title: t('label.local') }, c.location));
   if (f.fbShare) out.push(h('span', { class: 'label label-danger', title: t('label.fbShareTitle') }, t('label.fbShare')));
   if (f.igShare) out.push(h('span', { class: 'label label-warn', title: t('label.igShareTitle') }, t('label.igShare')));
-  if (f.purchase) out.push(h('span', { class: 'label label-danger' }, t('label.purchase')));
-  if (f.app) out.push(h('span', { class: 'label label-warn' }, t('label.app')));
+  if (f.purchase) out.push(h('span', { class: 'label label-purchase', title: t('label.purchaseTitle') }, icon('cart', { size: 12 }), t('label.purchase')));
+  if (f.app) out.push(h('span', { class: 'label label-purchase', title: t('label.appTitle') }, t('label.app')));
+  if (c.endGuess) out.push(h('span', { class: 'label label-warn', title: t('label.endGuessTitle') }, t('label.endGuess')));
   if (f.content) out.push(h('span', { class: 'label label-warn', title: t('label.contentTitle') }, t('label.content')));
   if (f.party) out.push(h('span', { class: 'label label-warn' }, t('label.party')));
   if (f.creative) out.push(h('span', { class: 'label label-warn', title: t('label.creativeTitle') }, t('label.creative')));
   if (c.manual) out.push(h('span', { class: 'label' }, t('label.manual')));
   if (c.origin === 'web') out.push(h('span', { class: 'label', title: t('label.webTitle') }, t('label.web')));
+  if (c.origin === 'ig') out.push(h('span', { class: 'label', title: t('label.igTagTitle') }, t('label.igTag')));
   if (c.gone) out.push(h('span', { class: 'label', title: t('label.goneTitle') }, t('label.gone')));
   if (r.hidden && ui.showHidden) out.push(h('span', { class: 'label', title: t('label.hiddenTitle') }, t('label.hidden', { r: t(`reason.${r.hidden}`) })));
   if (r.st === 'skipped') out.push(h('span', { class: 'label' }, t('label.skipped')));
@@ -651,7 +666,7 @@ function itemEl(r) {
         icon('comment', { size: 14 }),
         comments ? String(comments.n) : '?',
       ),
-      oddsEl(odds),
+      oddsEl(odds, r.early),
       star,
     ),
   );
@@ -660,9 +675,41 @@ function itemEl(r) {
 function boxEl(title, list, emptyText, cls = '') {
   const box = h('div', { class: `box ${cls}`.trim(), role: 'list' });
   if (title) box.append(h('div', { class: 'box-header' }, title));
-  if (!list.length) box.append(h('div', { class: 'box-empty' }, emptyText));
-  else list.forEach((r) => box.append(itemEl(r)));
+  if (!list.length) {
+    if (emptyText) box.append(h('div', { class: 'box-empty' }, emptyText));
+  } else list.forEach((r) => box.append(itemEl(r)));
   return box;
+}
+
+/** Zwijana sekcja „Z zakupem” na końcu listy; na górze konkursy pasujące do zainteresowań. */
+function purchaseBox(list) {
+  const mine = list.filter((r) => r.interests.length);
+  const ordered = [...mine, ...list.filter((r) => !r.interests.length)];
+  const open = Boolean(ui.purchaseOpen || ui.q.trim()); // przy wyszukiwaniu zawsze rozwinięta
+  const toggle = h(
+    'button',
+    {
+      type: 'button',
+      class: 'box-toggle',
+      'aria-expanded': open ? 'true' : 'false',
+      title: open ? t('purchase.collapse') : t('purchase.expand'),
+      onclick: () => {
+        ui.purchaseOpen = !open;
+        saveUi();
+        renderList();
+      },
+    },
+    icon('chevron', { cls: 'chevron' }),
+    h(
+      'span',
+      { class: 'box-title' },
+      icon('cart'),
+      ` ${t('purchase.title')} `,
+      h('span', { class: 'counter' }, String(list.length)),
+      h('span', { class: 'muted box-note' }, mine.length ? t('purchase.noteMine', { n: mine.length }) : t('purchase.note')),
+    ),
+  );
+  return boxEl(toggle, open ? ordered : [], '', `box-purchase${open ? ' is-open' : ''}`);
 }
 
 function renderTabs(all) {
@@ -707,6 +754,8 @@ function buildToolbar() {
       renderList();
     },
   });
+  // Opcje: [wartość, tekst] albo { group, options } (grupa <optgroup>).
+  const opt = (key, [v, text]) => h('option', { value: v, selected: ui[key] === v }, text);
   const sel = (id, label, options, key) =>
     h(
       'select',
@@ -720,11 +769,18 @@ function buildToolbar() {
           render();
         },
       },
-      options.map(([v, text]) => h('option', { value: v, selected: ui[key] === v }, text)),
+      options.map((o) => (Array.isArray(o) ? opt(key, o) : h('optgroup', { label: o.group }, o.options.map((x) => opt(key, x))))),
     );
+  const catOptions = [
+    ['all', t('filter.allKinds')],
+    ['mine', t('filter.forYou')],
+    ['purchase', t('filter.purchase')],
+    { group: t('filter.groupPlatform'), options: PLATFORM_CATS.map((p) => [p, platformName(p)]) },
+    { group: t('filter.groupKind'), options: L.KIND_ORDER.map((k) => [k, t(`kind.${k}`)]) },
+  ];
   $('#toolbar').replaceChildren(
     h('div', { class: 'search' }, icon('search'), search),
-    sel('f-cat', t('filter.kindAria'), [['all', t('filter.allKinds')], ['mine', t('filter.forYou')], ...L.KIND_ORDER.map((k) => [k, t(`kind.${k}`)])], 'cat'),
+    sel('f-cat', t('filter.kindAria'), catOptions, 'cat'),
     sel('f-sort', t('sort.aria'), [['deadline', t('sort.deadline')], ['value', t('sort.value')], ['odds', t('sort.odds')], ['new', t('sort.new')]], 'sort'),
     h(
       'label',
@@ -748,14 +804,17 @@ function renderStats(all) {
   const submitted = all.filter((r) => L.DONE.has(r.st)).length;
   const won = all.filter((r) => r.st === 'won').length;
   const lost = all.filter((r) => r.st === 'lost').length;
-  const stays = all.filter((r) => inTab(r, 'open', false) && L.flagsOf(r.c).stay).length;
-  const valuable = all.filter((r) => inTab(r, 'open', false) && L.isValuable(r.prize)).length;
-  const fresh = all.filter((r) => inTab(r, 'open', false) && r.isNew).length;
-  const forYou = all.filter((r) => inTab(r, 'open', false) && r.interests.length).length;
+  // Wyjazdy, wartościowe i nowe – bez konkursów z zakupem (te mają własny licznik).
+  const openFree = all.filter((r) => inTab(r, 'open', false) && !r.purchase);
+  const stays = openFree.filter((r) => L.flagsOf(r.c).stay).length;
+  const valuable = openFree.filter((r) => L.isValuable(r.prize)).length;
+  const fresh = openFree.filter((r) => r.isNew).length;
+  const forYou = all.filter((r) => inTab(r, 'open', false) && r.interests.length && !r.purchase).length;
+  const purchase = all.filter((r) => inTab(r, 'open', false) && r.purchase).length;
   const hiddenCount = all.filter((r) => (r.dl === null || r.dl >= 0) && !L.DONE.has(r.st) && (r.hidden || r.st === 'skipped')).length;
   $('#f-hidden-label').textContent = t('hidden.toggle', { n: hiddenCount });
   const part = (label, value) => h('span', null, label, ' ', h('strong', null, String(value)));
-  const stats = [part(t('stats.forYou'), forYou), part(t('stats.entered'), submitted), part(t('stats.won'), won)];
+  const stats = [part(t('stats.forYou'), forYou), part(t('stats.purchase'), purchase), part(t('stats.entered'), submitted), part(t('stats.won'), won)];
   if (won + lost > 0) stats.push(part(t('stats.rate'), `${Math.round((won / (won + lost)) * 100)}%`));
   stats.push(part(t('stats.trips'), stays));
   stats.push(part(t('stats.valuable', { v: tr.money(L.VALUABLE_FROM) }), valuable));
@@ -770,9 +829,13 @@ function renderList() {
   const empty = t(`empty.${ui.tab}`);
   const boxes = [];
   if (catalogError) boxes.push(h('div', { class: 'flash flash-warn' }, t(catalogError)));
-  if ((ui.tab === 'open' || ui.tab === 'todo') && ui.cat === 'all' && (ui.sort === 'deadline' || ui.sort === 'odds') && list.length) {
+  // Zakładka „Otwarte”: konkursy z zakupem (loterie, paragony, aplikacje) w osobnej, zwijanej sekcji na końcu.
+  const split = ui.tab === 'open' && ui.cat === 'all';
+  const paid = split ? list.filter((r) => r.purchase) : [];
+  const free = split ? list.filter((r) => !r.purchase) : list;
+  if ((ui.tab === 'open' || ui.tab === 'todo') && ui.cat === 'all' && (ui.sort === 'deadline' || ui.sort === 'odds') && free.length) {
     // Najpierw „Dla Ciebie” (zainteresowania), potem sekcje według rodzaju nagrody: wyjazdy, sprzęt, bony, pozostałe
-    const mine = list.filter((r) => r.interests.length);
+    const mine = free.filter((r) => r.interests.length);
     if (mine.length) {
       const names = L.settingsOf(state).interests.list.map((id) => t(`interest.${id}`)).join(', ');
       boxes.push(
@@ -785,7 +848,7 @@ function renderList() {
       );
     }
     for (const kind of L.KIND_ORDER) {
-      const part = list.filter((r) => r.prize.kind === kind && !r.interests.length);
+      const part = free.filter((r) => r.prize.kind === kind && !r.interests.length);
       if (!part.length) continue;
       const valuable = part.filter((r) => L.isValuable(r.prize)).length;
       boxes.push(
@@ -803,9 +866,10 @@ function renderList() {
         ),
       );
     }
-  } else {
-    boxes.push(boxEl(h('span', null, tn('list.count', list.length)), list, empty));
+  } else if (free.length || !paid.length) {
+    boxes.push(boxEl(h('span', null, tn('list.count', free.length)), free, empty));
   }
+  if (paid.length) boxes.push(purchaseBox(paid));
   root.replaceChildren(...boxes);
   return all;
 }
@@ -823,7 +887,15 @@ function renderFooter() {
   const upd = catalog.updatedAt ? new Date(catalog.updatedAt) : null;
   const parts = [
     h('span', null, t('footer.list'), ' ', upd ? upd.toLocaleString(tr.lang === 'en' ? 'en-GB' : 'pl-PL', { dateStyle: 'medium', timeStyle: 'short' }) : '—', ` (${(catalog.contests || []).length})`),
-    h('span', null, t('footer.source'), ' ', extLink('https://www.e-konkursy.info/', 'e-konkursy.info'), ` ${t('footer.andWeb')}`),
+    h(
+      'span',
+      null,
+      t('footer.source'),
+      ' ',
+      extLink('https://www.e-konkursy.info/', 'e-konkursy.info'),
+      ` ${t('footer.andWeb')}`,
+      (catalog.contests || []).some((c) => c.origin === 'ig') ? ` · ${t('footer.ig')}` : '',
+    ),
     site.apkUrl && !inAndroidApp ? h('span', null, h('a', { href: site.apkUrl }, icon('android', { size: 12 }), ' ', t('footer.android'))) : null,
     h('span', null, h('a', { href: 'privacy.html' }, t('footer.privacy'))),
     site.repoUrl ? h('span', null, extLink(site.repoUrl, t('footer.code'))) : null,
@@ -930,7 +1002,7 @@ function renderContest(id) {
 
   // --- kolumna główna ---
   const main = h('div', null);
-  const taskSrc = c.origin === 'web' ? t('detail.taskWeb') : c.manual ? '' : t('detail.taskSrc');
+  const taskSrc = c.origin === 'web' ? t('detail.taskWeb') : c.origin === 'ig' ? t('detail.taskIg') : c.manual ? '' : t('detail.taskSrc');
   if (c.task) main.append(commentBox(h('span', null, h('strong', null, t('detail.task')), taskSrc), h('div', { class: 'comment-body' }, c.task), extLink(c.src, t('detail.source'))));
   if (c.prizes) main.append(commentBox(h('strong', null, t('detail.prizes')), h('div', { class: 'comment-body' }, c.prizes)));
 
@@ -1058,7 +1130,7 @@ function renderContest(id) {
       pz.estimated ? h('div', { class: 'hint' }, t('detail.estimate')) : null,
     ),
   );
-  side.append(sidebarSection(t('detail.odds'), oddsEl(odds), h('div', { class: 'hint' }, t('detail.oddsHint'))));
+  side.append(sidebarSection(t('detail.odds'), oddsEl(odds, r.early), h('div', { class: 'hint' }, r.early ? t('odds.early') : t('detail.oddsHint'))));
 
   const req = [];
   if (f.follow) req.push(t('req.follow'));
@@ -1380,6 +1452,7 @@ function renderSettings() {
         'div',
         { style: 'margin-top:8px' },
         ntfyBox('newInterests', t('ntfy.newInterests')),
+        ntfyBox('newPurchase', t('ntfy.newPurchase')),
         ntfyBox('newStays', t('ntfy.newStays')),
         ntfyBox('newValuable', t('ntfy.newValuable', { v: tr.money(L.VALUABLE_FROM) })),
         ntfyBox('results', t('ntfy.results')),
@@ -1418,14 +1491,8 @@ function renderSettings() {
           h('span', null, h('strong', null, t(`interest.${id}`)), ' – ', t(`interest.${id}Desc`, { n: L.GOOD_ODDS })),
         ),
       ),
-      h(
-        'label',
-        { class: 'check', style: 'margin-top:8px' },
-        h('input', { type: 'checkbox', checked: s.interests.purchase, onchange: (e) => setSettings((x) => (x.interests.purchase = e.target.checked)) }),
-        t('forYou.purchase'),
-      ),
     ),
-    settingsSection(t('filters.title'), t('filters.desc'), ['party', 'fbShare', 'igShare', 'purchase', 'app', 'content', 'creative'].map(hideBox)),
+    settingsSection(t('filters.title'), t('filters.desc'), Object.keys(L.DEFAULT_SETTINGS.hide).map(hideBox), h('div', { class: 'hint' }, t('filters.purchaseNote'))),
     settingsSection(
       t('look.title'),
       null,

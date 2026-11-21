@@ -1,10 +1,12 @@
 // Robot: pobiera aktualne konkursy z e-konkursy.info, dokłada konkursy znalezione w innych miejscach
-// (data/curated.json, wpisy „web:…”) i zapisuje site/data/contests.json.
+// (data/curated.json, wpisy „web:…”) i rozdania z Instagrama (gdy jest sekret APIFY_TOKEN),
+// a potem zapisuje site/data/contests.json.
 // Uruchamiany codziennie przez GitHub Actions (.github/workflows/robot.yml) albo ręcznie: npm run scrape
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { classify, parsePrizeCount, parseResultsDate, platformOf, todayISO, diffDays } from '../site/logic.js';
 import { parseListing, parseDetail, hasNextPage, locationFromTitle } from './parse.mjs';
+import { fetchHashtagPosts, mergeInstagram, DEFAULT_HASHTAGS, DEFAULT_LIMIT } from './instagram.mjs';
 
 const BASE = 'https://www.e-konkursy.info';
 // Listy kategorii (konkursy-promocyjne = loterie i konkursy marek, tam są auta i nagrody pieniężne).
@@ -25,6 +27,7 @@ const MAX_DETAILS = Number(process.env.MAX_DETAILS || 250);
 const DELAY_MS = Number(process.env.DELAY_MS || 700);
 const REFRESH_DAYS = 5; // co ile dni odświeżać opis znanego konkursu
 const KEEP_DAYS = 45; // ile dni po zakończeniu trzymać konkurs na liście
+const KEEP_IG_DAYS = 7; // to samo dla rozdań z Instagrama
 
 const repoUrl = process.env.GITHUB_REPOSITORY ? `https://github.com/${process.env.GITHUB_REPOSITORY}` : 'https://github.com';
 const UA = `LootsyBot/1.0 (+${repoUrl})`;
@@ -189,10 +192,32 @@ export async function scrape() {
   }
   console.log(`Pobrano opisy: ${fetched}, nowe konkursy: ${added}.`);
 
+  // 2b. Instagram: najnowsze posty z #rozdanie i #konkurs (Apify), najwyżej raz dziennie – każde pobranie kosztuje
+  let igFetchedAt = prev.igFetchedAt || null;
+  const apifyToken = process.env.APIFY_TOKEN || '';
+  if (!apifyToken) {
+    console.log('Instagram: pominięty (brak sekretu APIFY_TOKEN).');
+  } else if (igFetchedAt === today && process.env.IG_FORCE !== '1') {
+    console.log('Instagram: już pobrany dzisiaj.');
+  } else {
+    const tags = (process.env.IG_HASHTAGS || '').split(/[\s,]+/).map((s) => s.replace(/^#/, '').trim()).filter(Boolean);
+    const hashtags = tags.length ? tags.slice(0, 5) : DEFAULT_HASHTAGS;
+    const limit = Math.min(Math.max(Number(process.env.IG_LIMIT) || DEFAULT_LIMIT, 1), 50);
+    igFetchedAt = today; // także po błędzie: uruchomienie w Apify mogło już kosztować
+    try {
+      const posts = await fetchHashtagPosts({ token: apifyToken, hashtags, limit });
+      const r = mergeInstagram(byId, posts, today);
+      console.log(`Instagram: ${r.posts} postów, rozdania: ${r.found}, nowe: ${r.added}, odświeżone liczby komentarzy: ${r.updated}.`);
+    } catch (e) {
+      console.warn(`Instagram: nie udało się pobrać postów (${e.message}).`);
+    }
+  }
+
   // 3. Usunięcie dawno zakończonych i ponowna klasyfikacja zapisanych opisów
   //    (poprawki w site/logic.js działają od razu także dla starszych konkursów)
   for (const [id, c] of byId) {
-    if (c.end && diffDays(c.end, today) > KEEP_DAYS) {
+    // Rozdań z Instagrama jest dużo, więc po terminie znikają szybciej (zgłoszenia zostają w Twojej sesji).
+    if (c.end && diffDays(c.end, today) > (c.origin === 'ig' ? KEEP_IG_DAYS : KEEP_DAYS)) {
       byId.delete(id);
       continue;
     }
@@ -209,7 +234,7 @@ export async function scrape() {
 
   // 5. Zapis (tylko gdy coś się zmieniło)
   const contests = [...byId.values()].sort((a, b) => (a.end || '9999').localeCompare(b.end || '9999') || a.id.localeCompare(b.id));
-  if (stable(contests) === prevStable && prev.since) {
+  if (stable(contests) === prevStable && prev.since && (prev.igFetchedAt || null) === igFetchedAt) {
     console.log('Bez zmian.');
     return { changed: false, count: contests.length };
   }
@@ -217,7 +242,8 @@ export async function scrape() {
   // „since” = dzień pierwszego importu; konkursy z tego dnia nie są oznaczane w aplikacji jako „nowe”.
   const firstSeenDates = (prev.contests || []).map((c) => c.firstSeen).filter(Boolean).sort();
   const since = prev.since || firstSeenDates[0] || today;
-  const data = { updatedAt: new Date().toISOString(), since, source: 'e-konkursy.info + data/curated.json', count: contests.length, contests };
+  const source = `e-konkursy.info + data/curated.json${igFetchedAt ? ' + Instagram (Apify)' : ''}`;
+  const data = { updatedAt: new Date().toISOString(), since, source, igFetchedAt, count: contests.length, contests };
   await writeFile(OUT, JSON.stringify(data, null, 1) + '\n', 'utf8');
   console.log(`Zapisano ${contests.length} konkursów.`);
   return { changed: true, count: contests.length };

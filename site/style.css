@@ -273,6 +273,19 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .box-foryou { border-color: var(--success); }
 .box-foryou > .box-header { background: var(--success-muted); border-bottom-color: var(--success); }
 .box-foryou > .box-header .icon { color: var(--success); }
+/* „Z zakupem”: osobna, zwijana sekcja na końcu listy */
+.box-purchase > .box-header { padding: 0; }
+.box-purchase:not(.is-open) > .box-header { border-bottom: 0; }
+.box-toggle {
+  display: flex; align-items: center; gap: 8px; width: 100%;
+  padding: 12px 16px; background: none; border: 0;
+  color: inherit; font: inherit; font-weight: 600; text-align: left; cursor: pointer;
+}
+.box-toggle:hover { background: var(--bg-hover); }
+.box-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.box-toggle .chevron { flex: none; color: var(--fg-muted); transition: transform .15s; }
+.box-toggle[aria-expanded="true"] .chevron { transform: rotate(90deg); }
+@media (prefers-reduced-motion: reduce) { .box-toggle .chevron { transition: none; } }
 .box-empty { padding: 32px 16px; text-align: center; color: var(--fg-muted); }
 .box-empty strong { display: block; color: var(--fg); font-size: 16px; margin-bottom: 4px; }
 
@@ -329,6 +342,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .label-tech { color: var(--accent); border-color: var(--border); }
 .label-new { color: var(--accent); border-color: var(--accent); background: var(--accent-muted); font-weight: 600; }
 .label-interest { color: var(--success); border-color: var(--success); background: var(--success-muted); font-weight: 600; }
+.label-purchase { color: var(--fg-muted); border-color: var(--border); background: var(--neutral-muted); }
 .label-value { color: var(--attention); border-color: var(--attention); background: var(--attention-muted); font-weight: 600; }
 .label-value-top { color: #fff; border-color: #bf8700; background: #bf8700; font-weight: 600; }
 :root[data-theme="dark"] .label-value-top { background: #9e6a03; border-color: #9e6a03; }
@@ -359,6 +373,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .odds-good { color: var(--success); background: var(--success-muted); border-color: var(--success); }
 .odds-ok { color: var(--attention); background: var(--attention-muted); border-color: var(--attention); }
 .odds-bad { color: var(--fg-muted); background: var(--neutral-muted); }
+.odds-early { color: var(--fg-muted); background: var(--neutral-muted); border: 1px dashed var(--border); }
 
 /* ---------- okna dialogowe ---------- */
 
