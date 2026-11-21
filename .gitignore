@@ -5,3 +5,6 @@ Thumbs.db
 # lokalne pliki stanu do testów powiadomień
 moj-stan*.json
 local-state*.json
+
+# lokalna konfiguracja narzędzi
+.claude/

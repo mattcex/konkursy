@@ -220,3 +220,71 @@ test('odmiana i losowa nazwa kanału', () => {
   assert.equal(L.plural(22, ['konkurs', 'konkursy', 'konkursów']), 'konkursy');
   assert.match(L.randomTopic(), /^konkursy-[a-z2-9]{14}$/);
 });
+
+test('dla Ciebie: góry, narty, samochód, Fujifilm', () => {
+  const of = (c) => L.interestsOf({ flags: {}, ...c });
+  assert.deepEqual(of({ title: 'Wygraj pobyt', prizes: 'Pobyt dla dwóch osób w hotelu z widokiem na Giewont i strefą SPA' }), ['mountains']);
+  assert.deepEqual(of({ title: 'Wielki konkurs', prizes: 'karta o wartości 1500 zł na pobyt', location: 'Zakopane' }), ['mountains']);
+  assert.deepEqual(of({ title: 'Konkurs Beskidzkie', prizes: '400x Bluza Beskidzkie' }), []); // marka, nie wyjazd
+  assert.deepEqual(of({ title: 'SNOW EXPO', prizes: 'voucher na wyjazd narciarski 3000 zł' }), ['ski']);
+  assert.deepEqual(of({ title: 'Wygraj deskę', prizes: '1x deska snowboardowa' }), ['ski']);
+  assert.deepEqual(of({ title: 'Loteria', prizes: '• Nagroda Główna: samochód osobowy MINI Cooper' }), ['car']);
+  assert.deepEqual(of({ title: 'Loteria', prizes: '• główna: Toyota Yaris Cross' }), ['car']);
+  assert.deepEqual(of({ title: 'Konkurs', prizes: '5x fotelik samochodowy' }), []);
+  assert.deepEqual(of({ title: 'GBS', prizes: 'konsola PlayStation 5 + gra Grand Theft Auto VI' }), []);
+  assert.deepEqual(of({ title: 'Braun', prizes: '4x podwójna wejściówka na wyścig Audi Revolut F1® Team' }), []);
+  assert.deepEqual(of({ title: 'Autopay - wygraj nagrody', prizes: 'karta Travelplanet' }), []);
+  assert.deepEqual(of({ title: '20 lat uśmiechów', prizes: '3x aparat FUJIFILM Instax Mini 41' }), ['fujifilm']);
+  // tylko wybrane zainteresowania
+  assert.deepEqual(L.interestsOf({ title: 'x', prizes: '3x aparat Instax' }, {}, ['car']), []);
+});
+
+test('dla Ciebie: pieniądze bez bonów, wartości rzeczy i dopłat na podatek', () => {
+  const money = (p) => L.hasMoneyPrize(p);
+  assert.equal(money('4200x nagroda pieniężna w wysokości 1000 zł'), true);
+  assert.equal(money('• 2x 10 000 zł\n• 25x karta Zalando 500 zł'), true);
+  assert.equal(money('• Nagroda Główna: 60 000 zł (oraz dodatkowa kwota 6 667 zł na pokrycie podatku)'), true);
+  assert.equal(money('Nagroda główna 100 000 zł oraz nagrody rzeczowe za wymianę punktów'), true);
+  assert.equal(money('• tygodniowa: 13x 5000 zł ( 1 / tydzień)'), true);
+  assert.equal(money('• 50x Nagroda II stopnia: 1 000 zł przelewem na konto'), true);
+  assert.equal(money('• 1x Nagroda Główna: 50 000 zł w gotówce'), true);
+  assert.equal(money('• 5x voucher wakacyjny 20 000 zł\n• 20x voucher Booksy 1 000 zł'), false);
+  assert.equal(money('• 10x bon na zakupy o wartości 600 zł'), false);
+  assert.equal(money('• 1 miejsce: Suszarka Lovello (499 zł), ręcznik (119 zł)\nŁączna wartość nagrody: 1 945,83 zł'), false);
+  assert.equal(money('10x zestaw Dilmah o wartości 100 zł (z dodatkową nagrodą pieniężną na pokrycie podatku)'), false);
+  assert.equal(money('2x 4-osobowy pobyt w Hotelu Arłamów z kartą przedpłaconą 500 zł oraz nagrodą pieniężną'), false);
+  assert.equal(money('Bon 500 zł. Nagrody nie mogą być wymienione na gotówkę ani inną rekompensatę.'), false);
+  assert.equal(money('• 2x samochód Citroën C3 (oraz 7 500 zł na wybrany cel dobroczynny)'), false);
+});
+
+test('dla Ciebie: duża szansa i omijanie filtra zakupu', () => {
+  const settings = L.settingsOf({});
+  assert.deepEqual(settings.interests, { list: L.INTERESTS, purchase: true });
+  const odds = { id: 'o', title: 'Kubek', prizes: 'kubek', comments: 90, prizeCount: 3, flags: {} };
+  assert.deepEqual(L.interestsOf(odds), ['odds']); // 1:30
+  assert.deepEqual(L.interestsOf({ ...odds, comments: 900 }), []);
+  const car = { id: 'c', title: 'Loteria', prizes: '1x samochód Volvo XC40', flags: { purchase: true } };
+  const ints = L.interestsOf(car, {}, settings.interests.list);
+  assert.equal(L.hiddenReason(car, settings.hide), 'purchase');
+  assert.equal(L.hiddenFor(car, settings, ints), ''); // pasuje do zainteresowań → widoczny
+  assert.equal(L.hiddenFor({ ...car, flags: { purchase: true, fbShare: true } }, settings, ints), 'fbShare');
+  const off = L.settingsOf({ settings: { interests: { list: ['car', 'nieznane'], purchase: false } } });
+  assert.deepEqual(off.interests.list, ['car']);
+  assert.equal(L.hiddenFor(car, off, ints), 'purchase');
+});
+
+test('powiadomienia: nowe konkursy dla Ciebie', () => {
+  const today = '2026-11-21';
+  const contests = [
+    { id: 'car', title: 'Loteria InPost', prizes: '• 10x samochód MINI Cooper', end: '2027-01-28', firstSeen: today, flags: { purchase: true } },
+    { id: 'hotel', title: 'Nowy hotel nad morzem', prizes: 'pobyt w hotelu', end: '2026-12-10', firstSeen: today, flags: { stay: true } },
+  ];
+  const state = L.normalizeState({ settings: { t: 1, ntfy: { topic: 'konkursy-test', days: [] } } });
+  const p = L.pickNotifications(contests, state, today);
+  assert.deepEqual(p.newInterests.map((e) => e.c.id), ['car']);
+  assert.deepEqual(p.newStays.map((e) => e.c.id), ['hotel']);
+  const msg = L.buildDigest(p);
+  assert.match(msg.message, /🎯 Dla Ciebie \(samochód\): Loteria InPost/);
+  assert.match(msg.title, /1 nowy dla Ciebie/);
+  assert.ok(msg.tags.includes('dart'));
+});

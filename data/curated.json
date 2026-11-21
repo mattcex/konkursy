@@ -1,25 +1,32 @@
 {
   "ek:wielki-konkurs-innego-swiata1": {
-    "comments": 99,
-    "commentsAt": "2026-11-20",
+    "comments": 115,
+    "commentsAt": "2026-11-21",
     "prizeCount": 3,
     "judging": "jury",
     "location": "Zakopane",
     "results": "2026-12-24",
-    "flags": { "stay": true, "fbShare": false, "follow": false },
+    "flags": {
+      "stay": true,
+      "fbShare": false,
+      "follow": false
+    },
     "answers": [
       "Ten weekend należy się mojej mamie, która przez lata pakowała walizki dla całej rodziny, a sama nigdy nie wyjechała tylko dla siebie. Chcę, żeby choć raz to ona obudziła się z widokiem na Giewont, bez listy obowiązków i bez gotowania dla wszystkich. Niech te Święta będą pierwszymi, w których to ona dostaje odpoczynek, zamiast go wszystkim organizować.",
       "Ten weekend należy się mojemu tacie, który od lat twierdzi, że „w Tatry to on mógłby wejść w klapkach”. Czas sprawdzić tę teorię w praktyce – z ciepłym apartamentem w Innym Świecie jako bazą do regeneracji po zderzeniu z rzeczywistością. Ja biorę aparat, bo ktoś musi to udokumentować 😄"
     ]
   },
   "ek:wroclaw-konkurs-hotel-monopol": {
-    "comments": 110,
-    "commentsAt": "2026-11-20",
+    "comments": 180,
+    "commentsAt": "2026-11-21",
     "prizeCount": 5,
     "judging": "jury",
     "location": "Kraków",
     "results": "2026-11-30",
-    "flags": { "stay": true, "fbShare": false },
+    "flags": {
+      "stay": true,
+      "fbShare": false
+    },
     "answers": [
       "Mój domowy spokój pachnie lawendą z woreczka schowanego w szafie i herbatą parującą na parapecie, kiedy o 16:00 robi się już ciemno 💜 Ten jeden detal to moment, w którym zdejmuję buty, zapalam małą świecę i wyłączam powiadomienia – dopiero wtedy naprawdę oddycham. Do Krakowa zabiorę [@Osoba], bo od miesięcy obiecujemy sobie spacer po Rynku bez zerkania na zegarek.",
       "Mój spokój pachnie świeżo wypraną pościelą i ciepłym kocem, który zawsze czeka w tym samym rogu kanapy. Wystarczy, że go zobaczę po wejściu do pokoju, i już wiem, że dzień się skończył, a zaczyna się wieczór tylko dla mnie. Na relaks w Krakowie zabiorę [@Osoba] – ktoś musi mi przypominać, że w hotelu nie trzeba ścielić łóżka 😄"
@@ -27,28 +34,37 @@
   },
   "ek:konkurs-dokad-zaprowadzila-mnie-ciekawosc": {
     "comments": 51,
-    "commentsAt": "2026-11-20",
+    "commentsAt": "2026-11-21",
     "prizeCount": 6,
     "judging": "jury",
-    "flags": { "stay": true, "content": true, "fbShare": false, "follow": true },
+    "flags": {
+      "stay": true,
+      "content": true,
+      "fbShare": false,
+      "follow": true
+    },
     "answers": [
       "Ciekawość zaprowadziła mnie [gdzie – np. na szlak, którego nie było w planie]. [Co się wydarzyło – jeden konkretny szczegół, np. zamiast wracać do schroniska skręciliśmy w nieoznaczoną ścieżkę i trafiliśmy na jezioro, przy którym nie było nikogo poza stadem owiec]. Od tamtej pory [puenta – np. w każdym planie podróży zostawiam jeden dzień „na nie wiadomo co”] 🧭 #CiekawośćProwadziDalej @zorientowani"
     ]
   },
   "ek:konkurs-jesien-z-alpro-i-jacobs": {
-    "comments": 121,
-    "commentsAt": "2026-11-20",
+    "comments": 123,
+    "commentsAt": "2026-11-21",
     "prizeCount": 5,
     "judging": "jury",
-    "flags": { "fbShare": false, "shareOptional": true, "follow": true },
+    "flags": {
+      "fbShare": false,
+      "shareOptional": true,
+      "follow": true
+    },
     "answers": [
       "Moja jesienna propozycja to „Szarlotka w filiżance” 🍎\nNa dno 2 łyżki musu jabłkowego z cynamonem, do tego spieniony Alpro Cinnamon Roll, shot koncentratu Jacobs, a na wierzch pokruszone ciasteczko owsiane. Smakuje jak szarlotka babci, tylko można ją pić pod kocem i nikt nie każe kroić ☕",
       "Piernikowe latte „Pierwszy śnieg”: spienione Alpro z łyżeczką przyprawy do piernika i odrobiną miodu, koncentrat Jacobs, a na górze szczypta kakao jak śnieg na dachu ❄️ Robię je w listopadzie, żeby oszukać kalendarz, że to już grudzień 🎄"
     ]
   },
   "ek:konkurs-upiecz-rogala": {
-    "comments": 280,
-    "commentsAt": "2026-11-20",
+    "comments": 295,
+    "commentsAt": "2026-11-21",
     "prizeCount": 5,
     "judging": "jury",
     "results": "2026-11-27",
@@ -58,8 +74,8 @@
     ]
   },
   "ek:konkurs-x-kom-pokaz-swoj-setup-z-be-quiet1": {
-    "comments": 308,
-    "commentsAt": "2026-11-20",
+    "comments": 322,
+    "commentsAt": "2026-11-21",
     "prizeCount": 3,
     "judging": "jury",
     "answers": [
@@ -67,8 +83,8 @@
     ]
   },
   "ek:westfield-arkadia-do-wygrania-kalendarz-adwentowy-loccitane": {
-    "comments": 142,
-    "commentsAt": "2026-11-20",
+    "comments": 149,
+    "commentsAt": "2026-11-21",
     "prizeCount": 1,
     "judging": "jury",
     "location": "Warszawa",
@@ -90,7 +106,9 @@
     "commentsAt": "2026-11-20",
     "prizeCount": 1,
     "judging": "jury",
-    "flags": { "igShare": true },
+    "flags": {
+      "igShare": true
+    },
     "answers": [
       "Potrzebuję matchy, bo moja roślinka doniczkowa jest bardziej zielona ode mnie i zaczęła mnie z tego powodu oceniać 🌿👀🍵 [@Znajomy1] [@Znajomy2]"
     ]
@@ -105,43 +123,132 @@
     ]
   },
   "ek:mikolajkowy-konkurs-wygraj-mini-box-ze-swiecami-sojowymi": {
-    "comments": 180,
-    "commentsAt": "2026-11-20",
+    "comments": 183,
+    "commentsAt": "2026-11-21",
     "prizeCount": 2,
-    "flags": { "fbShare": false, "shareOptional": true },
-    "answers": ["[@Znajomy1] [@Znajomy2] [@Znajomy3] dziewczyny, świece sojowe na Mikołajki – zobaczcie! 🕯️✨"]
+    "flags": {
+      "fbShare": false,
+      "shareOptional": true
+    },
+    "answers": [
+      "[@Znajomy1] [@Znajomy2] [@Znajomy3] dziewczyny, świece sojowe na Mikołajki – zobaczcie! 🕯️✨"
+    ]
   },
   "ek:konkurs-mikolajkowy220": {
-    "comments": 271,
-    "commentsAt": "2026-11-20",
+    "comments": 273,
+    "commentsAt": "2026-11-21",
     "prizeCount": 3,
-    "answers": ["[imię dziecka], rozmiar [np. 104] 💕"]
+    "answers": [
+      "[imię dziecka], rozmiar [np. 104] 💕"
+    ]
   },
   "ek:wygraj-box-niespodzianke-od-malad": {
-    "comments": 175,
-    "commentsAt": "2026-11-20",
+    "comments": 178,
+    "commentsAt": "2026-11-21",
     "prizeCount": 1,
-    "flags": { "fbShare": true }
+    "flags": {
+      "fbShare": true
+    }
   },
   "ek:wygraj-bilet-na-sylwestra-krzeszowice": {
     "comments": 12,
     "commentsAt": "2026-11-20",
     "prizeCount": 1,
     "location": "Krzeszowice",
-    "flags": { "party": true, "fbShare": true }
+    "flags": {
+      "party": true,
+      "fbShare": true
+    }
   },
   "ek:wygraj-podwojne-zaproszenie-na-sylwestra-w-domu-weselnym-bacowka": {
     "comments": 17,
     "commentsAt": "2026-11-20",
     "prizeCount": 1,
     "location": "Raniżów",
-    "flags": { "party": true, "igShare": true }
+    "flags": {
+      "party": true,
+      "igShare": true
+    }
   },
   "ek:wygraj-podwojne-zaproszenie-na-sylwestrowy-bal-maskowy-2027": {
     "comments": 205,
     "commentsAt": "2026-11-20",
     "prizeCount": 2,
     "location": "Ostrów Wlkp.",
-    "flags": { "party": true, "fbShare": true }
+    "flags": {
+      "party": true,
+      "fbShare": true
+    }
+  },
+  "ek:konkurs-20-lat-usmiechow": {
+    "comments": 77,
+    "commentsAt": "2026-11-21",
+    "judging": "jury",
+    "location": "Poznań",
+    "answers": [
+      "Listopad 2006, Stary Rynek. Stoję w tłumie z zadartą głową, tata trzyma mnie za rękę, a punktualnie w południe koziołki wychodzą z wieży i zaczynają się trykać – i nie mam wątpliwości, że robią to tylko dla mnie 😄 Potem rogal świętomarciński dzielony na pół, lukier na rękawie kurtki i uśmiech, którego nie da się zetrzeć do wieczora. Minęło 20 lat, a kiedy słyszę hejnał z ratusza, uśmiecham się dokładnie tak samo – tylko zęby mam już własne, a nie mleczne 😁",
+      "Czerwiec 2006, pierwszy dzień wakacji i rowerowa wyprawa dookoła Malty z paczką przyjaciół. Pamiętam zapach skoszonej trawy, kolejkę Maltankę mijaną po drodze i lody z budki, które topiły się szybciej, niż dało się je jeść 🍦 Uśmiech wywoływało wtedy wszystko: że jest lato, że mamy cały dzień i że nikt jeszcze nie przewijał telefonu. Dziś wracam tam z aparatem, ale tamtego uśmiechu żadne zdjęcie nie podrobi."
+    ]
+  },
+  "ek:konkurs-siegnij-po-mineraly-w-netto": {
+    "comments": 1,
+    "commentsAt": "2026-11-21",
+    "judging": "jury",
+    "answers": [
+      "Plan był prosty: „wchodzimy na Szczeliniec, robimy zdjęcie i wracamy na obiad”. Plan nie przewidział mgły, źle skręconego szlaku i trzech godzin błądzenia po Górach Stołowych 😅 Kanapki skończyły się po pierwszej godzinie, humor po drugiej, a Staropolanka 2000 – jedyna rozsądna uczestniczka wyprawy – wystarczyła dla wszystkich aż do schroniska. Od tamtej pory w plecaku zawsze jest butelka, a w ekipie obowiązuje zasada: najpierw woda, potem skróty.",
+      "Miała być „krótka przejażdżka” rowerem wokół jeziora. Kończy się na 40 km, dwóch zbłąkanych krowach, burzy przeczekanej pod przystankiem PKS i zachodzie słońca jak z filmu 🌅 Jedyne, co przez cały dzień trzyma poziom, to Staropolanka 2000 w koszyku – podzielona sprawiedliwie, łyk po łyku. Wniosek? Każda wielka przygoda zaczyna się od słów „to tylko na chwilę” i zgrzewki wody w bagażniku."
+    ]
+  },
+  "ek:konkurs-dla-partnerow-40-samochodow-na-40-lecie-drutex": {
+    "exclude": true
+  },
+  "ek:konkurs-naukowy-belgijskiej-krolewskiej-akdemii-nauk-zamorskich-2027": {
+    "flags": {
+      "creative": true
+    }
+  },
+  "web:snow-expo-2026-nolimistrz": {
+    "title": "SNOW EXPO Katowice: quiz NoLimistrz – voucher 3000 zł na wyjazd narciarski",
+    "org": "SNOW EXPO / NO LIMITS by Itaka",
+    "url": "https://www.narty.pl/tresc-artykulu/snow-expo-2026-w-katowicach-program-na-21-22-listopada",
+    "platform": "www",
+    "start": "2026-11-21",
+    "end": "2026-11-22",
+    "location": "Katowice",
+    "task": "Na targach SNOW EXPO (MCK Katowice, 21–22.11.2026) weź przy wejściu ulotkę z kodem QR i rozwiąż quiz wiedzy o nartach, górach i podróżach (konkurs NoLimistrz). Finały: sobota 21.11 o 17:00 (foyer przed halą lub antresola górna) i niedziela 22.11 o 15:30 (scena główna). Wstęp na targi jest biletowany (expotickets.pl).",
+    "prizes": "• 1x voucher na wyjazd narciarski NO LIMITS by Itaka o wartości 3000 zł\n• plecaki i gadżety\n• kod rabatowy 300 zł na wyjazd zarezerwowany podczas SNOW EXPO lub tydzień po",
+    "prizeCount": 1,
+    "flags": {
+      "purchase": true
+    }
+  },
+  "web:manufaktura-black-friday-2026": {
+    "title": "Łódź: Loteria Black Friday w Manufakturze – wygraj Škodę Fabię",
+    "org": "Manufaktura (Łódź)",
+    "url": "https://www.manufaktura.com/wydarzenia/32124/loteria_black_friday",
+    "src": "https://upolujnagrode.pl/loteria-black-friday-w-manufakturze-wygraj-skode-fabie/",
+    "platform": "www",
+    "start": "2026-11-13",
+    "end": "2026-11-27",
+    "results": "2026-11-27",
+    "location": "Łódź",
+    "task": "Zrób zakupy w Manufakturze za min. 100 zł i zgłoś paragon w punkcie loterii (parter, rotunda z windami między H&M, Zarą i Sephorą, codziennie 12:00–20:00, poza niehandlowymi niedzielami). Każde pełne 100 zł to jeden los w losowaniu nagród głównych (maks. 3 losy na zgłoszenie). Losowanie 27.11 o 20:15–20:30 przy punkcie loterii.",
+    "prizes": "• 1x samochód Škoda Fabia\n• 1x karta podarunkowa Manufaktury o wartości 1000 zł\n• 186x nagroda natychmiastowa (apaszki Milanówek, torby, karty podarunkowe 50 zł, powerbanki, parasole i inne)",
+    "prizeCount": 188,
+    "judging": "losowanie"
+  },
+  "web:sodastream-babelkowa-loteria": {
+    "title": "Bąbelkowa loteria SodaStream – wygraj 30 000 zł",
+    "org": "SodaStream",
+    "url": "https://www.loteriasodastream.pl/",
+    "src": "https://upolujnagrode.pl/loteria-babelkowa-sodastream-wygraj-30-000-zl/",
+    "platform": "www",
+    "start": "2026-11-16",
+    "end": "2027-05-15",
+    "results": "2027-05-19",
+    "task": "Wymień cylinder CO2 SodaStream w autoryzowanym sklepie (m.in. Media Expert, Lidl, MediaMarkt, RTV Euro AGD, Konesso, SodaStream) albo online, zachowaj dowód zakupu i zarejestruj go na loteriasodastream.pl. Każdy paragon to osobne zgłoszenie; od razu widać, czy jest nagroda natychmiastowa.",
+    "prizes": "• Nagroda główna: 30 000 zł\n• 6x nagroda miesięczna: 3 000 zł\n• 13x saturator SodaStream Fresh\n• ok. 1500x nagroda natychmiastowa (butelki lub syrop)",
+    "prizeCount": 1520,
+    "judging": "losowanie"
   }
 }

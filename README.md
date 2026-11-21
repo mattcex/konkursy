@@ -9,7 +9,8 @@ Działa w całości na GitHubie: strona na GitHub Pages, aplikacja na Androida (
 
 ## Co potrafi
 
-- **Lista aktualnych konkursów** – robot codziennie rano pobiera je z [e-konkursy.info](https://www.e-konkursy.info/).
+- **Lista aktualnych konkursów** – robot codziennie rano pobiera je z [e-konkursy.info](https://www.e-konkursy.info/) (także loterie i tagi zainteresowań), a konkursy znalezione na innych stronach dopisuje z `data/curated.json`.
+- **Dla Ciebie** – konkursy z nagrodami, które Cię interesują (góry, narty i snowboard, pieniądze, samochód, Fujifilm), i te z dużą szansą (1:50 lub lepiej) są na górze listy z zieloną etykietą; wybór w ustawieniach, osobne powiadomienie o nowych.
 - **Przycisk „Odśwież”** – uruchamia robota od razu (GitHub Actions), czeka na wynik i oznacza nowe konkursy etykietą „nowy”.
 - **Podział według nagród** – sekcje: Wycieczki i noclegi, Sprzęt, Bony i gotówka, Pozostałe; sortowanie po wartości nagrody.
 - **Wyróżnione wartościowe nagrody** – od 1000 zł złote tło i etykieta 💎 z kwotą (z opisu albo szacunkową, oznaczoną „~”).
@@ -38,7 +39,7 @@ e-konkursy.info ──► robot (GitHub Actions, codziennie) ──► site/data
 | Tłumaczenia PL/EN | `site/i18n.js` |
 | Wspólna logika: filtry, szanse, nagrody, łączenie stanu, powiadomienia | `site/logic.js` |
 | Robot pobierający konkursy | `robot/scrape.mjs`, `robot/parse.mjs` |
-| Ręczne uzupełnienia (liczby komentarzy, gotowe odpowiedzi) | `data/curated.json` |
+| Ręczne uzupełnienia: liczby komentarzy, gotowe odpowiedzi, konkursy z innych stron (wpisy `web:…`), wykluczenia (`"exclude": true`) | `data/curated.json` |
 | Powiadomienia | `robot/notify.mjs` |
 | Aplikacja na Androida | `android/` (Gradle, Trusted Web Activity), opis do sklepu: `android/store/listing.md` |
 | Automatyzacje | `.github/workflows/robot.yml` (codziennie; po zmianach zleca publikację), `pages.yml` (testy + strona), `android.yml` (APK/AAB) |

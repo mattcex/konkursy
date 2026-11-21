@@ -6,10 +6,16 @@ export const STATE_FILE = 'konkursy-state.json'; // nazwa pliku w giście (bez z
 export const DONE = new Set(['submitted', 'won', 'lost']);
 export const STATUSES = ['', 'todo', 'submitted', 'won', 'lost', 'skipped'];
 
+/** Zainteresowania (sekcja „Dla Ciebie”): nazwy w i18n „interest.*”. */
+export const INTERESTS = ['mountains', 'ski', 'money', 'car', 'fujifilm', 'odds'];
+export const GOOD_ODDS = 50; // „duża szansa”: 1 na 50 lub lepiej
+
 export const DEFAULT_SETTINGS = {
   t: 0,
   lang: 'auto',
   hide: { party: true, fbShare: true, igShare: false, purchase: true, app: true, content: true, creative: true },
+  // purchase: pasujące konkursy są widoczne mimo filtrów zakupu i aplikacji (loterie z autami i gotówką prawie zawsze ich wymagają)
+  interests: { list: [...INTERESTS], purchase: true },
   ntfy: {
     enabled: true,
     server: 'https://ntfy.sh',
@@ -20,6 +26,7 @@ export const DEFAULT_SETTINGS = {
     results: true,
     newStays: true,
     newValuable: true,
+    newInterests: true,
   },
 };
 
@@ -251,6 +258,97 @@ export function prizeInfo(c) {
 
 export const isValuable = (info) => info.tier === 'top' || info.tier === 'high';
 
+// ---------- zainteresowania: „Dla Ciebie” ----------
+
+// Początek słowa także przed polską literą (\b w JS zna tylko litery ASCII).
+const W = '(?:^|[^a-ząćęłńóśźż0-9])';
+const NOT_LETTER = '(?![a-ząćęłńóśźż])';
+const MOUNTAIN_RX = new RegExp(
+  `${W}(?:gór(?:y|ach|ami|ski|sk)|tatr|zakopan|giewont|kasprow|gubałówk|podhal|karkonosz|karpacz|szklarsk|świeradów|zieleni[eć]c|duszniki|polanic|sudet|bieszczad|arłam|beskid|szczyrk|korbielów|pienin|szczawnic|krynic[aęy][- ]zdr|jaworzyn|wierchoml|białk[aięą] tatrz|bukowin[aięą] tatrz|czarn[aąe]j? gór|alp(?:y|ach|ejsk)|dolomit)`,
+  'i',
+);
+const SKI_RX = new RegExp(`${W}(?:nart|narciar|snowboard|skipass|ski ?pass|skitur|ski ?tour|stok(?:u|i|ach)? narciar|wyciąg[a-ząćęłńóśźż]* narciar)`, 'i');
+const CAR_RX = new RegExp(
+  `${W}(?:samoch[oó]d(?!ow)|auto(?:a|em)?${NOT_LETTER}|auta${NOT_LETTER}|toyot|škod|skod[aęy]${NOT_LETTER}|volvo|mini cooper|audi${NOT_LETTER}|bmw|mercedes|kia${NOT_LETTER}|hyundai|dacia|renault|peugeot|citro[eë]n|opel|volkswagen|cupra|tesla|mazd[aęy]${NOT_LETTER}|nissan|suzuki|bestune|changan|lexus|jeep)`,
+  'i',
+);
+const CAR_NOT_RX = /\bf1\b|formuł|wyścig|\bteam\b|bilet|wejściów|ekspres|kaw[aęy]|grand theft|\bgta\b/i; // np. „wejściówka na wyścig Audi F1 Team”
+const FUJI_RX = /fujifilm|fuji\b|instax/i;
+const MONEY_WORD_RX = /gotów[kc]|pieniężn|pieniądz|pieniędz|przelew|czek[a-ząćęłńóśźż]* blik|na konto/i; // „gotówka”, „w gotówce”
+const TAX_RX = /podat|dodatkow[a-ząćęłńóśźż]* nagrod[a-ząćęłńóśźż]* pieniężn/i; // dopłata na podatek to nie nagroda pieniężna
+const NOT_MONEY_RX = /na gotówk|ekwiwalent/i; // „nie można wymienić na gotówkę”
+const ATTACHED_MONEY_RX = /^(?:dodatkow[a-ząćęłńóśźż]*\s+)?(?:nagrod[a-ząćęłńóśźż]*|kwot[a-ząćęłńóśźż]*)\s+pieniężn/i;
+const AMOUNT_ONLY_RX = new RegExp(`^\\d{1,3}(?:[  .]?\\d{3})*(?:,\\d{1,2})?\\s*(?:zł|pln|złotych)${NOT_LETTER}\\s*(?:brutto|netto|każd[aey]|$)`, 'i');
+
+/** Fragmenty opisu nagród: osobne linie i punkty. */
+const prizeParts = (text) =>
+  String(text || '')
+    .split(/[\n•;/]+/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+
+/** Czy nagrodą są pieniądze (nie bon, karta podarunkowa, wartość rzeczy ani dopłata na podatek). */
+export function hasMoneyPrize(prizes) {
+  // W nawiasach są zwykle wartości rzeczy i dopłaty na podatek: „Suszarka (499 zł)”, „(oraz 6 667 zł na podatek)”.
+  const text = String(prizes || '').replace(/\([^)]*\)?/g, ' ');
+  for (const part of prizeParts(text)) {
+    // Pierwszy człon to nagroda; „… oraz nagroda pieniężna” dopisana do rzeczy to dopłata na podatek.
+    const subs = part.split(/\s(?:oraz|wraz z|plus|\+|i)\s/i);
+    for (const [k, sub] of subs.entries()) {
+      if (TAX_RX.test(sub) || NOT_MONEY_RX.test(sub)) continue;
+      if (k > 0 && ATTACHED_MONEY_RX.test(sub)) continue;
+      if (MONEY_WORD_RX.test(sub)) return true;
+      if (/wartoś/i.test(sub)) continue; // „o wartości 600 zł”, „Łączna wartość nagród: 284,95 zł”
+      // „2x 10 000 zł”, „Nagroda główna: 100 000 zł”, „tygodniowa: 13x 5000 zł”, „Nagroda główna 100 000 zł”
+      const bare = sub
+        .trim()
+        .replace(/^[-–*]?\s*(?:\d+\s*[x×]\s*)?/i, '')
+        .replace(/^[^:\d]{0,40}:\s*/, '')
+        .replace(/^(?:nagrod[a-ząćęłńóśźż]*\s+)?(?:główn|tygodniow|dzienn|miesięczn|natychmiastow)[a-ząćęłńóśźż]*\s+/i, '')
+        .replace(/^\d+\s*[x×]\s*/i, '');
+      if (AMOUNT_ONLY_RX.test(bare)) return true;
+    }
+  }
+  return false;
+}
+
+function hasCarPrize(text) {
+  return prizeParts(text).some((part) => CAR_RX.test(part) && !CAR_NOT_RX.test(part));
+}
+
+/**
+ * Zainteresowania, do których pasuje konkurs (podzbiór `wanted`, kolejność jak w INTERESTS).
+ * Dopasowanie po tytule, nagrodach i miejscu – nie po treści zadania.
+ */
+export function interestsOf(c, it = {}, wanted = INTERESTS) {
+  if (!c || !wanted || !wanted.length) return [];
+  const want = new Set(wanted);
+  const prizes = String(c.prizes || '');
+  const hay = [c.title, prizes, c.location].filter(Boolean).join('\n');
+  const f = flagsOf(c);
+  const out = [];
+  if (want.has('mountains') && (f.stay || /pobyt|nocleg|weekend|wyjazd|wycieczk|wakacj|hotel|urlop|ferie/i.test(hay)) && MOUNTAIN_RX.test(hay)) out.push('mountains');
+  if (want.has('ski') && SKI_RX.test(hay)) out.push('ski');
+  if (want.has('money') && hasMoneyPrize(prizes || c.title)) out.push('money');
+  if (want.has('car') && hasCarPrize(hay)) out.push('car');
+  if (want.has('fujifilm') && FUJI_RX.test(hay)) out.push('fujifilm');
+  if (want.has('odds')) {
+    const odds = oddsOf(c, it);
+    if (odds !== null && odds <= GOOD_ODDS) out.push('odds');
+  }
+  return out;
+}
+
+/** Powód ukrycia z uwzględnieniem „Dla Ciebie”: pasujące konkursy omijają filtry zakupu i aplikacji. */
+export function hiddenFor(c, settings, interests) {
+  const s = settings || DEFAULT_SETTINGS;
+  const reason = hiddenReason(c, s.hide);
+  if (!reason || !interests || !interests.length || !s.interests || !s.interests.purchase) return reason;
+  if (reason !== 'purchase' && reason !== 'app') return reason;
+  // Po ominięciu jednego filtra może zadziałać kolejny (np. zakup + udostępnienie na FB).
+  return hiddenReason(c, { ...s.hide, purchase: false, app: false });
+}
+
 export function formatPLN(v, lang = 'pl') {
   return translator(lang).money(v);
 }
@@ -267,6 +365,10 @@ export function settingsOf(state) {
   out.t = num(s.t) || 0;
   if (s.lang === 'auto' || s.lang === 'pl' || s.lang === 'en') out.lang = s.lang;
   if (isObj(s.hide)) for (const k of Object.keys(out.hide)) if (typeof s.hide[k] === 'boolean') out.hide[k] = s.hide[k];
+  if (isObj(s.interests)) {
+    if (Array.isArray(s.interests.list)) out.interests.list = INTERESTS.filter((id) => s.interests.list.includes(id));
+    if (typeof s.interests.purchase === 'boolean') out.interests.purchase = s.interests.purchase;
+  }
   if (isObj(s.ntfy)) {
     const n = s.ntfy;
     if (typeof n.enabled === 'boolean') out.ntfy.enabled = n.enabled;
@@ -278,6 +380,7 @@ export function settingsOf(state) {
     if (typeof n.results === 'boolean') out.ntfy.results = n.results;
     if (typeof n.newStays === 'boolean') out.ntfy.newStays = n.newStays;
     if (typeof n.newValuable === 'boolean') out.ntfy.newValuable = n.newValuable;
+    if (typeof n.newInterests === 'boolean') out.ntfy.newInterests = n.newInterests;
   }
   return out;
 }
@@ -441,12 +544,13 @@ export const resultsOf = (c, it = {}) => (isISODate(it.results) ? it.results : i
 export function pickNotifications(contests, state, today) {
   const s = settingsOf(state);
   const n = s.ntfy;
-  const out = { ending: [], results: [], newStays: [], newValuable: [] };
+  const out = { ending: [], results: [], newInterests: [], newStays: [], newValuable: [] };
   for (const c of contests) {
     const it = itemOf(state, c.id);
     const st = it.s || '';
     const dl = daysLeft(c, today);
-    const hidden = hiddenReason(c, s.hide);
+    const interests = interestsOf(c, it, s.interests.list);
+    const hidden = hiddenFor(c, s, interests);
     const odds = oddsOf(c, it);
     if (dl !== null && dl >= 0 && !DONE.has(st) && st !== 'skipped' && n.days.includes(dl)) {
       const ok = st === 'todo' || (n.scope === 'all' && !hidden && (odds === null || odds <= n.maxOdds));
@@ -458,12 +562,15 @@ export function pickNotifications(contests, state, today) {
     }
     if (c.firstSeen === today && !hidden && st !== 'skipped' && (dl === null || dl >= 0)) {
       const info = prizeInfo(c);
-      if (n.newStays && flagsOf(c).stay) out.newStays.push({ c, odds, info });
+      if (n.newInterests && interests.length) out.newInterests.push({ c, odds, info, interests });
+      else if (n.newStays && flagsOf(c).stay) out.newStays.push({ c, odds, info });
       else if (n.newValuable && isValuable(info)) out.newValuable.push({ c, odds, info });
     }
   }
   out.ending.sort((a, b) => a.dl - b.dl || Number(b.todo) - Number(a.todo) || (a.odds ?? 1e9) - (b.odds ?? 1e9));
   out.ending = out.ending.slice(0, 10);
+  out.newInterests.sort((a, b) => (b.info.value || 0) - (a.info.value || 0));
+  out.newInterests = out.newInterests.slice(0, 10);
   out.newStays = out.newStays.slice(0, 10);
   out.newValuable.sort((a, b) => (b.info.value || 0) - (a.info.value || 0));
   out.newValuable = out.newValuable.slice(0, 10);
@@ -495,6 +602,13 @@ export function buildDigest(p, { appUrl = '', lang = 'pl' } = {}) {
     if (e.dl === 0) priority = 4;
   }
   if (p.ending.length) tags.push('alarm_clock');
+  const newInterests = p.newInterests || [];
+  for (const e of newInterests) {
+    const v = e.info && e.info.value ? ` – ${e.info.estimated ? '~' : ''}${money(e.info.value)}` : '';
+    const i = e.interests.map((id) => t(`interest.${id}`)).join(', ');
+    lines.push(t('digest.newInterest', { i, v, t: short(e.c.title) }) + odds(e.odds));
+  }
+  if (newInterests.length) tags.push('dart');
   for (const e of p.newStays) lines.push(t('digest.newStay', { t: short(e.c.title) }) + odds(e.odds));
   if (p.newStays.length) tags.push('hotel');
   const newValuable = p.newValuable || [];
@@ -508,6 +622,7 @@ export function buildDigest(p, { appUrl = '', lang = 'pl' } = {}) {
   if (!lines.length) return null;
   const parts = [];
   if (p.ending.length) parts.push(tn('digest.ending', p.ending.length));
+  if (newInterests.length) parts.push(tn('digest.forYou', newInterests.length));
   if (p.newStays.length) parts.push(tn('digest.stays', p.newStays.length));
   if (newValuable.length) parts.push(tn('digest.valuable', newValuable.length));
   if (p.results.length) parts.push(t('digest.resultsCount', { n: p.results.length }));

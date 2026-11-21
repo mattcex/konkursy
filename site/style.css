@@ -269,6 +269,10 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
   font-weight: 600;
 }
 .box-header .muted { font-weight: 400; }
+/* „Dla Ciebie”: konkursy pasujące do zainteresowań */
+.box-foryou { border-color: var(--success); }
+.box-foryou > .box-header { background: var(--success-muted); border-bottom-color: var(--success); }
+.box-foryou > .box-header .icon { color: var(--success); }
 .box-empty { padding: 32px 16px; text-align: center; color: var(--fg-muted); }
 .box-empty strong { display: block; color: var(--fg); font-size: 16px; margin-bottom: 4px; }
 
@@ -324,6 +328,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .label-local { color: var(--severe); border-color: var(--severe); background: var(--severe-muted); }
 .label-tech { color: var(--accent); border-color: var(--border); }
 .label-new { color: var(--accent); border-color: var(--accent); background: var(--accent-muted); font-weight: 600; }
+.label-interest { color: var(--success); border-color: var(--success); background: var(--success-muted); font-weight: 600; }
 .label-value { color: var(--attention); border-color: var(--attention); background: var(--attention-muted); font-weight: 600; }
 .label-value-top { color: #fff; border-color: #bf8700; background: #bf8700; font-weight: 600; }
 :root[data-theme="dark"] .label-value-top { background: #9e6a03; border-color: #9e6a03; }

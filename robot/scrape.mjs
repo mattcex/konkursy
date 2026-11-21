@@ -1,4 +1,5 @@
-// Robot: pobiera aktualne konkursy z e-konkursy.info i zapisuje site/data/contests.json.
+// Robot: pobiera aktualne konkursy z e-konkursy.info, dokłada konkursy znalezione w innych miejscach
+// (data/curated.json, wpisy „web:…”) i zapisuje site/data/contests.json.
 // Uruchamiany codziennie przez GitHub Actions (.github/workflows/robot.yml) albo ręcznie: npm run scrape
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
@@ -6,16 +7,21 @@ import { classify, parsePrizeCount, parseResultsDate, platformOf, todayISO, diff
 import { parseListing, parseDetail, hasNextPage, locationFromTitle } from './parse.mjs';
 
 const BASE = 'https://www.e-konkursy.info';
+// Listy kategorii (konkursy-promocyjne = loterie i konkursy marek, tam są auta i nagrody pieniężne).
 const LISTS = [
-  'konkursy-aktualne',
-  'konkursy-na-facebooku',
-  'konkursy-instagram',
-  'konkursy-social-media',
-  'konkursy-na-blogach',
-  'konkursy-lokalne',
+  'konkursy/konkursy-aktualne',
+  'konkursy/konkursy-na-facebooku',
+  'konkursy/konkursy-instagram',
+  'konkursy/konkursy-social-media',
+  'konkursy/konkursy-na-blogach',
+  'konkursy/konkursy-lokalne',
+  'konkursy/konkursy-promocyjne',
 ];
-const MAX_PAGES = Number(process.env.MAX_PAGES || 6);
-const MAX_DETAILS = Number(process.env.MAX_DETAILS || 150);
+// Tagi zainteresowań („Dla Ciebie”): przeszukiwane osobno, żeby nie umknęły poza pierwszymi stronami list.
+const TAGS = ['narty', 'snowboard', 'gory', 'zakopane', 'samochod', 'auto', 'fujifilm', 'instax', 'aparat', 'gotowka', 'pieniadze', 'wyjazd'];
+const MAX_PAGES = Number(process.env.MAX_PAGES || 8);
+const MAX_TAG_PAGES = Number(process.env.MAX_TAG_PAGES || 3);
+const MAX_DETAILS = Number(process.env.MAX_DETAILS || 250);
 const DELAY_MS = Number(process.env.DELAY_MS || 700);
 const REFRESH_DAYS = 5; // co ile dni odświeżać opis znanego konkursu
 const KEEP_DAYS = 45; // ile dni po zakończeniu trzymać konkurs na liście
@@ -55,6 +61,63 @@ function stable(contests) {
   return JSON.stringify(contests);
 }
 
+/**
+ * Ręczne uzupełnienia z data/curated.json:
+ * - wpis o identyfikatorze konkursu z katalogu („ek:…”) poprawia jego pola (liczba komentarzy, gotowe odpowiedzi…),
+ * - wpis „web:…” z tytułem i datą końca to konkurs znaleziony poza e-konkursy – trafia na listę w całości,
+ * - „exclude: true” usuwa konkurs z listy (np. akcja tylko dla firm).
+ */
+export function applyCurated(byId, curated, today) {
+  for (const [id, extra] of Object.entries(curated || {})) {
+    if (!extra || typeof extra !== 'object' || id.startsWith('_')) continue;
+    if (extra.exclude === true) {
+      byId.delete(id);
+      continue;
+    }
+    let c = byId.get(id);
+    if (!c) {
+      if (!id.startsWith('web:') || !extra.title || !extra.end || diffDays(extra.end, today) > KEEP_DAYS) continue;
+      const url = extra.url || '';
+      const platform = extra.platform || platformOf(url);
+      const { flags, judging } = classify({ title: extra.title, task: extra.task || '', prizes: extra.prizes || '', platform, cats: [] });
+      c = {
+        cats: [],
+        id,
+        title: extra.title,
+        org: extra.org || '',
+        url,
+        src: extra.src || url,
+        platform,
+        start: extra.start || null,
+        end: extra.end,
+        results: parseResultsDate(extra.task || '', extra.end) || null,
+        task: extra.task || '',
+        prizes: extra.prizes || '',
+        prizeCount: parsePrizeCount(extra.prizes || '') ?? 1,
+        judging,
+        location: extra.location || null,
+        local: Boolean(extra.location),
+        flags,
+        comments: null,
+        commentsAt: null,
+        origin: 'web',
+        firstSeen: today,
+        seenAt: today,
+        fetchedAt: today,
+      };
+      byId.set(id, c);
+    }
+    const { flags, comments, commentsAt, ...rest } = extra;
+    Object.assign(c, rest);
+    if (comments !== undefined && !(c.commentsAt && commentsAt && c.commentsAt > commentsAt)) {
+      c.comments = comments;
+      c.commentsAt = commentsAt || null;
+    }
+    if (flags && typeof flags === 'object') c.flags = { ...c.flags, ...flags };
+  }
+  return byId;
+}
+
 export async function scrape() {
   const today = todayISO();
   const prev = await readJSON(OUT, { contests: [] });
@@ -62,11 +125,12 @@ export async function scrape() {
   const curated = await readJSON(CURATED, {});
   const byId = new Map((prev.contests || []).map((c) => [c.id, c]));
 
-  // 1. Listy kategorii
+  // 1. Listy kategorii i tagi zainteresowań
   const slugs = new Set();
-  for (const list of LISTS) {
-    for (let page = 1; page <= MAX_PAGES; page++) {
-      const html = await get(`${BASE}/konkursy/${list}${page > 1 ? `?strona=${page}` : ''}`);
+  const lists = [...LISTS.map((path) => [path, MAX_PAGES]), ...TAGS.map((tag) => [`tagi/${tag}`, MAX_TAG_PAGES])];
+  for (const [path, maxPages] of lists) {
+    for (let page = 1; page <= maxPages; page++) {
+      const html = await get(`${BASE}/${path}${page > 1 ? `?strona=${page}` : ''}`);
       if (!html) break;
       const found = parseListing(html);
       found.forEach((s) => slugs.add(s));
@@ -140,18 +204,8 @@ export async function scrape() {
     c.results = parseResultsDate(c.task, c.end) || null;
   }
 
-  // 4. Ręczne uzupełnienia (data/curated.json): liczby komentarzy, gotowe odpowiedzi, poprawki
-  for (const [id, extra] of Object.entries(curated)) {
-    const c = byId.get(id);
-    if (!c || !extra || typeof extra !== 'object') continue;
-    const { flags, comments, commentsAt, ...rest } = extra;
-    Object.assign(c, rest);
-    if (comments !== undefined && !(c.commentsAt && commentsAt && c.commentsAt > commentsAt)) {
-      c.comments = comments;
-      c.commentsAt = commentsAt || null;
-    }
-    if (flags && typeof flags === 'object') c.flags = { ...c.flags, ...flags };
-  }
+  // 4. Ręczne uzupełnienia (data/curated.json): liczby komentarzy, gotowe odpowiedzi, konkursy spoza e-konkursy
+  applyCurated(byId, curated, today);
 
   // 5. Zapis (tylko gdy coś się zmieniło)
   const contests = [...byId.values()].sort((a, b) => (a.end || '9999').localeCompare(b.end || '9999') || a.id.localeCompare(b.id));
@@ -163,7 +217,7 @@ export async function scrape() {
   // „since” = dzień pierwszego importu; konkursy z tego dnia nie są oznaczane w aplikacji jako „nowe”.
   const firstSeenDates = (prev.contests || []).map((c) => c.firstSeen).filter(Boolean).sort();
   const since = prev.since || firstSeenDates[0] || today;
-  const data = { updatedAt: new Date().toISOString(), since, source: 'e-konkursy.info', count: contests.length, contests };
+  const data = { updatedAt: new Date().toISOString(), since, source: 'e-konkursy.info + data/curated.json', count: contests.length, contests };
   await writeFile(OUT, JSON.stringify(data, null, 1) + '\n', 'utf8');
   console.log(`Zapisano ${contests.length} konkursów.`);
   return { changed: true, count: contests.length };
