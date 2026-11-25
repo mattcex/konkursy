@@ -1,11 +1,14 @@
 {
- "updatedAt": "2026-11-24T06:13:00.201Z",
+ "updatedAt": "2026-11-25T06:17:08.318Z",
  "since": "2026-11-20",
  "source": "e-konkursy.info + data/curated.json + Instagram (Apify)",
- "igFetchedAt": "2026-11-24",
- "count": 405,
+ "igFetchedAt": "2026-11-25",
+ "count": 462,
  "contests": [
   {
+   "cats": [
+    "konkursy-zakonczone"
+   ],
    "id": "ek:konkurs-czas-na-zmiane-w-radiu-eska",
    "title": "Konkurs \"Czas na zmianę w Radiu ESKA\"",
    "org": "Time S. A.",
@@ -37,8 +40,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "id": "ek:konkurs-vox-fm-robi-all-inclusive",
@@ -985,7 +988,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -1878,7 +1881,7 @@
    "results": "2026-11-25",
    "task": "#KONKURS Magia Świąt z LUMENE! Święta mają w sobie coś wyjątkowego... A gdyby tak w tym roku odliczanie do Świąt było jeszcze piękniejsze?\n\nZapraszamy Cię do wspólnego celebrowania przedświątecznego czasu w nordyckim stylu. Mamy dla Ciebie wyjątkową niespodziankę, która umili oczekiwanie na ten magiczny moment!\n\n🏻 Zadanie konkursowe:\n1 W komentarzu pod postem dokończ zdanie: „Magia Świąt zaczyna się dla mnie, gdy...”\n\nBędzie nam bardzo miło, jeśli zaobserwujesz @lumenepolska.\nNie ma limitu zgłoszeń, więc jeśli masz więcej świątecznych inspiracji, podziel się nimi z nami.\nBędzie nam baaardzo miło, jeśli dasz się zauważyć na naszym profilu.\n\nDo wygrania: kalendarz adwentowy LUMENE, pełen kosmetycznych niespodzianek, które pozwolą Ci odkrywać magię nordyckiego piękna przez 24 dni!\n\nCzas trwania konkursu: 19.11–24.11.2026\nWyniki ogłosimy: 25.11.2026 w komentarzu pod postem konkursowym.\n\nWygrywają 2 osoby!\n\nNiech odliczanie do Świąt zacznie się od małej przyjemności.\nPowodzenia!\n\nRegulamin konkursu znajdziesz w linku w BIO.",
    "prizes": "• Do wygrania: kalendarz adwentowy LUMENE, pełen kosmetycznych niespodzianek, które pozwolą Ci odkrywać magię nordyckiego piękna przez 24 dni!\n• Wygrywają 2 osoby!",
-   "prizeCount": 2,
+   "prizeCount": 1,
    "judging": "?",
    "location": null,
    "local": false,
@@ -1940,6 +1943,9 @@
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkrus-przewodnik-po-beztrosce",
    "title": "Konkrus \"Przewodnik po beztrosce\"",
    "org": "Feeders Agency Sp. z o. o.",
@@ -1971,8 +1977,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-lenny-w-jesiennej-odslonie-listopad-2026",
+   "title": "Konkurs \"LENNY W JESIENNEJ ODSŁONIE - LISTOPAD 2026\"",
+   "org": "Mobile-Traffic-Data Sp. z o. o.",
+   "url": "https://www.instagram.com/p/Dfzizo2q4n5/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-lenny-w-jesiennej-odslonie-listopad-2026",
+   "platform": "instagram",
+   "start": "2026-11-16",
+   "end": "2026-11-25",
+   "results": null,
+   "task": "• Zaobserwuj profil @MOBILET.PL\n• Odpowiedz w komentarzu pod postem konkursowym na pytanie:\nJakie są Twoje sposoby na jesienne rozgrzanie?",
+   "prizes": "5x zestaw składający się z: leniwca Lenny'ego w jesiennym kubraczku, kubka Mobilet, plecaka oraz rozgrzewającej herbaty",
+   "prizeCount": 5,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -2009,7 +2054,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -2047,7 +2092,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -2085,10 +2130,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-swieta-ogarniesz-to-z-eagle",
    "title": "Konkurs \"Święta? Ogarniesz to z EAGLE\"",
    "org": "familie.pl",
@@ -2120,10 +2168,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-upiecz-rogala",
    "title": "Konkurs \"Upiecz rogala\"",
    "org": "Stovit",
@@ -2155,14 +2207,18 @@
    "comments": 295,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Ostatnim rogalem zawsze podzielę się z [@Znajomy], bo przyjaźń jest jak dżem w rogalu – najlepsza, kiedy jest jej dużo i trochę wycieka bokiem 🥐❤️",
     "Ostatnim rogalem zawsze podzielę się z [@Znajomy], bo i tak zna wszystkie moje kryjówki na słodycze 😅🥐"
    ]
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-whirlpool-nowy-wymiar-kuchni",
    "title": "Konkurs Whirlpool \"Nowy wymiar kuchni\"",
    "org": "RestaurantWeek Sp. z o. o.",
@@ -2194,10 +2250,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-wymysl-swiateczna-tradycje-z-monte",
    "title": "Konkurs \"Wymyśl świąteczną tradycję z Monte\"",
    "org": "be frank",
@@ -2229,8 +2289,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -2267,10 +2327,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-lokalne"
+   ],
    "id": "ek:wygraj-bilety-na-film-violetta-villas-w-kinie-cinema-lumiere-w-suwalkach-do-godz-1500",
    "title": "Wygraj bilety na film „Violetta Villas” w kinie Cinema Lumiere w Suwałkach! do godz. 15:00",
    "org": "niebywalesuwalki.pl",
@@ -2302,10 +2365,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:wygraj-ksiazki-z-serii-kurzol",
    "title": "Wygraj książki z serii \"Kurzol\"",
    "org": "granice.pl",
@@ -2337,8 +2403,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -2376,8 +2442,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-sztuczna-choinke-swierk-pospolity-220-cm-od-choinka24",
+   "title": "Wygraj sztuczną choinkę Świerk Pospolity 220 cm od Choinka24",
+   "org": "choinka24.pl",
+   "url": "https://www.instagram.com/p/Dfy0lpzEXw3/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-sztuczna-choinke-swierk-pospolity-220-cm-od-choinka24",
+   "platform": "instagram",
+   "start": "2026-11-16",
+   "end": "2026-11-25",
+   "results": null,
+   "task": "• Zaobserwuj profil @choinka24 na Instagramie\n• Udostępnij post z konkursem w relacji (Stories)\n• Odpowiedz w komentarzu pod postem konkursowym na pytanie:\nWyobraź sobie, że możesz wprowadzić jedną nową, obowiązkową zasadę świąteczną dla całej rodziny. Co by to było?",
+   "prizes": "1x sztuczna choinka Świerk Pospolity 220 cm",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -2715,6 +2820,44 @@
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [],
+   "id": "ig:DgFaHlvN9SC",
+   "title": "Konkurs @technischools: Karta podarunkowa o wartości 100 USD (lub zbliżonej wartości w walucie polskiej - 400zł)…",
+   "org": "@technischools",
+   "url": "https://www.instagram.com/p/DgFaHlvN9SC/",
+   "src": "https://www.instagram.com/p/DgFaHlvN9SC/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-25",
+   "endGuess": true,
+   "results": "2026-11-26",
+   "task": "KONKURS: TECHNI VICE CITY UPDATE Zostań gwiazdą!\n\nStwórz grafikę AI, na której TY lądujesz w neonowym Vice City w klimacie #gtaVI\n\nTwoje zadanie: Za pomocą narzędzia AI stwórz grafikę, na której TY jesteś bohaterem w Vice City - neony, palmy, zachód słońca nad oceanem i klimat, który wszyscy znamy. Pokaż, co potrafisz!\n\nDo wygrania: karta podarunkowa o wartości 100 USD (lub zbliżonej wartości w walucie polskiej - 400zł) do PlayStation Store lub Microsoft Store (Xbox) - Ty wybierasz!\ntylko na konta zarejestrowane w Polsce\ntylko dla uczniów i nauczycieli Techni Schools lub Techni Zdalni\n\nJak wziąć udział?\n1 Wrzuć swoją grafikę AI w komentarzu pod tym postem.\n2 W komentarzu napisz, na jaką platformę chcesz kod: PlayStation czy Xbox.\n3 Zbieraj reakcje - wygrywa komentarz z największą liczbą polubień pod jednym z dwóch postów konkursowych na Facebooku i Instagramie!\n4 Zweryfikuj swoją tożsamość w odpowiedzi na naszą wiadomość o wygranej w ciągu 12h od jej otrzymania.\n\nRozstrzygnięcie w środę 25 listopada 2026 r. o godz. 23:59\nZwycięzcę poinformujemy wiadomością prywatną 26 listopada o 8:30 - upewnij się, że masz włączone wiadomości, bo na odpowiedź będziesz mieć tylko 12 godzin!\n\nWażne:\n• Konkurs jest tylko dla uczniów i pracowników Techni Schools/Techni Zdalni.\n• Na grafice musisz być Ty - inne osoby tylko za ich zgodą.\n• Bez broni, przemocy, używek i treści 18+. Trzymamy szkolny klimat!\n• Bez oficjalnych logotypów i grafik z gry.\n• Jedno zgłoszenie na osobę.\n\nRegulamin: https://technischools.com/blog/techni-vice-city-update\n\nKonkurs nie jest sponsorowany, administrowany ani powiązany z Meta, Rockstar Games, Take-Two Interactive, Sony ani Microsoft.",
+   "prizes": "• Do wygrania: karta podarunkowa o wartości 100 USD (lub zbliżonej wartości w walucie polskiej - 400zł) do PlayStation Store lub Microsoft Store (Xbox) - Ty wybierasz!\n• 4 Zweryfikuj swoją tożsamość w odpowiedzi na naszą wiadomość o wygranej w ciągu 12h od jej otrzymania.",
+   "prizeCount": 1,
+   "judging": "reakcje",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": true,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 47,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
    "cats": [
     "konkursy-aktualne"
    ],
@@ -2749,10 +2892,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-lokalne"
+   ],
    "id": "ek:fundacja-partita-iv-konkurs-online-wroclaw-con-corde",
    "title": "Fundacja Partita - IV Konkurs online Wrocław Con Corde",
    "org": "fundacjapartita.pl",
@@ -2784,10 +2930,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-jak-dbasz-o-swoja-sucha-skore",
    "title": "Konkurs \"Jak dbasz o swoją suchą skórę\"",
    "org": "Business Supporter",
@@ -2819,10 +2969,52 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:konkurs-nivea-krem-maselko-serum-test-recenzentek",
+   "title": "Konkurs \"Nivea krem masełko serum test recenzentek\"",
+   "org": "wizaz.pl",
+   "url": "https://wizaz.pl/klub-recenzentki/nivea-krem-maselko-serum-test-recenzentek",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-nivea-krem-maselko-serum-test-recenzentek",
+   "platform": "www",
+   "start": "2026-11-24",
+   "end": "2026-11-26",
+   "results": null,
+   "task": "Wystarczy wypełnić formularz.\n\nKonkurs dla zarejestrowanych.",
+   "prizes": "W skład każdego zestawu przeznaczonego dla laureatek testu wchodzą:\n\n• NIVEA Q10 PRZECIWZMARSZCZKOWE UJĘDRNIENIE – Krem na dzień SPF 15\n• NIVEA Q10 Ekspert Kolagenu – Masełko do twarzy na dzień i noc\n• NIVEA Q10 Ekspert Kolagenu – Serum naprawcze 3w1\nPrzybliżona wartość jednego zestawu to 183 zł",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-ostrzez-przed-ostroscia",
    "title": "Konkurs \"Ostrzeż przed ostrością\"",
    "org": "Great Minds Sp. z o. o.",
@@ -2854,8 +3046,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -2893,7 +3085,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -2931,10 +3123,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-z-lowca-potworow",
    "title": "Konkurs z Łowcą Potworów",
    "org": "portalkryminalny.pl",
@@ -2966,8 +3161,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3005,10 +3200,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-ziaja-elfie-psoty",
    "title": "Konkurs \"Ziaja Elfie Psoty\"",
    "org": "Glob360 Sp. z o. o.",
@@ -3040,8 +3239,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3078,10 +3277,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wroclaw-konkurs-hotel-monopol",
    "title": "Wrocław: Konkurs \"Hotel Monopol\"",
    "org": "Raban Media Sp. z o. o.",
@@ -3113,14 +3316,57 @@
    "comments": 180,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Mój domowy spokój pachnie lawendą z woreczka schowanego w szafie i herbatą parującą na parapecie, kiedy o 16:00 robi się już ciemno 💜 Ten jeden detal to moment, w którym zdejmuję buty, zapalam małą świecę i wyłączam powiadomienia – dopiero wtedy naprawdę oddycham. Do Krakowa zabiorę [@Osoba], bo od miesięcy obiecujemy sobie spacer po Rynku bez zerkania na zegarek.",
     "Mój spokój pachnie świeżo wypraną pościelą i ciepłym kocem, który zawsze czeka w tym samym rogu kanapy. Wystarczy, że go zobaczę po wejściu do pokoju, i już wiem, że dzień się skończył, a zaczyna się wieczór tylko dla mnie. Na relaks w Krakowie zabiorę [@Osoba] – ktoś musi mi przypominać, że w hotelu nie trzeba ścielić łóżka 😄"
    ]
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-jeden-z-10-kalendarzy-adwentowych-teekanne-od-bonito",
+   "title": "Wygraj jeden z 10 kalendarzy adwentowych Teekanne od Bonito",
+   "org": "Bonito.pl Sp. z o. o.",
+   "url": "https://www.instagram.com/p/Df9YmJWxEiw/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-jeden-z-10-kalendarzy-adwentowych-teekanne-od-bonito",
+   "platform": "instagram",
+   "start": "2026-11-20",
+   "end": "2026-11-26",
+   "results": null,
+   "task": "• Zaobserwuj profil bonito__official\n• Polub post konkursowy\n• Napisz w komentarzu:\nGdybyś mógł zatrzymać jeden świąteczny moment na dłużej, który by to był?",
+   "prizes": "10x Kalendarz adwentowy Teekanne",
+   "prizeCount": 10,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-kosmetyki-do-pielegnacji-wlosow-veoli-botanica-oraz-akcesoria-lovello",
    "title": "Wygraj kosmetyki do pielęgnacji włosów Veoli Botanica oraz akcesoria Lovello",
    "org": "Veoli Botanica Sp. z o. o.",
@@ -3152,8 +3398,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3190,10 +3436,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-wyjscie-na-murawe-meczu-uefa-europa-league",
    "title": "Wygraj wyjście na murawę meczu UEFA Europa League",
    "org": "Havas Media",
@@ -3225,8 +3475,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -3415,6 +3665,10 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-moja-mala-tradycja",
    "title": "Konkurs \"Moja mała tradycja\"",
    "org": "Mapa tradycji",
@@ -3446,8 +3700,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:konkurs-odswiezajace-spraye-do-wlosow-taft-good-hair1",
+   "title": "Konkurs \"odświeżające spraye do włosów TAFT Good Hair\"",
+   "org": "wizaz.pl",
+   "url": "https://wizaz.pl/klub-recenzentki/odswiezajace-spraye-do-wlosow-taft-good-hair-test-recenzentek/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-odswiezajace-spraye-do-wlosow-taft-good-hair1",
+   "platform": "www",
+   "start": "2026-11-23",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "Poznaj trzy odświeżające spraye do włosów TAFT Good Hair, stworzone z myślą o różnych potrzebach włosów.\nWypełnij formularz zgłoszeniowy i testuj spraye do włosów Schwarzkopf Taft Good Hair",
+   "prizes": "Nagrodami przeznaczonymi dla laureatów testowania jest 100 zestawów kosmetyków do włosów marki Schwarzkopf Taft Good Hair\nW skład każdego zestawu wchodzą:\n\n• Taft spray odświeżający Good Hair Dry Hair 150 ml\n• Taft spray odświeżający Good Hair Normal Frizzy 150 ml\n• Taft spray odświeżający Good Hair Fine Hair 150 ml",
+   "prizeCount": 100,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3484,10 +3776,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-pepe-jeans",
+   "title": "Konkurs \"Pepe Jeans\"",
+   "org": "Emotivo Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DgFp2qZqZ04/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-pepe-jeans",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "W komentarzu pod postem konkursowym odpowiedz na pytanie:\nGdyby Twoje marzenia miały zapach, jak pachniałaby Twoja wymarzona przygoda?",
+   "prizes": "3 zestawy nagród, a w każdym z nich:\n\n• Box Prezentmarzeń „Wspólne Chwile”\n• Addictive Indulgence for Her od Pepe Jeans\n• Addictive Indulgence for Him od Pepe Jeans",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-twoje-miejsce-twoj-wybor",
    "title": "Konkurs \"Twoje miejsce, Twój wybór\"",
    "org": "Stars4Brands Sp. z o. o.",
@@ -3519,8 +3854,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media"
+   ],
+   "id": "ek:konkurs-whole-earth",
+   "title": "Konkurs \"WHOLE EARTH\"",
+   "org": "RestaurantWeek Sp. z o. o.",
+   "url": "https://www.instagram.com/p/Df4gHJDRx4f/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-whole-earth",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "W komentarzu pod postem konkursowym opisz jakie danie przygotowałbyś z użyciem kremu orzechowego od @wholeearth_pl",
+   "prizes": "• 2x set kremów orzechowych i blender BlendyGo\n• 3x set kremów orzechowych",
+   "prizeCount": 5,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "id": "ek:ogolnopolski-konkurs-na-kartke-swiateczna-grafkartka-2026",
@@ -3558,6 +3931,9 @@
    "fetchedAt": "2026-11-20"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:ogolnopolski-turniej-poetycki-autoportret-jesienny-20261",
    "title": "Ogólnopolski Turniej Poetycki \"Autoportret Jesienny\" 2026",
    "org": "Krotoszyński Ośrodek Kultury",
@@ -3589,8 +3965,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3627,10 +4003,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-karty-do-empiku-i-zapas-wiejskich-ziemniaczkow",
+   "title": "Wygraj karty do Empiku i zapas Wiejskich Ziemniaczków",
+   "org": "Wiejskie Ziemniaczki",
+   "url": "https://www.instagram.com/p/DfrP35oNP2a/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-karty-do-empiku-i-zapas-wiejskich-ziemniaczkow",
+   "platform": "instagram",
+   "start": "2026-11-13",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "Odpowiedz w komentarzu na pytanie konkursowe:\nCo powinno znaleźć się w Twojej wymarzonej, jesiennej kryjówce?",
+   "prizes": "• 10x Nagroda główna: karta prezentowa Empik o wartości 450 zł i karton Wiejskich Ziemniaczków (12 paczek)\n• 20x Nagroda II stopnia: karton Wiejskich Ziemniaczków",
+   "prizeCount": 30,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:wygraj-ksiazke-rzeznik-edenu-przemyslawa-kher-z-autografem",
    "title": "Wygraj książkę \"Rzeźnik Edenu\" Przemysława Kher z autografem",
    "org": "Dziki Motyl",
@@ -3662,8 +4081,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media"
+   ],
+   "id": "ek:wygraj-podwojna-wejsciowke-na-prelekcje-piotra-krzyzowskiego-do-godz-1500",
+   "title": "Wygraj podwójną wejściówkę na prelekcję Piotra Krzyżowskiego! do godz. 15:00",
+   "org": "Bezpieczny Powrót",
+   "url": "https://www.facebook.com/photo?fbid=2031288594760892&set=a.797476914808739",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-podwojna-wejsciowke-na-prelekcje-piotra-krzyzowskiego-do-godz-1500",
+   "platform": "facebook",
+   "start": "2026-11-24",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "Należy odpowiedzieć w komentarzu pod postem na Instagramie lub Facebooku na pytanie:\nKtóre wejście Piotra na ośmiotysięcznik uważasz za najbardziej inspirujące i dlaczego?",
+   "prizes": "1x podwójna wejściówka na prelekcję Piotra Krzyżowskiego 28.11.2026 w Warszawie.",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": true,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3701,8 +4158,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-zestaw-discovery-set-perfum-nou-back-to-the-roots",
+   "title": "Wygraj zestaw discovery set perfum NOU Back to the Roots!",
+   "org": "Agnieszka Leśniewska (@lesna_o_perfumach)",
+   "url": "https://www.instagram.com/p/Df-MDvBDTjW/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-zestaw-discovery-set-perfum-nou-back-to-the-roots",
+   "platform": "instagram",
+   "start": "2026-11-20",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "Dodaj komentarz pod postem konkursowym na Instagramie, opisując w maksymalnie 3 zdaniach, jak pachniałyby Twoje perfumy o nazwie „Back to the Roots”.\nPrześlij zgłoszenie do 27.11.2026 r. do godziny 23:59\nKażdy uczestnik może zgłosić tylko jedną autorską odpowiedź\nJury wybierze 3 najbardziej oryginalne i sugestywne opisy.",
+   "prizes": "3x discovery set NOU Back to the Roots (5 x 2 ml)",
+   "prizeCount": 8,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -3740,7 +4236,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -3779,6 +4275,43 @@
    "firstSeen": "2026-11-21",
    "seenAt": "2026-11-22",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [],
+   "id": "ig:Df4kSTEuo5R",
+   "title": "Rozdanie @alternatywnie.jewellery: Czyli ᴍᴀᴌᴇ ʀᴏᴢᴅᴀɴɪᴇ na dobry początek!",
+   "org": "@alternatywnie.jewellery",
+   "url": "https://www.instagram.com/p/Df4kSTEuo5R/",
+   "src": "https://www.instagram.com/p/Df4kSTEuo5R/",
+   "platform": "instagram",
+   "start": "2026-11-18",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "Czyli ᴍᴀᴌᴇ ʀᴏᴢᴅᴀɴɪᴇ na dobry początek!\n\nAle są warunki!\n\n• Koniecznie obserwuj profil @alternatywnie.jewellery\n• Wyślij tę rolkę do nas lub repostuj ją w świat.\n• Napisz w komentarzu co byś chciał lub chciała dostać, możesz nawet wrzucić zdjęcie!\n\nPrezent niespodzianka leci do jednej osoby!\n\nTo tyle. Akcja kończy się 27 Listopada 2026 roku.\n\nPowodzenia!\n\n\nalternatywnie | jewellery | handmade | gotycka biżuteria |",
+   "prizes": "",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 148,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -3892,6 +4425,43 @@
    "firstSeen": "2026-11-22",
    "seenAt": "2026-11-23",
    "fetchedAt": "2026-11-22"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgC-ur4gxP_",
+   "title": "Rozdanie @zaczytanamarzycielka8: KONFRONTACJA autorstwa @remigiuszmroz",
+   "org": "@zaczytanamarzycielka8",
+   "url": "https://www.instagram.com/p/DgC-ur4gxP_/",
+   "src": "https://www.instagram.com/p/DgC-ur4gxP_/",
+   "platform": "instagram",
+   "start": "2026-11-22",
+   "end": "2026-11-27",
+   "results": null,
+   "task": "ROZDANIE KSIĄŻKOWE!\n\nKochani!\nMam dla Was małą niespodziankę! Chciałabym podzielić się z kimś z Was książkową radością, dlatego zapraszam na rozdanie!\n\nDo wygrania jest KONFRONTACJA autorstwa @remigiuszmroz\n\nZASADY ROZDANIA:\n\n1. Zaobserwuj mój profil @zaczytanamarzycielka8\n2. Polub ten post konkursowy.\n3. Udostępnij post na swojej relacji i koniecznie oznacz mój profil, żebym mogła zobaczyć udostępnienie.\n4. Zostaw komentarz pod postem z informacją, że bierzesz udział.\n\nDODATKOWO (NIEOBOWIĄZKOWO):\nNapisz w komentarzu, jaka książka ostatnio skradła Twoje serce lub jaką książkę najbardziej chciałabyś/chciałbyś znaleźć na swojej półce. Chętnie poznam Wasze czytelnicze wybory!\n\nRozdanie trwa do 27.11.2026\n\nZwycięzca zostanie wybrany losowo i ogłoszony na moim profilu w ciągu 3 dni od zakończenia rozdania.\n\nWysyłka nagrody na terenie Polski na mój koszt.\n\nPowodzenia wszystkim! Niech książkowe szczęście będzie z Wami!\n\nRozdanie nie jest sponsorowane, wspierane ani administrowane przez Instagram.",
+   "prizes": "• Do wygrania jest KONFRONTACJA autorstwa @remigiuszmroz\n• ROZDANIE KSIĄŻKOWE!\n• Chciałabym podzielić się z kimś z Was książkową radością, dlatego zapraszam na rozdanie!",
+   "prizeCount": 1,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 25,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -4076,7 +4646,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -4115,8 +4685,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:konkurs-na-najpiekniejsze-zdjecia-chatyne",
+   "title": "Konkurs na najpiękniejsze zdjęcia chatyne",
+   "org": "chatynkowo.pl",
+   "url": "https://www.facebook.com/groups/571334279661967/posts/28944137268621622/?reply_comment_id=28954115634290452&notif_id=1795539528283579&notif_t=group_comment",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-na-najpiekniejsze-zdjecia-chatyne",
+   "platform": "facebook",
+   "start": null,
+   "end": "2026-11-28",
+   "results": null,
+   "task": "Pokażcie najpiękniejsze zdjęcia chatynek!\nPublikujcie je w komentarzach pod postem na FB i zbierajcie polubienia.\nWygrywa zdjęcie z największą liczbą lajków",
+   "prizes": "niespodzianka",
+   "prizeCount": 1,
+   "judging": "reakcje",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -4153,7 +4762,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -4191,10 +4800,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:wygraj-1-z-3-egzemplarzy-ksiazki-obledny-rycerz-daniela-jurkiewicza",
    "title": "Wygraj 1 z 3 egzemplarzy książki \"(O)błędny rycerz\" Daniela Jurkiewicza",
    "org": "Dziki Motyl",
@@ -4226,8 +4839,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-odkurzacz-reczny-tineco-go-mini",
+   "title": "Wygraj odkurzacz ręczny Tineco Go Mini",
+   "org": "Tineco Polska",
+   "url": "https://www.instagram.com/p/DgA7mJZB17L/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-odkurzacz-reczny-tineco-go-mini",
+   "platform": "instagram",
+   "start": "2026-11-21",
+   "end": "2026-11-28",
+   "results": null,
+   "task": "• Zaobserwuj profil @tineco.polska na Instagramie\n• Polub post konkursowy\n• Udostępnij post na swoim Instastory i oznacz @tineco.polska\n• Napisz w komentarzu autorską odpowiedź na pytanie konkursowe:\nKtóry model Tineco, Floor One S7 Artist Premium czy Floor One S5 Stretch Gold, zasługuje na miano Twojego faworyta i dlaczego?",
+   "prizes": "2x odkurzacz ręczny Tineco Go Mini",
+   "prizeCount": 2,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -4265,7 +4917,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -4304,6 +4956,43 @@
    "firstSeen": "2026-11-21",
    "seenAt": "2026-11-21",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [],
+   "id": "ig:Df2skMXgV19",
+   "title": "Rozdanie @scentbynoelia: Perfumowe rozdanie!",
+   "org": "@scentbynoelia",
+   "url": "https://www.instagram.com/p/Df2skMXgV19/",
+   "src": "https://www.instagram.com/p/Df2skMXgV19/",
+   "platform": "instagram",
+   "start": "2026-11-17",
+   "end": "2026-11-28",
+   "results": null,
+   "task": "Perfumowe rozdanie! Na Wasze komentarze czekam do 28.11.2026. Wysyłka na terenie Polski #perfumyunisex #perfumydamskie",
+   "prizes": "• Perfumowe rozdanie!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 72,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -4373,11 +5062,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 234,
-   "commentsAt": "2026-11-24",
+   "comments": 257,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -4493,6 +5182,81 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [],
+   "id": "ig:DgIlLgNqkNb",
+   "title": "Konkurs @klaudiastandarska: 4 KALENDARZE ADWENTOWE!",
+   "org": "@klaudiastandarska",
+   "url": "https://www.instagram.com/p/DgIlLgNqkNb/",
+   "src": "https://www.instagram.com/p/DgIlLgNqkNb/",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-11-28",
+   "results": "2026-11-29",
+   "task": "KONKURS! DO WYGRANIA 4 KALENDARZE ADWENTOWE!\n\nPrzygotowałam dla Was aż 4 wyjątkowe kalendarze adwentowe, które powstały specjalnie ode mnie dla Was!\n\nKonkurs odbywa się równolegle na Instagramie i TikToku:\n2 kalendarze do wygrania na Instagramie\n2 kalendarze do wygrania na TikToku\n\nCo zrobić, aby wziąć udział w konkursie?\n\n1 Odpowiedz w komentarzu na pytanie konkursowe: Co chciałabyś/chciałbyś znaleźć w swoim wymarzonym kalendarzu adwentowym i dlaczego?\n\n2 Polub i zapisz moje ostatnie posty na platformie, na której bierzesz udział w konkursie.\n\n3 Zaobserwuj mój profil.\n\nCzas trwania konkursu:\nNa udział w konkursie masz czas do 28 listopada 2026 r. do końca dnia.\n\nWyniki ogłoszę 29 listopada 2026 r. w tym opisie. Tego dnia wybiorę również 4 zwycięzców i wyślę do nich kalendarze!\n\nWażne informacje:\n\n* Zwycięzców wybieram osobiście na podstawie kreatywności i odpowiedzi na pytanie konkursowe. Konkurs nie jest losowaniem.\n* Dwie osoby zostaną wybrane na Instagramie i dwie na TikToku.\n* Proszę, nie wysyłajcie do mnie wiadomości prywatnych w sprawie konkursu. Wszystkie informacje i wyniki pojawią się tutaj.\n\nPowodzenia! Trzymam za Was kciuki!\n\nKonkurs nie jest sponsorowany, wspierany ani organizowany przez Instagram ani TikTok.",
+   "prizes": "• DO WYGRANIA 4 KALENDARZE ADWENTOWE!\n• Przygotowałam dla Was aż 4 wyjątkowe kalendarze adwentowe, które powstały specjalnie ode mnie dla Was!\n• 2 kalendarze do wygrania na TikToku",
+   "prizeCount": 4,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 561,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-andrzejkowe-czary-z-knorr1",
+   "title": "Konkurs \"Andrzejkowe czary z KNORR\"",
+   "org": "bliski.com.pl",
+   "url": "https://bliski.com.pl/konkurs-andrzejkowe-czary-z-knorr/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-andrzejkowe-czary-z-knorr1",
+   "platform": "www",
+   "start": "2026-11-17",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "• Kup produkt Knorr w sklepie sieci Bliski, zachowaj paragon\n• Przygotuj danie z produktu promocyjnego, wymyśl magiczną, andrzejkową nazwę swojej potrawy oraz zrób zdjęcie\n• Wyślij odpowiedź na zadanie konkursowe na adre konkurs@grupa20.pl",
+   "prizes": "21x blender TEFAL Quickchef",
+   "prizeCount": 21,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
    "cats": [
     "konkursy-social-media",
     "konkursy-na-facebooku"
@@ -4528,8 +5292,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-health-labs-care-men",
+   "title": "Konkurs \"HEALTH LABS CARE MEN\"",
+   "org": "DOZ.pl Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DgFljhFJeqS/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-health-labs-care-men",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "W komentarzu pod postem odpowiedz na pytanie:\nJaki zdrowy nawyk każdy mężczyzna powinien wprowadzić do swojej codzienności?",
+   "prizes": "3x zestaw suplementów diety Health Labs Care Men wraz z pojemną kosmetyczką",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -4566,10 +5369,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-mikolajkowy219",
    "title": "Konkurs mikołajkowy",
    "org": "Agencja reklamowa KiK",
@@ -4601,10 +5408,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-moos1",
    "title": "Konkurs \"MOOS\"",
    "org": "MOOS HEALTH",
@@ -4636,10 +5447,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-nie-mam-czasu-na-wypadek",
    "title": "Konkurs \"Nie mam czasu na wypadek\"",
    "org": "Colonnade Insurance S. A.",
@@ -4671,10 +5486,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-prezent-ktorego-nie-zapomne",
+   "title": "Konkurs \"Prezent, którego nie zapomnę\"",
+   "org": "Halfprice Sp. z o. o.",
+   "url": "https://www.instagram.com/p/Dfg9fdaD72-/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-prezent-ktorego-nie-zapomne",
+   "platform": "instagram",
+   "start": "2026-11-09",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "Zadanie konkursowe, polega na zamieszczeniu w Czasie trwania Konkursu pod postem konkursowym opublikowanym na Profilu Organizatora kreatywnej odpowiedzi na zadanie:\nSkarpetki od cioci, kolejny kubek do kolekcji czy sweter, którego nie założysz nawet za milion złotych?\nKażdy z nas zna historię prezentu, przy którym trzeba było udawać zachwyt!\n\nOpowiedz o swoim najbardziej nietrafionym prezencie i dorzuć GIF, który najlepiej pokazuje Twoją reakcję!",
+   "prizes": "3x karta podarunkowa MODIVO na kwotę 250,00",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-twoj-domowy-rozrabiaka",
    "title": "Konkurs \"Twój Domowy Rozrabiaka\"",
    "org": "LABCON",
@@ -4706,10 +5564,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-wymysl-najbardziej-absurdalny-powod-dla-ktorego-potrzebujesz-matchy",
    "title": "Konkurs \"Wymyśl najbardziej absurdalny powód, dla którego potrzebujesz matchy\"",
    "org": "MOOS Sp. z o. o.",
@@ -4741,8 +5603,8 @@
    "comments": 313,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Potrzebuję matchy, bo moja roślinka doniczkowa jest bardziej zielona ode mnie i zaczęła mnie z tego powodu oceniać 🌿👀🍵 [@Znajomy1] [@Znajomy2]"
    ]
@@ -4783,10 +5645,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:loteria-black-weeks-z-gastro-paczka-wygraj-audi-a3-sportback",
    "title": "Loteria \"Black Weeks z Gastro Paczką — wygraj Audi A3 Sportback\"",
    "org": "Grzegrzółka Loterie Sp. z o. o.",
@@ -4818,8 +5683,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -4856,7 +5721,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -4894,7 +5759,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -4932,7 +5797,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -4970,10 +5835,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-ogrodowy-zestaw-wypoczynkowy-silas-z-okazji-black-week",
    "title": "Wygraj ogrodowy zestaw wypoczynkowy Silas z okazji Black Week!",
    "org": "VIAPI Wioletta Trzmiel",
@@ -5005,8 +5874,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-zestaw-baterii-varta-longlife-power-aa",
+   "title": "Wygraj zestaw baterii VARTA Longlife Power AA!",
+   "org": "VARTA",
+   "url": "https://www.instagram.com/p/DgFAhvpDONJ/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-zestaw-baterii-varta-longlife-power-aa",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "• Zaobserwuj profil @varta.agpl\n• Odpowiedz w komentarzu pod postem konkursowym na pytanie:\nDo końca życia możesz używać tylko jednego urządzenia zasilanego bateriami. Co Twoim zdaniem byłoby najlepszym wyborem i dlaczego?",
+   "prizes": "zestawy baterii VARTA Longlife Power AA",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -5075,11 +5983,11 @@
     "follow": false,
     "tags": 5
    },
-   "comments": 187,
-   "commentsAt": "2026-11-24",
+   "comments": 199,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -5483,11 +6391,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 622,
-   "commentsAt": "2026-11-24",
+   "comments": 792,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -5528,6 +6436,43 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [],
+   "id": "ig:DgGOfUFomo3",
+   "title": "Konkurs @arcezo: Miejsce: zestaw łańcuszek + bransoletka",
+   "org": "@arcezo",
+   "url": "https://www.instagram.com/p/DgGOfUFomo3/",
+   "src": "https://www.instagram.com/p/DgGOfUFomo3/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "KONKURS ARCEZO\n\nDo wygrania\n1. miejsce: zestaw łańcuszek + bransoletka\n2. miejsce: łańcuszek\n3. miejsce: bransoletka\n\nJak wziąć udział?\n- Zaobserwuj nasz profil @arcezo\n- Polub ten post\n- Oznacz w komentarzu 2 osoby\n- Udostępnij post w relacji\n\nKonkurs trwa do 29.11.2026, godz. 18:00\nZwycięzców ogłosimy na naszym profilu.\nRegulamin w komentarzu pod postem.\n\nPowodzenia!",
+   "prizes": "• 1. miejsce: zestaw łańcuszek + bransoletka\n• 2. miejsce: łańcuszek\n• 3. miejsce: bransoletka",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 42,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
    "cats": [
     "konkursy-promocyjne"
    ],
@@ -5562,10 +6507,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-3x-500-zl",
    "title": "Konkurs \"3x 500 zł\"",
    "org": "Sales Masters Sp. z o. o.",
@@ -5597,8 +6545,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -5636,10 +6584,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-czas-razem-e-wedel",
    "title": "Konkurs \"Czas razem\" E. Wedel",
    "org": "GoldenSubmarine Sp. z o. o.",
@@ -5671,10 +6622,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-dziki-motyl-rozdanie-listopadowe",
    "title": "Konkurs \"Dziki Motyl Rozdanie Listopadowe\"",
    "org": "Dziki Motyl",
@@ -5706,8 +6661,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-excelencia",
+   "title": "Konkurs \"EXCELENCIA\"",
+   "org": "Aceitunas Guadalquivir S. L.",
+   "url": "https://www.instagram.com/p/Df9uegVCvG4/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-excelencia",
+   "platform": "instagram",
+   "start": "2026-11-20",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "• Obserwuj profil @oliwkiexcelencia_pl\n• Napisz w komentarzu, jakie pyszności przygotujesz w Air Fryerze, i oznacz (@) osobę, z którą najchętniej podzielisz się tym daniem!",
+   "prizes": "frytkownica beztłuszczowa Philips Ovi Dual Basket NA352/00 o wartości 399,00 zł brutto",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -5744,7 +6738,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -5782,10 +6776,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:konkurs-gdyby-kawa-mogla-mowic-do-godz-1200",
    "title": "Konkurs \"Gdyby kawa mogła mówić...?\" do godz. 12:00",
    "org": "adStone Frankowski Markiewicz Sp. j.",
@@ -5817,8 +6814,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-gdyby-spy-shop-byl-multitoolem-leathermana-jakie-funkcje-musialby-miec1",
+   "title": "Konkurs \"Gdyby Spy Shop był multitoolem Leathermana, jakie funkcje musiałby mieć?\"",
+   "org": "Spy Shop",
+   "url": "https://www.instagram.com/p/DgHlX8iCJoa/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-gdyby-spy-shop-byl-multitoolem-leathermana-jakie-funkcje-musialby-miec1",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "SpyShop świętuje przekroczenie 1000 obserwujących na Instagramie i z tej okazji przygotował konkurs.\nOdpowiedz w komentarzu pod postem na pytanie:\nGdyby SpyShop był multitoolem Leathermana, jakie funkcje musiałby mieć?\n\nLiczy się kreatywność, oryginalność i pomysłowość. Komisja konkursowa wybierze najciekawszą odpowiedź.\nKonkurs trwa do 30 listopada 2026 r. do godz. 23:59.",
+   "prizes": "1 x Multitool Leatherman Signal (model 590541313)",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -5855,10 +6891,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-ioniq-3-to-wiecej-niz-wolnosc1",
    "title": "Konkurs \"IONIQ 3. To więcej niż wolność\"",
    "org": "Hyundai Motor Poland Sp. z o. o.",
@@ -5890,10 +6929,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-jesien-z-alpro-i-jacobs",
    "title": "Konkurs \"Jesień z Alpro i Jacobs\"",
    "org": "BsCaffe Grzegorz Bieńko",
@@ -5925,8 +6968,8 @@
    "comments": 123,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Moja jesienna propozycja to „Szarlotka w filiżance” 🍎\nNa dno 2 łyżki musu jabłkowego z cynamonem, do tego spieniony Alpro Cinnamon Roll, shot koncentratu Jacobs, a na wierzch pokruszone ciasteczko owsiane. Smakuje jak szarlotka babci, tylko można ją pić pod kocem i nikt nie każe kroić ☕",
     "Piernikowe latte „Pierwszy śnieg”: spienione Alpro z łyżeczką przyprawy do piernika i odrobiną miodu, koncentrat Jacobs, a na górze szczypta kakao jak śnieg na dachu ❄️ Robię je w listopadzie, żeby oszukać kalendarz, że to już grudzień 🎄"
@@ -5967,7 +7010,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6005,7 +7048,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -6043,8 +7086,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6081,7 +7124,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6119,10 +7162,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-mikolajkowy220",
    "title": "Mikołajkowy konkurs z Butikiem Pink&Mint – Wygraj paczkę niespodziankę dla dziecka",
    "org": "Butik Pink&Mint",
@@ -6154,13 +7201,16 @@
    "comments": 273,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "[imię dziecka], rozmiar [np. 104] 💕"
    ]
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-na-najlepsza-prace-dyplomowa-o-eurowizji-ogae-polska",
    "title": "Konkurs na najlepszą pracę dyplomową o Eurowizji – OGAE Polska",
    "org": "Stowarzyszenie Miłośników Konkursu Piosenki Eurowizji OGAE Polska",
@@ -6192,8 +7242,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-nasz-czas-nasza-inka",
+   "title": "Konkurs \"Nasz Czas, Nasza Inka\"",
+   "org": "Synertime Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DfZtOA0CjbM/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-nasz-czas-nasza-inka",
+   "platform": "instagram",
+   "start": "2026-11-06",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "Wejdź na profil inka.pl na Instagramie i znajdź post konkursowy. Opisz w komentarzu pod postem jedno wspomnienie, smak lub przedmiot z dzieciństwa, który natychmiast przenosi Cię w czasie do beztroskich lat. Zgłoszenie opublikuj do 30 listopada 2026 r. do godziny 23:59.",
+   "prizes": "• 1 miejsce (5 laureatów): kultowy aparat natychmiastowy retro + jubileuszowy retro box od Inki + zestawy produktów Inki\n• 2 miejsce (20 laureatów): podwójny bilet do wybranego muzeum z listy + jubileuszowy retro box od Inki + zestawy produktów Inki\n• 3 miejsce (30 laureatów): jubileuszowy retro box od Inki + zestawy produktów Inki",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6230,10 +7319,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-odnalezione-w-tlumaczeniu1",
    "title": "Konkurs \"Odnalezione w tłumaczeniu\"",
    "org": "odnalezionewtlumaczeniu.pl",
@@ -6265,8 +7357,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6304,7 +7396,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -6342,7 +7434,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6384,6 +7476,9 @@
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:konkurs-pokaz-jak-celebrujesz-jesien-z-groove-mocktails-i-wygraj-karty-do-douglas",
    "title": "Konkurs \"Pokaż, jak celebrujesz jesień z GROOVE Mocktails i wygraj karty do Douglas\"",
    "org": "XL Energy Marketing Sp. z o. o.",
@@ -6415,8 +7510,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6453,7 +7548,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6492,10 +7587,14 @@
    "comments": 100,
    "commentsAt": "2026-11-23",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-powiedz-ze-jest-listopad-nie-uzywajac-slowa-listopad",
    "title": "Konkurs \"Powiedz, że jest listopad, nie używając słowa listopad\"",
    "org": "Cedo Sp. z o. o.",
@@ -6527,8 +7626,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6565,10 +7664,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:konkurs-przedswiateczne-chwile-z-bewit",
    "title": "Konkurs \"Przedświąteczne chwile z BEWIT\"",
    "org": "BEWIT Natural Medicine, s.r.o.",
@@ -6600,10 +7702,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-przenies-dwa-numery",
    "title": "Konkurs \"Przenieś dwa numery\"",
    "org": "Sales Masters Sp. z o. o.",
@@ -6635,10 +7740,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-samsung-wallet-dla-posiadaczy-kart-visa-pko-banku-polskiego-edycja-listopad-20261",
    "title": "Konkurs \"Samsung Wallet dla posiadaczy kart Visa PKO Banku Polskiego – edycja Listopad 2026\"",
    "org": "Samsung Electronics Polska Sp. z o. o.",
@@ -6670,8 +7778,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6708,7 +7816,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6746,7 +7854,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6784,10 +7892,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-tomy-wygrywamy",
    "title": "Konkurs \"ToMy wygrywamy\"",
    "org": "Jeronimo Martins Polska S. A.",
@@ -6819,8 +7931,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -6857,7 +7969,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6895,7 +8007,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6933,7 +8045,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -6971,7 +8083,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -7009,10 +8121,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:loteria-milka-w-biedronce-mmmax-wygrana",
    "title": "Loteria \"Milka w Biedronce - Mmmax wygrana\"",
    "org": "Smolar Agencja Promocyjno – Reklamowa Sp. z o. o.",
@@ -7044,8 +8159,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -7082,7 +8197,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -7120,7 +8235,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -7158,10 +8273,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:mikolajkowy-konkurs-wygraj-mini-box-ze-swiecami-sojowymi",
    "title": "Mikołajkowy konkurs – wygraj mini box ze świecami sojowymi",
    "org": "Julita-moda,uroda,dom",
@@ -7193,8 +8312,8 @@
    "comments": 183,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "[@Znajomy1] [@Znajomy2] [@Znajomy3] dziewczyny, świece sojowe na Mikołajki – zobaczcie! 🕯️✨"
    ]
@@ -7234,10 +8353,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-lokalne"
+   ],
    "id": "ek:szczecin-konkurs-poetycki-refleksy",
    "title": "Szczecin: Konkurs poetycki Refleksy",
    "org": "klubskolwin.pl",
@@ -7269,8 +8391,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -7307,7 +8429,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -7345,10 +8467,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wroclaw-wygraj-podwojne-wejsciowki-na-koncerty-w-starym-klasztorze1",
    "title": "Wrocław: Wygraj podwójne wejściówki na koncerty w Starym Klasztorze",
    "org": "Sstary Klasztor",
@@ -7380,10 +8506,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-choinke-z-makramy",
    "title": "Wygraj choinkę z makramy",
    "org": "Macrame Fashion Style Justyna Szymańska",
@@ -7415,10 +8545,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-karte-podarunkowa",
    "title": "Wygraj kartę podarunkową",
    "org": "Berry Project Sp. z o. o.",
@@ -7450,10 +8584,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:wygraj-ksiazke-ocalona-blekitne-zlo-piotra-moczulskiego",
    "title": "Wygraj książkę \"Ocalona - Błękitne zło\" Piotra Moczulskiego",
    "org": "Dziki Motyl",
@@ -7485,10 +8622,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-podwojne-wejsciowki-na-listopadowe-koncerty-w-vertigo-jazz-club",
    "title": "Wygraj podwójne wejściówki na listopadowe koncerty w Vertigo Jazz Club",
    "org": "Vertigo Wrocław",
@@ -7520,8 +8661,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -7558,8 +8699,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-wybrany-obiektyw-tamron-o-wartosci-do-5000-zl",
+   "title": "Wygraj wybrany obiektyw Tamron o wartości do 5000 zł",
+   "org": "Tamron Poland",
+   "url": "https://www.instagram.com/p/Dci2OAoGlat/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-wybrany-obiektyw-tamron-o-wartosci-do-5000-zl",
+   "platform": "instagram",
+   "start": "2026-08-27",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "• Obserwuj profil @tamron_poland_official\n• Napisz w komentarzu pod postem konkursowym, jaki jeden kadr tego roku chciałbyś/chciałabyś jeszcze uchwycić i dlaczego.",
+   "prizes": "1x wybrany obiektyw marki TAMRON o wartości do 5 000 zł brutto (istnieje możliwość dopłaty różnicy, jeśli zwycięzca wybierze droższy model)",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -7596,10 +8776,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wymysl-nowy-zapach-felce-azzurra-i-wygraj-zestawy-produktow1",
    "title": "Wymyśl nowy zapach Felce Azzurra i wygraj zestawy produktów!",
    "org": "EUROPE DISTRIBUTION GROUP",
@@ -7631,10 +8815,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-lokalne"
+   ],
    "id": "ek:xviii-edycja-konkursu-polska-wies-dziedzictwo-i-przyszlosc1",
    "title": "XVIII edycja konkursu \"Polska wieś – dziedzictwo i przyszłość\"",
    "org": "Fundacja na rzecz Rozwoju Polskiego Rolnictwa",
@@ -7666,8 +8853,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -7922,14 +9109,167 @@
     "follow": true,
     "tags": 1
    },
-   "comments": 934,
-   "commentsAt": "2026-11-24",
+   "comments": 977,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [],
+   "id": "ig:DgF8t6VNZ-p",
+   "title": "Rozdanie @veegems: Jedna, dowolnie wybrana rzecz z naszej oferty!",
+   "org": "@veegems",
+   "url": "https://www.instagram.com/p/DgF8t6VNZ-p/",
+   "src": "https://www.instagram.com/p/DgF8t6VNZ-p/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "Z okazji 1000 obserwujących przygotowaliśmy dla Was wyjątkowe ROZDANIE! Dziękujemy, że jesteście z nami 🏼\nDo wygrania jedna, dowolnie wybrana rzecz z naszej oferty!\n\nZasady są proste:\n1 Zaobserwuj nasz profil @veegems\n2 Polub ten post.\n3 W komentarzu napisz co wybierasz na swój prezent i oznacz 3 osoby.\n4 Udostępnij ten post na swojej relacji i oznacz nas.\n\nRozdanie trwa tydzień – na udział masz czas do 30.11\nZwycięzcę ogłosimy na naszej relacji dzień później.\n\nPowodzenia!",
+   "prizes": "• Do wygrania jedna, dowolnie wybrana rzecz z naszej oferty!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 3
+   },
+   "comments": 35,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgFz4g1qMHZ",
+   "title": "Konkurs @kokosztsunami: Combo: gra GTA VI oraz bilety do kina na DUNE: część III oraz Avengers Doomsday.",
+   "org": "@kokosztsunami",
+   "url": "https://www.instagram.com/p/DgFz4g1qMHZ/",
+   "src": "https://www.instagram.com/p/DgFz4g1qMHZ/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-30",
+   "endGuess": true,
+   "results": null,
+   "task": "Konkurs. Do wygrania combo: gra GTA VI oraz bilety do kina na DUNE: część III oraz Avengers Doomsday. Zasady proste: zaobserwuj moje konto (jeśli już to zrobiłeś to ten punkt masz zaliczony), podaj rolkę dalej, a także dodaj dowolny komentarz pod rolką - może być w formie GIF. Konkurs trwa do końca listopada. #gtavi #gta6 #fyp #gra #retro",
+   "prizes": "• Do wygrania combo: gra GTA VI oraz bilety do kina na DUNE: część III oraz Avengers Doomsday.",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 119,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgGGxFfIaEH",
+   "title": "Konkurs @hype__europe: Wygrane osoby otrzymają wiadomość na priv!",
+   "org": "@hype__europe",
+   "url": "https://www.instagram.com/p/DgGGxFfIaEH/",
+   "src": "https://www.instagram.com/p/DgGGxFfIaEH/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-30",
+   "endGuess": true,
+   "results": null,
+   "task": "UWAGA KONKURS!\n\nJuż w ten weekend w galerii @galeria_dominikanska_wroclaw odbywają się vintage targi mody, więc z tej okazji przygotowaliśmy dla was konkurs!\n\nZasady są proste:\n•polub post, udostępnij oraz zrepostuj.\n•oznacz 3 znajomych, z którymi wpadniesz na nasze targi.\n\nNAGRODY MOŻNA ODEBRAĆ TYLKO NA MIEJSCU NA NASZYCH TARGACH\n\nWygrane osoby otrzymają wiadomość na priv!\n\nPowodzenia!",
+   "prizes": "• Wygrane osoby otrzymają wiadomość na priv!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 3
+   },
+   "comments": 30,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgGNoHov5y9",
+   "title": "Rozdanie @otulnie.pl: Zestaw od @otulnie.pl, czyli świeca Kaszmir i aromatyczna herbatka z jabłkiem i cynamonem.",
+   "org": "@otulnie.pl",
+   "url": "https://www.instagram.com/p/DgGNoHov5y9/",
+   "src": "https://www.instagram.com/p/DgGNoHov5y9/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "BLACK WEEK – ROZDANIE!\n\nRazem z @aneeta_ra przygotowałyśmy dla Was małą niespodziankę!\n\nDo wygrania zestaw od @otulnie.pl, czyli świeca Kaszmir i aromatyczna herbatka z jabłkiem i cynamonem.\n\nCo trzeba zrobić?\n\nZaobserwujcie @otulnie.pl i @aneeta_ra\n\nPolubcie ten post\n\nOdpowiedzcie w komentarzu na pytanie:\n\nWyobraźcie sobie idealny wieczór ze świecą Kaszmir i kubkiem gorącej herbaty... Jak by wyglądał i z kim chcielibyście go spędzić?\n\nMożecie oznaczyć tę osobę, żeby zaprosić ją do wspólnej zabawy!\n\nBędzie nam też bardzo miło, jeśli udostępnicie rozdanie dalej.\n\nBawimy się do 29.11.2026, a 30.11 wybierzemy najbardziej kreatywną odpowiedź!\n\nTrzymamy za Was kciuki!\n\nRozdanie nie jest sponsorowane ani organizowane przez Instagram. Regulamin dostępny u organizatorek.\n\nA przy okazji przypominamy, że na @otulnie.pl trwa BLACK WEEK!\n\nDrugi, tańszy zestaw aż 60% taniej!\nPrzy zakupie dwóch zestawów wysyłka do Paczkomatu GRATIS!",
+   "prizes": "• Do wygrania zestaw od @otulnie.pl, czyli świeca Kaszmir i aromatyczna herbatka z jabłkiem i cynamonem.\n• Drugi, tańszy zestaw aż 60% taniej!\n• Wyobraźcie sobie idealny wieczór ze świecą Kaszmir i kubkiem gorącej herbaty... Jak by wyglądał i z kim chcielibyście go spędzić?",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": true,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": 101,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-dyrdymarki-marka-niedzwieckiego",
    "title": "Konkurs \"Dyrdymarki\" Marka Niedźwieckiego",
    "org": "portalmedialny.pl",
@@ -7961,10 +9301,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-mikolajkowe-rozdanie12",
+   "title": "Konkurs \"Mikołajkowe rozdanie\"",
+   "org": "Katarzyna Kożuchowska",
+   "url": "https://www.instagram.com/p/DgAn27JAbtv/?gwpx=eTJoZnJmbmR2a29o",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-mikolajkowe-rozdanie12",
+   "platform": "instagram",
+   "start": "2026-11-21",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "Zaobserwuj profil, polub post, napisz jaki zapach lub smak kojarzy ci się ze świętami i dlaczego.",
+   "prizes": "książka \"Święta pachnące pomarańczą\" Katarzyna Kożuchowska",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-mikolajkowy-z-tutti-kids",
    "title": "Konkurs Mikołajkowy z Tutti Kids",
    "org": "Tutti Kids",
@@ -7996,8 +9379,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8035,10 +9418,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-aparat-nikon-coolpix-l25-z-karta-pamieci",
+   "title": "Wygraj aparat Nikon Coolpix L25 z kartą pamięci",
+   "org": "viewfinders.pl",
+   "url": "https://www.instagram.com/p/Dfs9-tTBMPq/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-aparat-nikon-coolpix-l25-z-karta-pamieci",
+   "platform": "instagram",
+   "start": "2026-11-13",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "• Zamieść pod postem konkursowym komentarz z najgorszą radą fotograficzną\n• Zaobserwuj profil @viewfinders.pl i oznacz dwie znajome osoby (krok opcjonalny/mile widziany)\n• Zgłoszenia przyjmowane są do 1 grudnia 2026 roku do godziny 23:59\n• Uczestnikami mogą być osoby ukończonym 13. roku życia, zamieszkałe w Polsce",
+   "prizes": "aparat Nikon Coolpix L25 wraz z kartą pamięci",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-box-niespodzianke-od-malad",
    "title": "Wygraj box niespodziankę od MalAd",
    "org": "MalAd",
@@ -8070,10 +9496,14 @@
    "comments": 178,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-zestawy-gadzetow-od-rb-prestige-nieruchomosci",
    "title": "Wygraj zestawy gadżetów od RB Prestige Nieruchomości",
    "org": "RB Prestige Nieruchomości",
@@ -8105,8 +9535,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -8213,12 +9643,87 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 610,
-   "commentsAt": "2026-11-24",
+   "comments": 695,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgHpU5qihAQ",
+   "title": "Rozdanie @orico_food: Paczka pełna słodkości od Orico!",
+   "org": "@orico_food",
+   "url": "https://www.instagram.com/p/DgHpU5qihAQ/",
+   "src": "https://www.instagram.com/p/DgHpU5qihAQ/",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "Święta coraz bliżej, a my mamy dla Was coś specjalnego! Do wygrania paczka pełna słodkości od Orico!\n\nCo zrobić, żeby wygrać?\n\nWybierz dowolny produkt Orico i wymyśl wypiek, który przygotowałbyś z nim na święta! Podziel się swoim pomysłem w komentarzu i daj się ponieść świątecznej kreatywności!\n\nSpośród wszystkich zgłoszeń wylosujemy jedną szczęśliwą osobę, do której trafi świąteczna paczka od Orico!\n\nNa zgłoszenia czekamy do 1 grudnia.\n\nPowodzenia!",
+   "prizes": "• Do wygrania paczka pełna słodkości od Orico!\n• Spośród wszystkich zgłoszeń wylosujemy jedną szczęśliwą osobę, do której trafi świąteczna paczka od Orico!\n• Co zrobić, żeby wygrać?",
+   "prizeCount": 1,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 12,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgICupMMe44",
+   "title": "Rozdanie @pranksterka: Oddam za darmo DWA kalendarze adwentowe 🏼",
+   "org": "@pranksterka",
+   "url": "https://www.instagram.com/p/DgICupMMe44/",
+   "src": "https://www.instagram.com/p/DgICupMMe44/",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-12-01",
+   "endGuess": true,
+   "results": null,
+   "task": "Oddam za darmo DWA kalendarze adwentowe 🏼\n\nWystarczy, że:\n1. Obserwujesz ten profil\n2. Polubisz kilka ostatnich postów\n3. Udostępnisz ten film na swojej relacji lub zrobisz repost\nPs: Zostaw komentarz\n\n3 grudnia ogłoszę, do kogo powędrują niespodzianki. Wyniki pojawią się tylko w komentarzu (będzie przypięty)\n\nUważajcie na fałszywe konta!\nNie klikajcie w żadne podejrzane linki. Informację o wynikach podam wyłącznie na moim oficjalnym profilu.\n\nWysyłka możliwa wyłącznie na terenie Polski. Zwycięskie osoby wybiorę subiektywnie.\n\nRozdanie nie jest w żaden sposób powiązane z Ig. Platforma Ig nie organizuje, nie sponsoruje ani nie odpowiada za przebieg. Żadna marka ani firma nie jest organizatorem, sponsorem ani partnerem.\n\nDziękuję za to, że jesteście! Niech kosmetyczne szczęście będzie z Wami!\n\nTanie kosmetyki, kalendarz adwentowy, kosmetyki do makijażu, makijaż okolicznościowy, makijaż dla początkujących, kosmetyki z drogerii, rozdanie kosmetyczne",
+   "prizes": "• Oddam za darmo DWA kalendarze adwentowe 🏼\n• Tanie kosmetyki, kalendarz adwentowy, kosmetyki do makijażu, makijaż okolicznościowy, makijaż dla początkujących, kosmetyki z drogerii, rozdanie kosmetyczne",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 1289,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8255,10 +9760,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-igrzyska-smierci-wschoacuted-slonca-w-dniu-dozynek",
    "title": "Konkurs \"Igrzyska śmierci: Wsch&oacute;d słońca w dniu dożynek\"",
    "org": "filmweb.pl",
@@ -8290,8 +9798,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media"
+   ],
+   "id": "ek:konkurs-mikolajki-pelne-ciepla",
+   "title": "Konkurs \"Mikołajki pełne ciepła\"",
+   "org": "OCHNIK S. A.",
+   "url": "https://www.instagram.com/p/DgH_J-lMN6I/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-mikolajki-pelne-ciepla",
+   "platform": "instagram",
+   "start": null,
+   "end": "2026-12-02",
+   "results": null,
+   "task": "Trzeba odpowiedzieć na pytanie:\nKomu w te Mikołajki podarował(a)byś odrobinę ciepła i dlaczego?",
+   "prizes": "• 1x bon podarunkowy o wartości 500 zł\n• 1x bon podarunkowy o wartości 300 zł\n• 1x bon podarunkowy o wartości 200 zł",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8328,8 +9874,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8366,8 +9912,86 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-pobyt-dla-2-osob-w-apartamentach-zatorhome",
+   "title": "Wygraj pobyt dla 2 osób w apartamentach ZatorHome",
+   "org": "Moonsy",
+   "url": "https://www.instagram.com/p/DfxAuPONd54/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-pobyt-dla-2-osob-w-apartamentach-zatorhome",
+   "platform": "instagram",
+   "start": "2026-11-15",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "• Obserwuj profile @moonsy_snack oraz @zatorhome_apartamenty\n• W komentarzu pod postem konkursowym odpowiedz na pytanie:\nco Cię zdradza, że masz w sobie trochę jesieniary?\n• Oznacz w komentarzu osobę, którą zabierzesz na wyjazd",
+   "prizes": "1x pobyt dla 2 osób obejmujący 2 noclegi w apartamentach ZatorHome",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": true,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wymysl-nowy-produkt-rituals-i-wygraj-zestaw-kosmetykow",
+   "title": "Wymyśl nowy produkt Rituals i wygraj zestaw kosmetyków",
+   "org": "Libero Katowice",
+   "url": "https://www.instagram.com/p/DgFqoLLRfIJ/",
+   "src": "https://www.e-konkursy.info/konkurs/wymysl-nowy-produkt-rituals-i-wygraj-zestaw-kosmetykow",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "• Wymyśl nowy produkt marki Rituals. Nadaj mu wyjątkową nazwę i opisz jego niepowtarzalny zapach\n• Napisz, jakie emocje i doświadczenia miałby wywoływać oraz czego brakuje Ci w codziennych rytuałach\n• Zamieść odpowiedź w komentarzu pod postem konkursowym na Instagramie",
+   "prizes": "3x zestaw prezentowy The Ritual of Sakura M o wartości 189 zł każdy",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 311,
+   "commentsAt": "2026-11-25",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8404,7 +10028,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -8437,11 +10061,11 @@
     "follow": true,
     "tags": 1
    },
-   "comments": 3,
-   "commentsAt": "2026-11-24",
+   "comments": 9,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -8516,10 +10140,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:konkurs-harnasia-roku-zabka-18",
    "title": "Konkurs \"Harnasia Roku\" Żabka, 18+",
    "org": "Smolar Agencja Promocyjno – Reklamowa Sp. z o. o.",
@@ -8551,8 +10178,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8590,10 +10217,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-mikolajkowy-z-remonty-tv-wygraj-bilety-do-suntago",
    "title": "Konkurs \"Mikołajkowy z Remonty TV – wygraj bilety do Suntago\"",
    "org": "Remonty TV",
@@ -8625,8 +10256,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8664,7 +10295,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -8702,7 +10333,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -8740,7 +10371,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -8779,10 +10410,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-podwojne-zaproszenie-na-sylwestrowy-bal-maskowy-2027",
    "title": "Wygraj podwójne zaproszenie na Sylwestrowy Bal Maskowy 2027!",
    "org": "TOPOLOVA - Banqueting Halls: Home",
@@ -8814,8 +10449,8 @@
    "comments": 205,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -8892,6 +10527,9 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-dziekujemy-ze-nas-czytasz-wygraj-wideorejestrator-orllo-autoplay-pro",
    "title": "Konkurs \"Dziękujemy, że nas czytasz – wygraj wideorejestrator Orllo Autoplay Pro\"",
    "org": "kdk.pl",
@@ -8923,8 +10561,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -8962,7 +10600,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -9000,7 +10638,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -9039,7 +10677,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -9077,7 +10715,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -9193,6 +10831,43 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [],
+   "id": "ig:DgGEn88OEJv",
+   "title": "Rozdanie @jakub.hair: Metamorfoza na fotelu u Jakuba do wykorzystania w salonie @hairweglow.krk",
+   "org": "@jakub.hair",
+   "url": "https://www.instagram.com/p/DgGEn88OEJv/",
+   "src": "https://www.instagram.com/p/DgGEn88OEJv/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-04",
+   "results": "2026-12-06",
+   "task": "A co gdyby w tym roku prezent pod choinką był... dla Ciebie?\n\nGrudzień już za rogiem, dlatego przygotowałem dla Was coś wyjątkowego!\n\nZrób sobie (lub komuś bliskiemu) prezent na Święta i weź udział w świątecznej zabawie!\n\nNagroda:\n\nMetamorfoza na fotelu u Jakuba do wykorzystania w salonie @hairweglow.krk\n\nZasady zabawy:\n\n1. Zaobserwuj profile @jakub.hair oraz @hairweglow.krk.\n2. Polub ten post.\n3. W komentarzu oznacz osobę, która według Ciebie również ucieszyłaby się z takiego prezentu.\n4. Udostępnij ten post na swojej relacji i oznacz @jakub.hair.\n\nCzas trwania zabawy:\n\n• Zabawa trwa od 23 listopada do 4 grudnia 2026.\n• Zwycięzca zostanie ogłoszony 6 grudnia 2026 na moim profilu.\n\nMoże właśnie takiego prezentu potrzebujesz w te Święta...?\n\nPowodzenia!\n\nRegulamin:\n\n* Zabawa nie jest sponsorowana, popierana ani administrowana przez Instagram.\n* Udział w zabawie mogą wziąć osoby pełnoletnie.\n* Voucher nie podlega wymianie na gotówkę ani na inne świadczenia.\n* Voucher na metamorfozę będzie ważny przez 6 miesięcy od dnia ogłoszenia wyników.\n* Voucher umożliwia skorzystanie z dowolnej usługi koloryzacji lub zabiegu rozjaśnienia u Jakuba.\n* Zwycięzca może skorzystać z vouchera osobiście lub przekazać go wybranej przez siebie osobie.\n* O wyborze laureata decyduje Organizator.\n* Laureat wyraża zgodę na wykonanie krótkiego materiału fotograficznego lub filmowego dokumentującego przebieg metamorfozy oraz na jego nieodpłatne wykorzystanie przez Organizatora w celach promocyjnych i informacyjnych związanych z działalnością Organizatora oraz salonu @hairweglow.krk.",
+   "prizes": "• Metamorfoza na fotelu u Jakuba do wykorzystania w salonie @hairweglow.krk",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": 22,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
    "cats": [
     "konkursy-promocyjne"
    ],
@@ -9227,7 +10902,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -9343,6 +11018,159 @@
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [],
+   "id": "ig:DgF39jbI_Sh",
+   "title": "Rozdanie @natalia.knap_: Zestaw kosmetyków od @lumenepolska oraz @zola_cosmetics.",
+   "org": "@natalia.knap_",
+   "url": "https://www.instagram.com/p/DgF39jbI_Sh/",
+   "src": "https://www.instagram.com/p/DgF39jbI_Sh/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-05",
+   "results": "2026-12-06",
+   "task": "ROZDANIE MIKOŁAJKOWE!\n\nMikołajki coraz bliżej, dlatego przygotowałam dla Was małą niespodziankę! 🏻\n\nDo wygrania jest zestaw kosmetyków od @lumenepolska oraz @zola_cosmetics. Czyli wszystko, co może umilić Wam codzienne beauty rytuały!\n\nJak wziąć udział?\n\n1 Zaobserwuj mój profil @natalia.knap_\n2 Odpowiedz w komentarzu na pytanie: Gdybyś mogła podarować sobie jeden prezent w te Święta, co by to było i dlaczego?\n3 Oznacz w komentarzu 2 przyjaciółki, z którymi najchętniej spędziłabyś świąteczny wieczór!\n\nBONUS: Udostępnij tę rolkę na swoim Stories i oznacz mnie - będzie mi bardzo miło!\n\n🏻 Rozdanie trwa do 5 grudnia (do godz. 23:59). Wyniki ogłoszę 6 grudnia, w Mikołajki, na swoim Stories!\n\nPowodzenia i niech Mikołaj będzie dla Was hojny!",
+   "prizes": "• Do wygrania jest zestaw kosmetyków od @lumenepolska oraz @zola_cosmetics.",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": true,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 96,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgGC-yONcJY",
+   "title": "Rozdanie @mistyrosemakeup: W przypadku wygranej zostaną one usunięte po zrealizowaniu nagrody",
+   "org": "@mistyrosemakeup",
+   "url": "https://www.instagram.com/p/DgGC-yONcJY/",
+   "src": "https://www.instagram.com/p/DgGC-yONcJY/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-05",
+   "results": "2026-12-06",
+   "task": "Grudzień tuż tuż więc mam dla Was mały prezent!\n\nCo trzeba zrobić, żeby go zdobyć?\n\nObserwuj mój profil.\nPolub i zapisz ten post oraz dwa poprzednie.\nUdostępnij ten post na swoim Stories (koniecznie mnie oznacz, żebym niczego nie przegapiła! ).\nZadanie: Opisz za pomocą emotek lub gifa, jak wygląda Twój idealny grudzień (ilość komentarzy nieograniczona)\nKażda dodatkowa aktywność na profilu zwiększa Wasze szanse!\n\nZabawa trwa od 23.11 (poniedziałek) do 05.12 (sobota), a wyniki ogłoszę 06.12 w Mikołajki\n\n!! Biorąc udział w konkursie wyrażasz zgodę na przekazanie danych osobowych. W przypadku wygranej zostaną one usunięte po zrealizowaniu nagrody\n\n!! Uważajcie na fałszywe konta i linki\n\n!! Osoby, które odobserwują mnie po rozdaniu, nie będą brane pod uwagę w kolejnych\n\n!! Wysyłka paczkomatem\n\nRozdanie nie jest grą losową i nie jest sponsorowane przez Instagram",
+   "prizes": "• W przypadku wygranej zostaną one usunięte po zrealizowaniu nagrody",
+   "prizeCount": 1,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 26,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgHo2VQRCmx",
+   "title": "Konkurs @marysia.kepa_1: 1 MIEJSCE – darmowa stylizacja rzęs lub brwi!",
+   "org": "@marysia.kepa_1",
+   "url": "https://www.instagram.com/p/DgHo2VQRCmx/",
+   "src": "https://www.instagram.com/p/DgHo2VQRCmx/",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-12-05",
+   "endGuess": true,
+   "results": "2026-12-06",
+   "task": "Kochane!\nZ okazji zbliżających się Świąt przygotowałam dla Was małą niespodziankę!\n\nChcesz zadbać o swoje spojrzenie i poczuć się jeszcze piękniej? Mam dla Was dwa wyjątkowe prezenty!\n\nDO WYGRANIA:\n\n1 MIEJSCE – darmowa stylizacja rzęs lub brwi!\n\n2 MIEJSCE – aż 50% rabatu na dowolną usługę!\n\nJak wziąć udział?\n\nZaobserwuj mój profil.\n\nPolub ten post.\n\nUdostępnij konkurs na swojej relacji i oznacz mnie.\n\nOznacz w komentarzu 2 znajomych, z którymi chciałabyś podzielić się tą niespodzianką!\n\nOgłoszenie wyników: 06.12\n\nNie zwlekaj! Weź udział i daj sobie szansę na piękny świąteczny prezent!\n\nPowodzenia wszystkim! Trzymam za Was kciuki!",
+   "prizes": "• 1 MIEJSCE – darmowa stylizacja rzęs lub brwi!\n• 2 MIEJSCE – aż 50% rabatu na dowolną usługę!",
+   "prizeCount": 2,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 61,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgIaS_qsVIS",
+   "title": "Konkurs @podwawelem: Trzy vouchery do restauracji Pod Wawelem Kompania Kuflowa.",
+   "org": "@podwawelem",
+   "url": "https://www.instagram.com/p/DgIaS_qsVIS/",
+   "src": "https://www.instagram.com/p/DgIaS_qsVIS/",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-12-05",
+   "results": "2026-12-06",
+   "task": "KONKURS MIKOŁAJKOWY! 🏼\n\nKomu w Mikołajki podarujesz kolację z golonką w Pod Wawelem? Może komuś, kto przy każdym spotkaniu mówi „musimy się wreszcie wybrać”, i tak mija kolejny rok?\n\nDo wygrania są trzy vouchery do restauracji Pod Wawelem Kompania Kuflowa. Za pierwsze miejsce przyznamy voucher o wartości 300 zł, za drugie 200 zł, a za trzecie 100 zł.\n\nJak wziąć udział?\n\n1. Zaobserwuj nasz profil.\n2. Oznacz w komentarzu osobę, którą zabierzesz na kolację i napisz, dlaczego wybierasz właśnie ją\n\nNa zgłoszenia czekamy od 24 listopada do 5 grudnia. Wyniki ogłosimy 6 grudnia, odpowiadając na zwycięskie komentarze.\n\nRegulamin konkursu → bit.ly/mikołajki-podwawelem",
+   "prizes": "• Do wygrania są trzy vouchery do restauracji Pod Wawelem Kompania Kuflowa.\n• Za pierwsze miejsce przyznamy voucher o wartości 300 zł, za drugie 200 zł, a za trzecie 100 zł.",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": 10,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-20-lat-usmiechow",
    "title": "Konkurs \"20 lat uśmiechów\"",
    "org": "Grupa Płodni.com Sp. z o. o.",
@@ -9374,14 +11202,18 @@
    "comments": 77,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Listopad 2006, Stary Rynek. Stoję w tłumie z zadartą głową, tata trzyma mnie za rękę, a punktualnie w południe koziołki wychodzą z wieży i zaczynają się trykać – i nie mam wątpliwości, że robią to tylko dla mnie 😄 Potem rogal świętomarciński dzielony na pół, lukier na rękawie kurtki i uśmiech, którego nie da się zetrzeć do wieczora. Minęło 20 lat, a kiedy słyszę hejnał z ratusza, uśmiecham się dokładnie tak samo – tylko zęby mam już własne, a nie mleczne 😁",
     "Czerwiec 2006, pierwszy dzień wakacji i rowerowa wyprawa dookoła Malty z paczką przyjaciół. Pamiętam zapach skoszonej trawy, kolejkę Maltankę mijaną po drodze i lody z budki, które topiły się szybciej, niż dało się je jeść 🍦 Uśmiech wywoływało wtedy wszystko: że jest lato, że mamy cały dzień i że nikt jeszcze nie przewijał telefonu. Dziś wracam tam z aparatem, ale tamtego uśmiechu żadne zdjęcie nie podrobi."
    ]
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-dokad-zaprowadzila-mnie-ciekawosc",
    "title": "Konkurs \"Dokąd zaprowadziła mnie ciekawość\"",
    "org": "Zorientowani Travel",
@@ -9413,8 +11245,8 @@
    "comments": 51,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Ciekawość zaprowadziła mnie [gdzie – np. na szlak, którego nie było w planie]. [Co się wydarzyło – jeden konkretny szczegół, np. zamiast wracać do schroniska skręciliśmy w nieoznaczoną ścieżkę i trafiliśmy na jezioro, przy którym nie było nikogo poza stadem owiec]. Od tamtej pory [puenta – np. w każdym planie podróży zostawiam jeden dzień „na nie wiadomo co”] 🧭 #CiekawośćProwadziDalej @zorientowani"
    ]
@@ -9454,7 +11286,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -9492,10 +11324,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-krewetki-superfish-koral-w-air-fryerze",
    "title": "Konkurs \"Krewetki SuperFish & Koral w Air Fryerze\"",
    "org": "Eura7 Sp. z o. o.",
@@ -9527,8 +11363,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -9566,10 +11402,51 @@
    "comments": 291,
    "commentsAt": "2026-11-23",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
+   "id": "ek:konkurs-miokolajkowy-duet",
+   "title": "Konkurs \"MIOkołajkowy duet\"",
+   "org": "Mio Polska",
+   "url": "https://www.facebook.com/photo?fbid=1449906437348077&set=a.379415174397214",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-miokolajkowy-duet",
+   "platform": "facebook",
+   "start": "2026-11-24",
+   "end": "2026-12-06",
+   "results": null,
+   "task": "• Zrób autorskie zdjęcie, na którym jesteś ze swoim świątecznym pomocnikiem lub całą świąteczną ekipą. Pomocnikiem może być partner, dziecko, przyjaciel, członek rodziny lub zwierzak. Szczególnie mile widziane będą zdjęcia wykonane w samochodzie!\n• Opublikuj zdjęcie w komentarzu pod postem na profilu Facebook Mio Polska lub na swoim profilu Instagram.\n• Dodaj do zgłoszenia hashtag #MIOkołaj2026",
+   "prizes": "dmuchawa Mio MiTurbo AD20",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-na-opowiadanie-fantastycznonaukowe-ad-infinitum",
    "title": "Konkurs na opowiadanie fantastycznonaukowe Ad Infinitum",
    "org": "Płocki Ośrodek Kultury i Sztuki",
@@ -9601,10 +11478,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-rtv-euro-agd-xiaomi-18-pro-opowiedz-nam-swoja-historie",
+   "title": "Konkurs \"RTV EURO AGD & Xiaomi 18 Pro – Opowiedz nam swoją historię\"",
+   "org": "They Digital Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DgFTqVGBGpb/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-rtv-euro-agd-xiaomi-18-pro-opowiedz-nam-swoja-historie",
+   "platform": "instagram",
+   "start": null,
+   "end": "2026-12-06",
+   "results": null,
+   "task": "• Wejdź na stronę i sprawdź premierowe modele Xiaomi 18 Pro i 18 Pro Max\n• Zastanów się, który najbardziej Ci się podoba: wskaż model i kolor\n• W komentarzu opowiedz historię zdjęcia, które mimo kiepskiej jakości jest dla Ciebie bezcenne. Oprócz tego przekonaj Organizatora, dlaczego premierowe Xiaomi 18 Pro powinno trafić właśnie do Ciebie!",
+   "prizes": "• Xiaomi 18 Pro | Burgundowo Czerwony\n• Karta Podarunkowa Euro o wartości 2 000 zł\n• Karta Podarunkowa Euro o wartości 1 000 zł",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 290,
+   "commentsAt": "2026-11-25",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-woskowe-inspiracje-wygraj-swiece-sojowa",
    "title": "Konkurs \"Woskowe Inspiracje – wygraj świecę sojową\"",
    "org": "Woskowe Inspiracje",
@@ -9636,8 +11556,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -9674,10 +11594,53 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-gry-planszowe-granna-z-magazynem-przedszkola",
+   "title": "Wygraj gry planszowe Granna z Magazynem Przedszkola!",
+   "org": "Magazyn Przedszkola",
+   "url": "https://www.instagram.com/p/DgFHHvhFNVl/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-gry-planszowe-granna-z-magazynem-przedszkola",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-06",
+   "results": null,
+   "task": "• Polub profil Magazyn Przedszkola oraz profil Granna\n• Polub post konkursowy\n• W komentarzu napisz, którą grę wybierasz („Zwiej z Zoo” czy „Limpopo”) i z kim lub w jakich okolicznościach w nią zagrasz.\n• Opcjonalnie oznacz w komentarzu osobę, którą zaprosisz do wspólnej rozgrywki.",
+   "prizes": "5 egzemplarzy gier planszowych (po 1 dla każdego z 5 zwycięzców):\n\n• 3x gra planszowa „Zwiej z Zoo”\n• 2x gra planszowa „Limpopo”",
+   "prizeCount": 5,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-kurczaczki-jedwabiste-w-konkursie-silkowyogrodek",
    "title": "Wygraj kurczaczki jedwabiste w konkursie Silkowyogrodek",
    "org": "Silkowyogrodek",
@@ -9709,8 +11672,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -9748,10 +11711,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:wygraj-voucher-o-wartosci-500-zl-na-podswietlany-numer-domu",
    "title": "Wygraj voucher o wartości 500 zł na podświetlany numer domu",
    "org": "Ogrodzenia OdAdoZet",
@@ -9783,10 +11749,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:wygraj-zestawy-pielegnacyjne-zew-i-jameson-black-barrel-18",
    "title": "Wygraj zestawy pielęgnacyjne ZEW i Jameson Black Barrel! 18+",
    "org": "Wyborowa S. A.",
@@ -9818,8 +11787,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -9962,11 +11931,11 @@
     "follow": false,
     "tags": 1
    },
-   "comments": 202,
-   "commentsAt": "2026-11-24",
+   "comments": 232,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -10041,7 +12010,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10079,7 +12048,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10117,10 +12086,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:wygraj-weekend-dla-dwojga-w-brukseli-i-bilety-na-brussels-motor-show",
    "title": "Wygraj weekend dla dwojga w Brukseli i bilety na Brussels Motor Show",
    "org": "RENAULT Polska",
@@ -10152,10 +12124,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:konkurs-altedecor",
    "title": "Konkurs \"Stwórz aranżację wnętrza z AI i wygraj meble od Altdecor\"",
    "org": "ALTDECOR Möbel Majgier GmbH z siedzibą w Niemczech",
@@ -10187,8 +12162,85 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-neboa-glossy-hair-rossman1",
+   "title": "Konkurs \"Neboa Glossy Hair\" Rossman",
+   "org": "Smolar Agencja Promocyjno – Reklamowa Sp. z o. o.",
+   "url": "https://konkursneboa.smolar.pl",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-neboa-glossy-hair-rossman1",
+   "platform": "www",
+   "start": "2026-11-26",
+   "end": "2026-12-09",
+   "results": null,
+   "task": "Kup 2 produkty Neboa w Rossman i zachowaj paragon. Odpowiedz na pytanie konkursowe",
+   "prizes": "50x Dyson Airwrap",
+   "prizeCount": 50,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:wygraj-wielki-zestaw-produktow-passion-gold",
+   "title": "Wygraj wielki zestaw produktów Passion Gold",
+   "org": "Passion Gold",
+   "url": "https://www.instagram.com/p/Df5GXMyihQm/",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-wielki-zestaw-produktow-passion-gold",
+   "platform": "instagram",
+   "start": "2026-11-18",
+   "end": "2026-12-09",
+   "results": null,
+   "task": "• Zaobserwuj profil @passion_gold_original\n• Polub post konkursowy i oznacz w komentarzu trzy osoby\n• Udostępnij post konkursowy w swojej relacji (Stories) i oznacz profil @passion_gold_original (na czas konkursu musisz posiadać konto publiczne).",
+   "prizes": "Zestaw 36 produktów Passion Gold:\n\n• Do zmywania: 8x płyn do naczyń, 1x płyn do zmywarki, 2x sól do zmywarki, 2x kapsułki do zmywarki - Do prania: 13x żel do prania, 4x kapsułki do prania, 2x proszek do prania, 4x płyny do płukania\n• Do sprzątania: 5x profesjonalne produkty czyszczące",
+   "prizeCount": 41,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 3
+   },
+   "comments": 254,
+   "commentsAt": "2026-11-25",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -10228,6 +12280,10 @@
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-bilet-na-sylwestra-krzeszowice",
    "title": "Wygraj bilet na Sylwestra Krzeszowice",
    "org": "OSP żbik",
@@ -10259,8 +12315,8 @@
    "comments": 12,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -10300,6 +12356,9 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-hitsteriada-w-radiu-zlote-przeboje",
    "title": "Konkurs \"Hitsteriada w Radiu Złote Przeboje\"",
    "org": "Grupa Radiowa Agory Sp. z o. o.",
@@ -10331,8 +12390,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -10369,7 +12428,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10407,7 +12466,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10445,7 +12504,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10483,7 +12542,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10521,7 +12580,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -10559,10 +12618,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-x-kom-pokaz-swoj-setup-z-be-quiet1",
    "title": "Konkurs x-kom \"Pokaż swój setup z be quiet!\"",
    "org": "x-kom Sp. z o. o.",
@@ -10594,8 +12657,8 @@
    "comments": 322,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "🖥️🖥️⌨️🖱️🎧🔥✈️😴\n🖥️🖥️ – dwa monitory: na jednym gram, na drugim „pracuję”\n⌨️🖱️ – przeżyły więcej przegranych meczów niż ja\n🎧 – słuchawki, ale nie do muzyki, tylko do zagłuszania komputera\n🔥 – procesor w trakcie każdej gry\n✈️ – wentylatory, które przy starcie brzmią jak odlot z lotniska\n😴 – domownicy, którzy przez to nie mogą spać\nCzas, żeby mój setup w końcu… be quiet! 🤫"
    ]
@@ -10635,10 +12698,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:swiateczny-konkurs-smyka",
    "title": "Świąteczny Konkurs SMYKA",
    "org": "smyk.com",
@@ -10670,8 +12737,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -10748,6 +12815,10 @@
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-siegnij-po-mineraly-w-netto",
    "title": "Konkurs \"Sięgnij po minerały w NETTO\"",
    "org": "Uzdrowiska Kłodzkie S. A.",
@@ -10779,14 +12850,18 @@
    "comments": 1,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Plan był prosty: „wchodzimy na Szczeliniec, robimy zdjęcie i wracamy na obiad”. Plan nie przewidział mgły, źle skręconego szlaku i trzech godzin błądzenia po Górach Stołowych 😅 Kanapki skończyły się po pierwszej godzinie, humor po drugiej, a Staropolanka 2000 – jedyna rozsądna uczestniczka wyprawy – wystarczyła dla wszystkich aż do schroniska. Od tamtej pory w plecaku zawsze jest butelka, a w ekipie obowiązuje zasada: najpierw woda, potem skróty.",
     "Miała być „krótka przejażdżka” rowerem wokół jeziora. Kończy się na 40 km, dwóch zbłąkanych krowach, burzy przeczekanej pod przystankiem PKS i zachodzie słońca jak z filmu 🌅 Jedyne, co przez cały dzień trzyma poziom, to Staropolanka 2000 w koszyku – podzielona sprawiedliwie, łyk po łyku. Wniosek? Każda wielka przygoda zaczyna się od słów „to tylko na chwilę” i zgrzewki wody w bagażniku."
    ]
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wygraj-zestawy-kosmetykow-solverx",
    "title": "Wygraj zestawy kosmetyków Solverx",
    "org": "Urodaizdrowie.pl",
@@ -10818,8 +12893,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -10930,10 +13005,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media"
+   ],
    "id": "ek:konkurs-ace-house-tour-czystosci-wybierz-swoj-patent-na-czystosc-i-wygraj-wakacje",
    "title": "Konkurs \"ACE House Tour Czystości – Wybierz swój patent na czystość i wygraj wakacje!\"",
    "org": "White Paper Agency",
@@ -10965,10 +13043,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-pokaz-swoja-podroz-z-dunczykiem-i-wygraj-przejazd-dla-dwoch-osob",
    "title": "Konkurs \"Pokaż swoją podróż z Duńczykiem i wygraj przejazd dla dwóch osób\"",
    "org": "Duńczyk",
@@ -11000,8 +13082,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11038,7 +13120,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11076,7 +13158,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11114,10 +13196,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:konkurs-poczuj-magie-wygranej-182",
    "title": "Konkurs \"Poczuj magię wygranej\" 18+",
    "org": "Aspe Sp. z o. o.",
@@ -11149,8 +13234,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11187,8 +13272,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgFOAiIhaQQ",
+   "title": "Konkurs @mdkom_sucha_beskidzka: NAGRODA – Smartfon Motorola G17",
+   "org": "@mdkom_sucha_beskidzka",
+   "url": "https://www.instagram.com/p/DgFOAiIhaQQ/",
+   "src": "https://www.instagram.com/p/DgFOAiIhaQQ/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-17",
+   "endGuess": true,
+   "results": "2026-12-18",
+   "task": "WIELKI KONKURS ŚWIĄTECZNY MD-KOM!\n\nROZDAJEMY AŻ 5 FANTASTYCZNYCH NAGRÓD!\n\nŚwięta Bożego Narodzenia coraz bliżej! Z tej okazji przygotowaliśmy dla Was wyjątkowy konkurs pełen niespodzianek!\n\nCO MOŻNA WYGRAĆ?\n\n1. NAGRODA – Smartfon Motorola G17\n\n2. NAGRODA – Smartwatch Amazfit GTS 4 Mini (różowy lub czarny)\n\n3. NAGRODA – Drukarka HP Sprocket – kolorowy druk zdjęć przez Bluetooth\n\n4. NAGRODA – Szczoteczka elektryczna FineSmile IQ\n\n5. NAGRODA – Szczoteczka elektryczna FineSmile IQ\n\nJAK WZIĄĆ UDZIAŁ W LOSOWANIU?\n\n1 Zaobserwuj nasz profil MD-KOM na Facebooku\n\nhttps://www.facebook.com/share/1JThick4zA/?mibextid=wwXIfr\n\n2 Zaobserwuj nasz profil MD-KOM na Instagramie\n\nhttps://www.instagram.com/mdkom_sucha_beskidzka?cnvx=OXBoN3l4NGRibDVj&utm_source=qr\n\n3 Dodaj komentarz pod tym postem na Facebooku z hasłem:\n\n„Święta z MD-KOM”\n\nZWYCIĘZCÓW WYLOSUJEMY SPOŚRÓD KOMENTARZY UCZESTNIKÓW SPEŁNIAJĄCYCH WARUNKI KONKURSU!\n\n18 GRUDNIA 2026 – LOSOWANIE I OGŁOSZENIE WYNIKÓW!\n\nMoże właśnie Ty znajdziesz się w gronie 5 szczęśliwców i odbierzesz od nas świąteczny prezent?\n\nNie czekaj! Dołącz do zabawy i poczuj magię Świąt razem z MD-KOM!\n\nMD-KOM\nul. Mickiewicza 54A\n34-200 Sucha Beskidzka\n\nŻYCZYMY WSZYSTKIM POWODZENIA!\n\nNiech te Święta będą pełne radości i niespodzianek!\n\n#MDKOM #KonkursŚwiąteczny #ŚwiątecznePrezenty #Konkurs #Losowanie SuchaBeskidzka Motorola Amazfit HPSprocket",
+   "prizes": "• 1. NAGRODA – Smartfon Motorola G17\n• 2. NAGRODA – Smartwatch Amazfit GTS 4 Mini (różowy lub czarny)\n• 3. NAGRODA – Drukarka HP Sprocket – kolorowy druk zdjęć przez Bluetooth",
+   "prizeCount": 1,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 434,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11225,7 +13348,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11263,7 +13386,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -11301,7 +13424,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11339,7 +13462,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11377,10 +13500,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:wielki-konkurs-innego-swiata1",
    "title": "Wielki Konkurs Innego Świata",
    "org": "Apartamenty Inny Świat",
@@ -11412,14 +13539,18 @@
    "comments": 115,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Ten weekend należy się mojej mamie, która przez lata pakowała walizki dla całej rodziny, a sama nigdy nie wyjechała tylko dla siebie. Chcę, żeby choć raz to ona obudziła się z widokiem na Giewont, bez listy obowiązków i bez gotowania dla wszystkich. Niech te Święta będą pierwszymi, w których to ona dostaje odpoczynek, zamiast go wszystkim organizować.",
     "Ten weekend należy się mojemu tacie, który od lat twierdzi, że „w Tatry to on mógłby wejść w klapkach”. Czas sprawdzić tę teorię w praktyce – z ciepłym apartamentem w Innym Świecie jako bazą do regeneracji po zderzeniu z rzeczywistością. Ja biorę aparat, bo ktoś musi to udokumentować 😄"
    ]
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:wygraj-podwojne-zaproszenie-na-sylwestra-w-domu-weselnym-bacowka",
    "title": "Wygraj podwójne zaproszenie na Sylwestra w Domu Weselnym Bacówka",
    "org": "Dom Weselny Bacówka w Raniżowie",
@@ -11451,8 +13582,8 @@
    "comments": 17,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -11484,11 +13615,11 @@
     "follow": true,
     "tags": 2
    },
-   "comments": 45,
-   "commentsAt": "2026-11-23",
+   "comments": 122,
+   "commentsAt": "2026-11-25",
    "origin": "ig",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-23",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -11526,7 +13657,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -11564,7 +13695,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -11602,7 +13733,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -11640,10 +13771,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:loteria-swiateczna-blix1",
    "title": "Loteria świąteczna Blix",
    "org": "Smolar Agencja Promocyjno – Reklamowa Sp. z o. o.",
@@ -11675,8 +13809,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11714,7 +13848,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -11752,8 +13886,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-misja-miami",
+   "title": "Konkurs \"Misja Miami\"",
+   "org": "Grezly Sp. z o. o.",
+   "url": "https://www.euro.com.pl/cms/gamezone.bhtml",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-misja-miami",
+   "platform": "www",
+   "start": "2026-11-19",
+   "end": "2026-12-23",
+   "results": null,
+   "task": "Warunkiem uczestnictwa jest dokonanie zakupu jednego lub większej liczby towarów w RTV EURO AGD, o łącznej wartości nie niższej niż 100,00 zł brutto.\nZadanie Konkursowe polega na udzieleniu samodzielnej i twórczej odpowiedzi na pytanie: „Gdyby RTV EURO AGD mogło wyposażyć Cię na jedną niezapomnianą miejską przygodę, co zabierasz ze sobą i dlaczego?” (max. 1 000 znaków)\nRejestracja przez konto w systemie arrmy.gg",
+   "prizes": "• wyjazd turystyczny do Miami na Florydzie dla dwóch pełnoletnich osób, tj. laureata oraz wskazanej przez niego osoby towarzyszącej\n• telewizor TCL 98A400, 98 cali, QLED, 4K, 144 Hz, Google TV\n• smartfon Samsung Galaxy Z Flip8, 12 GB RAM / 256 GB pamięci wewnętrznej, kolor grafitowy\n• smartfon Huawei Pura 90s Pro, 12GB RAM / 512 GB pamięci wewnętrznej, kolor czarny\n• telewizor Sharp 65JT8765E, 65 cali, QLED Mini LED, 144 Hz, Google TV\n• ekspres do kawy Philips 6000 LatteGo Pro EP6551/11\n• smartfon Motorola edge 70 max, 8 GB RAM / 256 GB pamięci wewnętrznej, kolor grafitowy\n• telewizor Hisense 50E8S, 50 cali, ULED MiniLED, 4K, 144 Hz\n• smartfon POCO X8 Pro, 12 GB RAM / 512 GB pamięci wewnętrznej, kolor czarny\n• frytkownica beztłuszczowa Bosch MAFD661B7, 2800 W, pojemność 12 l\n• 20x klawiatura REDRAGONK4PUC21N0 PRO",
+   "prizeCount": 20,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": true,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11790,7 +13962,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11828,7 +14000,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11866,7 +14038,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11904,10 +14076,51 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:budowlany-kalendarz-adwentowy-buduj24pl",
+   "title": "Budowlany kalendarz adwentowy Buduj24.pl",
+   "org": "buduj24.pl",
+   "url": "https://buduj24.pl/budowlany-kalendarz-adwentowy-buduj24-pl",
+   "src": "https://www.e-konkursy.info/konkurs/budowlany-kalendarz-adwentowy-buduj24pl",
+   "platform": "www",
+   "start": "2026-12-01",
+   "end": "2026-12-24",
+   "results": null,
+   "task": "Wejdź na stronę Budowlanego Kalendarza Adwentowego.\nO godzinie 10:00 kliknij okienko odpowiadające aktualnemu dniu.\nOdkryj nagrodę i sprawdź, jakie zadanie na Ciebie czeka.\nPrzygotuj odpowiedź i prześlij zgłoszenie przez formularz na dole strony.",
+   "prizes": "Różne",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkur-skalendarz-adwentowy-sandberg-as",
    "title": "Konkur s\"Kalendarz adwentowy - Sandberg A/S\"",
    "org": "sandberg.pl",
@@ -11939,8 +14152,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-fotograficzne"
+   ],
+   "id": "ek:swiateczny-konkurs-riff",
+   "title": "Świąteczny konkurs Riff",
+   "org": "Grupa ZIBI S. A.",
+   "url": "https://riff.net.pl/blog/aktualnosci/swiateczny-konkurs-riff-wygraj-pianino-casio",
+   "src": "https://www.e-konkursy.info/konkurs/swiateczny-konkurs-riff",
+   "platform": "www",
+   "start": "2026-12-01",
+   "end": "2026-12-24",
+   "results": null,
+   "task": "Zadanie konkursowe polega na przygotowaniu i opublikowaniu krótkiego filmu wideo, w którym Uczestnik odpowiada na pytanie:\nCzym jest dla Ciebie muzyka?\n\nUczestnik może przedstawić swoją odpowiedź w dowolnej, kreatywnej formie. Może to być osobista wypowiedź, opowieść, historia, prezentacja, interpretacja artystyczna lub inna autorska forma wypowiedzi audiowizualnej.\n\nUdział w Konkursie nie wymaga posiadania instrumentu muzycznego, umiejętności gry na instrumencie ani wykonywania utworu muzycznego.\n\nOpublikować film na swoim profilu na platformie Instagram lub TikTok",
+   "prizes": "Jedno pianino cyfrowe CASIO AP-750 BK o wartości detalicznej brutto 7 990,00 zł",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": true,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -11977,10 +14228,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:konkurs-uratuj-swieta-z-pringles",
    "title": "Konkurs \"Uratuj święta z Pringles\"",
    "org": "poptopia.pringles.com",
@@ -12012,8 +14266,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12050,7 +14304,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12088,7 +14342,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -12126,8 +14380,157 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-na-maxa-wciagajacy",
+   "title": "Konkurs \"Na maxa wciągający\"",
+   "org": "SONKO",
+   "url": "https://www.facebook.com/photo/?fbid=1653448706825472&set=a.554925910011096",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-na-maxa-wciagajacy",
+   "platform": "facebook",
+   "start": "2026-11-23",
+   "end": "2026-12-30",
+   "results": null,
+   "task": "• Kup dowolne Chipsy z Ciecierzycy lub Kukurydziane Sonko\n• Zrób zdjęcie pokazujące chipsy w roli głównej\n• Odpowiedz na pytanie\nJak spędzacie czas razem z SONKO?\ni wrzuć swoje zgłoszenie ze zdjęciem w komentarzu pod postem konkursowym.",
+   "prizes": "Co tydzień do wygrania 2 bony po 500zł!",
+   "prizeCount": 2,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:Df7KywWNT_k",
+   "title": "Konkurs @ariadeeenails_dariaszymanska: Które podzielę na 3 zestawy konkursowe!",
+   "org": "@ariadeeenails_dariaszymanska",
+   "url": "https://www.instagram.com/p/Df7KywWNT_k/",
+   "src": "https://www.instagram.com/p/Df7KywWNT_k/",
+   "platform": "instagram",
+   "start": "2026-11-19",
+   "end": "2026-12-30",
+   "results": "2027-01-05",
+   "task": "KONKURS DLA MOICH OBSERWATOREK!\n\nPrzygotowałam dla Was pudełko pełne produktów do stylizacji paznokci, które podzielę na 3 zestawy konkursowe!\n\nTym razem chciałabym lepiej poznać dziewczyny, które obserwują moje materiały i interesują się tym, czego uczę na swoim profilu.\n\nJak wziąć udział?\n\n1. W komentarzu odpowiedz na pytanie: „Czego najbardziej chciałabyś nauczyć się w stylizacji paznokci i dlaczego?”\n2. Obserwuj mój Instagram i TikTok ariadeeenails, żeby być na bieżąco z konkursem i kolejnymi materiałami.\n3. Będzie mi miło jeśli pokażesz mi swoją aktywność\n\nWybiorę 3 osoby, których odpowiedzi będą najbardziej przemyślane, konkretne i związane z tematyką stylizacji paznokci\n\nKonkurs trwa do 30 grudnia\n\nWyniki ogłoszę 5 stycznia na moim profilu.\n\nKonkurs jest wspólny dla Instagrama i TikToka.\n\nPowodzenia!\n\nKonkurs nie jest sponsorowany, organizowany ani administrowany przez Instagram lub TikTok.",
+   "prizes": "• Przygotowałam dla Was pudełko pełne produktów do stylizacji paznokci, które podzielę na 3 zestawy konkursowe!",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 25,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:Df7PAzptTQg",
+   "title": "Konkurs @ariadeeenails_dariaszymanska: Które podzielę na 3 zestawy konkursowe!",
+   "org": "@ariadeeenails_dariaszymanska",
+   "url": "https://www.instagram.com/p/Df7PAzptTQg/",
+   "src": "https://www.instagram.com/p/Df7PAzptTQg/",
+   "platform": "instagram",
+   "start": "2026-11-19",
+   "end": "2026-12-30",
+   "results": "2027-01-05",
+   "task": "KONKURS DLA MOICH OBSERWATOREK!\n\nPrzygotowałam dla Was pudełko pełne produktów do stylizacji paznokci, które podzielę na 3 zestawy konkursowe!\n\nTym razem chciałabym lepiej poznać dziewczyny, które obserwują moje materiały i interesują się tym, czego uczę na swoim profilu.\n\nJak wziąć udział?\n\n1. W komentarzu odpowiedz na pytanie: „Czego najbardziej chciałabyś nauczyć się w stylizacji paznokci i dlaczego?”\n2. Obserwuj mój Instagram i TikTok ariadeeenails, żeby być na bieżąco z konkursem i kolejnymi materiałami.\n3. Będzie mi miło jeśli pokażesz mi swoją aktywność\n\nWybiorę 3 osoby, których odpowiedzi będą najbardziej przemyślane, konkretne i związane z tematyką stylizacji paznokci\n\nKonkurs trwa do 30 grudnia\n\nWyniki ogłoszę 5 stycznia na moim profilu.\n\nKonkurs jest wspólny dla Instagrama i TikToka.\n\nPowodzenia!\n\nKonkurs nie jest sponsorowany, organizowany ani administrowany przez Instagram lub TikTok.",
+   "prizes": "• Przygotowałam dla Was pudełko pełne produktów do stylizacji paznokci, które podzielę na 3 zestawy konkursowe!",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 122,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgF5lLZNhgi",
+   "title": "Konkurs @autigo_official: TELEWIZOR SAMSUNG 65 CALI!",
+   "org": "@autigo_official",
+   "url": "https://www.instagram.com/p/DgF5lLZNhgi/",
+   "src": "https://www.instagram.com/p/DgF5lLZNhgi/",
+   "platform": "instagram",
+   "start": "2026-11-23",
+   "end": "2026-12-30",
+   "results": "2026-12-31",
+   "task": "HO HO HO – ŚWIĄTECZNY KONKURS!\n\nŚwięta tuż za rogiem, a my mamy dla Was wyjątkowy prezent!\n\nDo wygrania TELEWIZOR SAMSUNG 65 CALI!\n\nIdealny na przytulne świąteczne wieczory, ulubione filmy i prawdziwe kino domowe!\n\nJAK WZIĄĆ UDZIAŁ?\n\n1 Zaobserwuj profil @autigo_official\n\n2 Polub ten film\n\n3 Oznacz w komentarzu osobę, z którą chciałbyś/chciałabyś obejrzeć pierwszy świąteczny film na nowym telewizorze!\n\nStart konkursu: 23.11.2026\n\nKoniec konkursu: 30.12.2026 o godzinie 23:59\n\nZwycięzca lub zwyciężczyni zostanie ogłoszony/a 31.12.2026 w komentarzach oraz poinformowany/a w wiadomości prywatnej.\n\nŻyczymy Wam powodzenia i cudownego okresu świątecznego!\n\nWARUNKI UCZESTNICTWA:\n\nW konkursie mogą wziąć udział osoby, które ukończyły 18 lat i mieszkają na terenie Niemiec.\n\nPracownicy Novo Cars GmbH są wykluczeni z udziału w konkursie.\n\nZwycięzca lub zwyciężczyni zostanie wyłoniony/a losowo po zakończeniu konkursu i poinformowany/a poprzez wiadomość prywatną oraz komentarz.\n\nZwycięzca lub zwyciężczyni ma 48 godzin na odpowiedź. W przypadku braku odpowiedzi w wyznaczonym czasie nastąpi ponowne losowanie.\n\nOrganizator nie ponosi odpowiedzialności za zagubienie lub uszkodzenie nagrody podczas wysyłki.\n\nNie ma możliwości wypłaty wartości nagrody w gotówce ani jej wymiany.\n\nDane osobowe będą wykorzystywane wyłącznie w celu przeprowadzenia i realizacji konkursu, a następnie zostaną usunięte, o ile przepisy prawa nie wymagają ich dłuższego przechowywania.\n\nBiorąc udział w konkursie, uczestnik wyraża zgodę na publikację swojej nazwy profilu na Instagramie w przypadku wygranej.\n\nKonkurs nie jest w żaden sposób powiązany z Instagramem ani przez niego sponsorowany, wspierany czy organizowany.",
+   "prizes": "• Do wygrania TELEWIZOR SAMSUNG 65 CALI!",
+   "prizeCount": 1,
+   "judging": "losowanie",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": 76,
+   "commentsAt": "2026-11-25",
+   "origin": "ig",
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12164,7 +14567,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12202,10 +14605,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
    "id": "ek:konkurs-doceniamy-wasza-aktywnosc",
    "title": "Konkurs \"Doceniamy Waszą aktywność!\"",
    "org": "Nabea.pl",
@@ -12237,8 +14644,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12275,10 +14682,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-kasia-dobrze-gada-w-radiu-eska",
    "title": "Konkurs \"Kasia dobrze gada w Radiu ESKA\"",
    "org": "Time S. A.",
@@ -12310,10 +14720,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-literacki-science-fiction-astronomia-jest-kobieta",
    "title": "Konkurs literacki science-fiction \"Astronomia jest kobietą\"",
    "org": "urania.edu.pl",
@@ -12345,8 +14758,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12383,7 +14796,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12421,10 +14834,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:konkurs-paczka-za-aktywnosc",
    "title": "Konkurs \"Paczka za aktywność\"",
    "org": "Super-Pharm Poland Sp. z o. o.",
@@ -12456,10 +14873,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-pierwsze-noce-ze-snuza1",
    "title": "Konkurs \"PIerwsze noce ze Snuzą\"",
    "org": "GROW SMART & PARTNERS MARIUSZ SASIAK",
@@ -12491,8 +14911,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12529,10 +14949,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-pocztowka-z-wyprawy",
    "title": "Konkurs \"Pocztówka z wyprawy\"",
    "org": "Useme Sp. z o. o.",
@@ -12564,8 +14987,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12602,10 +15025,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-script-fiesta-2027",
    "title": "Konkurs \"Script Fiesta 2027\"",
    "org": "Warszawska Szkoła Filmowa oraz Fundacja Edukacji i Sztuki Filmowej Macieja Ślesickiego i Bogusława Lindy LATERNA MAGICA",
@@ -12637,10 +15063,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-slowa-dobrze-ze-jestescie-2027-fundacja-anny-dymnej-mimo-wszystko",
    "title": "Konkurs \"Słowa, dobrze, że jesteście” 2027 - Fundacja Anny Dymnej Mimo Wszystko\"",
    "org": "mimowszystko.org",
@@ -12672,10 +15101,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-swietujemy-30-lat1",
    "title": "Konkurs \"Świętujemy 30 lat\"",
    "org": "ryobitools.eu",
@@ -12707,8 +15139,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12745,7 +15177,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12783,10 +15215,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-wyzwania-czytelnicze-2026",
    "title": "Konkurs \"Wyzwania czytelnicze 2026\"",
    "org": "granice.pl",
@@ -12818,10 +15253,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-wyzwanie-czystosci1",
    "title": "Konkurs \"Wyzwanie Czystości\"",
    "org": "AMTRA Sp. z o. o.",
@@ -12853,8 +15291,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -12891,7 +15329,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12929,7 +15367,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -12967,8 +15405,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:loteria-ferrero-dodaj-swietom-zlotego-blasku2",
+   "title": "Loteria \"Ferrero – Dodaj Świętom złotego blasku\"",
+   "org": "Content Invest Sp. z o. o.",
+   "url": "https://www.blask.ferrerorocher.pl/",
+   "src": "https://www.e-konkursy.info/konkurs/loteria-ferrero-dodaj-swietom-zlotego-blasku2",
+   "platform": "www",
+   "start": "2026-11-27",
+   "end": "2026-12-31",
+   "results": null,
+   "task": "Kup produkt promocyjny i zarejestruj na stronie loterii. Sprzedaż produktów 26.11.2026-31.12.2026, zgłaszanie do loterii: 27.11.2026-31.12.2026.\nProdukty promocyjne:\n\n• Ferrero Rocher 100 g,\n• Ferrero Rocher Golden Stars Mix 115 g,\n• Choinka Ferrero Rocher 150 g,\n• Ferrero Rocher 200 g,\n• Ferrero Rocher 250 g,\n• Ferrero Rocher 300 g,\n• Piramida Ferrero Rocher 350 g,\n• Ferrero Rocher 375 g,\n• Choinka Ferrero Collection 129 g,\n• Ferrero Collection 172 g,\n• Ferrero Collection Grand Assortment 197 g,\n• Ferrero Collection Kalendarz Adwentowy 259 g,\n• Ferrero Collection 269 g,\n• Grand Ferrero Rocher 125 g,\n• Grand Ferrero Rocher - ciemna czekolada 125 g,\n• Ferrero Rocher - czekolada mleczna nadziewana 90 g,\n• Ferrero Rocher - czekolada biała nadziewana 90 g,\n• Ferrero Rocher – czekolada ciemna 70% nadziewana 90 g.",
+   "prizes": "• 6x piramidy Ferrero Rocher 96 szt. 1200 g o wartości brutto 202,00 zł\n• 120x patera deserowa o wartości brutto 213,00 zł",
+   "prizeCount": 126,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -13005,7 +15481,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13043,7 +15519,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13081,7 +15557,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13119,7 +15595,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13157,7 +15633,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -13195,7 +15671,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13233,7 +15709,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13271,7 +15747,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13309,7 +15785,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13347,10 +15823,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:xx-konkurs-tworczosci-milosnej-ja-cie-kocham-a-ty-pisz-im-mariusza-kargula1",
    "title": "XX Konkurs Twórczości Miłosnej \"Ja Cię kocham, a Ty pisz\" im. Mariusza Kargula",
    "org": "Krasnostawski Dom Kultury",
@@ -13382,8 +15861,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -13420,10 +15899,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-lokalne"
+   ],
    "id": "ek:gliwice-konkurs-wierszowanie-spotkanie-2",
    "title": "Gliwice: Konkurs \"Wierszowanie - spotkanie 2\"",
    "org": "Młodzieżowy Dom Kultury w Gliwicach",
@@ -13455,8 +15937,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -13493,10 +15975,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-wildbeanchallenge",
    "title": "Konkurs \"WildBeanChallenge\"",
    "org": "Good Game Sp. z o. o.",
@@ -13528,10 +16013,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
    "id": "ek:loteria-tankuj-kupuj-i-wygrywaj-mol-move",
    "title": "Loteria \"TANKUJ, KUPUJ I WYGRYWAJ! - MOL MOVE\"",
    "org": "molmove.pl",
@@ -13563,10 +16051,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:5-edycja-konkursu-alioth-na-najlepsze-prace-dyplomowe",
    "title": "5. edycja Konkursu Alioth na najlepsze prace dyplomowe",
    "org": "Alioth Foundation",
@@ -13598,8 +16089,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -13636,7 +16127,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13674,7 +16165,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13712,7 +16203,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -13750,10 +16241,14 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-24"
   },
   {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
    "id": "ek:wygraj-najnowszego-iphonea-duo",
    "title": "Wygraj najnowszego iPhone'a Duo!",
    "org": "Komputronik S. A.",
@@ -13785,13 +16280,16 @@
    "comments": 2276,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25",
    "answers": [
     "Moment, w którym telefon pokazuje 1% baterii… a ładowarka jest w zasięgu ręki 🔋😮‍💨 Ta ulga mogłaby lecieć w pętli bez końca."
    ]
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:xiii-edycja-nagrody-im-adama-wlodka",
    "title": "XIII edycja Nagrody im. Adama Włodka",
    "org": "Fundacja Wisławy Szymborskiej",
@@ -13823,10 +16321,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:oglaszamy-nabor-zgloszen-do-konkursu-aktorskiej-interpretacji-piosenki-na-47-ppa",
    "title": "Ogłaszamy nabór zgłoszeń do Konkursu Aktorskiej Interpretacji Piosenki na 47. PPA!",
    "org": "ppa.teatr-capitol.pl",
@@ -13858,8 +16359,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -13934,7 +16435,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -13972,7 +16473,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14010,10 +16511,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:ogolnopolski-konkurs-charytatywny-ile-wazy-sw-mikolaj",
    "title": "Ogólnopolski konkurs charytatywny \"Ile waży św. Mikołaj?\"",
    "org": "Fundacja Szczęśliwe Dzieciństwo",
@@ -14045,10 +16549,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:xxii-edycja-nagrody-literackiej-gdynia",
    "title": "XXII edycja Nagrody Literackiej GDYNIA",
    "org": "Miasto Gdynia.",
@@ -14080,10 +16587,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-kryminal-do-poznania-w-bialych-rekawiczkach",
    "title": "Konkurs \"Kryminał do Poznania. W białych rękawiczkach\"",
    "org": "poznan.pl",
@@ -14115,10 +16625,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:miedzynarodowy-konkurs-prac-naukowych-black-sea-science",
    "title": "Międzynarodowy Konkurs Prac Naukowych \"Black Sea Science\"",
    "org": "Odeski Narodowy Uniwersytet Technologiczny",
@@ -14150,8 +16663,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14188,8 +16701,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-uvex-zima-na-wesolo",
+   "title": "Konkurs UVEX – Zima na wesoło",
+   "org": "SnowSport.pl",
+   "url": "https://www.instagram.com/p/Df48HRcBJnm/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-uvex-zima-na-wesolo",
+   "platform": "instagram",
+   "start": "2026-11-18",
+   "end": "2027-02-04",
+   "results": null,
+   "task": "• Wykonaj zdjęcie przedstawiające Twoją najzabawniejszą zimową pozę (możesz wykorzystać też fotkę z poprzedniej zimy)\n• Dodaj zdjęcie w komentarzu pod postem konkursowym i opcjonalnie dopisz krótki podpis\n• Pamiętaj, że możesz zgłosić tylko jedną fotografię",
+   "prizes": "• 1 miejsce: kask narciarski UVEX Horizon CV (wartość 1 149 zł)\n• 2 miejsce: gogle narciarskie UVEX (wartość 399 zł)\n• 3 miejsce: okulary rowerowe UVEX Flowline (wartość 349 zł)",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-25",
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14226,7 +16778,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14264,7 +16816,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14302,10 +16854,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-fantazje-zielonogorskie-2027",
    "title": "Konkurs \"Fantazje Zielonogórskie 2027\"",
    "org": "Zielonogórski Klub Fantastyki Ad Astra",
@@ -14337,10 +16892,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-miedzynarodowy-festiwal-kina-niezaleznego-off-camera-2027",
    "title": "Konkurs \"Międzynarodowy Festiwal Kina Niezależnego OFF CAMERA 2027\"",
    "org": "Fundacja OFF CAMERA z siedzibą w Krakowie",
@@ -14372,10 +16930,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-stworz-i-wygraj-wlasnego-platko-pluszaka",
    "title": "Konkurs \"Stwórz i wygraj własnego płatko-pluszaka\"",
    "org": "Chromatique Julian Pęksa",
@@ -14407,8 +16968,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14445,7 +17006,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14483,10 +17044,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:vi-ogolnopolski-konkurs-poetycki-o-jablko-damiany1",
    "title": "VI Ogólnopolski Konkurs Poetycki \"O Jabłko Damiany\"",
    "org": "Białoborskie Centrum Kultury i Rekreacji w Białym Borze oraz Burmistrz Gminy Biały Bór",
@@ -14518,10 +17082,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-naukowy-belgijskiej-krolewskiej-akdemii-nauk-zamorskich-2027",
    "title": "Konkurs naukowy belgijskiej Królewskiej Akdemii Nauk Zamorskich - 2027",
    "org": "gumed.edu.pl",
@@ -14553,10 +17120,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:xix-ogolnopolski-konkurs-na-projekt-historyczny-poki-nie-jest-za-pozno",
    "title": "XIX Ogólnopolski Konkurs na Projekt Historyczny \"Póki nie jest za późno\"",
    "org": "cmjw.pl",
@@ -14588,8 +17158,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14626,7 +17196,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14664,10 +17234,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-wergle-flomp-humor-poetry-contest-2026-2027",
    "title": "Konkurs \"Wergle Flomp Humor Poetry Contest 2026–2027\"",
    "org": "Winning Writers",
@@ -14699,8 +17272,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14737,7 +17310,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -14775,10 +17348,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:v-miedzynarodowy-konkurs-wokalny-im-stanislawa-jopka",
    "title": "V Międzynarodowy Konkurs Wokalny im. Stanisława Jopka",
    "org": "Państwowy Zespół Ludowy Pieśni i Tańca „Mazowsze” im. Tadeusza Sygietyńskiego w Karolinie",
@@ -14810,10 +17386,13 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:vi-edycja-konkursu-na-esej-filozoficzny-dlaczego-demokracja",
    "title": "VI edycja Konkursu na esej filozoficzny \"Dlaczego demokracja?\"",
    "org": "Fundacja na Rzecz Myślenia im. Barbary Skargi",
@@ -14845,8 +17424,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [],
@@ -14886,6 +17465,9 @@
    "fetchedAt": "2026-11-21"
   },
   {
+   "cats": [
+    "konkursy-aktualne"
+   ],
    "id": "ek:konkurs-najlepszy-dyplom-wnetrza-vii-edycja-2025-2027-do-godz-1200",
    "title": "Konkurs \"Najlepszy Dyplom WNĘTRZA – VII edycja 2025–2027\" do godz. 12:00",
    "org": "Akademia A&B",
@@ -14917,8 +17499,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-24",
-   "fetchedAt": "2026-11-20"
+   "seenAt": "2026-11-25",
+   "fetchedAt": "2026-11-25"
   },
   {
    "cats": [
@@ -14955,7 +17537,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-24",
+   "seenAt": "2026-11-25",
    "fetchedAt": "2026-11-21"
   }
  ],
@@ -15010,6 +17592,7 @@
   "konkurs-twoj-rok-z-toyota-aygo-x": "2026-09-30",
   "konkurs-vector-art-award-2026-obecnosc": "2026-09-27",
   "konkurs-vox-robi-robote": "2026-10-22",
+  "konkurs-wakacje-z-orange-xiii": "2026-08-31",
   "konkurs-wejdz-do-ligi-dobrego-smaku-konkurs-lubella-i-lowicz-w-intermarche": "2026-11-04",
   "konkurs-wwylap-cos-od-ww-zabka": "2026-10-13",
   "konkurs-wygrywaj-z-kozlem-dino-18": "2026-11-14",
