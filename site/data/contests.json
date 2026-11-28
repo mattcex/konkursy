@@ -1,9 +1,9 @@
 {
- "updatedAt": "2026-11-27T06:19:14.654Z",
+ "updatedAt": "2026-11-28T06:16:25.811Z",
  "since": "2026-11-20",
  "source": "e-konkursy.info + data/curated.json + Instagram (Apify)",
- "igFetchedAt": "2026-11-27",
- "count": 573,
+ "igFetchedAt": "2026-11-28",
+ "count": 610,
  "contests": [
   {
    "cats": [
@@ -40,7 +40,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -989,7 +989,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -3201,7 +3201,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -3930,7 +3930,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5066,8 +5066,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -5105,8 +5105,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -5144,7 +5144,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5182,7 +5182,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -5220,7 +5220,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -5259,7 +5259,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5298,7 +5298,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5337,8 +5337,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [],
@@ -5481,11 +5481,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 184,
-   "commentsAt": "2026-11-26",
+   "comments": 226,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-22",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-22"
   },
   {
@@ -5784,7 +5784,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5823,8 +5823,85 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-black-week-wygraj-zestaw-prezentowy-od-pink-mama",
+   "title": "Konkurs \"Black week - wygraj zestaw prezentowy od Pink Mama\"",
+   "org": "Hydrex Diagnostics Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DgKXU7rjV9V/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-black-week-wygraj-zestaw-prezentowy-od-pink-mama",
+   "platform": "instagram",
+   "start": "2026-11-25",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "• Polub i zapisz post\n• Zaobserwuj @pink_story_official\n• W komentarzu odpowiedz na pytanie:\nDlaczego to właśnie do Ciebie ma trafić zestaw kosmetyków Pink Mama? i oznacz kobietę, którą zapraszasz do zabawy",
+   "prizes": "zestaw prezentowy od marki Pink Mama: naturalny żel pod prysznic, pasta do zębów, suchy olejek do masażu, krem na rozstępy, dezodorant w kremie (50 ml), termofor króliczek oraz szczoteczka SUPERSONIC+ od @controly_devices.",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 249,
+   "commentsAt": "2026-11-28",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:konkurs-dax-perfecta-eye-patch",
+   "title": "Konkurs \"Dax Perfecta Eye Patch\"",
+   "org": "wizaz.pl",
+   "url": "https://wizaz.pl/klub-recenzentki/dax-perfecta-eye-patch-test-recenzentek",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-dax-perfecta-eye-patch",
+   "platform": "www",
+   "start": "2026-11-26",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "Wystarczy wypełnić ankietę.\n\nKonkurs dla zarejestrowanych.",
+   "prizes": "100 zestawów kosmetyków Perfecta Eye Patch. W skład każdego zestawu wchodzą:\n\n• PERFECTA Ice Gel Patch – Hydrożelowe chłodzące płatki pod oczy\n• PERFECTA Eye Gel Patch – Hydrożelowe wygładzające płatki pod oczy\n• PERFECTA Eye Patch – Hydrożelowe płatki pod oczy w saszetkach (mix wariantów) o przybliżonej wartości jednego zestawu/nagrody 74,00 zł",
+   "prizeCount": 100,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -5862,7 +5939,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -5901,7 +5978,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -5940,7 +6017,7 @@
    "comments": 537,
    "commentsAt": "2026-11-27",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -5978,7 +6055,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6017,7 +6094,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6056,7 +6133,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6095,7 +6172,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6134,7 +6211,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6173,8 +6250,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:konkurs-nivea-body-milk",
+   "title": "Konkurs \"NIVEA Body Milk\"",
+   "org": "wizaz.pl",
+   "url": "https://wizaz.pl/klub-recenzentki/nivea-body-milk-test-recenzentek",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-nivea-body-milk",
+   "platform": "www",
+   "start": "2026-11-27",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "Wystarczy wypełnić ankietę.\n\nKonkurs dla zarejestrowanych.",
+   "prizes": "W skład każdego zestawu przeznaczonego dla laureatek testu wchodzą:\n\n• NIVEA Rich Nourishing Body Milk 72h – Odżywcze mleczko do ciała\n• NIVEA Odżywczy krem do ciała\n• NIVEA Skin Refining, Body Serum Lotion – Balsam-serum do ciała\nPrzybliżona wartość jednego zestawu to 106 zł",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -6212,8 +6327,85 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:konkurs-primaxo-wygraj-gre-gta-6-i-rekawice-winter-foam1",
+   "title": "Konkurs \"PRIMAXO — wygraj grę GTA 6 i rękawice WINTER FOAM\"",
+   "org": "Primaxo",
+   "url": "https://www.facebook.com/permalink.php?story_fbid=pfbid02rEX6NNWZ9kB64sGmpMbwgMfUhJaMWeCx9pQv1KQS64yVMNCBiyc6ey3PNGYJEeHFl&id=61573512491363",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-primaxo-wygraj-gre-gta-6-i-rekawice-winter-foam1",
+   "platform": "facebook",
+   "start": "2026-11-19",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "• Zaobserwuj profil PRIMAXO\n• Dokończ zdanie w komentarzu pod postem:\nZanim zagram w GTA, potrzebuję rękawic WINTER FOAM do…\n• Oznacz w komentarzu dwie osoby, które lubią grać lub potrzebują rękawic WINTER FOAM\n• Udostępnij post na swoim profilu na Facebooku\nKonkurs jest dla osób, które ukończyły 18 lat\nKażdy uczestnik może dodać jedno zgłoszenie.",
+   "prizes": "• Nagroda główna: gra GTA 6 i paczka rękawic PRIMAXO WINTER FOAM.\n• 10 nagród pocieszenia: po jednej paczce, czyli 12 par rękawic PRIMAXO WINTER FOAM dla każdego z 10 laureatów.",
+   "prizeCount": 10,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": true,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:konkurs-swederm-balsam-serum-spf",
+   "title": "Konkurs \"Swederm balsam, serum, spf\"",
+   "org": "wizaz.pl",
+   "url": "https://wizaz.pl/klub-recenzentki/swederm-balsam-serum-spf-test-recenzentek/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-swederm-balsam-serum-spf",
+   "platform": "www",
+   "start": "2026-11-27",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "Wystarczy wypełnić ankietę.\n\nKonkurs dla zarejestrowanych.",
+   "prizes": "100 zestawów kosmetyków swederm. W skład każdego zestawu wchodzą:\n\n• GEL TRAP - Intensywnie nawilżający balsam do ciała z gliceryną, alantoiną i wit. E,\n• Lumi Glow Ceramide Serum - Rozświetlające serum z ceramidami i niacynamidem dla cery dojrzałej,\n• EVERYDAY SKINCARE SPF 50+ - Zaawansowany krem SPF 50+ ochronno-pielęgnacyjny z roślinnymi egzosomami i ektoiną o przybliżonej wartości jednego zestawu/nagrody 300,00 zł",
+   "prizeCount": 100,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -6251,7 +6443,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6290,7 +6482,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6329,7 +6521,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6368,7 +6560,7 @@
    "comments": 313,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Potrzebuję matchy, bo moja roślinka doniczkowa jest bardziej zielona ode mnie i zaczęła mnie z tego powodu oceniać 🌿👀🍵 [@Znajomy1] [@Znajomy2]"
@@ -6410,7 +6602,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -6448,7 +6640,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6486,7 +6678,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6524,7 +6716,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6562,7 +6754,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6600,7 +6792,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6638,7 +6830,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6676,7 +6868,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6715,7 +6907,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6754,7 +6946,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6793,7 +6985,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6832,7 +7024,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6871,7 +7063,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -6910,7 +7102,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6949,7 +7141,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -6965,7 +7157,7 @@
    "results": null,
    "task": "ROZDANIE świąteczne 🏼\n\nDo zgarnięcia:\n1. Kalendarz adwentowy Neboa x Kimoco\n2. Kalendarz adwentowy Makeup Revolution\n3. Kalendarza adwentowy Sence\n\nWięc wygrywają aż trzy osoby\n\nAby wziąć udział:\n\nUdostępnij ten post na swojej relacji i oznacz @pawlowska_atelier oraz @hollywoody_pawlowskiego\n\nUpewnij się, że obserwujesz nasze profile\n\nNapisz w komentarzu „Zrobione”\n\nRozdanie trwa do 29.11.2026 do godziny 23:59.\nLosowanie odbędzie się 30.11.2026\n\nDziałajcie\n\nZdjęcie: @byalagolebiewska\nMiejsce: @przezdrewnoiszklo\n\n#rozdanie #kalendarzadwentowy #neboaxkimoco #kalendarzneboaxkimoco kalendarzrevolution",
    "prizes": "• 1. Kalendarz adwentowy Neboa x Kimoco\n• 2. Kalendarz adwentowy Makeup Revolution\n• 3. Kalendarza adwentowy Sence",
-   "prizeCount": 3,
+   "prizeCount": 1,
    "judging": "losowanie",
    "location": null,
    "local": false,
@@ -7686,12 +7878,49 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 32,
-   "commentsAt": "2026-11-27",
+   "comments": 114,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgQT0ssRYc0",
+   "title": "Rozdanie @ja.zaczytana: Bo chcę aby książka trafiła do ciebie jak najszybciej!",
+   "org": "@ja.zaczytana",
+   "url": "https://www.instagram.com/p/DgQT0ssRYc0/",
+   "src": "https://www.instagram.com/p/DgQT0ssRYc0/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-11-29",
+   "results": null,
+   "task": "ROZDANIE\n\nRozdanie będzie szybkie. Trwa od dziś 27.11 do 29.11 do godz. 20:00. Dlaczego tak? Bo chcę aby książka trafiła do ciebie jak najszybciej!\n\nZasady rozdania:\nMusisz być moim obserwatorem,\nNapisz dlaczego to właśnie do Ciebie ma trafić box z Paradoksem Świąt,\nUdostępnij ten post na swoim story i mnie oznacz\n\nOrganizatorem rozdania jestem JA, wysyłka tylko i wyłącznie na terenie PL za pośrednictwem przewoźnika InPost. W celu wysyłki zgadzasz się na przekazanie danych osobowych, które zostaną usunięte zaraz po dokonaniu wysyłki.",
+   "prizes": "• Bo chcę aby książka trafiła do ciebie jak najszybciej!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 11,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -7728,7 +7957,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -7766,7 +7995,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -7805,8 +8034,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -7844,7 +8073,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -7882,7 +8111,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -7921,7 +8150,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -7960,7 +8189,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -7998,7 +8227,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8036,7 +8265,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8074,7 +8303,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8113,7 +8342,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8151,8 +8380,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -8189,7 +8418,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8228,7 +8457,7 @@
    "comments": 123,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Moja jesienna propozycja to „Szarlotka w filiżance” 🍎\nNa dno 2 łyżki musu jabłkowego z cynamonem, do tego spieniony Alpro Cinnamon Roll, shot koncentratu Jacobs, a na wierzch pokruszone ciasteczko owsiane. Smakuje jak szarlotka babci, tylko można ją pić pod kocem i nikt nie każe kroić ☕",
@@ -8270,7 +8499,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8308,8 +8537,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -8346,7 +8575,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8384,7 +8613,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8422,7 +8651,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8461,7 +8690,7 @@
    "comments": 273,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "[imię dziecka], rozmiar [np. 104] 💕"
@@ -8502,7 +8731,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8541,7 +8770,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8579,7 +8808,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8617,7 +8846,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8656,8 +8885,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -8695,7 +8924,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8733,7 +8962,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8771,8 +9000,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-podziel-sie-wafelkami-goralki-i-wygraj-nagrody",
+   "title": "Konkurs \"Podziel się wafelkami Góralki i wygraj nagrody!\"",
+   "org": "Góralki Polska",
+   "url": "https://www.instagram.com/p/DfzPPSAMbWd/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-podziel-sie-wafelkami-goralki-i-wygraj-nagrody",
+   "platform": "instagram",
+   "start": "2026-11-16",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "Napisz w komentarzu, z kim podzielisz się wafelkami Góralki na swoim szlaku dnia i dlaczego właśnie z tą osobą.",
+   "prizes": "• 1 miejsce: rower górski\n• 2 miejsce: 15 × kijki do nordic walking + 15 × gra Jenga + zestaw wafelków Góralki",
+   "prizeCount": 30,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -8847,7 +9115,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -8885,7 +9153,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -8924,8 +9192,8 @@
    "comments": 100,
    "commentsAt": "2026-11-23",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -8963,8 +9231,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:konkurs-post-ign-polska",
+   "title": "Konkurs \"Post IGN Polska\"",
+   "org": "Grupa Nowe Media Sp. z o. o.",
+   "url": "https://www.facebook.com/IGNPolska/posts/pfbid0343SuM1tRmTsQMYzY8VvgxwCmmLTJgwhhnNUbeuSbz9yH68qL41zkBLWihFnBS5Ul",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-post-ign-polska",
+   "platform": "facebook",
+   "start": "2026-11-17",
+   "end": "2026-11-30",
+   "results": null,
+   "task": "• Wejdź na post konkursowy na Facebooku IGN Polska.\n• Wybierz jedną z fikcyjnych pułapek i dodaj numer oraz swoją ripostę (max 250 znaków) w komentarzu\n• Edytuj i popraw swoją odpowiedź do końca zgłoszeń\n• Oczekuj na ocenę przez jury, które przyzna punkty za trafność, oryginalność i humor.",
+   "prizes": "PlayStation 5 Slim Digital Edition 825 GB z kontrolerem DualSense oraz GTA VI na PS5 jako jednorazowy kod do PlayStation Network.",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -9002,7 +9309,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9040,7 +9347,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9078,7 +9385,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9116,7 +9423,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9154,7 +9461,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9192,7 +9499,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9230,7 +9537,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9268,7 +9575,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9307,7 +9614,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9345,7 +9652,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9384,7 +9691,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -9422,7 +9729,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9460,7 +9767,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9498,7 +9805,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9536,7 +9843,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9574,7 +9881,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9612,7 +9919,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9650,7 +9957,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9688,7 +9995,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9727,7 +10034,7 @@
    "comments": 183,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "[@Znajomy1] [@Znajomy2] [@Znajomy3] dziewczyny, świece sojowe na Mikołajki – zobaczcie! 🕯️✨"
@@ -9768,7 +10075,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9807,7 +10114,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9845,7 +10152,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -9883,7 +10190,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9959,7 +10266,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -9998,7 +10305,7 @@
    "comments": 286,
    "commentsAt": "2026-11-27",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10036,7 +10343,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -10075,7 +10382,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10113,7 +10420,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -10152,7 +10459,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10191,7 +10498,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10230,7 +10537,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10269,7 +10576,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10307,7 +10614,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10346,7 +10653,7 @@
    "comments": 2834,
    "commentsAt": "2026-11-26",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10385,7 +10692,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10423,7 +10730,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10462,7 +10769,7 @@
    "comments": 259,
    "commentsAt": "2026-11-27",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -10501,7 +10808,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10539,8 +10846,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -10578,7 +10885,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10616,7 +10923,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -10760,11 +11067,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 2213,
-   "commentsAt": "2026-11-23",
+   "comments": 3169,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-23",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-21"
   },
   {
@@ -11133,11 +11440,11 @@
     "follow": true,
     "tags": 2
    },
-   "comments": 39,
-   "commentsAt": "2026-11-26",
+   "comments": 51,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -11215,6 +11522,43 @@
    "fetchedAt": "2026-11-26"
   },
   {
+   "cats": [],
+   "id": "ig:DgQKvpYON0q",
+   "title": "Rozdanie @otiencom: OTIEN - WYGRAJ DOWOLNE KOLCZYKI!",
+   "org": "@otiencom",
+   "url": "https://www.instagram.com/p/DgQKvpYON0q/",
+   "src": "https://www.instagram.com/p/DgQKvpYON0q/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-11-30",
+   "results": "2026-11-30",
+   "task": "KONKURS OTIEN - WYGRAJ DOWOLNE KOLCZYKI!\n\nMasz ochotę na odrobinę blasku? Wybierz swoje wymarzone kolczyki z kolekcji OTIEN i weź udział w naszym konkursie!\n\nCo trzeba zrobić, żeby wygrać?\n\n♡ Obserwuj nasz profil @otiencom\n♡ Polub nasze 3 ostatnie posty.\n♡ Oznacz w komentarzu przyjaciółkę, która również kocha biżuterię.\n\nTo wszystko!\n\nWygrywa jedna z Was, a nagrodą są DOWOLNE KOLCZYKI dostępne na www.otien.com.\n\nMacie tylko 3 dni!\n\nKonkurs trwa od 27.11 do 30.11.2026 r.\nOgłoszenie wyników: 30.11.2026 r. o godz. 21:00.\n\nPowodzenia! Trzymamy za Was kciuki!\n\nKonkurs nie jest sponsorowany, administrowany ani organizowany przez Instagram.\n\n#konkurs #rozdanie #wygraj #instakonkurs #wygrajnagrody kolczyki bizuteria bizuteriadamska stalchirurgiczna zlotekolczyki prezentdlaniej prezentyswiateczne modnapolka otien",
+   "prizes": "• KONKURS OTIEN - WYGRAJ DOWOLNE KOLCZYKI!\n• Wygrywa jedna z Was, a nagrodą są DOWOLNE KOLCZYKI dostępne na www.otien.com.\n• Co trzeba zrobić, żeby wygrać?",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 94,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-aktualne"
    ],
@@ -11249,7 +11593,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -11288,7 +11632,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -11327,8 +11671,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-podziel-sie-swoim-najpiekniejszym-wspomnieniem-swiatecznym",
+   "title": "Konkurs \"Podziel się swoim najpiękniejszym wspomnieniem świątecznym!\"",
+   "org": "szaldlaplastykow",
+   "url": "https://www.instagram.com/p/DgIWSF-iLYZ/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-podziel-sie-swoim-najpiekniejszym-wspomnieniem-swiatecznym",
+   "platform": "instagram",
+   "start": "2026-11-24",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "Opisz w komentarzu pod tym postem swoje najpiękniejsze wspomnienie świąteczne\nBędzie ogromnie miło, jeśli udostępnisz nasz konkurs w swojej relacji i oznaczysz @szaldlaplastykow\nNie jest to jednak warunek uczestnictwa",
+   "prizes": "• I miejsce – zestaw artystyczny o wartości 512 zł\n• II miejsce – zestaw artystyczny o wartości 240 zł\n• III miejsce – zestaw artystyczny o wartości 187 zł",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -11365,7 +11748,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -11404,7 +11787,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -11443,8 +11826,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -11482,7 +11865,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -11520,7 +11903,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -11559,8 +11942,46 @@
    "comments": 178,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:wygraj-ksiazke-moje-imie-znaczy-ogien",
+   "title": "Wygraj książkę \"Moje imię znaczy ogień\"",
+   "org": "granice.pl",
+   "url": "https://www.granice.pl/konkurs/wygraj-ksiazke-moje-imie-znaczy-ogien/3069",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-ksiazke-moje-imie-znaczy-ogien",
+   "platform": "www",
+   "start": "2026-11-24",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "Wystarczy odpowiedzieć na pytanie:\nCo może być najtrudniejsze, gdy inni nie rozumieją, jak przeżywasz świat?",
+   "prizes": "książka \"Moje imię znaczy ogień\"",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -11598,7 +12019,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -11637,7 +12058,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -11820,11 +12241,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 2453,
-   "commentsAt": "2026-11-27",
+   "comments": 2504,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -11894,11 +12315,11 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 358,
-   "commentsAt": "2026-11-26",
+   "comments": 441,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -11968,12 +12389,86 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 1,
-   "commentsAt": "2026-11-27",
+   "comments": 3,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgP-xDCCMYA",
+   "title": "Konkurs @aleksandraa.lu: Osobę, do której trafi kalendarz oznacze 1 grudnia tutaj w przypiętym komentarzu.",
+   "org": "@aleksandraa.lu",
+   "url": "https://www.instagram.com/p/DgP-xDCCMYA/",
+   "src": "https://www.instagram.com/p/DgP-xDCCMYA/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-01",
+   "results": "2026-12-01",
+   "task": "Znajdziecie tam nawet puder od Hudy\nWystarczy, że\nZaobserwujesz mnie tutaj oraz na aaleksandralu\nW kom zostaw swoją nazwę z i napisz jaki jest Twój wymarzony prezent Świąteczny\n\nKonkurs odbywa się na Instagramie i TikToku, a zwycięzca będzie tylko jeden.\nOsobę, do której trafi kalendarz oznacze 1 grudnia tutaj w przypiętym komentarzu.\n\nUważajcie na fake konta i nie klikajcie w żadne linki\n\nInstagram nie jest organizatorem ani sponsorem konkursu.",
+   "prizes": "• Osobę, do której trafi kalendarz oznacze 1 grudnia tutaj w przypiętym komentarzu.",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 1
+   },
+   "comments": 75,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgP6gKbABKI",
+   "title": "Konkurs @bioliq_pl: Przekonaj się jak o Twoją BHL dbają dermokosmetyki Bioliq!",
+   "org": "@bioliq_pl",
+   "url": "https://www.instagram.com/p/DgP6gKbABKI/",
+   "src": "https://www.instagram.com/p/DgP6gKbABKI/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-01",
+   "results": null,
+   "task": "Wiatr, suche powietrze, zmienna temperatura, to tylko kilka z czynników, które mogą wpływać na podrażnienie bariery ochronnej skóry. Przekonaj się jak o Twoją BHL dbają dermokosmetyki Bioliq!\n\nOdpowiedz na pytanie konkursowe i zgarnij jeden z pięciu zestawów kosmetyków.\n\nNa Twój komentarz czekamy do 1.12.2026r.",
+   "prizes": "• Przekonaj się jak o Twoją BHL dbają dermokosmetyki Bioliq!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 43,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -12010,8 +12505,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -12049,7 +12544,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12087,7 +12582,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12126,7 +12621,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -12164,7 +12659,7 @@
    "comments": 383,
    "commentsAt": "2026-11-26",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12202,7 +12697,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12241,8 +12736,47 @@
    "comments": 167,
    "commentsAt": "2026-11-27",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:konkurs-star-wars-kto-wytrenowal-mistrza-yode",
+   "title": "Konkurs \"STAR WARS. Kto wytrenował mistrza Yodę?\"",
+   "org": "Dressler",
+   "url": "https://www.facebook.com/photo/?fbid=1814844043978592&set=a.558742349588774",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-star-wars-kto-wytrenowal-mistrza-yode",
+   "platform": "facebook",
+   "start": "2026-11-27",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "Zadaniem Uczestnika Konkursu jest odpowiedź na pytanie: Kto wytrenował mistrza Yodę?\nOdpowiedzi udzielamy w formie krótkiego komentarza pod postem konkursowym opisującego hipotetycznego Jedi, który mógł podjąć się tego niezwykłego zadania. Kim był? Jakie posiadał umiejętności? I przede wszystkim - jak mógł wyglądać trening młodego Yody pod\njego okiem? Można stworzyć własną historię, wykorzystać wiedzę o uniwersum Star Wars albo połączyć jedno z drugim.",
+   "prizes": "• 1 miejsce: trzy książki (w tym książka z autografem Claudii Gray) + zestaw gadżetów*\n• 2 miejsce: dwie książki (w tym książka z autografem Claudii Gray) + zestaw gadżetów*\n• 3 miejsce: jedna książka z autografem Claudii Gray + zestaw gadżetów*\n*w skład zestawu gadżetów wchodzą: 4 naszywki, torba i zakładki.",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -12279,8 +12813,84 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-lokalne"
+   ],
+   "id": "ek:wroclaw-wygraj-zaproszenia-na-miasto-z-piernika-w-kolejkowie-do-godz-1100",
+   "title": "Wrocław: Wygraj zaproszenia na „Miasto z Piernika” w Kolejkowie! do godz. 11:00",
+   "org": "wroclaw.pl",
+   "url": "https://www.wroclaw.pl/dla-mieszkanca/wroclaw-z-piernika-do-obejrzenia-i-powachania-zaproszenia-do-kolejkowa-konkurs",
+   "src": "https://www.e-konkursy.info/konkurs/wroclaw-wygraj-zaproszenia-na-miasto-z-piernika-w-kolejkowie-do-godz-1100",
+   "platform": "www",
+   "start": "2026-11-27",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "Trzeba od piątku 27 listopada od godz. 11:00 do środy 2 grudnia do 11:00 wysłać do nas wypełniony poniższy formularz konkursowy i napisać, ile ton piernika zużywa się do stworzenia „Miasta z Piernika”?",
+   "prizes": "5 podwójnych zaproszeń do Kolejkowa na wystawę „Miasto z Piernika”",
+   "prizeCount": 5,
+   "judging": "?",
+   "location": "Wrocław",
+   "local": true,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-aktualne"
+   ],
+   "id": "ek:wygraj-ksiazke-rok-na-prowincji",
+   "title": "Wygraj książkę \"Rok na prowincji\"",
+   "org": "granice.pl",
+   "url": "https://www.granice.pl/konkurs/wygraj-ksiazkerok-na-prowincji/3070",
+   "src": "https://www.e-konkursy.info/konkurs/wygraj-ksiazke-rok-na-prowincji",
+   "platform": "www",
+   "start": "2026-11-25",
+   "end": "2026-12-02",
+   "results": null,
+   "task": "Wystarczy odpowiedzieć na pytanie:\nCo Waszym zdaniem łatwiej znaleźć na prowincji niż w wielkim mieście?",
+   "prizes": "książka \"Rok na prowincji\"",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -12318,7 +12928,7 @@
    "comments": 143,
    "commentsAt": "2026-11-26",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12357,7 +12967,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12396,7 +13006,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -12435,7 +13045,7 @@
    "comments": 311,
    "commentsAt": "2026-11-25",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12473,7 +13083,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12692,11 +13302,11 @@
     "follow": true,
     "tags": 1
    },
-   "comments": 134,
-   "commentsAt": "2026-11-26",
+   "comments": 314,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12806,10 +13416,10 @@
     "follow": false,
     "tags": 0
    },
-   "comments": 457,
-   "commentsAt": "2026-11-27",
+   "comments": 671,
+   "commentsAt": "2026-11-28",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -12847,7 +13457,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12885,7 +13495,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -12923,7 +13533,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -12962,8 +13572,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13001,7 +13611,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -13040,8 +13650,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13078,7 +13688,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -13116,8 +13726,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:konkurs-spod-igly-i-nitki",
+   "title": "Konkurs \"Spod Igły i Nitki\"",
+   "org": "Bonito.pl Sp. z o. o.",
+   "url": "https://www.facebook.com/photo/?fbid=1580427334119048&set=a.622189246609533",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-spod-igly-i-nitki",
+   "platform": "facebook",
+   "start": "2026-11-27",
+   "end": "2026-12-03",
+   "results": null,
+   "task": "Udział w Konkursie następuje poprzez odpowiedź na zadanie konkursowe:\nZa co najbardziej lubisz zimowe wieczory i jak najchętniej je spędzasz?",
+   "prizes": "• I miejsce: Pościel 160 x 200 satyna xmass fairytale, niebieski o wartości: 122,99 zł.\n• II miejsce: Kocobluza hoodie xmas deer o wartości: 81,23 zł.\n• III miejsce: Koc 200 x 220 nut cracker, czerwony o wartości: 69,09 zł.",
+   "prizeCount": 360,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13155,8 +13804,47 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-zaskocz-prezentem-na-swieta-z-czytam-wszedzie",
+   "title": "Konkurs \"Zaskocz Prezentem na Święta z Czytam Wszędzie\"",
+   "org": "czytam_wszedzie",
+   "url": "https://www.instagram.com/p/DgPPgkyISzR/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-zaskocz-prezentem-na-swieta-z-czytam-wszedzie",
+   "platform": "instagram",
+   "start": "2026-11-28",
+   "end": "2026-12-03",
+   "results": null,
+   "task": "• Napisz w komentarzu, który zestaw wybierasz i komu podarowałabyś/podarowałbyś go pod choinkę\n• Zaobserwuj profile @‌czytam_wszedzie i @‌kameleon_app\n• Opcjonalnie udostępnij post na Stories i zaproś innych do udziału.",
+   "prizes": "• Zestaw 1: maskotka Grinch, maskotka jeż, brelok jeż\n• Zestaw 2: maskotka Grinch, maskotka krowa, brelok lisek\n• Zestaw 3: maskotka Grinch, maskotka miś, brelok miś\n• Zestaw 4: maskotka Grinch, maskotka ryś, brelok ryś",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": true,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 107,
+   "commentsAt": "2026-11-28",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13194,7 +13882,7 @@
    "comments": 205,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -13264,12 +13952,49 @@
     "follow": false,
     "tags": 0
    },
-   "comments": 198,
-   "commentsAt": "2026-11-27",
+   "comments": 237,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgM8pQ4MiRx",
+   "title": "Konkurs @goliathgamespl: Pełen zestaw Clickeez Hello Kitty + gadżety Sanrio",
+   "org": "@goliathgamespl",
+   "url": "https://www.instagram.com/p/DgM8pQ4MiRx/",
+   "src": "https://www.instagram.com/p/DgM8pQ4MiRx/",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-03",
+   "results": null,
+   "task": "KONKURS! Wygraj zestaw Clickeez Hello Kitty!\n\nHello Kitty wpada do nas z prezentami!\nKlikaj i baw się razem z najsłodszą kotką na świecie!\n\nDO WYGRANIA:\nPełen zestaw Clickeez Hello Kitty + gadżety Sanrio\n\nJAK WZIĄĆ UDZIAŁ?\n1 Zaobserwuj nasze konto @goliathgamespl\n2 Udostępnij ten post (repost)\n3 Odpowiedz w komentarzu na pytanie konkursowe:\n\nHello Kitty organizuje przyjęcie dla przyjaciół. Jaki prezent byś jej przyniósł i dlaczego?\n\nKonkurs trwa od 26.11 do 03.12 do godz. 23:59.\nZwycięzcę ogłosimy w relacji na naszym profilu. Powodzenia!\n\nRegulamin konkursu znajdziesz w linku w bio.\n\nKonkurs nie jest w żaden sposób sponsorowany, wspierany, administrowany ani powiązany z serwisem Instagram ani Meta.",
+   "prizes": "• Pełen zestaw Clickeez Hello Kitty + gadżety Sanrio",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 45,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [],
@@ -13301,12 +14026,89 @@
     "follow": true,
     "tags": 0
    },
-   "comments": 74,
-   "commentsAt": "2026-11-27",
+   "comments": 159,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgNl1jZFI4o",
+   "title": "Konkurs @samsungpolska: By wygrać jeden z aż trzech Galaxy Z Fold8!",
+   "org": "@samsungpolska",
+   "url": "https://www.instagram.com/p/DgNl1jZFI4o/",
+   "src": "https://www.instagram.com/p/DgNl1jZFI4o/",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-03",
+   "endGuess": true,
+   "results": null,
+   "task": "Widzowie Studio Galaxy, jak zwykle macie wyjątkową okazję, by wygrać jeden z aż trzech Galaxy Z Fold8!\nAby wziąć udział w konkursie, musicie odpowiedzieć w komentarzu pod tym postem na dwa pytania:\n\n1. Dla kogo i dlaczego chciałbyś kupić Galaxy w Black Friday?\n\n2. Ile paczek od Arka udało się położyć na rękach Suwaka?\n\noraz dodać hasztag #GalaxyStudio\n\nProste? Proste!\nObejrzyjcie Studio Galaxy, poznajcie wszystkie oferty i bierzcie udział w konkursie! Powodzenia!\n\nRegulamin konkursu w bio.",
+   "prizes": "• Widzowie Studio Galaxy, jak zwykle macie wyjątkową okazję, by wygrać jeden z aż trzech Galaxy Z Fold8!",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 187,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-alibi-na-wyjazd",
+   "title": "Konkurs \"Alibi na Wyjazd\"",
+   "org": "Triverna.pl",
+   "url": "https://www.instagram.com/p/DgPheryjYDl/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-alibi-na-wyjazd",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-04",
+   "results": null,
+   "task": "• Wyobraź sobie, że rezerwujesz spontaniczny wyjazd. Masz 10 sekund na wymyślenie wymówki, dlaczego nie będzie Cię przez weekend\n• Zostaw swoje alibi w komentarzu pod postem konkursowym na Instagramie",
+   "prizes": "dwa vouchery o wartości 500 zł każdy do wykorzystania na Triverna.pl",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": true,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13343,7 +14145,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -13382,8 +14184,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13420,7 +14222,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -13459,8 +14261,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -13497,7 +14299,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -13536,7 +14338,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -13726,6 +14528,81 @@
    "fetchedAt": "2026-11-26"
   },
   {
+   "cats": [],
+   "id": "ig:DgPrHtxOWTF",
+   "title": "Konkurs @primodi.pl: Aż 3 osoby wygrają zimowy zestaw prezentów, w którym znajdą:",
+   "org": "@primodi.pl",
+   "url": "https://www.instagram.com/p/DgPrHtxOWTF/",
+   "src": "https://www.instagram.com/p/DgPrHtxOWTF/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-04",
+   "results": "2026-12-07",
+   "task": "ZIMOWY KONKURS PRIMODI x VIANEK\nZima zbliża się wielkimi krokami, a to idealny moment, by pomyśleć o nowych modowych inspiracjach i przygotować się na nadchodzący sezon! Z tej okazji wspólnie z @vianek.pl przygotowaliśmy dla Was wyjątkowy konkurs!\n\nAż 3 osoby wygrają zimowy zestaw prezentów, w którym znajdą:\n  Voucher o wartości 350 zł do PRIMODI ( Voucher obowiązuje przy zakupach za min. 499 zł. Ważny do 12.31.2026).  Kalendarz adwentowy SYLVECO\n\nJak wziąć udział?\nZaobserwuj profile @vianek.pl @primodi.pl @10dayspolska i @campionepolska  Udostępnij ten post na swojej relacji.  Oznacz w komentarzu 2 osoby, z którymi lubisz dzielić się modowymi inspiracjami.  Odpowiedz w komentarzu na pytanie: Jak wyglądałaby Twoja wymarzona zimowa stylizacja i na jaką okazję byś ją założył/a?\n\nKonkurs trwa od 27.11.2026 do 04.12.2026 do godz 23:59.\nZwycięzców ogłosimy 07.12.2026 w komentarzu pod tym postem oraz na naszym Instastory!\nTrzymamy kciuki i życzymy powodzenia! Niech zimowy sezon będzie pełen stylowych niespodzianek!\n\nRegulamin konkursu dostępny pod linkiem w bio.",
+   "prizes": "• Aż 3 osoby wygrają zimowy zestaw prezentów, w którym znajdą:\n• Voucher o wartości 350 zł do PRIMODI ( Voucher obowiązuje przy zakupach za min. 499 zł. Ważny do 12.31.2026).  Kalendarz adwentowy SYLVECO",
+   "prizeCount": 3,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 59,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgQCbZ2ArAb",
+   "title": "Rozdanie @kotoksiazka: Box Świąteczny z książką niespodzianką (literatura obyczajowa) i świątecznymi gadżetami.",
+   "org": "@kotoksiazka",
+   "url": "https://www.instagram.com/p/DgQCbZ2ArAb/",
+   "src": "https://www.instagram.com/p/DgQCbZ2ArAb/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-04",
+   "endGuess": true,
+   "results": null,
+   "task": "Wygraj BOX ŚWIĄTECZNY\n\nRozdanie: 27.11-7.12.2026\n\nDo wygrania Box Świąteczny z książką niespodzianką (literatura obyczajowa) i świątecznymi gadżetami.\n\nJak wziąć udział?\nObserwuj mnie kotoksiazka\nPolub, zapisz, repostuj post i udostępnij zdjęcie z karuzeli, oznaczając mnie\nOpcjonalnie zaprosić znajomych\n\nWyniki na moim stories do 2 dni po zakończeniu rozdania! Wysyłka na mój koszt (Paczkomatem InPost, Polska)\n\nPamiętaj, liczy się autentyczna aktywność i spełnienie wszystkich warunków!\n\nOrganizatorem rozdania jest ja, Instagram nie ma z tym nic wspólnego.\n\nPowodzenia!\n\n\nBox Świąteczny • Rozdawajka • Do wygrania • Książka niespodzianka • Merry Christmas • Weekend • Książka na weekend • Rozdanie • Książka na święta • Książka",
+   "prizes": "• Do wygrania Box Świąteczny z książką niespodzianką (literatura obyczajowa) i świątecznymi gadżetami.\n• Box Świąteczny • Rozdawajka • Do wygrania • Książka niespodzianka • Merry Christmas • Weekend • Książka na weekend • Rozdanie • Książka na święta • Książka\n• Wygraj BOX ŚWIĄTECZNY",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": true,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 68,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-promocyjne"
    ],
@@ -13760,7 +14637,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -13905,11 +14782,11 @@
     "follow": true,
     "tags": 2
    },
-   "comments": 130,
-   "commentsAt": "2026-11-27",
+   "comments": 146,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -13979,11 +14856,11 @@
     "follow": true,
     "tags": 1
    },
-   "comments": 62,
-   "commentsAt": "2026-11-27",
+   "comments": 73,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -14100,6 +14977,44 @@
   },
   {
    "cats": [],
+   "id": "ig:DgLDaMOODHv",
+   "title": "Rozdanie @verelle.studio: nagroda na zdjęciu w poście",
+   "org": "@verelle.studio",
+   "url": "https://www.instagram.com/p/DgLDaMOODHv/",
+   "src": "https://www.instagram.com/p/DgLDaMOODHv/",
+   "platform": "instagram",
+   "start": "2026-11-25",
+   "end": "2026-12-05",
+   "endGuess": true,
+   "results": "2026-12-06",
+   "task": "MIKOŁAJKOWE ROZDANIE\n\nZ okazji zbliżających się Mikołajek przygotowałam dla Was wyjątkową niespodziankę – box pełen świątecznych świec sojowych, które wprowadzą do Waszych domów magiczny, świąteczny klimat.\n\nCo zrobić, aby wziąć udział w rozdaniu?\n\n1. Obserwuj mój profil.\n2. Polub ten post.\n3. Oznacz w komentarzu dwie osoby, które również uwielbiają świece.\n4. Udostępnij post na relacji.\n\nZwycięzca zostanie wybrany 6 grudnia\n\nPowodzenia!\n\nInstagram nie jest sponsorem ani organizatorem",
+   "prizes": "",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 87,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [],
    "id": "ig:DgLUOnWCGoV",
    "title": "Konkurs @clairme.pl: Kod rabatowy na jednorazowe zakupy na stronie www.clairme.pl o wartości 500 zł",
    "org": "@clairme.pl",
@@ -14134,6 +15049,43 @@
    "firstSeen": "2026-11-27",
    "seenAt": "2026-11-27",
    "fetchedAt": "2026-11-27"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgNYk1WoUxx",
+   "title": "Rozdanie @gloww_bloom: Wyjątkowa kompozycja zapachowa z wosku sojowego – piękna dekoracja, która otuli Wasz dom…",
+   "org": "@gloww_bloom",
+   "url": "https://www.instagram.com/p/DgNYk1WoUxx/",
+   "src": "https://www.instagram.com/p/DgNYk1WoUxx/",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-05",
+   "results": "2026-12-06",
+   "task": "A gdyby tak w tym roku świąteczny prezent trafił właśnie do Ciebie?\n\nMam dla Was ROZDANIE !\n\nDo wygrania wyjątkowa kompozycja zapachowa z wosku sojowego – piękna dekoracja, która otuli Wasz dom świątecznym aromatem\n\nJak zdobyć szansę na wygraną?\n\nZaobserwuj mój profil\nPolub ten post\nOznacz w komentarzu 2 osoby\nUdostępnij post na swojej relacji i oznacz mój profil\n\nKonkurs trwa do 05.12.2026\nZwycięzcę ogłoszę 06.12.2026\n\nTrzymam kciuki!\n\nRozdanie nie jest sponsorowane, wspierane ani administrowane przez Instagram.",
+   "prizes": "• Do wygrania wyjątkowa kompozycja zapachowa z wosku sojowego – piękna dekoracja, która otuli Wasz dom świątecznym aromatem\n• Jak zdobyć szansę na wygraną?",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": true,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 149,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -14171,7 +15123,7 @@
    "comments": 77,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Listopad 2006, Stary Rynek. Stoję w tłumie z zadartą głową, tata trzyma mnie za rękę, a punktualnie w południe koziołki wychodzą z wieży i zaczynają się trykać – i nie mam wątpliwości, że robią to tylko dla mnie 😄 Potem rogal świętomarciński dzielony na pół, lukier na rękawie kurtki i uśmiech, którego nie da się zetrzeć do wieczora. Minęło 20 lat, a kiedy słyszę hejnał z ratusza, uśmiecham się dokładnie tak samo – tylko zęby mam już własne, a nie mleczne 😁",
@@ -14214,7 +15166,7 @@
    "comments": 51,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Ciekawość zaprowadziła mnie [gdzie – np. na szlak, którego nie było w planie]. [Co się wydarzyło – jeden konkretny szczegół, np. zamiast wracać do schroniska skręciliśmy w nieoznaczoną ścieżkę i trafiliśmy na jezioro, przy którym nie było nikogo poza stadem owiec]. Od tamtej pory [puenta – np. w każdym planie podróży zostawiam jeden dzień „na nie wiadomo co”] 🧭 #CiekawośćProwadziDalej @zorientowani"
@@ -14255,7 +15207,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -14294,7 +15246,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -14332,7 +15284,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -14371,7 +15323,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14410,8 +15362,8 @@
    "comments": 291,
    "commentsAt": "2026-11-23",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -14448,7 +15400,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14486,7 +15438,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14525,8 +15477,47 @@
    "comments": 290,
    "commentsAt": "2026-11-25",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:konkurs-ruch-nalezy-do-ciebie",
+   "title": "Konkurs \"Ruch Należy do Ciebie\"",
+   "org": "Open Gate Sp. z o. o.",
+   "url": "https://www.instagram.com/p/DgNOr_lqXo1/",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-ruch-nalezy-do-ciebie",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-06",
+   "results": null,
+   "task": "Zrób zdjęcie podczas dowolnej aktywności fizycznej\nWrzucić zdjęcie w komentarzu pod postem konkursowym na Instagramie\nKreatywność przy zgłoszeniu jest mile widziana.",
+   "prizes": "smartwatch Amazfit BIP MAX",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -14564,7 +15555,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14603,7 +15594,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -14641,8 +15632,86 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-instagram"
+   ],
+   "id": "ek:mikolajkowy-konkurs-q-water-x-power",
+   "title": "Mikołajkowy Konkurs Q-Water X-Power",
+   "org": "Q-Water X-Power",
+   "url": "https://www.instagram.com/p/DgMtGmfqMsx/",
+   "src": "https://www.e-konkursy.info/konkurs/mikolajkowy-konkurs-q-water-x-power",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-06",
+   "results": null,
+   "task": "• Odpowiedz w komentarzu na pytanie konkursowe:\nCo w Twoim domu najbardziej potrzebuje magicznej mocy środków czystości przed świętami?\n• Spośród zgłoszeń komisja wybierze 3 najkreatywniejsze odpowiedzi\n• Zaobserwowanie profilu i oznaczenie znajomego są dobrowolne.",
+   "prizes": "3 zestawy bestsellerowych środków czystości Q-Water X-Power",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 1
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [
+    "konkursy-social-media",
+    "konkursy-na-facebooku"
+   ],
+   "id": "ek:swiateczny-konkurs-od-osk-holek",
+   "title": "Świąteczny konkurs od OSK HOŁEK",
+   "org": "OSK HOŁEK",
+   "url": "https://www.facebook.com/OSKHOLEK/posts/pfbid02gjE7yJcEk4RW8Y2JFB7STcKdtaTSRDtwmT2f6syT43Zgr8BU2ugGbknsPKoJMYuJl",
+   "src": "https://www.e-konkursy.info/konkurs/swiateczny-konkurs-od-osk-holek",
+   "platform": "facebook",
+   "start": "2026-11-26",
+   "end": "2026-12-06",
+   "results": null,
+   "task": "Wyobraź sobie, że Mikołaj jedzie saniami, a tu nagle renifer przebiega mu tuż przed maską!\nCo powinien zrobić w takiej sytuacji?\nWybierz prawidłową odpowiedź:\n\n• A) Wcisnąć gaz do dechy!\n• B) Zachować spokój i odpowiednio zareagować, dostosowując jazdę do sytuacji\n• C) Zatrąbić, zamknąć oczy i liczyć na świąteczny cud!",
+   "prizes": "• voucher o wartości 300 zł\n• paczka firmowych gadżetów",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -14680,7 +15749,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14719,7 +15788,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14758,7 +15827,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -14797,8 +15866,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -14835,7 +15904,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -14873,7 +15942,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15054,11 +16123,11 @@
     "follow": false,
     "tags": 1
    },
-   "comments": 243,
-   "commentsAt": "2026-11-27",
+   "comments": 254,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-23"
   },
   {
@@ -15091,11 +16160,11 @@
     "follow": false,
     "tags": 0
    },
-   "comments": 377,
-   "commentsAt": "2026-11-27",
+   "comments": 431,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -15136,6 +16205,80 @@
    "fetchedAt": "2026-11-27"
   },
   {
+   "cats": [],
+   "id": "ig:DgP5AretTS7",
+   "title": "Rozdanie @maltanska_: Oto, co trzeba zrobić, by mieć szansę zgarnąć ten zestaw",
+   "org": "@maltanska_",
+   "url": "https://www.instagram.com/p/DgP5AretTS7/",
+   "src": "https://www.instagram.com/p/DgP5AretTS7/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-06",
+   "results": "2026-12-07",
+   "task": "Kosmetyki i perfumy za darmo od Mikołajki? 🏻\n\nNie ma sprawy! Oto, co trzeba zrobić, by mieć szansę zgarnąć ten zestaw\n\nObserwuj mój profil\nW komentarzu daj znać, że bierzesz udział\nPolub i zapisz tę rolkę\nBędzie mi także bardzo miło widzieć Twoją aktywność pod nowymi postami!\n\nMasz czas do 06.12.2026, a wyniki podam dzień później (07.12.2026) w komentarzu pod tym postem\nW ten dzień wystartuje też większe, świąteczne rozdanko z prezentem pod choinkę!\n\nPowodzenia!!\n\n#darmowekosmetyki #nowoscikosmetyczne #kosmetykidomakijażu #kosmetykidotwarzy #prezentnaświęta makijaz dla poczatkujacych, Oddam kosmetyki za darmo, rozdawajka, rozdanie kosmetyczne, glow tonic pixi, pielęgnacja twarzy, nowości kosmetyczne, viralowe kosmetyki, świąteczny makijaż, zestaw do makijażu na jesień, kosmetyki do pielęgnacji, korektor Claresa, konturowanie na mokro, błyszczyk do ust, maskara gosh, kredka Lancome, błyszczyk Pierre rene, bourjois róż, tint do ust, jesienny makijaż, prezent na Mikołajki, 6 grudnia, upominek od Mikołaja, perfumy damskie, kredka do brwi lamel",
+   "prizes": "• Oto, co trzeba zrobić, by mieć szansę zgarnąć ten zestaw\n• makijaz dla poczatkujacych, Oddam kosmetyki za darmo, rozdawajka, rozdanie kosmetyczne, glow tonic pixi, pielęgnacja twarzy, nowości kosmetyczne, viralowe kosmetyki, świąteczny makijaż, zestaw do mak…\n• Kosmetyki i perfumy za darmo od Mikołajki?",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 96,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgPdJo9CHLG",
+   "title": "Rozdanie @xshipoo: Rysunek w formacie A4 mojego autorstwa.",
+   "org": "@xshipoo",
+   "url": "https://www.instagram.com/p/DgPdJo9CHLG/",
+   "src": "https://www.instagram.com/p/DgPdJo9CHLG/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-06",
+   "results": "2026-12-08",
+   "task": "Hejka, zapraszam Cię na ROZDANIE, a w nim do zgarnięcia rysunek w formacie A4 mojego autorstwa.\n\nDo zgarnięcia masz:\n- portret swojego zwierzaka,\n- bajkowy portret zwierzaka + naklejki,\n- rysunek Ty ze swoim zwierzakiem,\n- rysunek samochodu,\n\nTy wybierasz co chcesz zgarnąć.\nJak szaleć to szaleć i uwaga...\n!! Wygrywają 2 osoby !!\n\nJedynie o co prosiłabym Cię, abyś wykonał/a to:\n1.) Zaobserwuj mój profil - @xshipoo\n2.) Udostępnij na relacji pierwszy slajd oznaczając mnie przy tym,\n3.) Oznacz w komentarzu 2 osoby, którym może się to rozdanie spodobać.\n\nBędzie mi miło, jeśli spełnisz te 3 punkty.\n\nDobrej zabawy!\n________\nCzas trwania: 27.11-06.12.2026r. Zwycięzcy zostaną przeze mnie wybrani i ogłoszeni do 8.12.2026r. Realizacja rysunków będzie trwała do końca lutego 2027r. Instagram nie jest powiązany z rozdaniem.",
+   "prizes": "• Hejka, zapraszam Cię na ROZDANIE, a w nim do zgarnięcia rysunek w formacie A4 mojego autorstwa.\n• Wygrywają 2 osoby !!\n• Do zgarnięcia masz:",
+   "prizeCount": 2,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 77,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-promocyjne"
    ],
@@ -15170,7 +16313,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15208,7 +16351,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15247,7 +16390,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -15285,7 +16428,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15323,7 +16466,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15394,11 +16537,11 @@
     "follow": true,
     "tags": 3
    },
-   "comments": 81,
-   "commentsAt": "2026-11-27",
+   "comments": 88,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -15437,7 +16580,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15475,7 +16618,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -15514,7 +16657,7 @@
    "comments": 103,
    "commentsAt": "2026-11-27",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15590,7 +16733,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15628,7 +16771,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -15666,7 +16809,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15704,7 +16847,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -15743,7 +16886,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -15782,7 +16925,7 @@
    "comments": 254,
    "commentsAt": "2026-11-25",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15858,7 +17001,7 @@
    "comments": 12,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -15897,7 +17040,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16009,7 +17152,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -16047,7 +17190,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16085,8 +17228,45 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgNuHyUAa5d",
+   "title": "Konkurs @kraina_gniotkow: Miejsce: paczka-niespodzianka z 5 gniotkami",
+   "org": "@kraina_gniotkow",
+   "url": "https://www.instagram.com/p/DgNuHyUAa5d/",
+   "src": "https://www.instagram.com/p/DgNuHyUAa5d/",
+   "platform": "instagram",
+   "start": "2026-11-26",
+   "end": "2026-12-11",
+   "results": "2026-12-13",
+   "task": "Konkurs Świąteczny: wygraj paczkę gniotków na święta!\n\nKraina Gniotków to polski sklep internetowy z gniotkami antystresowymi – krainagniotkow.pl.\n\nJakie są Twoje top 5 gniotków z krainagniotkow.pl? Napisz ranking w komentarzu, krótko uzasadnij, dlaczego te, i oznacz 3 osoby, w tym tę, której podarował(a)byś te gniotki w prezencie. Najciekawsze komentarze nagrodzimy\n\nJAK WZIĄĆ UDZIAŁ\n1 Obserwuj Krainę Gniotków na 2 z 3 platform: Instagram @kraina_gniotkow, TikTok @kraina.gniotkow, YouTube @kraina_gniotkow.\n2 Pod tym filmem napisz swoje top 5 gniotków ze strony krainagniotkow.pl (od najlepszego) i w 1–2 zdaniach uzasadnij, dlaczego te. Oznacz w komentarzu 3 osoby, w tym tę, której podarował(a)byś te gniotki w prezencie.\n3 Udostępnij film konkursowy 5 osobom, np. wyślij go znajomym w wiadomości albo dodaj do relacji.\n\nNAGRODY\n1. miejsce: paczka-niespodzianka z 5 gniotkami\n2. miejsce: paczka-niespodzianka z 3 gniotkami\n3. miejsce: paczka-niespodzianka z 2 gniotkami\n\nTERMINY\nKomentarze zbieramy do piątku 11.12.2026, do 23:59, pod tym filmem na Instagramie, TikToku i YouTube. To jeden wspólny konkurs: wybieramy 3 najciekawsze komentarze ze wszystkich platform.\nWyniki ogłosimy w niedzielę 13.12.2026: zwycięzców oznaczymy w poście i napiszemy do nich w wiadomości prywatnej. Paczki wyślemy tak, żeby dotarły przed świętami.\n\nZwycięzców wybiera zespół Krainy Gniotków: liczy się pomysł i serce w komentarzu. Udział jest bezpłatny, nie trzeba nic kupować. Konkurs nie jest sponsorowany, popierany ani prowadzony przez Instagram, Facebook, TikTok ani YouTube. Pełne zasady w przypiętym komentarzu. Pytania: sklep@krainagniotkow.pl\n\nSklep: krainagniotkow.pl (link w bio)",
+   "prizes": "• 1. miejsce: paczka-niespodzianka z 5 gniotkami\n• 2. miejsce: paczka-niespodzianka z 3 gniotkami\n• 3. miejsce: paczka-niespodzianka z 2 gniotkami",
+   "prizeCount": 3,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": true,
+    "tags": 3
+   },
+   "comments": 10,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -16123,7 +17303,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -16161,7 +17341,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16199,7 +17379,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16237,7 +17417,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16275,7 +17455,7 @@
    "comments": 3,
    "commentsAt": "2026-11-26",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16313,7 +17493,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16351,7 +17531,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16390,7 +17570,7 @@
    "comments": 322,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "🖥️🖥️⌨️🖱️🎧🔥✈️😴\n🖥️🖥️ – dwa monitory: na jednym gram, na drugim „pracuję”\n⌨️🖱️ – przeżyły więcej przegranych meczów niż ja\n🎧 – słuchawki, ale nie do muzyki, tylko do zagłuszania komputera\n🔥 – procesor w trakcie każdej gry\n✈️ – wentylatory, które przy starcie brzmią jak odlot z lotniska\n😴 – domownicy, którzy przez to nie mogą spać\nCzas, żeby mój setup w końcu… be quiet! 🤫"
@@ -16431,7 +17611,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16470,7 +17650,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -16583,7 +17763,7 @@
    "comments": 1,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Plan był prosty: „wchodzimy na Szczeliniec, robimy zdjęcie i wracamy na obiad”. Plan nie przewidział mgły, źle skręconego szlaku i trzech godzin błądzenia po Górach Stołowych 😅 Kanapki skończyły się po pierwszej godzinie, humor po drugiej, a Staropolanka 2000 – jedyna rozsądna uczestniczka wyprawy – wystarczyła dla wszystkich aż do schroniska. Od tamtej pory w plecaku zawsze jest butelka, a w ekipie obowiązuje zasada: najpierw woda, potem skróty.",
@@ -16626,7 +17806,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -16738,7 +17918,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16776,7 +17956,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -16815,7 +17995,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -16853,7 +18033,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16891,7 +18071,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -16929,8 +18109,45 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgPq3LwRunp",
+   "title": "Konkurs @pokoj__zyczen: Nagrody trafią do zwycięzców jeszcze przed świętami!",
+   "org": "@pokoj__zyczen",
+   "url": "https://www.instagram.com/p/DgPq3LwRunp/",
+   "src": "https://www.instagram.com/p/DgPq3LwRunp/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-15",
+   "results": "2026-12-15",
+   "task": "MAGICZNA ŚWIĄTECZNA POCZTA\n\nGdyby magia mogła spełnić jedno Twoje świąteczne życzenie, co by to było i dlaczego?\n\nOd 1 grudnia chwyć za pióro, zapisz swoją odpowiedź na karcie konkursowej i zostaw we wskazanym przez obsługę miejscu.\n\nTrzy najbardziej kreatywne odpowiedzi zostaną nagrodzone zesatawami LEGO, voucherami i gadżetami, a nagrody trafią do zwycięzców jeszcze przed świętami!\n\nCzas trwania konkursu: 1–15 grudnia\nOgłoszenie wyników: 17 grudnia\n\nREGULAMIN W BIO\n\nZapraszamy!\nPokój Życzeń\nul. Mazowiecka 10, Warszawa",
+   "prizes": "• Trzy najbardziej kreatywne odpowiedzi zostaną nagrodzone zesatawami LEGO, voucherami i gadżetami, a nagrody trafią do zwycięzców jeszcze przed świętami!",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 12,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -16967,7 +18184,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -17005,7 +18222,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -17043,7 +18260,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -17077,11 +18294,11 @@
     "follow": true,
     "tags": 2
    },
-   "comments": 92,
-   "commentsAt": "2026-11-26",
+   "comments": 133,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-26",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17119,7 +18336,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -17157,7 +18374,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -17199,6 +18416,43 @@
    "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [],
+   "id": "ig:DgPj6-noQ8Q",
+   "title": "Konkurs @nieweglowskiclassica: Pierścionek zaręczynowy My Love z diamentem laboratoryjnym 0,50 ct",
+   "org": "@nieweglowskiclassica",
+   "url": "https://www.instagram.com/p/DgPj6-noQ8Q/",
+   "src": "https://www.instagram.com/p/DgPj6-noQ8Q/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-17",
+   "results": null,
+   "task": "Przyznajcie się - czyja wishlista zaczyna się od pierścionka My Love? 🏼\n\nW te Święta spełniamy jedno z tych marzeń!\nDo wygrania pierścionek zaręczynowy My Love z diamentem laboratoryjnym 0,50 ct\n\nCo trzeba zrobić? Wejdź na naszą stronę i dokończ konkursowe zdanie w formularzu. Wzrusz nas, rozśmiesz albo zaczaruj\n\nLink do konkursu znajdziesz w komentarzu poniżej i w naszym bio. Zgłoszenia przyjmujemy wyłącznie przez formularz do 17.12.2026 r.\n\nRegulamin konkursu dostępny na stronie nieweglowski.com\n\nPowodzenia.\n\npierścionek | prezent na święta | prezent | pomysł na prezent | prezent pod choinkę | pierścionek z diamentem | pierścionek zaręczynowy | diament lab | pierścionek z diamentem laboratoryjnym | konkurs świąteczny | Niewęgłowski | konkurs",
+   "prizes": "• Do wygrania pierścionek zaręczynowy My Love z diamentem laboratoryjnym 0,50 ct",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": 22,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-lokalne"
    ],
@@ -17233,7 +18487,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -17271,8 +18525,45 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
+  },
+  {
+   "cats": [],
+   "id": "ig:DgPh-SyEYvd",
+   "title": "Rozdanie @justynity: Razem z koleżanką postanowiłyśmy zrobić Wam małą niespodziankę jeszcze przed świętami i p…",
+   "org": "@justynity",
+   "url": "https://www.instagram.com/p/DgPh-SyEYvd/",
+   "src": "https://www.instagram.com/p/DgPh-SyEYvd/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-18",
+   "results": null,
+   "task": "Uwaga świąteczne rozdanie!\n\nRazem z koleżanką postanowiłyśmy zrobić Wam małą niespodziankę jeszcze przed świętami i przygotowałyśmy aż dwa duże zestawy kosmetyków. W środku znajdziecie pielęgnację, kosmetyki do włosów oraz kolorówkę, dzięki którym łatwo dodać sobie energii i odrobinę glow o każdej porze roku.\n\nZasady są bardzo proste:\nZaobserwuj profile @justynity oraz @mam.to.sprawdzone\nPod uwagę będziemy brać również Waszą aktywność na naszych kontach, więc dajcie znać, że tu jesteście.\n\nRozdanie trwa do 18 grudnia i jest organizowane na terenie Polski.\n\nAkcja nie jest sponsorowana, wspierana ani powiązana z Instagramem ani z żadną z marek kosmetycznych, których produkty znalazły się w zestawach.\n\n\nzima • święta • włosy • makijaż • pielęgnacja • kosmetyki • rozdanie • konkurs • prezenty • uroda",
+   "prizes": "• Razem z koleżanką postanowiłyśmy zrobić Wam małą niespodziankę jeszcze przed świętami i przygotowałyśmy aż dwa duże zestawy kosmetyków.\n• W środku znajdziecie pielęgnację, kosmetyki do włosów oraz kolorówkę, dzięki którym łatwo dodać sobie energii i odrobinę glow o każdej porze roku.\n• zima • święta • włosy • makijaż • pielęgnacja • kosmetyki • rozdanie • konkurs • prezenty • uroda",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17309,7 +18600,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17347,8 +18638,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17385,7 +18676,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17423,7 +18714,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17461,7 +18752,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17500,7 +18791,7 @@
    "comments": 115,
    "commentsAt": "2026-11-21",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Ten weekend należy się mojej mamie, która przez lata pakowała walizki dla całej rodziny, a sama nigdy nie wyjechała tylko dla siebie. Chcę, żeby choć raz to ona obudziła się z widokiem na Giewont, bez listy obowiązków i bez gotowania dla wszystkich. Niech te Święta będą pierwszymi, w których to ona dostaje odpoczynek, zamiast go wszystkim organizować.",
@@ -17543,7 +18834,7 @@
    "comments": 17,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -17584,6 +18875,43 @@
    "fetchedAt": "2026-11-23"
   },
   {
+   "cats": [],
+   "id": "ig:DgQYK3iNs1O",
+   "title": "Rozdanie @milove._nails: Paczka pełna produktów do stylizacji paznokci",
+   "org": "@milove._nails",
+   "url": "https://www.instagram.com/p/DgQYK3iNs1O/",
+   "src": "https://www.instagram.com/p/DgQYK3iNs1O/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-20",
+   "results": "2026-12-20",
+   "task": "ROZDANIE DLA STYLISTEK PAZNOKCI\n\nDo wygrania:\nPaczka pełna produktów do stylizacji paznokci\n(między innymi: zestaw dual form, żele, lakiery i wiele więcej!)\n\nJak wziąć udział?\n\n1. Zaobserwuj mój profil @milove._nails na instagramie\n2. Polub tę rolkę\n3. Udostępnij rolkę u siebie na relacji i mnie oznacz (pamiętaj, że twoja konto musi być publiczne, lub wyślij mi screena relacji w wiadomości prywatnej)\n4. Oznacz w komentarzu 2 koleżanki, które również byłyby chętne do wzięcia udziału\n\naktywność na moim profilu mile widziana!!!\n\nCzas trwania rozdania:\nOd 27.11.2026 do 18.12.2026\n\nWyniki ogłoszę u siebie na relacji do 20.12.2026\n\nPOWODZENIA!!!🏻\n\nWysyłka paczki do paczkomatu InPost, tylko na terenie Polski. Koszt wysyłki pokrywam ja, jako organizatorka konkursu.\n\n[ konkurs nie jest w żaden sposób sponsorowany, wspierany, administrowany ani powiązany z Instagramem ]\n\nMILOVE NAILS\nKONKURS PAZNOKCIE\nSTYLIZACJA PAZNOKCI\nKONKURS DLA STYLISTEK PAZNOKCI\nROZDANIE PAZNOKCIE\nPAZNOKCIE\nPAZNOKCIE KATOWICE\nPRODUKTY DO PAZNOKCI\nDUAL FORMY",
+   "prizes": "• Paczka pełna produktów do stylizacji paznokci\n• (między innymi: zestaw dual form, żele, lakiery i wiele więcej!)",
+   "prizeCount": 1,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": true,
+    "follow": true,
+    "tags": 2
+   },
+   "comments": 48,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-promocyjne"
    ],
@@ -17618,7 +18946,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -17656,8 +18984,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17694,8 +19022,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17732,8 +19060,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17770,7 +19098,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -17809,8 +19137,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -17847,7 +19175,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17885,7 +19213,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17923,7 +19251,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -17961,7 +19289,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -17999,7 +19327,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18037,7 +19365,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18075,7 +19403,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18113,7 +19441,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18151,7 +19479,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18189,7 +19517,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18231,6 +19559,43 @@
    "fetchedAt": "2026-11-25"
   },
   {
+   "cats": [],
+   "id": "ig:DgPYV0GqFA8",
+   "title": "Rozdanie @glowupstorerzeszow: Aż 18 paczek o wartości 440 zł każda!",
+   "org": "@glowupstorerzeszow",
+   "url": "https://www.instagram.com/p/DgPYV0GqFA8/",
+   "src": "https://www.instagram.com/p/DgPYV0GqFA8/",
+   "platform": "instagram",
+   "start": "2026-11-27",
+   "end": "2026-12-24",
+   "results": null,
+   "task": "Przez cały rok to Wy jesteście tutaj dla nas – komentujecie, wspieracie i tworzycie to miejsce. W tym wyjątkowym, przedświątecznym czasie chcemy Wam za to podziękować i podarować odrobinę magii!\n\nRuszamy z naszym Kalendarzem Adwentowym, w którym do zgarnięcia jest aż 18 paczek o wartości 440 zł każda!\n\nJak to działa?\n1 W komentarzu pod tym postem napisz numer i miasto swojego ulubionego Paczkomatu\n2 Spośród wszystkich komentarzy wybierzemy 18 lokalizacji, do których wyruszą nasze świąteczne przesyłki.\n3 Od 1 do 24 grudnia (od poniedziałku do piątku) na naszym InstaStories codziennie pojawi się numer jednego z wybranych Paczkomatów oraz kod odbioru.\n\nKto pierwszy wpisze kod w maszynie – ten odbiera prezent!\n\nZostaw swój komentarz poniżej, obserwuj nasze Stories i daj sobie szansę na świąteczną niespodziankę. Pierwsza paczka już 1 grudnia. Powodzenia!\nNasi Partnerzy: @nailuprofessional @base_on.pl @julianessa @keybeyouty @biolaven.pl @baliaspa_rzeszow @moyci_nails @ekspertbeauty",
+   "prizes": "• Ruszamy z naszym Kalendarzem Adwentowym, w którym do zgarnięcia jest aż 18 paczek o wartości 440 zł każda!\n• Pierwsza paczka już 1 grudnia.",
+   "prizeCount": 1,
+   "judging": "jury",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": true,
+    "shareOptional": false,
+    "purchase": false,
+    "app": false,
+    "content": false,
+    "follow": true,
+    "tags": 0
+   },
+   "comments": 804,
+   "commentsAt": "2026-11-28",
+   "origin": "ig",
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
+  },
+  {
    "cats": [
     "konkursy-aktualne"
    ],
@@ -18265,7 +19630,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
   },
   {
@@ -18303,7 +19668,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18341,7 +19706,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18379,7 +19744,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18417,8 +19782,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -18455,7 +19820,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18493,7 +19858,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18600,11 +19965,11 @@
     "follow": true,
     "tags": 1
    },
-   "comments": 76,
-   "commentsAt": "2026-11-25",
+   "comments": 192,
+   "commentsAt": "2026-11-28",
    "origin": "ig",
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-25",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18642,7 +20007,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18680,7 +20045,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18719,7 +20084,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18757,7 +20122,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18795,7 +20160,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18833,7 +20198,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18871,7 +20236,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18909,7 +20274,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -18948,7 +20313,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -18986,7 +20351,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19024,7 +20389,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19062,7 +20427,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19100,7 +20465,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19138,7 +20503,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19176,7 +20541,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19214,7 +20579,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19252,7 +20617,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19290,7 +20655,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19328,7 +20693,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19366,7 +20731,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19404,8 +20769,46 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-27",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-27"
+  },
+  {
+   "cats": [
+    "konkursy-promocyjne"
+   ],
+   "id": "ek:konkurs-zapachem-zimy-dom-otulimy-auchan",
+   "title": "Konkurs \"Zapachem zimy dom otulimy\" Auchan",
+   "org": "Los Mejores Sp. z o. o.",
+   "url": "https://www.wyczyscnagrody.pl/akcje/114.html",
+   "src": "https://www.e-konkursy.info/konkurs/konkurs-zapachem-zimy-dom-otulimy-auchan",
+   "platform": "www",
+   "start": "2026-12-01",
+   "end": "2026-12-31",
+   "results": null,
+   "task": "Aby wziąć udział w konkursie należy dokonać zakupu dowolnych produktów Air Wick, za minimum 35 zł, zachować paragon i udzielić odpowiedzi na pytanie konkursowe: Jakim zimowym zapachem lubisz otulać swój dom? Wyślij sms pod numer 4321 o treści zapachzimy.numer paragonu.odpowiedź na pytanie konkursowe.",
+   "prizes": "• 3x nagroda pieniężna w wysokości 10.000 zł\n• 10x karta prezentowa Pluxee o wartości 1.500 zł\n• 25x zestaw zimowych produktów Air Wick",
+   "prizeCount": 38,
+   "judging": "?",
+   "location": null,
+   "local": false,
+   "flags": {
+    "creative": false,
+    "stay": false,
+    "party": false,
+    "fbShare": false,
+    "igShare": false,
+    "shareOptional": false,
+    "purchase": true,
+    "app": false,
+    "content": false,
+    "follow": false,
+    "tags": 0
+   },
+   "comments": null,
+   "commentsAt": null,
+   "firstSeen": "2026-11-28",
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -19442,7 +20845,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19480,7 +20883,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19518,7 +20921,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19556,7 +20959,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -19594,7 +20997,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19632,7 +21035,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19670,7 +21073,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19709,7 +21112,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19747,7 +21150,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19785,8 +21188,8 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-23",
-   "seenAt": "2026-11-27",
-   "fetchedAt": "2026-11-23"
+   "seenAt": "2026-11-28",
+   "fetchedAt": "2026-11-28"
   },
   {
    "cats": [
@@ -19823,7 +21226,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19861,7 +21264,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19899,7 +21302,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19937,7 +21340,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-26",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -19975,7 +21378,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20013,7 +21416,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20051,7 +21454,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20089,7 +21492,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20127,7 +21530,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20165,7 +21568,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20241,7 +21644,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20279,7 +21682,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20317,7 +21720,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20355,7 +21758,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20393,7 +21796,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20431,7 +21834,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -20469,7 +21872,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-24",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-24"
   },
   {
@@ -20508,7 +21911,7 @@
    "comments": 2276,
    "commentsAt": "2026-11-20",
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25",
    "answers": [
     "Moment, w którym telefon pokazuje 1% baterii… a ładowarka jest w zasięgu ręki 🔋😮‍💨 Ta ulga mogłaby lecieć w pętli bez końca."
@@ -20549,7 +21952,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20587,7 +21990,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20663,7 +22066,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20701,7 +22104,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20739,7 +22142,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20777,7 +22180,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20815,7 +22218,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20853,7 +22256,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20891,7 +22294,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -20929,7 +22332,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -20968,7 +22371,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-25",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21006,7 +22409,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21044,7 +22447,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21082,7 +22485,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21120,7 +22523,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21158,7 +22561,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21196,7 +22599,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21234,7 +22637,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21272,7 +22675,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21310,7 +22713,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21348,7 +22751,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21386,7 +22789,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21424,7 +22827,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21462,7 +22865,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21500,7 +22903,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21538,7 +22941,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21576,7 +22979,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   },
   {
@@ -21614,7 +23017,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21652,7 +23055,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21727,7 +23130,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-20",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-25"
   },
   {
@@ -21765,7 +23168,7 @@
    "comments": null,
    "commentsAt": null,
    "firstSeen": "2026-11-21",
-   "seenAt": "2026-11-27",
+   "seenAt": "2026-11-28",
    "fetchedAt": "2026-11-26"
   }
  ],
@@ -21782,6 +23185,7 @@
   "konkurs-chwila-dla-siebie-z-seoulected": "2026-11-19",
   "konkurs-danio-pokonaj-malego-gloda-i-wygraj-10-000-zl-lidl": "2026-10-31",
   "konkurs-dlug-wdziecznosci-w-radiem-zet-kruk": "2026-11-17",
+  "konkurs-domowe-laboratorium-piekna-loreal-paris": "2026-11-04",
   "konkurs-dziesiatki-wygranych-kazdego-dnia-przez-cale-lato": "2026-09-30",
   "konkurs-eska-zrob-to-po-raz-pierwszy": "2026-09-25",
   "konkurs-ewedel-smakuj-blisko-lec-daleko-zabka": "2026-09-15",
